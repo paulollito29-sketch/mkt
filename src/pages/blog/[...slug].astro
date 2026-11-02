@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const kwList: string[] = Array.isArray(post.data.keywords)
+  ? post.data.keywords
+  : typeof post.data.keywords === 'string'
+  ? post.data.keywords.split(',').map((s) => s.trim())
+  : [post.data.primaryKeyword, ...(post.data.secondaryKeywords || [])].filter(Boolean) as string[];
+
+const readingTime = post.data.readingTime || post.data.readTime || '8 min de lectura';
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  keywords={kwList}
+  articleDate={post.data.pubDate}
+  author={post.data.author}
+>
+  <article class="container" style="padding-top: 3rem; padding-bottom: 4.5rem;">
+    <!-- Breadcrumb -->
+    <nav style="font-size: 0.88rem; color: #64748B; margin-bottom: 1.5rem; font-weight: 500;">
+      <a href="/" style="color: #0077FE; font-weight: 600;">Inicio</a> &rsaquo;
+      <a href="/blog" style="color: #0077FE; font-weight: 600;">Blog</a> &rsaquo;
+      <span style="color: #475569;">{post.data.category || 'Parciales y Rendimiento Académico'}</span>
+    </nav>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 24px; padding: 2.5rem; box-shadow: 0 12px 36px -12px rgba(11, 37, 69, 0.07);">
+      <!-- Header Meta -->
+      <header style="background: none; border: none; padding: 0; position: static;">
+        <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.1rem; align-items: center;">
+          <span style="background: rgba(0, 119, 254, 0.1); color: #0077FE; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.3rem 0.85rem; border-radius: 9999px;">
+            {post.data.tags[0] || 'Neurociencia & Aprendizaje'}
+          </span>
+          <span style="color: #64748B; font-size: 0.88rem; font-weight: 600; display: flex; align-items: center;">
+            ⏱️ {readingTime}
+          </span>
+        </div>
+
+        <h1 style="font-size: clamp(1.9rem, 4vw, 2.65rem); line-height: 1.22; font-weight: 800; color: #0B2545; letter-spacing: -0.03em; margin-bottom: 1.1rem;">
+          {post.data.title}
+        </h1>
+
+        <p style="font-size: 1.18rem; color: #475569; line-height: 1.65; margin-bottom: 1.8rem;">
+          {post.data.description}
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; margin-bottom: 2.25rem;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #0077FE, #00C2FF); display: flex; align-items: center; justify-content: center; font-weight: 800; color: white;">
+            MF
+          </div>
+          <div>
+            <div style="font-weight: 700; color: #0B2545; font-size: 0.95rem;">
+              {post.data.author}
+            </div>
+            <div style="color: #64748B; font-size: 0.82rem; font-weight: 500;">
+              Actualizado el {post.data.pubDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

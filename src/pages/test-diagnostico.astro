@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Test Diagnóstico IA Gratuito | MindFix — Estudia mejor, llega más lejos"
+  description="Descubre tus vacíos conceptuales en 3 minutos y recibe tu ruta personalizada hacia el Tercio Superior sin amanecidas."
+>
+  <div class="container" style="padding-top: 3.5rem; padding-bottom: 6rem; max-width: 820px;">
+    <div style="text-align: center; margin-bottom: 2.8rem; animation: fadeInUp 0.6s ease-out;">
+      <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 119, 254, 0.12); border: 1px solid rgba(0, 194, 255, 0.3); color: #0077FE; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 9999px;">
+        ⚡ Evaluación Adaptativa IA • 100% Gratuito • 3 Minutos
+      </span>
+      <h1 style="font-size: 2.5rem; font-weight: 800; color: #0B2545; margin-top: 1rem; margin-bottom: 0.85rem; line-height: 1.2;">
+        Test Diagnóstico de Vacíos de Aprendizaje
+      </h1>
+      <p style="color: #475569; font-size: 1.12rem; line-height: 1.6; max-width: 640px; margin: 0 auto;">
+        Diseñado para identificar qué conceptos base necesitas reforzar antes de tus parciales y conectarte con el mentor par ideal de tu carrera.
+      </p>
+    </div>
+
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 2.5rem; box-shadow: 0 20px 45px -15px rgba(11, 37, 69, 0.12);">
+      <form
+        id="diagnostic-form"
+        onsubmit="event.preventDefault(); document.getElementById('results-box').style.display = 'block'; document.getElementById('diagnostic-form').style.display = 'none'; window.scrollTo({ top: 120, behavior: 'smooth' });"
+      >
+        <div style="margin-bottom: 2rem;">
+          <label style="display: block; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0B2545;">
+            1. ¿Qué ocurre cuando recibes la nota de una práctica calificada o examen parcial?
+          </label>
+          <div style="display: grid; gap: 0.75rem;">
+            <label class="option-card">
+              <input type="radio" name="q1" value="a" required />
+              <span>Veo mi nota numérica (ej. 08 o 10), pero no sé exactamente qué concepto previo me hizo fallar.</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1" value="b" />
+              <span>Entiendo la teoría general, pero me bloqueo con los problemas complejos tipo examen.</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1" value="c" />
+              <span>Apruebo con lo justo, pero quiero subir mi promedio al Tercio Superior sin amanecerme.</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <label style="display: block; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0B2545;">
+            2. ¿Cuántas horas duermes en promedio durante la semana previa a parciales?
+          </label>
+          <div style="display: grid; gap: 0.75rem;">
+            <label class="option-card">
+              <input type="radio" name="q2" value="a" required />
+              <span>Menos de 4 horas (suelo amanecerme estudiando a última hora).</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2" value="b" />
+              <span>Entre 4 y 6 horas con ansiedad e incertidumbre por no cubrir todo el sílabo.</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2" value="c" />
+              <span>7 horas o más de descanso continuo con horario estructurado.</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2.2rem;">
+          <label style="display: block; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.6rem; color: #0B2545;">
+            3. Tu carrera universitaria y materia que más te preocupa este ciclo:
+          </label>
+          <input
+            type="text"
+            placeholder="Ej. Ingeniería Industrial — Cálculo II / Física I / Estadística..."
+            required
+            style="width: 100%; background: #F8FAFC; border: 1.5px solid #cbd5e1; color: #0B2545; padding: 0.95rem 1.1rem; border-radius: 14px; font-size: 1rem; font-weight: 500; outline: none; transition: border-color 0.2s;"
+          />
+        </div>
+
+        <button
+          type="submit"
+          style="width: 100%; padding: 1.15rem; font-size: 1.1rem; font-weight: 800; color: #ffffff; background: linear-gradient(90deg, #0077FE 0%, #00C2FF 100%); border-radius: 16px; cursor: pointer; border: none; box-shadow: 0 12px 28px -6px rgba(0, 119, 254, 0.45); transition: transform 0.2s, box-shadow 0.2s;"
+        >
+          Generar mi Mapa de Vacíos IA y Plan Personalizado &rarr;
+        </button>
+      </form>
+
+      <div id="results-box" style="display: none; text-align: center; padding: 1rem 0;">
+        <div style="width: 68px; height: 68px; background: linear-gradient(135deg, #0077FE, #00C2FF); color: #ffffff; font-size: 2rem; font-weight: 800; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; box-shadow: 0 10px 25px rgba(0,119,254,0.35);">
+          ✓
+        </div>
+        <h2 style="color: #0B2545; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem;">
+          ¡Diagnóstico IA Completado con Éxito!
+        </h2>
+        <p style="color: #475569; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.75rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+          Detectamos un índice de <strong>estudio no focalizado y sobrecarga cognitiva nocturna</strong>. Hemos activado tu ruta de refuerzo por micro-conceptos y preseleccionado mentores pares del Tercio Superior para tu facultad.
+        </p>
+
+        <div style="background: #0B2545; color: #ffffff; padding: 1.5rem; border-radius: 18px; text-align: left; margin-bottom: 2rem;">
+          <p style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #00C2FF; margin-bottom: 0.8rem;">
+            Tu Ruta Recomendada MindFix
+          </p>
+          <div style="display: grid; gap: 0.65rem; font-size: 0.95rem;">
+            <div>✅ <strong>Paso 1:</strong> Refuerzo de prerrequisitos base (45 min focalizados).</div>
+            <div>✅ <strong>Paso 2:</strong> Banco de 12 preguntas tipo parcial resueltas paso a paso.</div>
+            <div>✅ <strong>Paso 3:</strong> Sesión P2P con mentor verificado (Nota &ge; 17 en la materia).</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a
+            href="/blog/saque-08-y-no-se-en-que-falle"
+            style="display: inline-block; background: linear-gradient(90deg, #0077FE 0%, #00C2FF 100%); color: white; padding: 0.9rem 1.8rem; border-radius: 12px; font-weight: 800; text-decoration: none;"
+          >
+            Leer Guía: Cómo revertir un 08/20 &rarr;
+          </a>
+          <a
+            href="/"
+            style="display: inline-block; background: #F1F5F9; color: #0B2545; padding: 0.9rem 1.8rem; border-radius: 12px; font-weight: 700; text-decoration: none;"
+          >
+            Volver al Inicio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .option-card {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: #F8FAFC;
+      border: 1.5px solid #e2e8f0;
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      cursor: pointer;
+      color: #0B2545;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .option-card:hover {
+      border-color: #0077FE;
+      background: #ffffff;
+      transform: translateX(4px);
+      box-shadow: 0 6px 18px rgba(0, 119, 254, 0.08);
+    }
+    .option-card input[type="radio"] {
+      accent-color: #0077FE;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</BaseLayout>

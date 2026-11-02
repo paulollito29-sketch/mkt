@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog');
+---
+
+<BaseLayout
+  title="Blog y Recursos de Neurociencia del Aprendizaje"
+  description="Artículos, guías y recursos prácticos para superar la ansiedad por exámenes y dominar tu carrera sin insomnio."
+>
+  <div class="container" style="padding-top: 3.5rem; padding-bottom: 5rem;">
+    <div style="margin-bottom: 3rem;">
+      <span style="display: inline-block; background: rgba(0, 119, 254, 0.1); color: #0077FE; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.35rem 0.9rem; border-radius: 9999px; margin-bottom: 0.85rem;">
+        📚 Recursos Académicos & Neurociencia
+      </span>
+      <h1 style="font-size: 2.6rem; font-weight: 800; color: #0B2545; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        Blog MindFix
+      </h1>
+      <p style="color: #475569; font-size: 1.15rem;">
+        Ciencia del sueño, pedagogía activa y estrategias contra el estrés académico para llegar al Tercio Superior.
+      </p>
+    </div>
+
+    <div style="display: grid; gap: 1.75rem;">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+            <span style="background: rgba(0, 119, 254, 0.1); color: #0077FE; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 9999px;">
+              {post.data.tags[0] || 'Artículo'}
+            </span>
+            <span style="color: #64748B; font-size: 0.85rem; font-weight: 600;">
+              ⏱️ {post.data.readingTime || post.data.readTime || '8 min de lectura'}
+            </span>
+          </div>
+
+          <h2 style="font-size: 1.55rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.75rem;">
+            <a href={`/blog/${post.id}`} class="blog-card-title">
+              {post.data.title}
+            </a>
+          </h2>
+
+          <p style="color: #475569; margin-bottom: 1.35rem; line-height: 1.65;">
+            {post.data.description}
+          </p>
+
+          <a href={`/blog/${post.id}`} class="blog-card-link">
+            Leer artículo completo &rarr;
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .blog-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 119, 254, 0.45);
+      box-shadow: 0 18px 36px -10px rgba(0, 119, 254, 0.14);
+    }
+    .blog-card-title {
+      color: #0B2545;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .blog-card:hover .blog-card-title {
+      color: #0077FE;
+      text-decoration: none;
+    }
+    .blog-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #0077FE;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    .blog-card-link:hover {
+      color: #0B2545;
+      text-decoration: none;
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,1431 @@
+---
+import '../styles/global.css';
+
+const heroCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_hero&utm_campaign=mindfix_cro";
+const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&utm_campaign=mindfix_cro";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindFix — Estudia mejor, llega más lejos | Diagnóstico IA y Mentoría P2P Universitaria</title>
+    <meta
+      name="description"
+      content="Ecosistema educativo P2P potenciado por Inteligencia Artificial que diagnostica tus vacíos de aprendizaje en minutos y te conecta con mentores pares y rutas personalizadas."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MindFix — Estudia mejor, llega más lejos" />
+    <meta
+      property="og:description"
+      content="¿Estudias horas y tus notas no suben? Identifica tus vacíos de aprendizaje en minutos con IA y mentores pares."
+    />
+    <meta property="og:image" content="/images/hero-valeria-mindfix.webp" />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-[#FFFFFF] text-[#0B2545] antialiased selection:bg-[#0077FE] selection:text-white overflow-x-hidden">
+    <!-- Barra de Progreso de Lectura Superior -->
+    <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent pointer-events-none">
+      <div
+        id="scroll-progress"
+        class="h-full w-0 bg-gradient-to-r from-[#0077FE] via-[#00A3FF] to-[#00C2FF] shadow-[0_0_12px_rgba(0,194,255,0.8)] transition-[width] duration-100"
+      ></div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header
+      id="main-navbar"
+      class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Brand Wordmark (Sin ícono de logo) -->
+        <a
+          href="/"
+          class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE] rounded-xl p-1"
+          aria-label="MindFix - Ir al inicio"
+        >
+          <div class="text-2xl font-extrabold tracking-tight leading-none">
+            <span class="text-[#0B2545]">MIND</span><span class="text-[#0077FE] group-hover:text-[#00A3FF] transition-colors">FIX</span>
+          </div>
+          <span class="text-[11px] font-semibold text-slate-500 tracking-tight mt-0.5">
+            Estudia mejor, llega más lejos
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links con indicador inferior animado -->
+        <nav class="hidden md:flex items-center gap-6 lg:gap-7" aria-label="Navegación principal">
+          <a
+            href="#como-funciona"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Cómo funciona
+          </a>
+          <a
+            href="#que-lograras"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Qué lograrás
+          </a>
+          <a
+            href="#diagnostico-ia"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Diagnóstico IA
+          </a>
+          <a
+            href="#comunidad-p2p"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Comunidad P2P
+          </a>
+          <a
+            href="#testimonios"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Testimonios
+          </a>
+          <a
+            href="/blog"
+            class="relative py-1 text-sm font-semibold text-[#0B2545]/70 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blog
+          </a>
+        </nav>
+
+        <!-- Secondary Action Button + Mobile Menu Trigger -->
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            id="open-login-modal"
+            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
+          >
+            Iniciar Sesión
+          </button>
+
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="md:hidden inline-flex items-center justify-center p-2.5 rounded-xl text-[#0B2545] hover:bg-[#F1F5F9] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Abrir menú de navegación"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg"
+      >
+        <a
+          href="#como-funciona"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Cómo funciona
+        </a>
+        <a
+          href="#que-lograras"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Qué lograrás
+        </a>
+        <a
+          href="#diagnostico-ia"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Diagnóstico IA
+        </a>
+        <a
+          href="#comunidad-p2p"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Comunidad P2P
+        </a>
+        <a
+          href="#testimonios"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Testimonios
+        </a>
+        <a
+          href="/blog"
+          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
+        >
+          Blog Académico
+        </a>
+        <div class="pt-2">
+          <a
+            href={heroCtaUrl}
+            class="cta-shimmer w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md"
+          >
+            Realizar Test Gratuito
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==================== SECCIÓN HERO ==================== -->
+      <section class="relative overflow-hidden bg-[#FFFFFF] pt-8 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-28">
+        <!-- Esferas de luz animadas de fondo -->
+        <div
+          class="animate-blob pointer-events-none absolute -top-20 right-10 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-[#0077FE]/15 via-[#00C2FF]/12 to-transparent blur-3xl"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="animate-blob-delayed pointer-events-none absolute bottom-0 -left-16 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#0B2545]/8 via-[#0077FE]/10 to-transparent blur-3xl"
+          aria-hidden="true"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            <!-- Columna Izquierda: Copy Persuasivo & CTA Principal -->
+            <div class="lg:col-span-6 text-left reveal-left">
+              <!-- Badge Superior con indicador vivo -->
+              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#F1F5F9] border border-[#0077FE]/25 text-[#0B2545] text-xs sm:text-sm font-bold mb-6 shadow-xs hover:border-[#0077FE] transition-colors">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0077FE] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0077FE]"></span>
+                </span>
+                <span>🚀 Nueva forma de aprender en la universidad con IA</span>
+              </div>
+
+              <!-- Título H1 Persuasivo con Gradiente en Movimiento -->
+              <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl font-extrabold text-[#0B2545] tracking-tight leading-[1.14] mb-6">
+                ¿Estudias horas y tus notas no suben?{" "}
+                <span class="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#0077FE] via-[#00C2FF] to-[#0077FE]">
+                  Identifica tus vacíos de aprendizaje en minutos
+                </span>
+              </h1>
+
+              <!-- Subtítulo -->
+              <p class="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl">
+                MindFix analiza tus evaluaciones, detecta los conceptos exactos que necesitas reforzar y te conecta con estudiantes destacados que ya dominan tu carrera. <strong class="font-semibold text-[#0B2545]">Deja de memorizar a ciegas.</strong>
+              </p>
+
+              <!-- Botón CTA Hero con pulso y destello + Microtexto de Confianza -->
+              <div class="flex flex-col sm:items-start gap-3.5">
+                <a
+                  href={heroCtaUrl}
+                  class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/40"
+                >
+                  <span>Realizar Test Gratuito</span>
+                  <svg
+                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+
+                <p class="text-xs sm:text-sm font-semibold text-slate-600 flex flex-wrap items-center gap-x-2 gap-y-1 pl-1">
+                  <span class="text-[#0077FE] font-bold">✓ 100% gratuito</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Resultados en 3 minutos</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Sin tarjeta de crédito</span>
+                </p>
+              </div>
+
+              <!-- Mini Social Proof Universitaria con Contador Animado -->
+              <div class="mt-9 pt-7 border-t border-slate-100 flex flex-wrap items-center gap-6">
+                <div class="flex -space-x-2.5 overflow-hidden">
+                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0B2545] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">VR</span>
+                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0077FE] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">DM</span>
+                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0E1B2E] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">CP</span>
+                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#00A3FF] text-white text-xs font-bold ring-2 ring-white">+2k</span>
+                </div>
+                <div class="text-xs sm:text-sm text-slate-600">
+                  <span class="font-extrabold text-[#0B2545]">+<span class="counter" data-target="2400">0</span> universitarios</span> ya subieron al tercio superior sin amanecidas.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Imagen 1 (Valeria) con Levitación y Escaneo IA -->
+            <div class="lg:col-span-6 relative reveal-right">
+              <div class="relative mx-auto max-w-xl lg:max-w-none group">
+                <!-- Halo luminoso animado detrás de la imagen -->
+                <div
+                  class="animate-blob absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#0B2545]/15 via-[#0077FE]/25 to-[#00C2FF]/25 blur-xl opacity-85 group-hover:opacity-100 transition-opacity"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="relative rounded-3xl overflow-hidden border border-slate-200/90 bg-[#0E1B2E] shadow-2xl">
+                  <!-- Línea sutil de escaneo IA -->
+                  <div
+                    class="scan-beam pointer-events-none absolute left-0 right-0 h-12 bg-gradient-to-b from-transparent via-[#00C2FF]/20 to-transparent z-10"
+                    aria-hidden="true"
+                  ></div>
+
+                  <img
+                    src="/images/hero-valeria-mindfix.webp"
+                    alt="Valeria Rojas, estudiante universitaria latinoamericana de 20 años en su escritorio sosteniendo una tableta con gráficos de progreso académico de MindFix y expresión de confianza"
+                    width="1200"
+                    height="800"
+                    loading="eager"
+                    fetchpriority="high"
+                    class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/50 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Badge Flotante Superior Animado: Diagnóstico IA -->
+                <div class="animate-float hidden sm:flex items-center gap-3 absolute -top-6 -left-6 z-20 bg-white/95 backdrop-blur-md px-4 py-3.5 rounded-2xl shadow-xl border border-[#0077FE]/20">
+                  <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                      <p class="text-[11px] font-bold uppercase tracking-wider text-[#0077FE]">Diagnóstico IA Activo</p>
+                    </div>
+                    <p class="text-xs font-extrabold text-[#0B2545]">3 vacíos detectados en Cálculo II</p>
+                  </div>
+                </div>
+
+                <!-- Badge Flotante Inferior Animado: Progreso Tercio Superior -->
+                <div class="animate-float-delayed flex items-center gap-3.5 sm:absolute -bottom-6 -right-5 z-20 mt-4 sm:mt-0 bg-[#0B2545] text-white px-5 py-4 rounded-2xl shadow-2xl border border-[#00A3FF]/40">
+                  <div class="w-11 h-11 rounded-xl bg-[#00A3FF]/20 text-[#00C2FF] flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div class="min-w-[190px]">
+                    <div class="flex items-center justify-between text-[11px] font-semibold text-[#00C2FF] mb-1">
+                      <span>Progreso de Valeria</span>
+                      <span>Tercio Superior</span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-extrabold text-white mb-1.5">Promedio: 11.4 → 16.2</p>
+                    <div class="w-full h-1.5 bg-white/15 rounded-full overflow-hidden">
+                      <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="84%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN DE PROBLEMÁTICA (DOLORES DE VALERIA) ==================== -->
+      <section id="problematica" class="bg-[#F8FAFC] py-20 sm:py-24 border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 reveal-up">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0B2545]/8 text-[#0B2545] mb-4">
+              El verdadero obstáculo académico
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-4">
+              El problema no es tu capacidad, es estudiar sin una brújula conceptual
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+              Miles de universitarios autoexigentes invierten decenas de horas repasando temas que ya saben, mientras el verdadero vacío base sigue oculto hasta el día del parcial.
+            </p>
+          </div>
+
+          <!-- Grid de 3 Tarjetas Interactivas con Efecto Spotlight y Movimiento -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Tarjeta 1 -->
+            <article
+              class="interactive-card reveal-up group bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:shadow-2xl hover:border-[#0077FE]/50 hover:-translate-y-2 flex flex-col justify-between"
+              style="transition-delay: 80ms;"
+            >
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center mb-6 shadow-md group-hover:bg-gradient-to-br group-hover:from-[#0077FE] group-hover:to-[#00C2FF] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-extrabold text-[#0B2545] mb-3 group-hover:text-[#0077FE] transition-colors">
+                  El examen no te dice en qué fallaste
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  Notas numéricas que no explican tus vacíos. Recibir un <span class="font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded">08/20</span> no te revela si fallaste en el planteamiento físico, en una derivada previa o en el concepto base.
+                </p>
+              </div>
+              <div class="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+                <span>Feedback tradicional</span>
+                <span class="text-rose-500 flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> 0% Diagnóstico
+                </span>
+              </div>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article
+              class="interactive-card reveal-up group bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:shadow-2xl hover:border-[#0077FE]/50 hover:-translate-y-2 flex flex-col justify-between"
+              style="transition-delay: 180ms;"
+            >
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center mb-6 shadow-md group-hover:bg-gradient-to-br group-hover:from-[#0077FE] group-hover:to-[#00C2FF] group-hover:text-white group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-extrabold text-[#0B2545] mb-3 group-hover:text-[#0077FE] transition-colors">
+                  Amanecidas que sabotean tu memoria
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  Horas de estudio que solo generan fatiga cognitiva. Estudiar de madrugada sin foco bloquea tu corteza prefrontal y provoca que te quedes en blanco frente al examen.
+                </p>
+              </div>
+              <div class="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+                <span>Retención sin dormir</span>
+                <span class="text-amber-600 flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> Fatiga Crítica
+                </span>
+              </div>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article
+              class="interactive-card reveal-up group bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:shadow-2xl hover:border-[#0077FE]/50 hover:-translate-y-2 flex flex-col justify-between"
+              style="transition-delay: 280ms;"
+            >
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center mb-6 shadow-md group-hover:bg-gradient-to-br group-hover:from-[#0077FE] group-hover:to-[#00C2FF] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-extrabold text-[#0B2545] mb-3 group-hover:text-[#0077FE] transition-colors">
+                  Incertidumbre pre-parciales
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  Miedo constante a recursar materias y perder tiempo. La presión de mantener tu beca o subir al tercio superior se vuelve abrumadora cuando no conoces tus puntos ciegos.
+                </p>
+              </div>
+              <div class="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+                <span>Solución MindFix</span>
+                <span class="text-[#0077FE] flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-[#0077FE] animate-ping"></span> Control Total
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN: CÓMO FUNCIONA (FLUJO PASO A PASO) ==================== -->
+      <section id="como-funciona" class="relative bg-[#FFFFFF] py-20 sm:py-28 border-b border-slate-200/70 overflow-hidden">
+        <!-- Luz decorativa sutil -->
+        <div
+          class="animate-blob pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[300px] rounded-full bg-gradient-to-r from-[#0077FE]/8 via-[#00C2FF]/10 to-transparent blur-3xl"
+          aria-hidden="true"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div class="max-w-3xl mx-auto text-center mb-16 reveal-up">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0077FE]/10 text-[#0077FE] mb-4">
+              <span class="w-2 h-2 rounded-full bg-[#0077FE] animate-ping"></span>
+              Cómo funciona MindFix
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-4">
+              De la confusión al dominio de tu curso en 4 simples pasos
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+              Un sistema inteligente diseñado para detectar qué te frena y conectarte con la solución exacta antes de que llegue tu semana de parciales.
+            </p>
+          </div>
+
+          <!-- Línea de tiempo de 4 pasos -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 relative">
+            <!-- Paso 01 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-7 border border-slate-200/90 hover:border-[#0077FE] shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 60ms;"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg shadow-md group-hover:scale-110 transition-transform">
+                    01
+                  </span>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE]">
+                    ⏱️ 3 Minutos
+                  </span>
+                </div>
+                <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                  Realizas el Test Diagnóstico IA
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Selecciona tu carrera y curso, o sube tu práctica calificada anterior. Nuestro test adaptativo evalúa tu razonamiento sin presión.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#0077FE]">
+                <span>Entrada rápida</span>
+                <span class="group-hover:translate-x-1 transition-transform">Paso 1 →</span>
+              </div>
+            </div>
+
+            <!-- Paso 02 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-7 border border-slate-200/90 hover:border-[#0077FE] shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 140ms;"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg shadow-md group-hover:scale-110 transition-transform">
+                    02
+                  </span>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-[#0B2545]/10 text-[#0B2545]">
+                    🧠 Algoritmo IA
+                  </span>
+                </div>
+                <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                  Recibes tu Mapa de Vacíos
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  La IA desglosa tus respuestas y te muestra en barras visuales qué prerrequisito exacto necesitas reforzar antes de avanzar.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#0077FE]">
+                <span>Detección precisa</span>
+                <span class="group-hover:translate-x-1 transition-transform">Paso 2 →</span>
+              </div>
+            </div>
+
+            <!-- Paso 03 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-7 border border-slate-200/90 hover:border-[#0077FE] shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 220ms;"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg shadow-md group-hover:scale-110 transition-transform">
+                    03
+                  </span>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE]">
+                    🤝 Match P2P
+                  </span>
+                </div>
+                <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                  Activas tu Ruta + Mentor Par
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Estudias con guías al grano, bancos de exámenes resueltos y sesiones con alumnos del Tercio Superior de tu misma universidad.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#0077FE]">
+                <span>Refuerzo focalizado</span>
+                <span class="group-hover:translate-x-1 transition-transform">Paso 3 →</span>
+              </div>
+            </div>
+
+            <!-- Paso 04 -->
+            <div
+              class="interactive-card reveal-up group bg-[#0B2545] text-white rounded-3xl p-7 border border-[#0077FE]/40 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 300ms;"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg shadow-md group-hover:scale-110 transition-transform">
+                    04
+                  </span>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-300">
+                    🎓 Meta Lograda
+                  </span>
+                </div>
+                <h3 class="text-lg font-extrabold text-white mb-2.5">
+                  Rindes tu Parcial con Confianza
+                </h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Llegas al examen habiendo dormido tus 7 horas, sin ansiedad y dominando los problemas clave que aseguran tu nota sobresaliente.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/15 flex items-center justify-between text-xs font-bold text-[#00C2FF]">
+                <span>Tercio Superior</span>
+                <span class="group-hover:translate-x-1 transition-transform">Éxito ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN DE LA SOLUCIÓN (MOTOR DE IA + IMAGEN 2 + BARRAS EN VIVO) ==================== -->
+      <section id="diagnostico-ia" class="bg-[#F8FAFC] py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            <!-- Columna Izquierda: Imagen 2 + Widget de Dominio Conceptual Animado -->
+            <div class="lg:col-span-6 order-2 lg:order-1 reveal-left">
+              <div class="group relative rounded-3xl overflow-hidden border border-slate-200 bg-[#0E1B2E] shadow-2xl">
+                <div class="overflow-hidden">
+                  <img
+                    src="/images/diagnostico-vacios.webp"
+                    alt="Comparación 3D entre una boleta de notas tradicional con calificación 08/20 sin feedback y la interfaz de MindFix que muestra un mapa interactivo de vacíos de aprendizaje y barras de dominio por tema"
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+
+                <!-- Panel interactivo de Barras de Dominio en Tiempo Real -->
+                <div class="p-6 bg-[#0B2545] text-white border-t border-white/10">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#00C2FF] animate-ping"></span>
+                      <span class="text-xs font-extrabold uppercase tracking-wider text-[#00C2FF]">
+                        Desglose Conceptual IA en Tiempo Real
+                      </span>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-300">Cálculo & Física I</span>
+                  </div>
+
+                  <div class="space-y-3">
+                    <div>
+                      <div class="flex justify-between text-xs font-bold mb-1">
+                        <span class="text-slate-200">Límites y Continuidad</span>
+                        <span class="text-emerald-400">92% Dominado</span>
+                      </div>
+                      <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class="progress-fill h-full bg-emerald-400 rounded-full" data-width="92%"></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="flex justify-between text-xs font-bold mb-1">
+                        <span class="text-white">Regla de la Cadena (Funciones Compuestas)</span>
+                        <span class="text-amber-400">38% · Vacío Raíz Detectado ⚡</span>
+                      </div>
+                      <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class="progress-fill h-full bg-gradient-to-r from-rose-500 to-amber-400 rounded-full" data-width="38%"></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="flex justify-between text-xs font-bold mb-1">
+                        <span class="text-slate-200">Aplicaciones de la Derivada</span>
+                        <span class="text-[#00C2FF]">76% En Progreso</span>
+                      </div>
+                      <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="76%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Los 3 Pasos del Motor de IA -->
+            <div class="lg:col-span-6 order-1 lg:order-2 reveal-right">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0077FE]/10 text-[#0077FE] mb-4">
+                ⚡ Motor de Diagnóstico Cognitivo IA
+              </span>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-5">
+                Transforma una mala nota en una ruta exacta hacia el Tercio Superior
+              </h2>
+              <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-9">
+                En lugar de releer todo el sílabo desde cero, nuestro algoritmo descompone tus materias en micro-conceptos y detecta exactamente dónde se rompe tu cadena de aprendizaje.
+              </p>
+
+              <!-- Lista de 3 Pasos Interactivos -->
+              <div class="space-y-5">
+                <!-- Paso 1 -->
+                <div class="interactive-card group flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:bg-white hover:border-[#0077FE] hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                    1
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-1">
+                      Autodiagnóstico rápido guiado por IA
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                      Responde un test adaptativo de 3 minutos o sube tus prácticas pasadas. Nuestra IA evalúa tu razonamiento paso a paso, no solo la respuesta final.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="interactive-card group flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:bg-white hover:border-[#0077FE] hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                    2
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-1">
+                      Mapa visual de tus puntos ciegos antes de que sean evaluados
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                      Visualiza tus barras de dominio por tema y descubre qué prerrequisito oculto te está impidiendo resolver los problemas de nivel examen parcial o final.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="interactive-card group flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:bg-white hover:border-[#0077FE] hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                    3
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-1">
+                      Plan de acción focalizado con guías y bancos de preguntas resueltas
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                      Recibe una ruta personalizada con resúmenes directos al grano, ejercicios tipo examen desglosados y sesiones puntuales para estudiar en la mitad de tiempo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN: QUÉ LOGRARÁS (RESULTADOS Y TRANSFORMACIÓN) ==================== -->
+      <section id="que-lograras" class="relative bg-[#FFFFFF] py-20 sm:py-28 border-t border-slate-200/80 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-16 reveal-up">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 mb-4">
+              🎯 Qué lograrás con MindFix
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-4">
+              Resultados medibles en tus notas, tu tiempo y tu tranquilidad mental
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+              No se trata de estudiar más horas frente al cuaderno, sino de transformar cada sesión de estudio en puntos reales para tu promedio ponderado.
+            </p>
+          </div>
+
+          <!-- Grid de 4 Logros Clave con Barras e Indicadores -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Logro 1 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-[#0077FE]/50 shadow-xs hover:shadow-2xl transition-all duration-300"
+              style="transition-delay: 60ms;"
+            >
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#0077FE] group-hover:text-white group-hover:scale-110 transition-all">
+                  <!-- Icono Trofeo / Tercio Superior -->
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+                <span class="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800">
+                  +3.6 pts en promedio
+                </span>
+              </div>
+              <h3 class="text-xl font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                Escalar al Tercio y Quinto Superior
+              </h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                Cierra las brechas conceptuales que te restaban puntos en las preguntas de desarrollo y asegura las calificaciones que abren becas e intercambios.
+              </p>
+              <div class="bg-white p-4 rounded-2xl border border-slate-200/70">
+                <div class="flex justify-between text-xs font-bold text-[#0B2545] mb-1.5">
+                  <span>Dominio de temas clave pre-parcial</span>
+                  <span class="text-[#0077FE]">94%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="94%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logro 2 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-[#0077FE]/50 shadow-xs hover:shadow-2xl transition-all duration-300"
+              style="transition-delay: 140ms;"
+            >
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#0077FE] group-hover:text-white group-hover:scale-110 transition-all">
+                  <!-- Icono Rayo / Ahorro de Tiempo -->
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <span class="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-[#0077FE]/10 text-[#0077FE]">
+                  -55% horas de repaso ciego
+                </span>
+              </div>
+              <h3 class="text-xl font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                Estudiar en la mitad de tiempo con foco quirúrgico
+              </h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                Deja de releer apuntes enteros sin dirección. Invierte tus horas únicamente en el 20% de los micro-conceptos que determinan el 80% de tu calificación.
+              </p>
+              <div class="bg-white p-4 rounded-2xl border border-slate-200/70">
+                <div class="flex justify-between text-xs font-bold text-[#0B2545] mb-1.5">
+                  <span>Eficiencia de estudio por sesión</span>
+                  <span class="text-[#0077FE]">2.4x más rápido</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="88%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logro 3 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-[#0077FE]/50 shadow-xs hover:shadow-2xl transition-all duration-300"
+              style="transition-delay: 220ms;"
+            >
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#0077FE] group-hover:text-white group-hover:scale-110 transition-all">
+                  <!-- Icono Descanso / Sin Amanecidas -->
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                </div>
+                <span class="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800">
+                  7-8h de sueño continuo
+                </span>
+              </div>
+              <h3 class="text-xl font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                Eliminar las amanecidas y la fatiga cognitiva
+              </h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                Con un plan de acción distribuido sabes exactamente qué cubrir cada día, protegiendo tu descanso nocturno para que tu memoria funcione al 100% en el examen.
+              </p>
+              <div class="bg-white p-4 rounded-2xl border border-slate-200/70">
+                <div class="flex justify-between text-xs font-bold text-[#0B2545] mb-1.5">
+                  <span>Reducción de agotamiento pre-parcial</span>
+                  <span class="text-emerald-600">91% menos estrés</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="progress-fill h-full bg-emerald-500 rounded-full" data-width="91%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logro 4 -->
+            <div
+              class="interactive-card reveal-up group bg-[#F8FAFC] hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-[#0077FE]/50 shadow-xs hover:shadow-2xl transition-all duration-300"
+              style="transition-delay: 300ms;"
+            >
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-[#0B2545] text-[#00C2FF] flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#0077FE] group-hover:text-white group-hover:scale-110 transition-all">
+                  <!-- Icono Escudo / Seguridad Académica -->
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <span class="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-[#0077FE]/10 text-[#0077FE]">
+                  Cero bloqueos mentales
+                </span>
+              </div>
+              <h3 class="text-xl font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors mb-2.5">
+                Dominar problemas tipo parcial sin memorizar a ciegas
+              </h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                Comprende el porqué detrás de cada fórmula gracias a las explicaciones horizontales de tus mentores pares, para que ninguna pregunta capciosa te tome por sorpresa.
+              </p>
+              <div class="bg-white p-4 rounded-2xl border border-slate-200/70">
+                <div class="flex justify-between text-xs font-bold text-[#0B2545] mb-1.5">
+                  <span>Tasa de aprobación en primera matrícula</span>
+                  <span class="text-[#0077FE]">97% de éxito</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="97%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN COMUNIDAD P2P (IMAGEN 3 + RED DE MENTORES) ==================== -->
+      <section id="comunidad-p2p" class="bg-[#F1F5F9] py-20 sm:py-28 border-t border-slate-200/80 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            <!-- Columna Izquierda: Explicación P2P Horizontal -->
+            <div class="lg:col-span-6 reveal-left">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0B2545] text-[#00C2FF] mb-4">
+                <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
+                <span>🤝 Comunidad P2P & Red de Mentores Pares</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-5">
+                Aprende con quienes ya aprobaron tu misma materia con honores
+              </h2>
+              <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+                A veces un catedrático explica desde una distancia teórica difícil de aterrizar. En <strong class="text-[#0B2545]">MindFix</strong> te conectamos con estudiantes de ciclos superiores del quinto y tercio superior que ya superaron exactamente los mismos exámenes que hoy te quitan el sueño.
+              </p>
+
+              <!-- Beneficios P2P -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-9">
+                <div class="interactive-card bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div class="w-10 h-10 rounded-xl bg-[#0077FE]/10 text-[#0077FE] flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-base font-extrabold text-[#0B2545] mb-1">
+                    Aprendizaje horizontal
+                  </h3>
+                  <p class="text-sm text-slate-600">
+                    Empatía real entre pares, cero juicio por preguntar dudas básicas y ambiente de confianza total.
+                  </p>
+                </div>
+
+                <div class="interactive-card bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div class="w-10 h-10 rounded-xl bg-[#0077FE]/10 text-[#0077FE] flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-base font-extrabold text-[#0B2545] mb-1">
+                    Sin tecnicismos complejos
+                  </h3>
+                  <p class="text-sm text-slate-600">
+                    Explicaciones directas, trucos de resolución y criterios reales de calificación de tu facultad.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Micro-card de match con mentor -->
+              <div class="bg-[#0B2545] text-white p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl border border-[#0077FE]/30 hover:border-[#00C2FF] transition-colors">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-[#0077FE] to-[#00C2FF] flex items-center justify-center font-extrabold text-sm shrink-0 shadow-md animate-pulse">
+                    P2P
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-white">Match inteligente según tu diagnóstico</p>
+                    <p class="text-xs text-slate-300">El mentor recibe tu mapa de vacíos antes de empezar la sesión.</p>
+                  </div>
+                </div>
+                <a
+                  href={heroCtaUrl}
+                  class="shrink-0 text-xs font-extrabold text-[#00C2FF] hover:text-white underline underline-offset-4"
+                >
+                  Conectar ahora →
+                </a>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Imagen 3 (Tutoría de Pares en Biblioteca) -->
+            <div class="lg:col-span-6 reveal-right relative">
+              <!-- Tarjeta flotante de Mentores Online -->
+              <div class="animate-float hidden sm:flex items-center gap-2.5 absolute -top-5 right-6 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-emerald-200">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs font-extrabold text-[#0B2545]">28 mentores del Tercio Superior en línea</span>
+              </div>
+
+              <div class="group relative rounded-3xl overflow-hidden border border-slate-200/90 bg-white shadow-2xl">
+                <div class="overflow-hidden">
+                  <img
+                    src="/images/tutoria-pares.webp"
+                    alt="Dos estudiantes universitarios colaborando amigablemente frente a una laptop en una biblioteca luminosa revisando ejercicios de ingeniería y cálculo"
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div class="p-5 bg-white border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 font-extrabold text-sm">
+                      <span class="counter" data-target="98">0</span>%
+                    </span>
+                    <span class="text-xs sm:text-sm font-bold text-[#0B2545]">
+                      de satisfacción en sesiones P2P focalizadas de 45 min
+                    </span>
+                  </div>
+                  <span class="text-xs font-bold text-[#0077FE] bg-[#0077FE]/10 px-3 py-1 rounded-full">
+                    Mentores Verificados
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN DE PRUEBA SOCIAL / TESTIMONIOS ==================== -->
+      <section id="testimonios" class="bg-[#FFFFFF] py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 reveal-up">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0077FE]/10 text-[#0077FE] mb-4">
+              Resultados Académicos Reales
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight mb-4">
+              Estudiantes que dejaron las amanecidas y subieron al Tercio Superior
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600">
+              Conoce cómo alumnos de primeros y medianos ciclos recuperaron su tranquilidad mental y transformaron su promedio ponderado con MindFix.
+            </p>
+          </div>
+
+          <!-- Grid de Testimonios con Animación Escalada -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonio 1: Valeria Rojas -->
+            <article
+              class="interactive-card reveal-up bg-[#F8FAFC] rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:bg-white hover:shadow-2xl hover:border-[#0077FE]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 80ms;"
+            >
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-1 text-[#0077FE] text-lg" aria-label="Calificación de 5 estrellas">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                    Nota: 09 → 17
+                  </span>
+                </div>
+                <blockquote class="text-slate-700 text-sm sm:text-base leading-relaxed mb-6">
+                  “Me quedaba hasta las 3 a.m. resolviendo guías y aun así saqué 09 en mi primer parcial. El test de MindFix detectó en 4 minutos que mi vacío estaba en funciones compuestas. Con dos sesiones P2P cerré el ciclo con 17.”
+                </blockquote>
+              </div>
+              <div class="relative z-10 flex items-center gap-3.5 pt-5 border-t border-slate-200/70">
+                <div class="w-11 h-11 rounded-full bg-[#0B2545] text-[#00C2FF] font-extrabold text-sm flex items-center justify-center shrink-0">
+                  VR
+                </div>
+                <div>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Valeria Rojas (20 años)</h3>
+                  <p class="text-xs text-slate-500 font-medium">4.º Ciclo · Ingeniería Industrial</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Testimonio 2 -->
+            <article
+              class="interactive-card reveal-up bg-[#F8FAFC] rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:bg-white hover:shadow-2xl hover:border-[#0077FE]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 180ms;"
+            >
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-1 text-[#0077FE] text-lg" aria-label="Calificación de 5 estrellas">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE]">
+                    Promedio +3.4 pts
+                  </span>
+                </div>
+                <blockquote class="text-slate-700 text-sm sm:text-base leading-relaxed mb-6">
+                  “Sentía pánico de jalar Estadística Inferencial y perder mi beca. El mapa de vacíos me mostró qué temas priorizar antes del parcial y mi mentor par me explicó en 40 minutos lo que no entendí en un mes.”
+                </blockquote>
+              </div>
+              <div class="relative z-10 flex items-center gap-3.5 pt-5 border-t border-slate-200/70">
+                <div class="w-11 h-11 rounded-full bg-[#0077FE] text-white font-extrabold text-sm flex items-center justify-center shrink-0">
+                  DM
+                </div>
+                <div>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Diego Mendoza (19 años)</h3>
+                  <p class="text-xs text-slate-500 font-medium">3.er Ciclo · Economía y Finanzas</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Testimonio 3 -->
+            <article
+              class="interactive-card reveal-up bg-[#F8FAFC] rounded-3xl p-8 border border-slate-200/80 shadow-xs hover:bg-white hover:shadow-2xl hover:border-[#0077FE]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              style="transition-delay: 280ms;"
+            >
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-1 text-[#0077FE] text-lg" aria-label="Calificación de 5 estrellas">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                    Quinto Superior
+                  </span>
+                </div>
+                <blockquote class="text-slate-700 text-sm sm:text-base leading-relaxed mb-6">
+                  “Pasé de estudiar 8 horas desordenadas con ansiedad a estudiar 2 horas focalizadas con el plan de acción de MindFix. Volví a dormir 7 horas antes de los exámenes y entré al quinto superior de mi facultad.”
+                </blockquote>
+              </div>
+              <div class="relative z-10 flex items-center gap-3.5 pt-5 border-t border-slate-200/70">
+                <div class="w-11 h-11 rounded-full bg-[#0E1B2E] text-[#00C2FF] font-extrabold text-sm flex items-center justify-center shrink-0">
+                  CP
+                </div>
+                <div>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Camila Paredes (21 años)</h3>
+                  <p class="text-xs text-slate-500 font-medium">5.º Ciclo · Bioingeniería</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECCIÓN FINAL (FOOTER CTA) ==================== -->
+      <section class="relative overflow-hidden bg-[#0B2545] py-20 sm:py-24">
+        <!-- Esferas luminosas animadas Cyan en el banner oscuro -->
+        <div
+          class="animate-blob pointer-events-none absolute -top-24 left-1/3 w-[650px] h-[350px] rounded-full bg-gradient-to-b from-[#0077FE]/35 via-[#00C2FF]/20 to-transparent blur-3xl"
+          aria-hidden="true"
+        ></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center reveal-up">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#00C2FF]/30 text-[#00C2FF] text-xs sm:text-sm font-bold mb-6">
+            <span>🎓 Estudia mejor, llega más lejos</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+            Empieza a estudiar de forma estratégica hoy mismo
+          </h2>
+
+          <p class="text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Descubre tus debilidades conceptuales antes de tu próximo examen y recupera el control de tu ciclo académico.
+          </p>
+
+          <!-- BOTÓN CTA FINAL IDÉNTICO AL DEL HERO CON ANIMACIÓN VIVA -->
+          <div class="flex flex-col items-center gap-4">
+            <a
+              href={finalCtaUrl}
+              class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00C2FF]/50"
+            >
+              <span>Realizar Test Gratuito</span>
+              <svg
+                class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+
+            <p class="text-xs sm:text-sm font-medium text-slate-300">
+              <span class="text-[#00C2FF] font-bold">✓ 100% gratuito</span> · Resultados en 3 minutos · Sin tarjeta de crédito
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-[#0E1B2E] text-slate-300 border-t border-white/10 pt-16 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          <!-- Columna Marca -->
+          <div class="md:col-span-5">
+            <a href="/" class="inline-flex items-center mb-4 group">
+              <span class="text-2xl font-extrabold tracking-tight">
+                <span class="text-white">MIND</span><span class="text-[#00A3FF]">FIX</span>
+              </span>
+            </a>
+            <p class="text-sm text-slate-400 max-w-sm leading-relaxed mb-4">
+              Ecosistema educativo P2P potenciado por Inteligencia Artificial que diagnostica vacíos de aprendizaje en minutos y conecta a estudiantes universitarios con mentores pares.
+            </p>
+            <p class="text-xs font-bold uppercase tracking-wider text-[#00A3FF]">
+              “Estudia mejor, llega más lejos”
+            </p>
+          </div>
+
+          <!-- Enlaces Plataforma -->
+          <div class="md:col-span-2">
+            <h3 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4">Plataforma</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="#como-funciona" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Cómo funciona</a></li>
+              <li><a href="#diagnostico-ia" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Diagnóstico IA</a></li>
+              <li><a href="#comunidad-p2p" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Comunidad P2P</a></li>
+              <li><a href="#testimonios" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Testimonios</a></li>
+              <li><a href="/blog" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Blog Académico</a></li>
+            </ul>
+          </div>
+
+          <!-- Enlaces Legales -->
+          <div class="md:col-span-2">
+            <h3 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4">Legal</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/test-diagnostico" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Términos de Uso</a></li>
+              <li><a href="/test-diagnostico" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Política de Privacidad</a></li>
+              <li><a href="/test-diagnostico" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Ética Académica IA</a></li>
+              <li><a href="/test-diagnostico" class="text-slate-400 hover:text-[#00C2FF] transition-colors">Protección de Datos</a></li>
+            </ul>
+          </div>
+
+          <!-- Contacto y Redes Sociales -->
+          <div class="md:col-span-3">
+            <h3 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4">Contacto y Comunidad</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              soporte@mindfix.edu.pe<br />
+              Lima, Perú · Red Universitaria LatAm
+            </p>
+            <div class="flex items-center gap-3">
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MindFix en TikTok"
+                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0077FE] hover:-translate-y-1 text-slate-300 hover:text-white flex items-center justify-center transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MindFix en Instagram"
+                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0077FE] hover:-translate-y-1 text-slate-300 hover:text-white flex items-center justify-center transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MindFix en LinkedIn"
+                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0077FE] hover:-translate-y-1 text-slate-300 hover:text-white flex items-center justify-center transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </a>
+              <a
+                href="https://discord.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Comunidad de MindFix en Discord"
+                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0077FE] hover:-translate-y-1 text-slate-300 hover:text-white flex items-center justify-center transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.028z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© {new Date().getFullYear()} MindFix EdTech. Todos los derechos reservados.</p>
+          <p>Diseñado para estudiantes universitarios que buscan excelencia académica sin sacrificar su bienestar.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== MODAL DE INICIAR SESIÓN ==================== -->
+    <div
+      id="login-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-[#0B2545]/70 backdrop-blur-xs p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="login-modal-title"
+    >
+      <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-slate-100 relative animate-float">
+        <button
+          type="button"
+          id="close-login-modal"
+          class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+          aria-label="Cerrar ventana de inicio de sesión"
+        >
+          ✕
+        </button>
+
+        <div class="text-center mb-6">
+          <span class="inline-block px-3 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-xs font-extrabold mb-2">
+            Portal Universitario MindFix
+          </span>
+          <h2 id="login-modal-title" class="text-2xl font-extrabold text-[#0B2545]">
+            Bienvenida de vuelta
+          </h2>
+          <p class="text-sm text-slate-500 mt-1">
+            Ingresa con tu correo institucional para ver tu mapa de progreso.
+          </p>
+        </div>
+
+        <form action="/test-diagnostico" method="get" class="space-y-4">
+          <input type="hidden" name="utm_source" value="landing" />
+          <input type="hidden" name="utm_medium" value="login_modal" />
+          <div>
+            <label for="student-email" class="block text-xs font-bold uppercase text-[#0B2545] mb-1.5">
+              Correo Universitario
+            </label>
+            <input
+              id="student-email"
+              type="email"
+              required
+              placeholder="valeria.rojas@universidad.edu.pe"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+            />
+          </div>
+          <div>
+            <label for="student-pass" class="block text-xs font-bold uppercase text-[#0B2545] mb-1.5">
+              Contraseña
+            </label>
+            <input
+              id="student-pass"
+              type="password"
+              required
+              placeholder="••••••••"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+            />
+          </div>
+          <button
+            type="submit"
+            class="cta-shimmer w-full py-3.5 rounded-xl font-extrabold text-white bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md hover:opacity-95 transition-opacity cursor-pointer"
+          >
+            Ingresar a mi Campus IA
+          </button>
+        </form>
+
+        <div class="mt-6 pt-5 border-t border-slate-100 text-center">
+          <p class="text-xs text-slate-500">
+            ¿Aún no tienes tu diagnóstico inicial?{" "}
+            <a href={heroCtaUrl} class="font-extrabold text-[#0077FE] hover:underline">
+              Realizar Test Gratuito →
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== MOTOR DE ANIMACIONES & INTERACTIVIDAD ==================== -->
+    <script is:inline>
+      // 1. Menú móvil y Modal
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden', !isHidden);
+          mobileBtn.setAttribute('aria-expanded', String(isHidden));
+        });
+
+        mobileLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      const openLoginBtn = document.getElementById('open-login-modal');
+      const closeLoginBtn = document.getElementById('close-login-modal');
+      const loginModal = document.getElementById('login-modal');
+
+      if (openLoginBtn && closeLoginBtn && loginModal) {
+        openLoginBtn.addEventListener('click', () => {
+          loginModal.classList.remove('hidden');
+          loginModal.classList.add('flex');
+        });
+        closeLoginBtn.addEventListener('click', () => {
+          loginModal.classList.add('hidden');
+          loginModal.classList.remove('flex');
+        });
+        loginModal.addEventListener('click', (e) => {
+          if (e.target === loginModal) {
+            loginModal.classList.add('hidden');
+            loginModal.classList.remove('flex');
+          }
+        });
+      }
+
+      // 2. Barra de progreso de lectura superior + sombra dinámica en Navbar
+      const scrollProgress = document.getElementById('scroll-progress');
+      const navbar = document.getElementById('main-navbar');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgress) {
+          scrollProgress.style.width = `${progress}%`;
+        }
+        if (navbar) {
+          navbar.classList.toggle('shadow-md', scrollTop > 20);
+        }
+      }, { passive: true });
+
+      // 3. IntersectionObserver para Scroll Reveal, Contadores Numéricos y Barras de Progreso
+      const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target') || '0', 10);
+        const duration = 1600;
+        const startTime = performance.now();
+
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(easeOut * target);
+          el.textContent = current.toLocaleString('es-PE');
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target.toLocaleString('es-PE');
+          }
+        };
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+
+              // Si contiene barras de progreso, animarlas
+              const bars = entry.target.querySelectorAll('.progress-fill');
+              bars.forEach((bar) => {
+                const targetWidth = bar.getAttribute('data-width') || '100%';
+                setTimeout(() => {
+                  bar.style.width = targetWidth;
+                }, 200);
+              });
+
+              // Si contiene contadores numéricos, animarlos
+              const counters = entry.target.querySelectorAll('.counter');
+              counters.forEach((counter) => {
+                if (!counter.dataset.animated) {
+                  counter.dataset.animated = 'true';
+                  animateCounter(counter);
+                }
+              });
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      document
+        .querySelectorAll('.reveal-up, .reveal-left, .reveal-right')
+        .forEach((el) => observer.observe(el));
+
+      // 4. Efecto Spotlight Radial en Tarjetas Interactivas
+      document.querySelectorAll('.interactive-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>
