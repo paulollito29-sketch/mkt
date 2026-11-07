@@ -1,0 +1,398 @@
+---
+import '../styles/global.css';
+
+const title = "Guía Gratuita para Universitarios | Auditoría de Exámenes y Vacíos de Aprendizaje — MindFix";
+const description = "Descarga gratis la guía práctica de MindFix y aprende a auditar tus errores de examen, identificar vacíos conceptuales y estudiar la mitad de tiempo rumbo al Tercio Superior.";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Guía Gratuita MindFix: 10 Claves para Dominar tus Exámenes Universitarios" />
+    <meta property="og:description" content="Aprende a auditar tus errores y estudiar estratégicamente con neurociencia y mentoría P2P." />
+    <meta property="og:image" content="/images/blog/hero-trampa-6-horas.jpg" />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 3D Book Mockup Effect */
+      .book-container {
+        perspective: 1200px;
+      }
+      .book-cover {
+        transform: rotateY(-14deg) rotateX(4deg);
+        box-shadow: -15px 20px 40px -10px rgba(11, 37, 69, 0.35), 0 0 0 1px rgba(0, 119, 254, 0.15);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .book-container:hover .book-cover {
+        transform: rotateY(-6deg) rotateX(2deg) translateY(-8px);
+        box-shadow: -20px 30px 50px -10px rgba(0, 119, 254, 0.4);
+      }
+      .book-spine {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 14px;
+        background: linear-gradient(to right, #0B2545, #0077FE);
+        border-radius: 8px 0 0 8px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] antialiased selection:bg-[#0077FE] selection:text-white min-h-screen flex flex-col font-sans">
+    
+    <!-- Top Micro Header -->
+    <header class="w-full bg-white border-b border-slate-200/80 py-4 px-4 sm:px-8">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-baseline gap-2 group">
+          <span class="text-2xl font-black tracking-tight text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+            MIND<span class="text-[#0077FE]">FIX</span>
+          </span>
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest border-l border-slate-200 pl-2">
+            EdTech P2P
+          </span>
+        </a>
+        <a href="/" class="text-xs sm:text-sm font-bold text-slate-600 hover:text-[#0077FE] transition-colors flex items-center gap-1">
+          <span>← Volver al inicio</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Banner Superior Central: Formato Exacto de la Referencia -->
+    <div class="pt-8 sm:pt-12 pb-4 text-center px-4 max-w-4xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B2545] tracking-tight uppercase mb-2">
+        GUÍA GRATUITA PARA ESTUDIANTES
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 font-medium">
+        Un recurso de alto valor que te entregamos gratis para transformar tu rendimiento académico.
+      </p>
+      <div class="w-24 h-1 bg-gradient-to-r from-[#0077FE] to-[#00C2FF] mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Main Content: Layout de 3 Bloques (Mockup 3D | Puntos Clave | Formulario de Captura) -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- ================= BLOQUE 1: MOCKUP DE LIBRO / EBOOK 3D ================= -->
+        <div class="lg:col-span-4 flex justify-center relative">
+          <div class="book-container relative w-full max-w-[290px] sm:max-w-[320px]">
+            
+            <!-- Badge Flotante 100% GRATIS -->
+            <div class="absolute -top-3 -right-3 z-30 w-20 h-20 rounded-full bg-gradient-to-tr from-[#0B2545] to-[#0077FE] text-white flex flex-col items-center justify-center text-center p-2 shadow-xl border-2 border-white transform rotate-12">
+              <span class="text-[11px] font-bold tracking-wider leading-none">100%</span>
+              <span class="text-xs font-black tracking-widest uppercase">GRATIS</span>
+            </div>
+
+            <!-- Ebook 3D Cover -->
+            <div class="book-cover relative rounded-2xl overflow-hidden bg-white border border-slate-200">
+              <div class="book-spine"></div>
+              
+              <div class="pl-4 p-6 bg-gradient-to-br from-[#0B2545] via-[#0E1B2E] to-[#0B1528] text-white text-center flex flex-col justify-between min-h-[420px]">
+                <div>
+                  <!-- Header del Ebook -->
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#00C2FF] text-[10px] font-extrabold uppercase tracking-wider mb-4">
+                    <span>🧠 MindFix AI Academic</span>
+                  </div>
+
+                  <h2 class="text-xl sm:text-2xl font-black text-white leading-tight mb-2">
+                    10 Claves para Dominar tus Exámenes Universitarios
+                  </h2>
+                  <p class="text-xs text-[#00C2FF] font-semibold mb-4">
+                    Consejos prácticos basados en neurociencia y aprendizaje entre pares (P2P)
+                  </p>
+                </div>
+
+                <!-- Imagen Central de la Portada: Estudiante Enfocada -->
+                <div class="my-3 rounded-xl overflow-hidden border border-white/15 shadow-inner">
+                  <img
+                    src="/images/blog/hero-trampa-6-horas.jpg"
+                    alt="Estudiante analizando apuntes"
+                    class="w-full h-32 object-cover object-center"
+                  />
+                </div>
+
+                <!-- Footer del Ebook -->
+                <div>
+                  <p class="text-[10px] text-slate-300 font-bold uppercase tracking-wider">
+                    Plantillas Forenses • Notion & PDF
+                  </p>
+                  <p class="text-[9px] text-slate-400">
+                    Edición Especial para Pregrado 2026
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= BLOQUE 2: BENEFICIOS CON ICONOS ================= -->
+        <div class="lg:col-span-4 space-y-6">
+          <div>
+            <p class="text-lg sm:text-xl font-bold text-[#0B2545] leading-snug">
+              Descarga <span class="text-[#0077FE] font-black underline decoration-cyan-400 decoration-2">GRATIS</span> nuestra guía y aprende a auditar tus errores con pasos simples y efectivos.
+            </p>
+          </div>
+
+          <!-- Lista de Viñetas Estilo Referencia (Icono circular verde/azul + Texto) -->
+          <div class="space-y-4">
+            
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xl font-bold">
+                📖
+              </div>
+              <div>
+                <h3 class="text-sm font-extrabold text-[#0B2545] leading-snug">
+                  Auditoría Forense de Errores
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600">
+                  Aprende a clasificar tus fallos en conceptuales, procedimentales o atencionales.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-full bg-blue-100 text-[#0077FE] flex items-center justify-center shrink-0 text-xl font-bold">
+                🎯
+              </div>
+              <div>
+                <h3 class="text-sm font-extrabold text-[#0B2545] leading-snug">
+                  Principio de Pareto (Regla 80/20)
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600">
+                  Enfócate en el 20% de temas que definen el 80% del puntaje en los parciales.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 text-xl font-bold">
+                🧠
+              </div>
+              <div>
+                <h3 class="text-sm font-extrabold text-[#0B2545] leading-snug">
+                  Neurociencia del Sueño REM
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600">
+                  Dile adiós a las amanecidas tóxicas y protege la consolidación de tu memoria.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-full bg-cyan-100 text-[#00C2FF] flex items-center justify-center shrink-0 text-xl font-bold">
+                🤝
+              </div>
+              <div>
+                <h3 class="text-sm font-extrabold text-[#0B2545] leading-snug">
+                  Dinámicas de Aprendizaje P2P
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600">
+                  Cómo resolver exámenes pasados con compañeros de ciclos superiores sin trabas.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= BLOQUE 3: CAJA DE DESCARGA / FORMULARIO ================= -->
+        <div class="lg:col-span-4">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/25 shadow-xl relative overflow-hidden">
+            
+            <!-- Icono Verde Superior de Descarga -->
+            <div class="text-center mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-[#0B2545] mt-3">
+                ¡Descarga tu guía ahora!
+              </h3>
+              <p class="text-xs text-slate-500 mt-1">
+                Completa tus datos para recibirla al instante en tu correo.
+              </p>
+            </div>
+
+            <!-- Formulario Directo -->
+            <form id="download-page-form" class="space-y-3.5" onsubmit="event.preventDefault(); submitDownloadForm();">
+              <div>
+                <label for="lead-user-name" class="sr-only">Nombre completo</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                    👤
+                  </span>
+                  <input
+                    type="text"
+                    id="lead-user-name"
+                    required
+                    placeholder="Nombre completo"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all bg-slate-50/50"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-user-email" class="sr-only">Correo electrónico</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                    ✉️
+                  </span>
+                  <input
+                    type="email"
+                    id="lead-user-email"
+                    required
+                    placeholder="Correo universitario o personal"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all bg-slate-50/50"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-user-cycle" class="sr-only">Ciclo o Carrera</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                    🎓
+                  </span>
+                  <select
+                    id="lead-user-cycle"
+                    class="w-full pl-10 pr-8 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all bg-slate-50/50 text-slate-700 appearance-none"
+                  >
+                    <option value="">Selecciona tu ciclo universitario</option>
+                    <option value="1-2">1.º a 2.º Ciclo (Estudios Generales)</option>
+                    <option value="3-5">3.º a 5.º Ciclo (Cursos de Facultad)</option>
+                    <option value="6-8">6.º a 8.º Ciclo (Especialidad)</option>
+                    <option value="9-10">9.º a 10.º Ciclo (Últimos ciclos)</option>
+                  </select>
+                  <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+                    ▼
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 pt-1 text-[11px] text-slate-500">
+                <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span>Respetamos tu privacidad. Cero spam.</span>
+              </div>
+
+              <!-- Botón Violeta/Púrpura Inspirado en la Referencia -->
+              <button
+                type="submit"
+                id="submit-download-btn"
+                class="w-full py-4 px-6 rounded-2xl font-black text-white text-base bg-gradient-to-r from-[#6366F1] via-[#4F46E5] to-[#4338CA] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+              >
+                <span>📥 QUIERO MI GUÍA GRATIS</span>
+              </button>
+
+              <p class="text-[11px] text-slate-500 text-center font-semibold pt-1">
+                ¡Únete a miles de universitarios que ya están mejorando sus notas!
+              </p>
+            </form>
+
+            <!-- Success State -->
+            <div id="download-success" class="hidden text-center py-6">
+              <div class="w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-black">
+                ✓
+              </div>
+              <h4 class="text-lg font-black text-[#0B2545] mb-2">
+                ¡Tu guía está en camino!
+              </h4>
+              <p class="text-xs text-slate-600 mb-5 leading-relaxed">
+                Hemos enviado el enlace de descarga a tu correo. Mientras tanto, conoce tus vacíos conceptuales con el test diagnóstico:
+              </p>
+              <a
+                href="/test-diagnostico"
+                class="inline-block w-full py-3 px-4 rounded-xl font-bold text-white text-sm bg-[#0077FE] hover:bg-[#0060d4] transition-colors shadow-md"
+              >
+                Realizar Test Diagnóstico Gratuito →
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= BANNER INFERIOR "AL DESCARGAR LA GUÍA RECIBIRÁS" ================= -->
+      <div class="mt-12 sm:mt-16 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm">
+        <p class="text-center text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-500 mb-6">
+          🎁 Al descargar la guía, también recibirás de regalo:
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-xs sm:text-sm text-slate-700">
+          
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+            <span class="text-xl">📊</span>
+            <div>
+              <p class="font-extrabold text-[#0B2545]">Plantillas Notion</p>
+              <p class="text-[11px] text-slate-500">Auditoría forense de parciales</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+            <span class="text-xl">✅</span>
+            <div>
+              <p class="font-extrabold text-[#0B2545]">Checklist Imprimible</p>
+              <p class="text-[11px] text-slate-500">Protocolo de estudio 48h antes</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+            <span class="text-xl">💡</span>
+            <div>
+              <p class="font-extrabold text-[#0B2545]">Consejos Semanales</p>
+              <p class="text-[11px] text-slate-500">Neurociencia aplicada al pregrado</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+            <span class="text-xl">🚀</span>
+            <div>
+              <p class="font-extrabold text-[#0B2545]">Pase Comunitario</p>
+              <p class="text-[11px] text-slate-500">Acceso a mentorías entre pares</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="w-full bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+      <div class="max-w-6xl mx-auto px-4">
+        <p>© 2026 <strong>MindFix EdTech</strong>. Todos los derechos reservados. | <a href="/" class="text-[#0077FE] hover:underline">Volver a MindFix</a></p>
+      </div>
+    </footer>
+
+    <!-- Form Handler Script -->
+    <script is:inline>
+      function submitDownloadForm() {
+        const form = document.getElementById('download-page-form');
+        const success = document.getElementById('download-success');
+        if (form && success) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        }
+      }
+    </script>
+  </body>
+</html>
