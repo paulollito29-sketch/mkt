@@ -182,151 +182,138 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
     </header>
 
     <main>
-      <!-- ==================== SECCIÓN HERO ==================== -->
-      <section class="relative overflow-hidden bg-[#FFFFFF] pt-8 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-28">
-        <!-- Esferas de luz animadas de fondo -->
-        <div
-          class="animate-blob pointer-events-none absolute -top-20 right-10 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-[#0077FE]/15 via-[#00C2FF]/12 to-transparent blur-3xl"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="animate-blob-delayed pointer-events-none absolute bottom-0 -left-16 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#0B2545]/8 via-[#0077FE]/10 to-transparent blur-3xl"
-          aria-hidden="true"
-        ></div>
+      <!-- ==================== SECCIÓN HERO (ESTILO EDITORIAL / BLOG) ==================== -->
+      <section class="relative overflow-hidden bg-[#FAFBFD] pt-6 pb-14 sm:pt-10 sm:pb-20 border-b border-slate-200/80">
+        <!-- Esferas de luz sutiles -->
+        <div class="pointer-events-none absolute -top-24 right-10 w-[450px] h-[450px] rounded-full bg-blue-100/50 blur-3xl" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full bg-slate-200/40 blur-3xl" aria-hidden="true"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            <!-- Columna Izquierda: Copy Persuasivo & CTA Principal -->
-            <div class="lg:col-span-6 text-left reveal-left">
-              <!-- Badge Superior con indicador vivo -->
-              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#F1F5F9] border border-[#0077FE]/25 text-[#0B2545] text-xs sm:text-sm font-bold mb-6 shadow-xs hover:border-[#0077FE] transition-colors">
-                <span class="relative flex h-2.5 w-2.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0077FE] opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0077FE]"></span>
-                </span>
-                <span>🚀 Nueva forma de aprender en la universidad con IA</span>
-              </div>
+          
+          <!-- Barra Editorial Superior -->
+          <div class="flex items-center justify-between pb-6 mb-8 border-b border-slate-200 text-xs sm:text-sm">
+            <div class="flex items-center gap-2 text-slate-500 font-medium">
+              <span class="inline-block w-2 h-2 rounded-full bg-[#0077FE]"></span>
+              <span class="font-bold text-[#0B2545] tracking-wide uppercase text-[11px]">Diario Universitario MindFix</span>
+              <span class="hidden sm:inline text-slate-300">•</span>
+              <span class="hidden sm:inline">Edición Neurociencia & Metodología de Estudio</span>
+            </div>
+            <a href="/blog" class="inline-flex items-center gap-1.5 font-bold text-[#0077FE] hover:text-[#0055c4] transition-colors text-xs sm:text-sm">
+              Ver todos los ensayos y artículos <span>→</span>
+            </a>
+          </div>
 
-              <!-- Título H1 Persuasivo con Gradiente en Movimiento -->
-              <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl font-extrabold text-[#0B2545] tracking-tight leading-[1.14] mb-6">
-                ¿Estudias horas y tus notas no suben?{" "}
-                <span class="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#0077FE] via-[#00C2FF] to-[#0077FE]">
-                  Identifica tus vacíos de aprendizaje en minutos
-                </span>
-              </h1>
+          <!-- Portada Principal Tipo Magazine / Lead Story -->
+          <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group mb-6">
+            
+            <!-- Columna Izquierda / Imagen: Chica con problemas reales para estudiar de madrugada -->
+            <div class="lg:col-span-7 relative min-h-[340px] sm:min-h-[440px] lg:min-h-full overflow-hidden bg-slate-100">
+              <a href="/blog/la-trampa-de-las-6-horas" class="block w-full h-full relative" aria-label="Leer historia de portada">
+                <img
+                  src="/images/blog/hero-trampa-6-horas.jpg"
+                  alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
+                  class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/60 via-transparent to-transparent lg:hidden pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 lg:hidden text-white text-xs font-semibold px-3 py-1 bg-black/60 backdrop-blur-md rounded-full">
+                  Crónica de Portada
+                </div>
+              </a>
+            </div>
 
-              <!-- Subtítulo -->
-              <p class="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                MindFix analiza tus evaluaciones, detecta los conceptos exactos que necesitas reforzar y te conecta con estudiantes destacados que ya dominan tu carrera. <strong class="font-semibold text-[#0B2545]">Deja de memorizar a ciegas.</strong>
-              </p>
+            <!-- Columna Derecha: Contenido Editorial No Comercial -->
+            <div class="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-white">
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0077FE] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                    Neurociencia Cognitiva
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">
+                    • 7 min de lectura
+                  </span>
+                </div>
 
-              <!-- Botón CTA Hero con pulso y destello + Microtexto de Confianza -->
-              <div class="flex flex-col sm:items-start gap-3.5">
-                <a
-                  href={heroCtaUrl}
-                  class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/40"
-                >
-                  <span>Realizar Test Gratuito</span>
-                  <svg
-                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
+                <h1 class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-[1.2] mb-4 group-hover:text-[#0077FE] transition-colors">
+                  <a href="/blog/la-trampa-de-las-6-horas">
+                    La trampa de las 6 horas: Por qué estudiar más tiempo no está subiendo tus notas
+                  </a>
+                </h1>
 
-                <p class="text-xs sm:text-sm font-semibold text-slate-600 flex flex-wrap items-center gap-x-2 gap-y-1 pl-1">
-                  <span class="text-[#0077FE] font-bold">✓ 100% gratuito</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Resultados en 3 minutos</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Sin tarjeta de crédito</span>
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-5 italic font-serif">
+                  "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
+                </p>
+
+                <p class="text-sm text-slate-500 leading-relaxed line-clamp-3 mb-6">
+                  Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. La relectura pasiva crea una peligrosa ilusión de competencia que colapsa ante el estrés de los parciales.
                 </p>
               </div>
 
-              <!-- Mini Social Proof Universitaria con Contador Animado -->
-              <div class="mt-9 pt-7 border-t border-slate-100 flex flex-wrap items-center gap-6">
-                <div class="flex -space-x-2.5 overflow-hidden">
-                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0B2545] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">VR</span>
-                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0077FE] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">DM</span>
-                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0E1B2E] text-white text-xs font-bold ring-2 ring-white hover:-translate-y-1 transition-transform">CP</span>
-                  <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#00A3FF] text-white text-xs font-bold ring-2 ring-white">+2k</span>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-600">
-                  <span class="font-extrabold text-[#0B2545]">+<span class="counter" data-target="2400">0</span> universitarios</span> ya subieron al tercio superior sin amanecidas.
-                </div>
-              </div>
-            </div>
-
-            <!-- Columna Derecha: Imagen 1 (Valeria) con Levitación y Escaneo IA -->
-            <div class="lg:col-span-6 relative reveal-right">
-              <div class="relative mx-auto max-w-xl lg:max-w-none group">
-                <!-- Halo luminoso animado detrás de la imagen -->
-                <div
-                  class="animate-blob absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#0B2545]/15 via-[#0077FE]/25 to-[#00C2FF]/25 blur-xl opacity-85 group-hover:opacity-100 transition-opacity"
-                  aria-hidden="true"
-                ></div>
-
-                <div class="relative rounded-3xl overflow-hidden border border-slate-200/90 bg-[#0E1B2E] shadow-2xl">
-                  <!-- Línea sutil de escaneo IA -->
-                  <div
-                    class="scan-beam pointer-events-none absolute left-0 right-0 h-12 bg-gradient-to-b from-transparent via-[#00C2FF]/20 to-transparent z-10"
-                    aria-hidden="true"
-                  ></div>
-
-                  <img
-                    src="/images/hero-valeria-mindfix.webp"
-                    alt="Valeria Rojas, estudiante universitaria latinoamericana de 20 años en su escritorio sosteniendo una tableta con gráficos de progreso académico de MindFix y expresión de confianza"
-                    width="1200"
-                    height="800"
-                    loading="eager"
-                    fetchpriority="high"
-                    class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/50 via-transparent to-transparent pointer-events-none"></div>
-                </div>
-
-                <!-- Badge Flotante Superior Animado: Diagnóstico IA -->
-                <div class="animate-float hidden sm:flex items-center gap-3 absolute -top-6 -left-6 z-20 bg-white/95 backdrop-blur-md px-4 py-3.5 rounded-2xl shadow-xl border border-[#0077FE]/20">
-                  <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white flex items-center justify-center shrink-0 shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+              <!-- Autoría Editorial y Botón de Lectura -->
+              <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
+                    VR
                   </div>
                   <div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                      <p class="text-[11px] font-bold uppercase tracking-wider text-[#0077FE]">Diagnóstico IA Activo</p>
-                    </div>
-                    <p class="text-xs font-extrabold text-[#0B2545]">3 vacíos detectados en Cálculo II</p>
+                    <p class="text-xs font-bold text-[#0B2545]">Valeria Rojas</p>
+                    <p class="text-[11px] text-slate-400">Estudiante de Pregrado • 4to Ciclo</p>
                   </div>
                 </div>
 
-                <!-- Badge Flotante Inferior Animado: Progreso Tercio Superior -->
-                <div class="animate-float-delayed flex items-center gap-3.5 sm:absolute -bottom-6 -right-5 z-20 mt-4 sm:mt-0 bg-[#0B2545] text-white px-5 py-4 rounded-2xl shadow-2xl border border-[#00A3FF]/40">
-                  <div class="w-11 h-11 rounded-xl bg-[#00A3FF]/20 text-[#00C2FF] flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                  <div class="min-w-[190px]">
-                    <div class="flex items-center justify-between text-[11px] font-semibold text-[#00C2FF] mb-1">
-                      <span>Progreso de Valeria</span>
-                      <span>Tercio Superior</span>
-                    </div>
-                    <p class="text-xs sm:text-sm font-extrabold text-white mb-1.5">Promedio: 11.4 → 16.2</p>
-                    <div class="w-full h-1.5 bg-white/15 rounded-full overflow-hidden">
-                      <div class="progress-fill h-full bg-gradient-to-r from-[#0077FE] to-[#00C2FF] rounded-full" data-width="84%"></div>
-                    </div>
-                  </div>
-                </div>
+                <a
+                  href="/blog/la-trampa-de-las-6-horas"
+                  class="inline-flex items-center gap-1.5 text-sm font-bold text-[#0077FE] group-hover:translate-x-1 transition-all"
+                >
+                  Leer ensayo completo <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
+
+          </article>
+
+          <!-- Tira de Artículos Recientes del Blog -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            
+            <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
+              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+                <img src="/images/blog/hero-aprendizaje-p2p.jpg" alt="Aprendizaje P2P" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Aprendizaje P2P</span>
+                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
+                  ¿Por qué un compañero te explica mejor que el profesor?
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
+              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+                <img src="/images/blog/hero-amanecidas-insomnio.jpg" alt="Amanecidas pre-parciales" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Neurociencia del Sueño</span>
+                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
+                  Amanecidas pre-parciales: Por qué estudiar sin dormir sabotea tu memoria
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/saque-08-y-no-se-en-que-falle" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
+              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+                <img src="/images/blog/hero-auditoria-examen.jpg" alt="Auditoría de exámenes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Auditoría Forense</span>
+                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
+                  ¿Saqué 08 y no sé en qué fallé?: Cómo auditar tus errores de examen
+                </p>
+              </div>
+            </a>
+
           </div>
+
         </div>
       </section>
 
