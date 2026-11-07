@@ -182,139 +182,154 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
     </header>
 
     <main>
-      <!-- ==================== SECCIÓN HERO (ESTILO EDITORIAL / BLOG) ==================== -->
-      <section class="relative overflow-hidden bg-[#FAFBFD] pt-6 pb-14 sm:pt-10 sm:pb-20 border-b border-slate-200/80">
-        <!-- Esferas de luz sutiles -->
-        <div class="pointer-events-none absolute -top-24 right-10 w-[450px] h-[450px] rounded-full bg-blue-100/50 blur-3xl" aria-hidden="true"></div>
-        <div class="pointer-events-none absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full bg-slate-200/40 blur-3xl" aria-hidden="true"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <!-- ==================== SECCIÓN HERO (EDITORIAL 100% FULL-VIEWPORT + BOTÓN DE TEST) ==================== -->
+      <section class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#0B1528] text-white overflow-hidden border-b border-slate-800">
+        
+        <!-- Imagen de fondo a pantalla completa: Chica abrumada estudiando de madrugada -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/images/blog/hero-trampa-6-horas.jpg"
+            alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
+            class="w-full h-full object-cover object-center scale-105 filter brightness-[0.42] contrast-[1.12]"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <!-- Gradientes cinematográficos para lectura impecable y atmósfera editorial -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#070D18]/95 via-[#070D18]/80 to-[#070D18]/45"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#070D18] via-transparent to-black/30"></div>
           
-          <!-- Barra Editorial Superior -->
-          <div class="flex items-center justify-between pb-6 mb-8 border-b border-slate-200 text-xs sm:text-sm">
-            <div class="flex items-center gap-2 text-slate-500 font-medium">
-              <span class="inline-block w-2 h-2 rounded-full bg-[#0077FE]"></span>
-              <span class="font-bold text-[#0B2545] tracking-wide uppercase text-[11px]">Diario Universitario MindFix</span>
-              <span class="hidden sm:inline text-slate-300">•</span>
-              <span class="hidden sm:inline">Edición Neurociencia & Metodología de Estudio</span>
-            </div>
-            <a href="/blog" class="inline-flex items-center gap-1.5 font-bold text-[#0077FE] hover:text-[#0055c4] transition-colors text-xs sm:text-sm">
-              Ver todos los ensayos y artículos <span>→</span>
-            </a>
+          <!-- Luces de acento dinámicas -->
+          <div class="pointer-events-none absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0077FE]/15 blur-3xl"></div>
+          <div class="pointer-events-none absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/10 blur-3xl"></div>
+        </div>
+
+        <!-- Contenedor Principal (100% ancho y centrado vertical) -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-8 flex-1 flex flex-col justify-center">
+          
+          <!-- Top Badge Editorial -->
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-[#00C2FF]">
+              <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
+              Crónica de Portada • Metodología & Neurociencia
+            </span>
+            <span class="text-xs text-slate-300 font-medium hidden sm:inline">
+              Tiempo de lectura: 7 min
+            </span>
           </div>
 
-          <!-- Portada Principal Tipo Magazine / Lead Story -->
-          <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group mb-6">
-            
-            <!-- Columna Izquierda / Imagen: Chica con problemas reales para estudiar de madrugada -->
-            <div class="lg:col-span-7 relative min-h-[340px] sm:min-h-[440px] lg:min-h-full overflow-hidden bg-slate-100">
-              <a href="/blog/la-trampa-de-las-6-horas" class="block w-full h-full relative" aria-label="Leer historia de portada">
-                <img
-                  src="/images/blog/hero-trampa-6-horas.jpg"
-                  alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
-                  class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                  loading="eager"
-                  fetchpriority="high"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/60 via-transparent to-transparent lg:hidden pointer-events-none"></div>
-                <div class="absolute bottom-4 left-4 lg:hidden text-white text-xs font-semibold px-3 py-1 bg-black/60 backdrop-blur-md rounded-full">
-                  Crónica de Portada
-                </div>
+          <!-- Título Principal Tipo Revista/Blog Editorial -->
+          <div class="max-w-3xl">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.12] mb-6 text-white">
+              La trampa de las 6 horas:{" "}
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] via-[#00C2FF] to-white">
+                Por qué estudiar más tiempo no está subiendo tus notas
+              </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-200 font-serif leading-relaxed mb-6 italic max-w-2xl border-l-2 border-[#00C2FF] pl-4">
+              "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
+            </p>
+
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
+              Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. Detecta tus vacíos conceptuales y cambia el esfuerzo bruto por aprendizaje estratégico.
+            </p>
+
+            <!-- Acciones Principales: Botón de Realizar Test + Botón de Leer Ensayo -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+              <!-- BOTÓN PRINCIPAL: REALIZAR TEST DIAGNÓSTICO -->
+              <a
+                href={heroCtaUrl}
+                class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 shadow-[0_12px_32px_rgba(0,119,254,0.45)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/50"
+              >
+                <span>Realizar Test Diagnóstico Gratuito</span>
+                <svg
+                  class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+
+              <!-- Botón Secundario: Leer Artículo Completo -->
+              <a
+                href="/blog/la-trampa-de-las-6-horas"
+                class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-bold text-base transition-all duration-200"
+              >
+                <span>Leer artículo completo</span>
+                <span aria-hidden="true">→</span>
               </a>
             </div>
 
-            <!-- Columna Derecha: Contenido Editorial No Comercial -->
-            <div class="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-white">
-              <div>
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0077FE] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-                    Neurociencia Cognitiva
-                  </span>
-                  <span class="text-xs text-slate-400 font-medium">
-                    • 7 min de lectura
-                  </span>
-                </div>
-
-                <h1 class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-[1.2] mb-4 group-hover:text-[#0077FE] transition-colors">
-                  <a href="/blog/la-trampa-de-las-6-horas">
-                    La trampa de las 6 horas: Por qué estudiar más tiempo no está subiendo tus notas
-                  </a>
-                </h1>
-
-                <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-5 italic font-serif">
-                  "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
-                </p>
-
-                <p class="text-sm text-slate-500 leading-relaxed line-clamp-3 mb-6">
-                  Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. La relectura pasiva crea una peligrosa ilusión de competencia que colapsa ante el estrés de los parciales.
-                </p>
-              </div>
-
-              <!-- Autoría Editorial y Botón de Lectura -->
-              <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
-                    VR
-                  </div>
-                  <div>
-                    <p class="text-xs font-bold text-[#0B2545]">Valeria Rojas</p>
-                    <p class="text-[11px] text-slate-400">Estudiante de Pregrado • 4to Ciclo</p>
-                  </div>
-                </div>
-
-                <a
-                  href="/blog/la-trampa-de-las-6-horas"
-                  class="inline-flex items-center gap-1.5 text-sm font-bold text-[#0077FE] group-hover:translate-x-1 transition-all"
-                >
-                  Leer ensayo completo <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-
-          </article>
-
-          <!-- Tira de Artículos Recientes del Blog -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            
-            <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
-              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                <img src="/images/blog/hero-aprendizaje-p2p.jpg" alt="Aprendizaje P2P" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Aprendizaje P2P</span>
-                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
-                  ¿Por qué un compañero te explica mejor que el profesor?
-                </p>
-              </div>
-            </a>
-
-            <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
-              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                <img src="/images/blog/hero-amanecidas-insomnio.jpg" alt="Amanecidas pre-parciales" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Neurociencia del Sueño</span>
-                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
-                  Amanecidas pre-parciales: Por qué estudiar sin dormir sabotea tu memoria
-                </p>
-              </div>
-            </a>
-
-            <a href="/blog/saque-08-y-no-se-en-que-falle" class="bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-[#0077FE]/40 hover:shadow-md transition-all flex items-start gap-3.5 group">
-              <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                <img src="/images/blog/hero-auditoria-examen.jpg" alt="Auditoría de exámenes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Auditoría Forense</span>
-                <p class="text-xs font-bold text-[#0B2545] leading-snug line-clamp-2 group-hover:text-[#0077FE] transition-colors mt-0.5">
-                  ¿Saqué 08 y no sé en qué fallé?: Cómo auditar tus errores de examen
-                </p>
-              </div>
-            </a>
-
+            <!-- Microtexto de Confianza del Test -->
+            <p class="text-xs sm:text-sm font-semibold text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="text-[#00C2FF] font-bold">✓ 100% gratuito</span>
+              <span class="text-slate-500" aria-hidden="true">·</span>
+              <span>Resultados en 3 minutos</span>
+              <span class="text-slate-500" aria-hidden="true">·</span>
+              <span>Diagnóstico IA de vacíos conceptuales</span>
+            </p>
           </div>
 
         </div>
+
+        <!-- Tira Inferior del Hero (100% ancho con artículos recomendados) -->
+        <div class="relative z-10 w-full bg-black/40 backdrop-blur-xl border-t border-white/10 py-4 sm:py-5">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span class="flex items-center gap-2 text-white">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#0077FE]"></span>
+                Ensayos y lecturas recomendadas del blog
+              </span>
+              <a href="/blog" class="text-[#00C2FF] hover:underline normal-case font-semibold">
+                Ver todos (4) →
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+              
+              <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+                  <img src="/images/blog/hero-aprendizaje-p2p.jpg" alt="Aprendizaje P2P" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Tutorías P2P</span>
+                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                    ¿Por qué un compañero te explica mejor?
+                  </p>
+                </div>
+              </a>
+
+              <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+                  <img src="/images/blog/hero-amanecidas-insomnio.jpg" alt="Amanecidas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Neurociencia</span>
+                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                    Amanecidas pre-parciales: Por qué sabotea tu memoria
+                  </p>
+                </div>
+              </a>
+
+              <a href="/blog/saque-08-y-no-se-en-que-falle" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+                  <img src="/images/blog/hero-auditoria-examen.jpg" alt="Auditoría" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Auditoría Forense</span>
+                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                    ¿Saqué 08 y no sé en qué fallé?: Guía práctica
+                  </p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- ==================== SECCIÓN DE PROBLEMÁTICA (DOLORES DE VALERIA) ==================== -->
