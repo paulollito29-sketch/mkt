@@ -1,0 +1,413 @@
+---
+import '../styles/global.css';
+
+const title = "TikTok Ads Playbook: Formatos Publicitarios para MindFix";
+const description = "Desglose visual y estratégico de los 6 formatos publicitarios de TikTok Ads adaptados a la captación y viralización de MindFix en la comunidad universitaria.";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Aspect Ratio Slide 16:9 */
+      .slide-canvas {
+        width: 100%;
+        max-width: 1380px;
+        aspect-ratio: 16 / 9;
+        min-height: 760px;
+      }
+      @media (max-width: 1200px) {
+        .slide-canvas {
+          aspect-ratio: auto;
+          min-height: auto;
+        }
+      }
+      .phone-frame {
+        border-radius: 28px;
+        box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.25), 0 0 0 5px #1E293B, 0 0 0 7px #475569;
+      }
+      .phone-frame-sm {
+        border-radius: 18px;
+        box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.2), 0 0 0 3px #1E293B, 0 0 0 4.5px #64748B;
+      }
+      .vertical-text {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F1F5F9] text-[#0B2545] p-3 sm:p-6 lg:p-8 flex flex-col items-center justify-center min-h-screen">
+    
+    <!-- Barra superior de navegación / exportación -->
+    <div class="max-w-[1380px] w-full flex items-center justify-between mb-4 px-2">
+      <div class="flex items-center gap-3">
+        <a href="/" class="text-xs font-bold text-[#0077FE] hover:underline flex items-center gap-1">
+          ← Volver a MindFix
+        </a>
+        <span class="text-slate-300">•</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">
+          Infografía Estratégica: Formatos TikTok Ads
+        </span>
+      </div>
+      <button onclick="window.print()" class="text-xs font-extrabold px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-50 transition-colors shadow-xs cursor-pointer flex items-center gap-1.5">
+        <span>🖨️ Imprimir / Guardar PDF</span>
+      </button>
+    </div>
+
+    <!-- ==================== CONTENEDOR TIPO SLIDE / INFOGRAFÍA (16:9) ==================== -->
+    <div class="slide-canvas bg-[#FAFBFD] rounded-3xl border border-slate-300 shadow-2xl p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+      
+      <!-- Fondo decorativo sutil -->
+      <div class="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#00C2FF]/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#0077FE]/8 blur-3xl"></div>
+
+      <!-- Layout Principal en 3 Columnas: Lista de Formatos (Izquierda) | Celular Principal (Centro) | 6 Celulares (Derecha) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 flex-1 items-center">
+        
+        <!-- ================= COLUMNA IZQUIERDA: MENÚ DE FORMATOS TIKTOK ADS ================= -->
+        <div class="lg:col-span-3 flex items-stretch gap-3 h-full justify-center">
+          
+          <!-- Banner Vertical Negro con texto "TikTok Ads" -->
+          <div class="w-14 sm:w-16 rounded-2xl bg-[#090D14] text-white flex flex-col items-center justify-between py-6 px-2 shadow-lg shrink-0">
+            <!-- Icono TikTok estilizado -->
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center font-black text-base text-[#00C2FF]">
+              ♪
+            </div>
+            
+            <span class="vertical-text text-xl sm:text-2xl font-black tracking-widest text-white uppercase">
+              <span class="text-white">TikTok</span> <span class="text-[#FF0050]">A</span><span class="text-[#00F2FE]">ds</span>
+            </span>
+
+            <div class="w-2 h-2 rounded-full bg-[#FF0050]"></div>
+          </div>
+
+          <!-- Conectores y 6 Tarjetas Negras de Formatos -->
+          <div class="flex-1 flex flex-col justify-between space-y-2 py-1">
+            
+            <!-- 1. Anuncios In-Feed -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-[#00F2FE] flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                ▶
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Anuncios In-Feed</p>
+                <p class="text-[10px] text-slate-400 truncate">(En el feed Para ti)</p>
+              </div>
+            </div>
+
+            <!-- 2. Anuncios TopView -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-[#FF0050] flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                👥
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Anuncios TopView</p>
+                <p class="text-[10px] text-slate-400 truncate">(Pantalla completa al abrir)</p>
+              </div>
+            </div>
+
+            <!-- 3. Anuncios Brand Takeover -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-amber-400 flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                ✨
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Anuncios Brand Takeover</p>
+                <p class="text-[10px] text-slate-400 truncate">(Impacto visual instantáneo)</p>
+              </div>
+            </div>
+
+            <!-- 4. Anuncios Hashtag Challenge -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-emerald-400 flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                #
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Hashtag Challenge</p>
+                <p class="text-[10px] text-slate-400 truncate">(Reto viral #MiParcialSinJale)</p>
+              </div>
+            </div>
+
+            <!-- 5. Anuncios Branded Effects -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-purple-400 flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                🪄
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Branded Effects</p>
+                <p class="text-[10px] text-slate-400 truncate">(Filtros y ruletas interactivas)</p>
+              </div>
+            </div>
+
+            <!-- 6. Anuncios Lead Gen / Direct CTA -->
+            <div class="bg-[#090D14] text-white p-3 rounded-xl shadow-md border-l-4 border-[#0077FE] flex items-center gap-3">
+              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                📥
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-extrabold leading-tight text-white">Lead Generation Ads</p>
+                <p class="text-[10px] text-slate-400 truncate">(Descarga de guías y test IA)</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= COLUMNA CENTRAL: TITULAR + CELULAR PRINCIPAL DESTACADO ================= -->
+        <div class="lg:col-span-4 flex flex-col items-center text-center">
+          
+          <!-- Logo Superior y Título -->
+          <div class="mb-3">
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-2xl font-black text-black tracking-tight">♪ TikTok</span>
+              <span class="text-2xl font-black text-[#0077FE] tracking-tight">Ads</span>
+            </div>
+            <p class="text-[11px] font-extrabold tracking-widest uppercase text-slate-400 mt-0.5">
+              TIPOS DE PUBLICIDAD PARA MINDFIX
+            </p>
+          </div>
+
+          <!-- Smartphone Central Destacado -->
+          <div class="phone-frame w-[270px] sm:w-[290px] h-[520px] bg-black relative overflow-hidden flex flex-col justify-between border-[6px] border-[#1E293B]">
+            
+            <!-- Isla Dinámica Superior -->
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-30"></div>
+
+            <!-- Header TikTok: Siguiendo | Para ti -->
+            <div class="relative z-20 pt-6 px-4 flex items-center justify-between text-white text-xs font-bold drop-shadow-md">
+              <span class="text-sm">‹</span>
+              <div class="flex items-center gap-3">
+                <span class="text-slate-400 font-semibold text-[11px]">Siguiendo</span>
+                <span class="text-white border-b-2 border-white pb-0.5 text-[11px]">Para ti</span>
+              </div>
+              <span class="text-sm">🔍</span>
+            </div>
+
+            <!-- Contenido del Video Central: Estudiante Valeria con Laptop y Apuntes -->
+            <div class="absolute inset-0 z-0">
+              <img
+                src="/images/blog/hero-trampa-6-horas.jpg"
+                alt="Valeria estudiando con MindFix"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40"></div>
+            </div>
+
+            <!-- Logo MindFix Flotante en la esquina superior izquierda del video -->
+            <div class="relative z-20 px-3.5 pt-2">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md text-[10px] font-black text-[#0B2545] shadow-md">
+                <span class="w-2 h-2 rounded-full bg-[#0077FE]"></span>
+                <span>MindFix IA</span>
+              </div>
+            </div>
+
+            <!-- Interacción Lateral TikTok (Corazón, Comentarios, Guardar, Compartir) -->
+            <div class="absolute right-2.5 bottom-28 z-20 flex flex-col items-center space-y-3.5 text-white">
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-sm shadow">❤️</div>
+                <span class="text-[9px] font-bold mt-0.5">24.8K</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-sm shadow">💬</div>
+                <span class="text-[9px] font-bold mt-0.5">582</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-sm shadow">🔖</div>
+                <span class="text-[9px] font-bold mt-0.5">1.4K</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-sm shadow">↗️</div>
+                <span class="text-[9px] font-bold mt-0.5">3.2K</span>
+              </div>
+            </div>
+
+            <!-- Banner Publicitario Interactivo Inferior (In-Feed Ad Card) -->
+            <div class="relative z-20 p-3 text-left">
+              
+              <div class="bg-[#0B2545]/95 backdrop-blur-md p-3 rounded-2xl border border-white/15 text-white shadow-xl mb-2">
+                <div class="flex items-center justify-between mb-1">
+                  <p class="text-xs font-black text-white">Test Diagnóstico Gratuito</p>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#00C2FF]/20 text-[#00C2FF] font-bold uppercase">3 min</span>
+                </div>
+                <p class="text-[10px] text-slate-300 leading-snug mb-2">
+                  ¿Estudias horas y jalas? Detecta tus vacíos antes de tus parciales con IA.
+                </p>
+                <a href="/test-diagnostico" class="block w-full py-1.5 text-center rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white text-[11px] font-extrabold shadow hover:opacity-95 transition-opacity">
+                  Haz el test ahora >
+                </a>
+              </div>
+
+              <!-- Footer Bar de TikTok -->
+              <div class="flex items-center justify-between text-white/80 text-[10px] pt-1 border-t border-white/10 px-1">
+                <span class="font-bold text-white">Inicio</span>
+                <span>Amigos</span>
+                <span class="w-5 h-4 bg-white text-black font-black text-[10px] rounded flex items-center justify-center">+</span>
+                <span>Bandeja</span>
+                <span>Perfil</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= COLUMNA DERECHA: GRILLA DE 6 PANTALLAS ESPECÍFICAS ================= -->
+        <div class="lg:col-span-5 grid grid-cols-3 gap-3 sm:gap-4">
+          
+          <!-- 1. ANUNCIOS IN-FEED -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              1. ANUNCIOS IN-FEED<br><span class="text-slate-400 font-semibold">(EN EL FEED PARA TI)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-slate-900 relative overflow-hidden text-white flex flex-col justify-between p-1.5">
+              <div class="absolute inset-0">
+                <img src="/images/blog/hero-aprendizaje-p2p.jpg" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+              </div>
+              <div class="relative z-10 text-[8px] font-bold text-left bg-black/50 px-1 rounded inline-block w-fit">MindFix</div>
+              <div class="relative z-10 text-left bg-[#0B2545]/90 p-1 rounded-md border border-white/20">
+                <p class="text-[7px] font-bold text-white truncate">Tips Parciales P2P</p>
+                <div class="w-full py-0.5 mt-0.5 rounded bg-[#0077FE] text-[6px] font-bold text-center">Más información</div>
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Aparecen de forma nativa en el feed. Explicaciones rápidas con llamada a la acción.
+            </p>
+          </div>
+
+          <!-- 2. ANUNCIOS TOPVIEW -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              2. ANUNCIOS TOPVIEW<br><span class="text-slate-400 font-semibold">(PANTALLA AL ABRIR)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-[#0B2545] relative overflow-hidden text-white flex flex-col items-center justify-between p-2">
+              <div class="text-[8px] font-semibold text-slate-400">9:41</div>
+              <div class="text-center">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0077FE] to-[#00C2FF] flex items-center justify-center text-xs font-black mx-auto mb-1">
+                  MF
+                </div>
+                <p class="text-[9px] font-black leading-tight text-white">MindFix</p>
+                <p class="text-[6px] text-[#00C2FF]">Estudia mejor, llega más lejos</p>
+              </div>
+              <div class="w-full py-1 rounded-md bg-white text-[#0B2545] text-[7px] font-black">
+                Iniciar Diagnóstico >
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Video o pantalla completa de hasta 60s al abrir TikTok. Máxima visibilidad y autoridad.
+            </p>
+          </div>
+
+          <!-- 3. BRAND TAKEOVER -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              3. BRAND TAKEOVER<br><span class="text-slate-400 font-semibold">(IMPACTO VISUAL)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-gradient-to-b from-[#0077FE] to-[#0B2545] relative overflow-hidden text-white flex flex-col items-center justify-center p-2 text-center">
+              <span class="text-xs mb-1">📘</span>
+              <p class="text-[8px] font-black leading-tight">GUÍA FORENSE DE EXÁMENES</p>
+              <p class="text-[6px] text-slate-200 mt-0.5">100% Gratis en PDF</p>
+              <div class="mt-2 px-2 py-0.5 bg-[#00C2FF] text-[#0B2545] font-extrabold text-[7px] rounded-full">
+                Descargar Ahora
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Imagen de pantalla completa estática o GIF que aparece de inmediato al iniciar la app.
+            </p>
+          </div>
+
+          <!-- 4. HASHTAG CHALLENGE -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              4. HASHTAG CHALLENGE<br><span class="text-slate-400 font-semibold">(RETO ESTUDIANTIL)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-slate-900 relative overflow-hidden text-white p-1.5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 mb-1">
+                  <span class="text-[8px] bg-[#FF0050] px-1 rounded font-bold">#</span>
+                  <span class="text-[7px] font-black truncate">#MiParcialSinJale</span>
+                </div>
+                <p class="text-[6px] text-slate-400">12.8M reproducciones</p>
+              </div>
+              <div class="grid grid-cols-2 gap-1 my-1">
+                <div class="h-10 bg-slate-800 rounded flex items-center justify-center text-[7px]">📚 18</div>
+                <div class="h-10 bg-slate-800 rounded flex items-center justify-center text-[7px]">🎓 20</div>
+              </div>
+              <div class="text-[6px] bg-[#0077FE] py-0.5 text-center rounded font-bold">
+                Unirme al Reto
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Invita a los alumnos a compartir cómo aprobaron sus parciales con MindFix.
+            </p>
+          </div>
+
+          <!-- 5. BRANDED EFFECTS -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              5. BRANDED EFFECTS<br><span class="text-slate-400 font-semibold">(FILTROS DE ESTUDIO)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-slate-900 relative overflow-hidden text-white flex flex-col justify-between p-1.5">
+              <div class="text-center pt-2">
+                <span class="text-xs">🎯</span>
+                <p class="text-[7px] font-extrabold text-amber-300">Ruleta de Exámenes</p>
+                <div class="text-[6px] bg-white/20 px-1 py-0.5 rounded mt-1">¿Qué tema te jala hoy?</div>
+              </div>
+              <div class="w-full flex justify-around text-[10px] pb-1">
+                <span>⚡</span>
+                <span class="text-emerald-400">🧠</span>
+                <span>📖</span>
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Filtros y juegos de Realidad Aumentada para gamificar la autoevaluación universitaria.
+            </p>
+          </div>
+
+          <!-- 6. LEAD GEN / SHOPPING ADS -->
+          <div class="flex flex-col items-center text-center">
+            <p class="text-[9px] font-extrabold uppercase text-[#FF0050] mb-1 line-clamp-2 leading-tight">
+              6. LEAD GEN / SHOPPING<br><span class="text-slate-400 font-semibold">(DESCARGA DIRECTA)</span>
+            </p>
+            <div class="phone-frame-sm w-[100px] h-[175px] bg-white text-[#0B2545] relative overflow-hidden p-1.5 flex flex-col justify-between border border-slate-200">
+              <div class="text-center">
+                <span class="text-xs">🎁</span>
+                <p class="text-[7px] font-black">Plan Premium P2P</p>
+                <p class="text-[6px] text-slate-500">Mentoría personalizada</p>
+                <p class="text-[8px] font-black text-[#0077FE] mt-1">S/ 0 Gratis</p>
+              </div>
+              <div class="w-full py-1 rounded bg-[#0077FE] text-white text-[7px] font-black text-center">
+                Pedir Diagnóstico
+              </div>
+            </div>
+            <p class="text-[8px] text-slate-500 mt-1 leading-tight">
+              Permiten capturar leads universitarios y descargas directamente sin salir de TikTok.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Footer de la Infografía -->
+      <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-400">
+        <span class="font-bold text-[#0B2545]">MindFix EdTech • TikTok Ads Growth Framework</span>
+        <span class="text-[11px]">Diseñado para captación y viralización universitaria con IA</span>
+      </div>
+
+    </div>
+
+  </body>
+</html>
