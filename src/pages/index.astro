@@ -1077,6 +1077,150 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         </div>
       </section>
 
+      
+      <!-- ==================== LEAD MAGNET: INVITACIÓN A DESCARGA GRATUITA ==================== -->
+      <section id="descarga-guia" class="relative py-20 sm:py-28 bg-gradient-to-b from-[#FAFBFD] via-white to-[#F1F5F9] border-t border-slate-200/80 overflow-hidden">
+        
+        <!-- Glows de fondo -->
+        <div class="pointer-events-none absolute -top-24 right-10 w-[500px] h-[500px] rounded-full bg-[#0077FE]/8 blur-3xl" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute bottom-0 left-10 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/10 blur-3xl" aria-hidden="true"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          
+          <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0">
+            
+            <!-- Columna Izquierda: Presentación del Ebook / Mockup Visual -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-[#0B2545] via-[#0E1B2E] to-[#0B1528] p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-20 -bottom-20 w-60 h-60 rounded-full bg-[#0077FE]/20 blur-2xl pointer-events-none"></div>
+
+              <div>
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#00C2FF]/30 text-[#00C2FF] text-xs font-bold uppercase tracking-wider mb-6">
+                  🎁 Invitación a Descarga Gratuita
+                </span>
+
+                <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight leading-snug mb-4 text-white">
+                  Guía Maestra: <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] to-[#00C2FF]">Auditoría Forense de Exámenes</span>
+                </h3>
+
+                <p class="text-slate-300 text-sm leading-relaxed mb-6 font-serif italic border-l-2 border-[#00C2FF] pl-3.5">
+                  "El paso a paso exacto para analizar cualquier examen desaprobado, detectar si fallaste por memoria, procedimiento o teoría, y nunca repetir el mismo error."
+                </p>
+
+                <div class="space-y-3 text-xs sm:text-sm text-slate-200">
+                  <div class="flex items-center gap-2.5">
+                    <span class="text-[#00C2FF] font-bold">✓</span>
+                    <span>Plantilla editable de auditoría de errores (PDF & Notion)</span>
+                  </div>
+                  <div class="flex items-center gap-2.5">
+                    <span class="text-[#00C2FF] font-bold">✓</span>
+                    <span>Matriz de los 4 cuadrantes de vacíos conceptuales</span>
+                  </div>
+                  <div class="flex items-center gap-2.5">
+                    <span class="text-[#00C2FF] font-bold">✓</span>
+                    <span>Guía para resolver parciales pasados con compañeros</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer del Recurso -->
+              <div class="pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                <span>📄 Formato: PDF interactivo</span>
+                <span>⚡ Descarga instantánea</span>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Formulario de Captura Directo -->
+            <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center bg-white">
+              <div class="max-w-md mx-auto w-full">
+                
+                <h4 class="text-xl sm:text-2xl font-extrabold text-[#0B2545] tracking-tight mb-2">
+                  ¿A dónde te enviamos la guía gratuita?
+                </h4>
+                <p class="text-sm text-slate-600 mb-6">
+                  Únete a más de 2,400 estudiantes universitarios que ya aplican el método de auditoría de MindFix.
+                </p>
+
+                <form id="lead-magnet-form" class="space-y-4" onsubmit="event.preventDefault(); handleLeadSubmit();">
+                  <div>
+                    <label for="lead-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Tu Nombre
+                    </label>
+                    <input
+                      type="text"
+                      id="lead-name"
+                      required
+                      placeholder="Ej. Valeria Rojas"
+                      class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="lead-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Tu Correo Universitario o Personal
+                    </label>
+                    <input
+                      type="email"
+                      id="lead-email"
+                      required
+                      placeholder="valeria@universidad.edu.pe"
+                      class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="lead-career" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Carrera o Facultad
+                    </label>
+                    <input
+                      type="text"
+                      id="lead-career"
+                      placeholder="Ej. Ingeniería, Medicina, Economía..."
+                      class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE] focus:border-transparent transition-all"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    id="lead-submit-btn"
+                    class="w-full mt-2 py-4 px-6 rounded-xl font-extrabold text-white text-base bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:opacity-95 active:scale-[0.99] transition-all shadow-lg shadow-[#0077FE]/30 cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>Descargar Guía en PDF Gratis</span>
+                    <span aria-hidden="true">📥</span>
+                  </button>
+
+                  <p class="text-[11px] text-slate-400 text-center mt-3">
+                    🔒 Cero spam. Solo recursos académicos probados. Puedes desuscribirte cuando quieras.
+                  </p>
+                </form>
+
+                <!-- Mensaje de Éxito al Enviar -->
+                <div id="lead-success-msg" class="hidden mt-6 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center animate-fade-in">
+                  <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-3 text-xl font-bold">
+                    ✓
+                  </div>
+                  <h5 class="text-base font-extrabold text-emerald-900 mb-1">
+                    ¡Guía enviada con éxito!
+                  </h5>
+                  <p class="text-xs text-emerald-700 mb-4">
+                    Revisa tu bandeja de entrada (y la carpeta de promociones o spam). También puedes abrir el test diagnóstico para un plan a tu medida.
+                  </p>
+                  <a
+                    href="/test-diagnostico"
+                    class="inline-block text-xs font-bold text-[#0077FE] bg-white border border-[#0077FE]/30 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors"
+                  >
+                    Hacer Test Diagnóstico Ahora →
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
       <!-- ==================== SECCIÓN FINAL (FOOTER CTA) ==================== -->
       <section class="relative overflow-hidden bg-[#0B2545] py-20 sm:py-24">
         <!-- Esferas luminosas animadas Cyan en el banner oscuro -->
@@ -1429,5 +1573,83 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         });
       });
     </script>
+  
+    <!-- ==================== RECORDATORIO FLOTANTE DE DESCARGA ==================== -->
+    <div
+      id="floating-download-reminder"
+      class="fixed bottom-6 right-6 z-50 max-w-sm w-[calc(100vw-3rem)] bg-[#0B2545] text-white rounded-2xl p-4 shadow-2xl border border-[#00C2FF]/30 transition-all duration-500 translate-y-32 opacity-0 pointer-events-none"
+    >
+      <div class="flex items-start justify-between gap-3 mb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#00C2FF] animate-ping"></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#00C2FF]">
+            Recordatorio de Descarga
+          </span>
+        </div>
+        <button
+          onclick="dismissDownloadReminder()"
+          class="text-slate-400 hover:text-white transition-colors p-1 -mr-1 -mt-1 text-sm font-bold"
+          aria-label="Cerrar recordatorio"
+        >
+          ✕
+        </button>
+      </div>
+
+      <p class="text-xs font-bold text-white leading-snug mb-1">
+        ¿Aún no descargas la Guía de Auditoría de Exámenes?
+      </p>
+      <p class="text-[11px] text-slate-300 leading-relaxed mb-3">
+        Aprende a desarmar tus errores y asegura tu nota para el próximo parcial.
+      </p>
+
+      <div class="flex items-center gap-2">
+        <a
+          href="#descarga-guia"
+          onclick="dismissDownloadReminder()"
+          class="flex-1 py-2 px-3 text-center rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-xs shadow-md hover:scale-[1.02] transition-transform"
+        >
+          Descargar Guía Gratis 📥
+        </a>
+        <a
+          href="/test-diagnostico"
+          class="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-slate-200 transition-colors"
+        >
+          Hacer Test
+        </a>
+      </div>
+    </div>
+
+    <!-- Script del Lead Magnet y Recordatorio -->
+    <script is:inline>
+      function handleLeadSubmit() {
+        const form = document.getElementById('lead-magnet-form');
+        const success = document.getElementById('lead-success-msg');
+        if (form && success) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        }
+      }
+
+      function dismissDownloadReminder() {
+        const reminder = document.getElementById('floating-download-reminder');
+        if (reminder) {
+          reminder.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+          localStorage.setItem('mindfix_download_dismissed', 'true');
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        // Mostrar recordatorio tras 6 segundos si no se ha cerrado antes
+        setTimeout(() => {
+          const isDismissed = localStorage.getItem('mindfix_download_dismissed');
+          const reminder = document.getElementById('floating-download-reminder');
+          if (reminder && !isDismissed) {
+            reminder.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+          }
+        }, 6000);
+      });
+    </script>
+
+
   </body>
 </html>
