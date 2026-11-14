@@ -1,0 +1,349 @@
+---
+import '../styles/global.css';
+import MindFixChatbot from '../components/MindFixChatbot.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus IA | MindFix — Plataforma Demo</title>
+    <meta
+      name="description"
+      content="Vista previa interactiva de la plataforma MindFix: progreso semanal, diagnóstico IA de vacíos conceptuales y mentoría P2P."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] antialiased min-h-screen">
+    <!-- Navbar de la Plataforma -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <a href="/" class="flex flex-col">
+            <div class="text-xl sm:text-2xl font-extrabold tracking-tight leading-none">
+              <span class="text-[#0B2545]">MIND</span><span class="text-[#0077FE]">FIX</span>
+            </div>
+            <span class="text-[10px] sm:text-[11px] font-semibold text-slate-500">Campus IA · Vista Demo</span>
+          </a>
+          <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 text-xs font-extrabold border border-emerald-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Plan Freemium Activo
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 text-xs font-bold text-[#0B2545]">
+            <span class="w-6 h-6 rounded-full bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white flex items-center justify-center font-extrabold" id="dash-avatar">
+              V
+            </span>
+            <span id="dash-user-pill">Valeria Rojas · Demo</span>
+          </div>
+          <a
+            href="/"
+            class="px-3.5 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs sm:text-sm font-bold text-[#0B2545] transition-colors"
+          >
+            ← Volver a la landing
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
+      <!-- Banner Superior: Saludo + Guía MindFix IA -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="lg:col-span-8 rounded-3xl bg-gradient-to-br from-[#0B2545] via-[#0F2F5A] to-[#0077FE] text-white p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="pointer-events-none absolute -right-12 -top-12 w-52 h-52 rounded-full bg-[#00C2FF]/20 blur-2xl"></div>
+          <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div class="space-y-2 max-w-xl">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-[#00C2FF] text-xs font-extrabold uppercase tracking-wider">
+                Asistente MindFix IA
+              </span>
+              <h1 id="dash-greeting" class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                ¡Hola, Valeria! Qué bueno tenerte aquí
+              </h1>
+              <p id="dash-subtitle" class="text-sm text-slate-200 leading-relaxed">
+                Tu meta esta semana es reforzar las bases de <strong class="text-white">Cálculo II</strong> sin amanecidas. Tienes un diagnóstico pendiente de 3 minutos.
+              </p>
+            </div>
+            <a
+              href="/test-diagnostico?utm_source=plataforma_demo&utm_medium=banner_cta"
+              class="cta-shimmer shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white text-[#0B2545] font-extrabold text-sm shadow-lg hover:scale-[1.02] transition-transform"
+            >
+              <span>¿En qué te ayudo hoy?</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta Perfil + Progreso Semanal -->
+        <div class="lg:col-span-4 rounded-3xl bg-white border border-slate-200/80 p-6 shadow-sm flex flex-col justify-between gap-4">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white font-extrabold text-lg flex items-center justify-center shrink-0" id="dash-card-avatar">
+                V
+              </div>
+              <div class="min-w-0">
+                <p id="dash-card-name" class="text-sm font-extrabold text-[#0B2545] truncate">Valeria Rojas</p>
+                <p id="dash-card-meta" class="text-xs text-slate-500 truncate">Ing. Industrial · 3° - 5° ciclo</p>
+              </div>
+            </div>
+            <span id="dash-card-role" class="px-2.5 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-[11px] font-extrabold shrink-0">
+              Estudiante
+            </span>
+          </div>
+
+          <div class="space-y-2.5 pt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between text-xs font-extrabold">
+              <span class="text-[#0B2545]">Progreso de hábitos académicos</span>
+              <span class="text-[#0077FE]">75% meta semanal</span>
+            </div>
+            <div class="space-y-2 text-xs">
+              <div>
+                <div class="flex justify-between text-slate-600 mb-1"><span>Active Recall</span><span class="font-bold text-[#0B2545]">80%</span></div>
+                <div class="h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full w-[80%] rounded-full bg-[#0077FE]"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-600 mb-1"><span>Vacíos resueltos</span><span class="font-bold text-[#0B2545]">70%</span></div>
+                <div class="h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full w-[70%] rounded-full bg-[#00C2FF]"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-600 mb-1"><span>Sueño saludable (7h+)</span><span class="font-bold text-[#0B2545]">75%</span></div>
+                <div class="h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full w-[75%] rounded-full bg-emerald-500"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recomendaciones Iniciales MindFix IA -->
+      <section aria-label="Recomendaciones personalizadas">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-[#0B2545]">Recomendaciones para ti</h2>
+            <p class="text-xs text-slate-500">Sugerencias iniciales según tus hábitos de estudio y curso foco</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-[11px] font-extrabold">
+            MindFix IA
+          </span>
+        </div>
+
+        <div id="dash-recommendations" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+            <div>
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-[11px] font-extrabold mb-2">
+                Método de estudio
+              </span>
+              <h3 class="text-sm font-extrabold text-[#0B2545]">Cambia relectura por Active Recall</h3>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                En lugar de repasar 4 horas seguidas, haz bloques de 25 min resolviendo ejercicios sin mirar tus apuntes.
+              </p>
+            </div>
+            <a href="/blog/la-trampa-de-las-6-horas" class="text-xs font-extrabold text-[#0077FE] hover:underline">
+              Ver guía de método →
+            </a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+            <div>
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 text-[11px] font-extrabold mb-2">
+                Descanso y memoria
+              </span>
+              <h3 class="text-sm font-extrabold text-[#0B2545]">Protege tus 7 horas antes del parcial</h3>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Dormir consolida lo aprendido en fase REM. Corta el estudio a las 11:00 p.m. para rendir mejor al día siguiente.
+              </p>
+            </div>
+            <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="text-xs font-extrabold text-[#0077FE] hover:underline">
+              Leer protocolo anti-amanecidas →
+            </a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+            <div>
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[11px] font-extrabold mb-2">
+                Siguiente paso
+              </span>
+              <h3 class="text-sm font-extrabold text-[#0B2545]">Audita tus vacíos en tu curso foco</h3>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Completa el diagnóstico de 3 minutos para detectar qué temas previos necesitas reforzar con un mentor P2P.
+              </p>
+            </div>
+            <a href="/test-diagnostico?utm_source=plataforma_demo&utm_medium=recommendation" class="text-xs font-extrabold text-[#0077FE] hover:underline">
+              Hacer diagnóstico ahora →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid de Módulos MindFix -->
+      <section aria-label="Módulos de la plataforma MindFix">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-extrabold text-[#0B2545]">Tu ecosistema MindFix</h2>
+          <span class="text-xs font-bold text-slate-500">Vista previa interactiva</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a href="/test-diagnostico?utm_source=plataforma_demo" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-[#0077FE]/10 text-[#0077FE] flex items-center justify-center font-extrabold mb-3">
+              IA
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Evaluación de Vacíos IA
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Descubre en 3 minutos qué conceptos base te frenan antes del parcial.
+            </p>
+          </a>
+
+          <a href="/blog/la-trampa-de-las-6-horas" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-extrabold mb-3">
+              AR
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Planificación Active Recall
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Rutinas cortas de recuperación activa para estudiar menos horas y retener más.
+            </p>
+          </a>
+
+          <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-extrabold mb-3">
+              P2P
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Mentoría entre Pares
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Conecta con estudiantes de ciclos superiores que ya aprobaron tu curso.
+            </p>
+          </a>
+
+          <a href="/blog/saque-08-y-no-se-en-que-falle" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center font-extrabold mb-3">
+              AU
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Auditoría de Exámenes
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Clasifica tus errores en conceptuales o de procedimiento para no repetirlos.
+            </p>
+          </a>
+
+          <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold mb-3">
+              REM
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Protocolo Anti-Amanecidas
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Protege tu sueño REM y consolida lo estudiado sin colapsar en el examen.
+            </p>
+          </a>
+
+          <a href="/guia-gratuita" class="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#0077FE] hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 flex items-center justify-center font-extrabold mb-3">
+              ★
+            </div>
+            <h3 class="text-base font-extrabold text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
+              Microretos y Guía Gratuita
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Cumple retos semanales de estudio estratégico y sube al Tercio Superior.
+            </p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <MindFixChatbot />
+
+    <script is:inline>
+      (() => {
+        try {
+          const raw = localStorage.getItem('mindfix_demo_user');
+          if (!raw) return;
+          const user = JSON.parse(raw);
+          const name = user.name || 'Valeria Rojas';
+          const firstName = name.split(' ')[0];
+          const initial = firstName.charAt(0).toUpperCase() || 'V';
+          const role = user.role || 'Estudiante';
+          const career = user.career || 'Ing. Industrial';
+          const cycle = user.cycle || '3° - 5° ciclo';
+          const course = user.course || 'Cálculo II';
+
+          const avatar = document.getElementById('dash-avatar');
+          const userPill = document.getElementById('dash-user-pill');
+          const greeting = document.getElementById('dash-greeting');
+          const subtitle = document.getElementById('dash-subtitle');
+          const cardAvatar = document.getElementById('dash-card-avatar');
+          const cardName = document.getElementById('dash-card-name');
+          const cardMeta = document.getElementById('dash-card-meta');
+          const cardRole = document.getElementById('dash-card-role');
+
+          if (avatar) avatar.textContent = initial;
+          if (cardAvatar) cardAvatar.textContent = initial;
+          if (userPill) userPill.textContent = `${name} · ${role}`;
+          if (greeting) greeting.textContent = `¡Hola, ${firstName}! Qué bueno tenerte aquí`;
+          if (subtitle) {
+            subtitle.innerHTML = `Tu meta esta semana es reforzar las bases de <strong class="text-white">${course}</strong> sin amanecidas. Tienes un diagnóstico pendiente de 3 minutos.`;
+          }
+          if (cardName) cardName.textContent = name;
+          if (cardMeta) cardMeta.textContent = `${career} · ${cycle}`;
+          if (cardRole) cardRole.textContent = role;
+
+          const recsEl = document.getElementById('dash-recommendations');
+          if (recsEl && (user.method || user.sleep || user.course)) {
+            const methodRec =
+              user.method === 'Active Recall'
+                ? 'Ya aplicas Active Recall: combínalo con simulacros cronometrados para acelerar tu velocidad en parciales.'
+                : `Detectamos que sueles usar ${user.method || 'relectura'}. Pasa a bloques de 25 min resolviendo ejercicios sin apuntes.`;
+            const sleepRec =
+              user.sleep === 'Menos de 5 horas'
+                ? 'Dormir menos de 5h sabotea tu memoria REM. Prioriza cortar el repaso a las 11:00 p.m. esta semana.'
+                : `Con ${user.sleep || '5 a 7 horas'} de descanso, fija una hora estable de sueño para consolidar lo aprendido.`;
+
+            recsEl.innerHTML = `
+              <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+                <div>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-[11px] font-extrabold mb-2">Método de estudio</span>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Ajuste para tu hábito actual</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">${methodRec}</p>
+                </div>
+                <a href="/blog/la-trampa-de-las-6-horas" class="text-xs font-extrabold text-[#0077FE] hover:underline">Ver guía de método →</a>
+              </div>
+              <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+                <div>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 text-[11px] font-extrabold mb-2">Descanso y memoria</span>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Cuida tu consolidación REM</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">${sleepRec}</p>
+                </div>
+                <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="text-xs font-extrabold text-[#0077FE] hover:underline">Leer protocolo anti-amanecidas →</a>
+              </div>
+              <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+                <div>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[11px] font-extrabold mb-2">Siguiente paso</span>
+                  <h3 class="text-sm font-extrabold text-[#0B2545]">Audita tus vacíos en ${course}</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Completa el diagnóstico de 3 minutos para detectar qué temas previos necesitas reforzar con un mentor P2P.</p>
+                </div>
+                <a href="/test-diagnostico?utm_source=plataforma_demo&utm_medium=recommendation" class="text-xs font-extrabold text-[#0077FE] hover:underline">Hacer diagnóstico ahora →</a>
+              </div>
+            `;
+          }
+        } catch {
+          // Si localStorage falla, se mantiene el perfil demo por defecto
+        }
+      })();
+    </script>
+  </body>
+</html>

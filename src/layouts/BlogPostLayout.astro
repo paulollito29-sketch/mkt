@@ -1,4 +1,8 @@
 ---
+import '../styles/global.css';
+import MindFixChatbot from '../components/MindFixChatbot.astro';
+import SignupModal from '../components/SignupModal.astro';
+
 interface Props {
   content?: {
     title?: string;
@@ -161,10 +165,12 @@ const schemaData = {
       --text-soft: #D1D5DB;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    @layer base {
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
     }
 
     body {
@@ -747,5 +753,8 @@ const schemaData = {
     </div>
     <p>© 2026 MindFix EdTech. Transformando la retroalimentación universitaria con Inteligencia Artificial.</p>
   </footer>
+
+  <SignupModal />
+  <MindFixChatbot context="blog" articleTitle={title} />
 </body>
 </html>

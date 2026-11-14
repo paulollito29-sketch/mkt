@@ -1,0 +1,573 @@
+---
+// Modal interactivo de creación de cuenta Freemium + Onboarding en 4 pasos adaptado a MindFix
+---
+
+<div
+  id="signup-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-[#0B2545]/75 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="signup-modal-title"
+>
+  <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-7 shadow-2xl border border-slate-100 relative my-auto max-h-[92vh] overflow-y-auto">
+    <!-- Botón cerrar -->
+    <button
+      type="button"
+      id="close-signup-modal"
+      class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer transition-colors"
+      aria-label="Cerrar ventana de registro"
+    >
+      ✕
+    </button>
+
+    <!-- Brand + Stepper -->
+    <div class="text-center mb-5">
+      <div class="text-xl font-extrabold tracking-tight leading-none mb-3">
+        <span class="text-[#0B2545]">MIND</span><span class="text-[#0077FE]">FIX</span>
+      </div>
+
+      <!-- Stepper 1-4 -->
+      <div class="flex items-center justify-between max-w-sm mx-auto text-[11px] font-bold text-slate-400" aria-label="Progreso de registro">
+        <div class="signup-step-indicator flex flex-col items-center gap-1" data-step-ind="1">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center bg-[#0077FE] text-white text-xs font-extrabold">1</span>
+          <span class="text-[#0B2545]">Cuenta</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-slate-200 mx-1.5 -mt-4"></div>
+        <div class="signup-step-indicator flex flex-col items-center gap-1" data-step-ind="2">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center bg-slate-200 text-slate-500 text-xs font-extrabold">2</span>
+          <span>Perfil</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-slate-200 mx-1.5 -mt-4"></div>
+        <div class="signup-step-indicator flex flex-col items-center gap-1" data-step-ind="3">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center bg-slate-200 text-slate-500 text-xs font-extrabold">3</span>
+          <span>Hábitos</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-slate-200 mx-1.5 -mt-4"></div>
+        <div class="signup-step-indicator flex flex-col items-center gap-1" data-step-ind="4">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center bg-slate-200 text-slate-500 text-xs font-extrabold">4</span>
+          <span>¡Listo!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PASO 1: CREA TU CUENTA FREEMIUM ==================== -->
+    <form id="signup-step-1" class="space-y-4">
+      <div class="text-center">
+        <h2 id="signup-modal-title" class="text-xl sm:text-2xl font-extrabold text-[#0B2545]">
+          Crea tu cuenta <span class="text-[#0077FE]">Freemium</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Regístrate como estudiante o mentor par y empieza hoy a detectar tus vacíos conceptuales sin amanecidas.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-extrabold uppercase tracking-wider text-[#0B2545]">Tus datos</p>
+
+        <div>
+          <input
+            id="su-name"
+            type="text"
+            required
+            placeholder="Nombres y apellidos"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+          />
+        </div>
+
+        <div>
+          <input
+            id="su-email"
+            type="email"
+            required
+            placeholder="Correo universitario o personal"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+          />
+        </div>
+
+        <div>
+          <div class="relative">
+            <input
+              id="su-pass"
+              type="password"
+              required
+              minlength="8"
+              placeholder="Contraseña (mín. 8 caracteres)"
+              class="w-full px-3.5 py-2.5 pr-10 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+            />
+            <button
+              type="button"
+              id="su-toggle-pass"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#0077FE] text-xs font-bold cursor-pointer"
+              aria-label="Mostrar u ocultar contraseña"
+            >
+              Ver
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">Mínimo 8 caracteres, con letras y números.</p>
+        </div>
+
+        <div class="flex gap-2">
+          <span class="inline-flex items-center px-3 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-xs font-bold text-[#0B2545] shrink-0">
+            🇵🇪 +51
+          </span>
+          <input
+            id="su-phone"
+            type="tel"
+            placeholder="Celular (opcional)"
+            class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE] focus:ring-2 focus:ring-[#0077FE]/20"
+          />
+        </div>
+      </div>
+
+      <!-- Tu rol -->
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-wider text-[#0B2545] mb-2">Tu rol en MindFix</p>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="su-role" value="Estudiante" checked class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE] transition-all">
+              Soy estudiante
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-role" value="Mentor P2P" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE] transition-all">
+              Mentor P2P
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-role" value="Preuniversitario" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE] transition-all">
+              Preuniversitario
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <label class="flex items-start gap-2 text-xs text-slate-600 cursor-pointer">
+        <input id="su-terms" type="checkbox" required checked class="mt-0.5 accent-[#0077FE]" />
+        <span>Acepto los <span class="font-bold text-[#0077FE]">Términos y Condiciones</span> y la <span class="font-bold text-[#0077FE]">Política de Privacidad</span>.</span>
+      </label>
+
+      <button
+        type="submit"
+        class="cta-shimmer w-full py-3 rounded-xl font-extrabold text-white bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md hover:opacity-95 transition-opacity cursor-pointer text-sm sm:text-base"
+      >
+        Crear mi cuenta Freemium →
+      </button>
+
+      <div class="rounded-xl bg-amber-50 border border-amber-200/80 px-3.5 py-2.5 text-[11px] text-amber-900 leading-snug">
+        <span class="font-extrabold">Plan Freemium:</span> Acceso gratuito al diagnóstico IA inicial, mapa de vacíos base y retos semanales de estudio.
+      </div>
+
+      <p class="text-center text-xs text-slate-500">
+        ¿Ya tienes una cuenta?{' '}
+        <button type="button" id="switch-to-login" class="font-extrabold text-[#0077FE] hover:underline cursor-pointer">
+          Iniciar sesión
+        </button>
+      </p>
+    </form>
+
+    <!-- ==================== PASO 2: PERFIL ACADÉMICO ==================== -->
+    <form id="signup-step-2" class="hidden space-y-4">
+      <div class="text-center">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-[#0B2545]">Tu perfil académico</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Cuéntanos sobre tu carrera para personalizar tu diagnóstico en MindFix.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label for="su-career" class="block text-xs font-bold text-[#0B2545] mb-1">Carrera o facultad *</label>
+          <input
+            id="su-career"
+            type="text"
+            required
+            placeholder="Ej. Ingeniería Industrial, Medicina, Administración..."
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE]"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="su-cycle" class="block text-xs font-bold text-[#0B2545] mb-1">Ciclo actual *</label>
+            <select
+              id="su-cycle"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] bg-white focus:outline-none focus:border-[#0077FE]"
+            >
+              <option value="1° - 2° ciclo">1° - 2° ciclo</option>
+              <option value="3° - 5° ciclo" selected>3° - 5° ciclo</option>
+              <option value="6° - 8° ciclo">6° - 8° ciclo</option>
+              <option value="9°+ / Egresado">9°+ / Egresado</option>
+              <option value="Preuniversitario">Preuniversitario</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="su-course" class="block text-xs font-bold text-[#0B2545] mb-1">Curso que más te preocupa *</label>
+            <input
+              id="su-course"
+              type="text"
+              required
+              placeholder="Ej. Cálculo II, Física..."
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] focus:outline-none focus:border-[#0077FE]"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold text-[#0B2545] mb-2">¿Presentas algún desafío frecuente? (opcional)</p>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+              <input type="checkbox" name="su-challenge" value="Ansiedad en exámenes" class="accent-[#0077FE]" />
+              <span class="font-semibold text-[#0B2545]">Ansiedad en exámenes</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+              <input type="checkbox" name="su-challenge" value="Falta de base teórica" class="accent-[#0077FE]" />
+              <span class="font-semibold text-[#0B2545]">Falta de base teórica</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+              <input type="checkbox" name="su-challenge" value="Procrastinación" class="accent-[#0077FE]" />
+              <span class="font-semibold text-[#0B2545]">Procrastinación</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+              <input type="checkbox" name="su-challenge" value="Ninguna" class="accent-[#0077FE]" />
+              <span class="font-semibold text-[#0B2545]">Ninguna</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-1">
+        <button
+          type="button"
+          data-goto-step="1"
+          class="px-4 py-3 rounded-xl border border-slate-300 text-sm font-bold text-slate-600 hover:bg-slate-50 cursor-pointer"
+        >
+          ← Atrás
+        </button>
+        <button
+          type="submit"
+          class="flex-1 py-3 rounded-xl font-extrabold text-white bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md hover:opacity-95 cursor-pointer text-sm sm:text-base"
+        >
+          Continuar →
+        </button>
+      </div>
+    </form>
+
+    <!-- ==================== PASO 3: HÁBITOS DE ESTUDIO ==================== -->
+    <form id="signup-step-3" class="hidden space-y-4">
+      <div class="text-center">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-[#0B2545]">Hábitos y preferencias</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Cuéntanos cómo estudias hoy para darte recomendaciones personalizadas.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold text-[#0B2545] mb-2">¿Qué método de estudio usas más? *</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="su-method" value="Relectura pasiva" checked class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Relectura
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-method" value="Resúmenes" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Resúmenes
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-method" value="Active Recall" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Active Recall
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-method" value="Mixto" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Mixto
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold text-[#0B2545] mb-2">¿Cuál es tu nivel de carga académica? *</p>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="su-load" value="Baja" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Baja
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-load" value="Media" checked class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Media
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="su-load" value="Alta" class="peer sr-only" />
+            <div class="text-center px-2 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 peer-checked:border-[#0077FE] peer-checked:bg-[#0077FE]/10 peer-checked:text-[#0077FE]">
+              Alta
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="su-sleep" class="block text-xs font-bold text-[#0B2545] mb-1">¿Cuántas horas duermes en semana de parciales? *</label>
+        <select
+          id="su-sleep"
+          class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B2545] bg-white focus:outline-none focus:border-[#0077FE]"
+        >
+          <option value="Menos de 5 horas">Menos de 5 horas (amanecidas)</option>
+          <option value="Entre 5 y 7 horas" selected>Entre 5 y 7 horas</option>
+          <option value="Más de 7 horas">Más de 7 horas</option>
+        </select>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold text-[#0B2545] mb-2">¿Qué hábitos quieres mejorar con MindFix?</p>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <label class="flex items-center gap-2 p-2 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+            <input type="checkbox" name="su-goal" value="Subir mis notas" checked class="accent-[#0077FE]" />
+            <span class="font-semibold text-[#0B2545]">Subir mis notas</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+            <input type="checkbox" name="su-goal" value="Dejar las amanecidas" checked class="accent-[#0077FE]" />
+            <span class="font-semibold text-[#0B2545]">Dejar amanecidas</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+            <input type="checkbox" name="su-goal" value="Detectar vacíos base" class="accent-[#0077FE]" />
+            <span class="font-semibold text-[#0B2545]">Detectar vacíos base</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl border border-slate-200 cursor-pointer hover:border-[#0077FE]">
+            <input type="checkbox" name="su-goal" value="Mentoría P2P" class="accent-[#0077FE]" />
+            <span class="font-semibold text-[#0B2545]">Mentoría P2P</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-1">
+        <button
+          type="button"
+          data-goto-step="2"
+          class="px-4 py-3 rounded-xl border border-slate-300 text-sm font-bold text-slate-600 hover:bg-slate-50 cursor-pointer"
+        >
+          ← Atrás
+        </button>
+        <button
+          type="submit"
+          class="flex-1 py-3 rounded-xl font-extrabold text-white bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md hover:opacity-95 cursor-pointer text-sm sm:text-base"
+        >
+          Finalizar registro →
+        </button>
+      </div>
+    </form>
+
+    <!-- ==================== PASO 4: ¡REGISTRO COMPLETADO! ==================== -->
+    <div id="signup-step-4" class="hidden space-y-4 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#0077FE] to-[#00C2FF] text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
+        ✓
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-extrabold text-[#0B2545]">¡Registro completado!</h2>
+        <p id="su-welcome-text" class="text-sm text-slate-600 mt-1">
+          Bienvenida/o a MindFix. Tu perfil ya está listo.
+        </p>
+      </div>
+
+      <!-- Resumen del perfil -->
+      <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 text-left space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span id="su-summary-name" class="text-sm font-extrabold text-[#0B2545]">Estudiante</span>
+          <span id="su-summary-role" class="px-2.5 py-0.5 rounded-full bg-[#0077FE]/10 text-[#0077FE] text-[11px] font-extrabold">Estudiante</span>
+        </div>
+        <p id="su-summary-academic" class="text-xs text-slate-600">Carrera · Ciclo · Curso foco</p>
+      </div>
+
+      <!-- Plan Freemium -->
+      <div class="p-4 rounded-2xl bg-gradient-to-br from-[#0B2545] to-[#0F2F5A] text-white text-left space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-[#00C2FF]">Estás en el Plan Freemium</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 text-[10px] font-extrabold">ACTIVO</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="p-2 rounded-xl bg-white/10 font-semibold">✓ Diagnóstico IA básico</div>
+          <div class="p-2 rounded-xl bg-white/10 font-semibold">✓ Mapa de vacíos</div>
+          <div class="p-2 rounded-xl bg-white/10 font-semibold">✓ Guía anti-amanecidas</div>
+          <div class="p-2 rounded-xl bg-white/10 font-semibold">✓ Retos semanales</div>
+        </div>
+      </div>
+
+      <div class="p-3 rounded-xl bg-[#0077FE]/8 border border-[#0077FE]/20 text-left">
+        <p class="text-xs font-extrabold text-[#0B2545]">¿Quieres más beneficios?</p>
+        <p class="text-[11px] text-slate-600 mt-0.5">
+          Desbloquea el <span class="font-bold text-[#0077FE]">Plan PRO o ELITE</span> para acceder a mentorías P2P 1:1 y simulacros IA ilimitados.
+        </p>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <a
+          href="/plataforma"
+          class="cta-shimmer w-full inline-flex items-center justify-center py-3.5 rounded-xl font-extrabold text-white bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md hover:opacity-95 text-sm sm:text-base"
+        >
+          Ver mi Plataforma MindFix →
+        </a>
+        <a
+          href="/test-diagnostico?utm_source=onboarding&utm_medium=signup_complete"
+          class="w-full inline-flex items-center justify-center py-3 rounded-xl font-extrabold text-[#0B2545] bg-slate-100 hover:bg-slate-200 transition-colors text-xs sm:text-sm"
+        >
+          Ir directo al Test Diagnóstico
+        </a>
+        <button
+          type="button"
+          id="su-finish-close"
+          class="w-full py-2 text-xs font-bold text-slate-500 hover:text-[#0B2545] cursor-pointer"
+        >
+          Explorar la landing primero
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const modal = document.getElementById('signup-modal');
+    const closeBtn = document.getElementById('close-signup-modal');
+    const finishCloseBtn = document.getElementById('su-finish-close');
+    const switchToLoginBtn = document.getElementById('switch-to-login');
+    const togglePassBtn = document.getElementById('su-toggle-pass');
+    const passInput = document.getElementById('su-pass');
+
+    const stepForms = {
+      1: document.getElementById('signup-step-1'),
+      2: document.getElementById('signup-step-2'),
+      3: document.getElementById('signup-step-3'),
+      4: document.getElementById('signup-step-4'),
+    };
+    const indicators = document.querySelectorAll('.signup-step-indicator');
+
+    if (!modal || !stepForms[1] || !stepForms[2] || !stepForms[3] || !stepForms[4]) return;
+
+    const showStep = (step) => {
+      Object.entries(stepForms).forEach(([k, el]) => {
+        el?.classList.toggle('hidden', Number(k) !== step);
+      });
+      indicators.forEach((ind) => {
+        const idx = Number(ind.getAttribute('data-step-ind'));
+        const badge = ind.querySelector('span:first-child');
+        const label = ind.querySelector('span:last-child');
+        if (!badge || !label) return;
+        if (idx < step) {
+          badge.className = 'w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500 text-white text-xs font-extrabold';
+          badge.textContent = '✓';
+          label.className = 'text-emerald-600';
+        } else if (idx === step) {
+          badge.className = 'w-6 h-6 rounded-full flex items-center justify-center bg-[#0077FE] text-white text-xs font-extrabold';
+          badge.textContent = String(idx);
+          label.className = 'text-[#0B2545]';
+        } else {
+          badge.className = 'w-6 h-6 rounded-full flex items-center justify-center bg-slate-200 text-slate-500 text-xs font-extrabold';
+          badge.textContent = String(idx);
+          label.className = 'text-slate-400';
+        }
+      });
+    };
+
+    const openModal = () => {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      showStep(1);
+    };
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    };
+
+    window.addEventListener('mindfix:open-signup', openModal);
+    document.querySelectorAll('[data-open-signup]').forEach((btn) => {
+      btn.addEventListener('click', openModal);
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    finishCloseBtn?.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    switchToLoginBtn?.addEventListener('click', () => {
+      closeModal();
+      const loginModal = document.getElementById('login-modal');
+      if (loginModal) {
+        loginModal.classList.remove('hidden');
+        loginModal.classList.add('flex');
+      }
+    });
+
+    togglePassBtn?.addEventListener('click', () => {
+      if (!passInput) return;
+      const isPass = passInput.type === 'password';
+      passInput.type = isPass ? 'text' : 'password';
+      togglePassBtn.textContent = isPass ? 'Ocultar' : 'Ver';
+    });
+
+    document.querySelectorAll('[data-goto-step]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = Number(btn.getAttribute('data-goto-step'));
+        if (target) showStep(target);
+      });
+    });
+
+    stepForms[1].addEventListener('submit', (e) => {
+      e.preventDefault();
+      showStep(2);
+    });
+
+    stepForms[2].addEventListener('submit', (e) => {
+      e.preventDefault();
+      showStep(3);
+    });
+
+    stepForms[3].addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('su-name')?.value.trim() || 'Estudiante';
+      const role = document.querySelector('input[name="su-role"]:checked')?.value || 'Estudiante';
+      const career = document.getElementById('su-career')?.value.trim() || 'Universidad';
+      const cycle = document.getElementById('su-cycle')?.value || '';
+      const course = document.getElementById('su-course')?.value.trim() || '';
+      const method = document.querySelector('input[name="su-method"]:checked')?.value || 'Relectura pasiva';
+      const load = document.querySelector('input[name="su-load"]:checked')?.value || 'Media';
+      const sleep = document.getElementById('su-sleep')?.value || 'Entre 5 y 7 horas';
+
+      const welcomeEl = document.getElementById('su-welcome-text');
+      const nameEl = document.getElementById('su-summary-name');
+      const roleEl = document.getElementById('su-summary-role');
+      const academicEl = document.getElementById('su-summary-academic');
+
+      if (welcomeEl) welcomeEl.textContent = `¡Bienvenida/o a MindFix, ${name}! Tu perfil ya está configurado.`;
+      if (nameEl) nameEl.textContent = name;
+      if (roleEl) roleEl.textContent = role;
+      if (academicEl) academicEl.textContent = `${career} · ${cycle}${course ? ` · Foco: ${course}` : ''}`;
+
+      try {
+        localStorage.setItem(
+          'mindfix_demo_user',
+          JSON.stringify({ name, role, career, cycle, course: course || 'Cálculo II', method, load, sleep })
+        );
+      } catch {
+        // Ignorar si localStorage no está disponible
+      }
+
+      showStep(4);
+    });
+  })();
+</script>

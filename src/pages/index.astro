@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import MindFixChatbot from '../components/MindFixChatbot.astro';
+import SignupModal from '../components/SignupModal.astro';
 
 const heroCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_hero&utm_campaign=mindfix_cro";
 const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&utm_campaign=mindfix_cro";
@@ -105,13 +107,21 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         </nav>
 
         <!-- Secondary Action Button + Mobile Menu Trigger -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2.5">
           <button
             type="button"
             id="open-login-modal"
-            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
           >
             Iniciar Sesión
+          </button>
+
+          <button
+            type="button"
+            data-open-signup
+            class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-sm font-extrabold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-sm hover:opacity-95 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
+          >
+            Crear Cuenta
           </button>
 
           <button
@@ -170,7 +180,14 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         >
           Blog Académico
         </a>
-        <div class="pt-2">
+        <div class="pt-2 space-y-2.5">
+          <button
+            type="button"
+            data-open-signup
+            class="w-full inline-flex items-center justify-center px-6 py-3 text-base font-bold text-[#0B2545] rounded-xl bg-slate-100 hover:bg-slate-200 cursor-pointer"
+          >
+            Crear Cuenta Freemium
+          </button>
           <a
             href={heroCtaUrl}
             class="cta-shimmer w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md"
@@ -182,97 +199,124 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
     </header>
 
     <main>
-      <!-- ==================== SECCIÓN HERO (EDITORIAL 100% FULL-VIEWPORT + BOTÓN DE TEST) ==================== -->
+      <!-- ==================== SECCIÓN HERO (2 COLUMNAS: TEXTO IZQUIERDA + CHICA DERECHA) ==================== -->
       <section class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#0B1528] text-white overflow-hidden border-b border-slate-800">
         
-        <!-- Imagen de fondo a pantalla completa: Chica abrumada estudiando de madrugada -->
-        <div class="absolute inset-0 z-0">
-          <img
-            src="/images/blog/hero-trampa-6-horas.jpg"
-            alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
-            class="w-full h-full object-cover object-center scale-105 filter brightness-[0.42] contrast-[1.12]"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <!-- Gradientes cinematográficos para lectura impecable y atmósfera editorial -->
-          <div class="absolute inset-0 bg-gradient-to-r from-[#070D18]/95 via-[#070D18]/80 to-[#070D18]/45"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#070D18] via-transparent to-black/30"></div>
-          
-          <!-- Luces de acento dinámicas -->
-          <div class="pointer-events-none absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0077FE]/15 blur-3xl"></div>
-          <div class="pointer-events-none absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/10 blur-3xl"></div>
+        <!-- Fondo limpio con luces de acento dinámicas (sin imagen de fondo) -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0F2342]"></div>
+          <div class="absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0077FE]/15 blur-3xl"></div>
+          <div class="absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/12 blur-3xl"></div>
         </div>
 
-        <!-- Contenedor Principal (100% ancho y centrado vertical) -->
+        <!-- Contenedor Principal (Grid 2 columnas en desktop) -->
         <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-8 flex-1 flex flex-col justify-center">
-          
-          <!-- Top Badge Editorial -->
-          <div class="flex flex-wrap items-center gap-3 mb-6">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-[#00C2FF]">
-              <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
-              Crónica de Portada • Metodología & Neurociencia
-            </span>
-            <span class="text-xs text-slate-300 font-medium hidden sm:inline">
-              Tiempo de lectura: 7 min
-            </span>
-          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Columna Izquierda: Copy Editorial y CTAs -->
+            <div class="lg:col-span-7">
+              <!-- Top Badge Editorial -->
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-[#00C2FF]">
+                  <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
+                  Crónica de Portada • Metodología & Neurociencia
+                </span>
+                <span class="text-xs text-slate-300 font-medium hidden sm:inline">
+                  Tiempo de lectura: 7 min
+                </span>
+              </div>
 
-          <!-- Título Principal Tipo Revista/Blog Editorial -->
-          <div class="max-w-3xl">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.12] mb-6 text-white">
-              La trampa de las 6 horas:{" "}
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] via-[#00C2FF] to-white">
-                Por qué estudiar más tiempo no está subiendo tus notas
-              </span>
-            </h1>
+              <!-- Título Principal Tipo Revista/Blog Editorial -->
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight leading-[1.12] mb-6 text-white">
+                La trampa de las 6 horas:{" "}
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] via-[#00C2FF] to-white">
+                  Por qué estudiar más tiempo no está subiendo tus notas
+                </span>
+              </h1>
 
-            <p class="text-lg sm:text-xl text-slate-200 font-serif leading-relaxed mb-6 italic max-w-2xl border-l-2 border-[#00C2FF] pl-4">
-              "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
-            </p>
+              <p class="text-base sm:text-lg text-slate-200 font-serif leading-relaxed mb-6 italic max-w-2xl border-l-2 border-[#00C2FF] pl-4">
+                "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
+              </p>
 
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
-              Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. Detecta tus vacíos conceptuales y cambia el esfuerzo bruto por aprendizaje estratégico.
-            </p>
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. Detecta tus vacíos conceptuales y cambia el esfuerzo bruto por aprendizaje estratégico.
+              </p>
 
-            <!-- Acciones Principales: Botón de Realizar Test + Botón de Leer Ensayo -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
-              <!-- BOTÓN PRINCIPAL: REALIZAR TEST DIAGNÓSTICO -->
-              <a
-                href={heroCtaUrl}
-                class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 shadow-[0_12px_32px_rgba(0,119,254,0.45)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/50"
-              >
-                <span>Realizar Test Diagnóstico Gratuito</span>
-                <svg
-                  class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+              <!-- Acciones Principales: Botón de Realizar Test + Botón de Leer Ensayo -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+                <!-- BOTÓN PRINCIPAL: REALIZAR TEST DIAGNÓSTICO -->
+                <a
+                  href={heroCtaUrl}
+                  class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 px-7 py-4 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 shadow-[0_12px_32px_rgba(0,119,254,0.45)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/50"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
+                  <span>Realizar Test Diagnóstico Gratuito</span>
+                  <svg
+                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
 
-              <!-- Botón Secundario: Leer Artículo Completo -->
-              <a
-                href="/blog/la-trampa-de-las-6-horas"
-                class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-bold text-base transition-all duration-200"
-              >
-                <span>Leer artículo completo</span>
-                <span aria-hidden="true">→</span>
-              </a>
+                <!-- Botón Secundario: Leer Artículo Completo -->
+                <a
+                  href="/blog/la-trampa-de-las-6-horas"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-bold text-base transition-all duration-200"
+                >
+                  <span>Leer artículo completo</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <!-- Microtexto de Confianza del Test -->
+              <p class="text-xs sm:text-sm font-semibold text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span class="text-[#00C2FF] font-bold">✓ 100% gratuito</span>
+                <span class="text-slate-500" aria-hidden="true">·</span>
+                <span>Resultados en 3 minutos</span>
+                <span class="text-slate-500" aria-hidden="true">·</span>
+                <span>Diagnóstico IA de vacíos conceptuales</span>
+              </p>
             </div>
 
-            <!-- Microtexto de Confianza del Test -->
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span class="text-[#00C2FF] font-bold">✓ 100% gratuito</span>
-              <span class="text-slate-500" aria-hidden="true">·</span>
-              <span>Resultados en 3 minutos</span>
-              <span class="text-slate-500" aria-hidden="true">·</span>
-              <span>Diagnóstico IA de vacíos conceptuales</span>
-            </p>
-          </div>
+            <!-- Columna Derecha: Imagen de la estudiante (protagonista, no de fondo) -->
+            <div class="lg:col-span-5">
+              <div class="relative rounded-3xl overflow-hidden border border-white/15 bg-slate-900/60 shadow-[0_24px_60px_rgba(0,0,0,0.55)]">
+                <img
+                  src="/images/blog/hero-trampa-6-horas.jpg"
+                  alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
+                  class="w-full h-[320px] sm:h-[380px] lg:h-[440px] object-cover object-center"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#070D18]/90 via-transparent to-black/15 pointer-events-none"></div>
 
+                <!-- Etiqueta superior -->
+                <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#070D18]/80 backdrop-blur-md border border-white/15 text-[11px] font-bold text-[#00C2FF]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#00C2FF]"></span>
+                    3:15 a.m. · Método tradicional
+                  </span>
+                </div>
+
+                <!-- Tarjeta inferior sobre la imagen -->
+                <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-[#070D18]/85 backdrop-blur-md border border-white/15 flex items-center justify-between gap-3">
+                  <div>
+                    <p class="text-xs font-extrabold text-white">Cambia amanecidas por precisión</p>
+                    <p class="text-[11px] text-slate-300">MindFix IA detecta qué base te falta en 3 min</p>
+                  </div>
+                  <button
+                    type="button"
+                    data-open-signup
+                    class="shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white text-xs font-extrabold hover:opacity-95 cursor-pointer"
+                  >
+                    Crear cuenta
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Tira Inferior del Hero (100% ancho con artículos recomendados) -->
@@ -1434,7 +1478,7 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
           </p>
         </div>
 
-        <form action="/test-diagnostico" method="get" class="space-y-4">
+        <form id="login-form" action="/plataforma" method="get" class="space-y-4">
           <input type="hidden" name="utm_source" value="landing" />
           <input type="hidden" name="utm_medium" value="login_modal" />
           <div>
@@ -1467,18 +1511,39 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
           >
             Ingresar a mi Campus IA
           </button>
+
+          <button
+            type="button"
+            id="demo-login-btn"
+            class="w-full py-3 rounded-xl font-extrabold text-[#0B2545] bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer text-sm"
+          >
+            Entrar con Usuario Demo (Ver Plataforma) →
+          </button>
         </form>
 
-        <div class="mt-6 pt-5 border-t border-slate-100 text-center">
+        <div class="mt-6 pt-5 border-t border-slate-100 text-center space-y-2">
+          <p class="text-xs text-slate-500">
+            ¿Nuevo en MindFix?{" "}
+            <button
+              type="button"
+              id="switch-to-signup"
+              class="font-extrabold text-[#0077FE] hover:underline cursor-pointer"
+            >
+              Crear cuenta Freemium →
+            </button>
+          </p>
           <p class="text-xs text-slate-500">
             ¿Aún no tienes tu diagnóstico inicial?{" "}
-            <a href={heroCtaUrl} class="font-extrabold text-[#0077FE] hover:underline">
+            <a href={heroCtaUrl} class="font-extrabold text-[#0B2545] hover:underline">
               Realizar Test Gratuito →
             </a>
           </p>
         </div>
       </div>
     </div>
+
+    <SignupModal />
+    <MindFixChatbot />
 
     <!-- ==================== MOTOR DE ANIMACIONES & INTERACTIVIDAD ==================== -->
     <script is:inline>
@@ -1505,6 +1570,7 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
       const openLoginBtn = document.getElementById('open-login-modal');
       const closeLoginBtn = document.getElementById('close-login-modal');
       const loginModal = document.getElementById('login-modal');
+      const switchToSignupBtn = document.getElementById('switch-to-signup');
 
       if (openLoginBtn && closeLoginBtn && loginModal) {
         openLoginBtn.addEventListener('click', () => {
@@ -1520,6 +1586,48 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
             loginModal.classList.add('hidden');
             loginModal.classList.remove('flex');
           }
+        });
+        switchToSignupBtn?.addEventListener('click', () => {
+          loginModal.classList.add('hidden');
+          loginModal.classList.remove('flex');
+          window.dispatchEvent(new CustomEvent('mindfix:open-signup'));
+        });
+
+        const loginForm = document.getElementById('login-form');
+        const demoLoginBtn = document.getElementById('demo-login-btn');
+
+        loginForm?.addEventListener('submit', () => {
+          const emailVal = document.getElementById('student-email')?.value.trim() || '';
+          const rawName = emailVal ? emailVal.split('@')[0].replace(/[._-]+/g, ' ') : 'Valeria Rojas';
+          const formattedName = rawName.replace(/\b\w/g, (c) => c.toUpperCase());
+          try {
+            localStorage.setItem(
+              'mindfix_demo_user',
+              JSON.stringify({
+                name: formattedName,
+                role: 'Estudiante',
+                career: 'Ing. Industrial',
+                cycle: '3° - 5° ciclo',
+                course: 'Cálculo II',
+              })
+            );
+          } catch {}
+        });
+
+        demoLoginBtn?.addEventListener('click', () => {
+          try {
+            localStorage.setItem(
+              'mindfix_demo_user',
+              JSON.stringify({
+                name: 'Valeria Rojas (Demo)',
+                role: 'Estudiante',
+                career: 'Ingeniería Industrial',
+                cycle: '4° ciclo',
+                course: 'Cálculo II',
+              })
+            );
+          } catch {}
+          window.location.href = '/plataforma';
         });
       }
 

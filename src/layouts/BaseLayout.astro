@@ -1,4 +1,8 @@
 ---
+import '../styles/global.css';
+import MindFixChatbot from '../components/MindFixChatbot.astro';
+import SignupModal from '../components/SignupModal.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -96,10 +100,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mindfix-
         --font-serif: 'Lora', Georgia, serif;
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      @layer base {
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
       }
 
       body {
@@ -460,5 +466,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mindfix-
         </p>
       </div>
     </footer>
+
+    <SignupModal />
+    <MindFixChatbot context="blog" />
   </body>
 </html>

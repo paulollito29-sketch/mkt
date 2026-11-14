@@ -1,0 +1,375 @@
+---
+// Chatbot interactivo sin modelo (motor de reglas e intenciones 100% local para MindFix)
+interface Props {
+  context?: 'landing' | 'blog';
+  articleTitle?: string;
+}
+
+const { context = 'landing', articleTitle = '' } = Astro.props;
+---
+
+<div
+  id="mindfix-chatbot-root"
+  data-chat-context={context}
+  data-article-title={articleTitle}
+  class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3"
+>
+  <!-- Ventana de Chat -->
+  <section
+    id="chatbot-window"
+    class="hidden w-[calc(100vw-2.25rem)] sm:w-[370px] max-h-[540px] bg-white rounded-3xl shadow-[0_24px_60px_rgba(11,37,69,0.28)] border border-slate-200/90 flex-col overflow-hidden"
+    role="dialog"
+    aria-label="Asistente interactivo MindFix"
+  >
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-[#0B2545] via-[#0F2F5A] to-[#0077FE] text-white px-4 py-3.5 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-9 h-9 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0 font-extrabold text-sm text-[#00C2FF]">
+          MF
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <h3 class="text-sm font-extrabold tracking-tight truncate">Asistente MindFix</h3>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0" title="En línea"></span>
+          </div>
+          <p class="text-[11px] text-slate-200 truncate">Guía académica interactiva · Respuesta inmediata</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          id="chatbot-reset"
+          class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+          title="Reiniciar conversación"
+          aria-label="Reiniciar conversación"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          id="chatbot-close"
+          class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+          title="Cerrar chat"
+          aria-label="Cerrar chat"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mensajes -->
+    <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8FAFC] min-h-[260px] max-h-[330px]">
+      <!-- Mensajes inyectados por JS -->
+    </div>
+
+    <!-- Sugerencias rápidas -->
+    <div id="chatbot-quick-replies" class="px-3 py-2 bg-white border-t border-slate-100 flex flex-wrap gap-1.5 shrink-0">
+      <!-- Chips inyectados por JS -->
+    </div>
+
+    <!-- Input -->
+    <form id="chatbot-form" class="p-3 bg-white border-t border-slate-200/80 flex items-center gap-2 shrink-0">
+      <input
+        id="chatbot-input"
+        type="text"
+        autocomplete="off"
+        placeholder="Escribe tu duda sobre MindFix..."
+        class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-100 border border-transparent text-xs sm:text-sm text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#0077FE] transition-colors"
+      />
+      <button
+        type="submit"
+        class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white flex items-center justify-center shrink-0 shadow-md hover:opacity-95 active:scale-95 transition-all cursor-pointer"
+        aria-label="Enviar mensaje"
+      >
+        <svg class="w-4 h-4 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+      </button>
+    </form>
+  </section>
+
+  <!-- Botón Flotante -->
+  <button
+    type="button"
+    id="chatbot-toggle"
+    class="group inline-flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-[#0B2545] via-[#0F2F5A] to-[#0077FE] text-white font-bold text-sm shadow-[0_14px_34px_rgba(0,119,254,0.4)] border border-white/15 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer"
+    aria-expanded="false"
+    aria-controls="chatbot-window"
+  >
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00C2FF] opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00C2FF]"></span>
+    </span>
+    <span>¿Dudas? Chatea con MindFix</span>
+    <svg class="w-4 h-4 text-[#00C2FF] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+    </svg>
+  </button>
+</div>
+
+<script is:inline>
+  (() => {
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const closeBtn = document.getElementById('chatbot-close');
+    const resetBtn = document.getElementById('chatbot-reset');
+    const chatWindow = document.getElementById('chatbot-window');
+    const messagesEl = document.getElementById('chatbot-messages');
+    const quickRepliesEl = document.getElementById('chatbot-quick-replies');
+    const formEl = document.getElementById('chatbot-form');
+    const inputEl = document.getElementById('chatbot-input');
+
+    if (!toggleBtn || !chatWindow || !messagesEl || !quickRepliesEl || !formEl || !inputEl) return;
+
+    const rootEl = document.getElementById('mindfix-chatbot-root');
+    const chatContext = rootEl?.getAttribute('data-chat-context') || 'landing';
+    const articleTitle = rootEl?.getAttribute('data-article-title') || '';
+
+    const LANDING_TOPICS = [
+      { label: '¿Cómo funciona?', query: 'como funciona mindfix' },
+      { label: 'Plan Freemium', query: 'cuanto cuesta freemium' },
+      { label: 'Diagnóstico IA', query: 'diagnostico ia' },
+      { label: 'Mentores P2P', query: 'mentores p2p' },
+      { label: 'Crear cuenta', query: 'crear cuenta' },
+    ];
+
+    const BLOG_TOPICS = [
+      { label: 'Trampa de las 6 horas', query: 'trampa 6 horas active recall' },
+      { label: 'Amanecidas y memoria', query: 'amanecidas sueno rem' },
+      { label: '¿Saqué 08 y fallé?', query: 'saque 08 auditoria examen' },
+      { label: 'Aprendizaje P2P', query: 'companero explica mejor p2p' },
+      { label: 'Test Diagnóstico IA', query: 'diagnostico ia' },
+    ];
+
+    const QUICK_TOPICS = chatContext === 'blog' ? BLOG_TOPICS : LANDING_TOPICS;
+
+    const INTENTS = [
+      {
+        keys: ['trampa', '6 horas', 'relectura', 'active recall', 'subrayar', 'estudiar mas'],
+        reply:
+          'Releer apuntes durante 6 horas genera "ilusión de competencia". Con Active Recall y el Diagnóstico IA de MindFix identificas exactamente qué concepto no dominas antes del examen.',
+        action: { type: 'link', href: '/blog/la-trampa-de-las-6-horas', label: 'Leer: La trampa de las 6 horas →' },
+        chips: BLOG_TOPICS.slice(1, 5),
+      },
+      {
+        keys: ['amanecida', 'sueno', 'dormir', 'insomnio', 'rem', 'estres', 'ansiedad', 'madrugada'],
+        reply:
+          'Dormir menos de 5 horas antes de un parcial bloquea el hipocampo y destruye la consolidación de memoria en fase REM. MindFix reemplaza las amanecidas por rutas cortas y precisas.',
+        action: {
+          type: 'link',
+          href: '/blog/amanecidas-pre-parciales-estres-ansiedad-examenes',
+          label: 'Leer: Amanecidas pre-parciales →',
+        },
+        chips: [BLOG_TOPICS[0], BLOG_TOPICS[2], BLOG_TOPICS[4]],
+      },
+      {
+        keys: ['08', 'desaprobe', 'falle', 'auditoria', 'error', 'retroalimentacion', 'no se en que'],
+        reply:
+          'Sacar 08 sin saber en qué fallaste suele deberse a vacíos de cursos previos, no a falta de esfuerzo. Hacer una auditoría forense de tu examen te muestra si el fallo fue conceptual o de procedimiento.',
+        action: {
+          type: 'link',
+          href: '/blog/saque-08-y-no-se-en-que-falle',
+          label: 'Leer: ¿Saqué 08 y no sé en qué fallé? →',
+        },
+        chips: [BLOG_TOPICS[0], BLOG_TOPICS[3], BLOG_TOPICS[4]],
+      },
+      {
+        keys: ['companero', 'profesor', 'explica mejor', 'p2p', 'mentor', 'tutor'],
+        reply:
+          'Un compañero que recién aprobó el curso comparte tu mismo lenguaje y recuerda exactamente dónde se trabó (congruencia cognitiva). En MindFix te conectamos con mentores pares verificados.',
+        action: {
+          type: 'link',
+          href: '/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p',
+          label: 'Leer artículo sobre aprendizaje P2P →',
+        },
+        chips: [BLOG_TOPICS[0], BLOG_TOPICS[4], { label: 'Crear cuenta', query: 'crear cuenta' }],
+      },
+      {
+        keys: ['hola', 'buenas', 'hey', 'saludos', 'que tal', 'blog', 'articulo', 'leer'],
+        reply:
+          chatContext === 'blog'
+            ? '¡Hola! En el Blog MindFix tienes guías sobre neurociencia del sueño, Active Recall, auditoría de exámenes y tutorías P2P. ¿Sobre qué tema quieres profundizar?'
+            : '¡Hola! Soy el asistente de MindFix. Puedo explicarte cómo detectamos tus vacíos conceptuales en 3 minutos, cómo funcionan las mentorías P2P o ayudarte a crear tu cuenta Freemium.',
+        chips: QUICK_TOPICS.slice(0, 4),
+      },
+      {
+        keys: ['cuenta', 'registro', 'registrar', 'crear', 'empezar', 'inscribir'],
+        reply:
+          'Crear tu cuenta Freemium toma menos de 1 minuto: registras tus datos, tu perfil académico (carrera y curso clave) y tus hábitos de estudio para armar tu ruta inicial.',
+        action: { type: 'signup', label: 'Crear mi cuenta Freemium →' },
+        chips: QUICK_TOPICS.slice(0, 3),
+      },
+      {
+        keys: ['precio', 'cuesta', 'gratis', 'freemium', 'pago', 'pro', 'elite', 'plan'],
+        reply:
+          'El Plan Freemium es 100% gratuito e incluye el Test Diagnóstico IA inicial, tu mapa básico de vacíos conceptuales, guía anti-amanecidas y retos semanales. Si luego quieres mentorías P2P 1:1 y simulacros ilimitados, puedes pasar a PRO o ELITE.',
+        action: { type: 'signup', label: 'Probar Plan Freemium gratis →' },
+        chips: [
+          { label: 'Diagnóstico IA', query: 'diagnostico ia' },
+          { label: 'Mentores P2P', query: 'mentores p2p' },
+        ],
+      },
+      {
+        keys: ['diagnostico', 'test', 'evaluacion', 'vacios', 'examen', 'nota', 'parcial'],
+        reply:
+          'El Diagnóstico IA analiza en 3 minutos qué conceptos previos te están frenando (ej. bases de cálculo o lógica) para que dejes de estudiar 6 horas en vano y ataques justo lo que importa.',
+        action: { type: 'link', href: '/test-diagnostico?utm_source=chatbot&utm_medium=cta', label: 'Hacer Test Diagnóstico ahora →' },
+        chips: [
+          { label: 'Mentores P2P', query: 'mentores p2p' },
+          { label: 'Crear cuenta', query: 'crear cuenta' },
+        ],
+      },
+      {
+        keys: ['funciona', 'que es', 'mindfix', 'metodo', 'estudiar'],
+        reply:
+          'MindFix funciona en 3 pasos: 1) Haces el diagnóstico IA de 3 min, 2) Recibes tu mapa de vacíos conceptuales y ruta de Active Recall (sin amanecidas), y 3) Refuerzas con mentores pares de tu carrera.',
+        action: { type: 'link', href: '/#como-funciona', label: 'Ver cómo funciona →' },
+        chips: [
+          { label: 'Plan Freemium', query: 'cuanto cuesta freemium' },
+          { label: 'Crear cuenta', query: 'crear cuenta' },
+        ],
+      },
+    ];
+
+    const normalize = (text) =>
+      text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+    const scrollToBottom = () => {
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    };
+
+    const renderChips = (chips) => {
+      quickRepliesEl.innerHTML = '';
+      chips.forEach((chip) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className =
+          'px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#0077FE]/10 text-[#0B2545] hover:text-[#0077FE] text-[11px] font-bold border border-slate-200/80 transition-colors cursor-pointer';
+        btn.textContent = chip.label;
+        btn.addEventListener('click', () => handleUserMessage(chip.label, chip.query));
+        quickRepliesEl.appendChild(btn);
+      });
+    };
+
+    const addMessage = (sender, text, action) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = sender === 'user' ? 'flex justify-end' : 'flex justify-start';
+
+      const bubble = document.createElement('div');
+      bubble.className =
+        sender === 'user'
+          ? 'max-w-[85%] px-3.5 py-2.5 rounded-2xl rounded-br-sm bg-gradient-to-r from-[#0077FE] to-[#00A3FF] text-white text-xs sm:text-sm font-medium shadow-sm'
+          : 'max-w-[88%] px-3.5 py-2.5 rounded-2xl rounded-bl-sm bg-white text-[#0B2545] text-xs sm:text-sm leading-relaxed border border-slate-200/80 shadow-xs';
+
+      const p = document.createElement('p');
+      p.textContent = text;
+      bubble.appendChild(p);
+
+      if (action) {
+        if (action.type === 'signup') {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className =
+            'mt-2.5 inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#0077FE]/10 hover:bg-[#0077FE] text-[#0077FE] hover:text-white text-xs font-extrabold transition-colors cursor-pointer';
+          btn.textContent = action.label;
+          btn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('mindfix:open-signup'));
+          });
+          bubble.appendChild(btn);
+        } else if (action.type === 'link') {
+          const link = document.createElement('a');
+          link.href = action.href;
+          link.className =
+            'mt-2.5 inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#0077FE]/10 hover:bg-[#0077FE] text-[#0077FE] hover:text-white text-xs font-extrabold transition-colors';
+          link.textContent = action.label;
+          if (action.href.startsWith('#')) {
+            link.addEventListener('click', () => setOpen(false));
+          }
+          bubble.appendChild(link);
+        }
+      }
+
+      wrapper.appendChild(bubble);
+      messagesEl.appendChild(wrapper);
+      scrollToBottom();
+    };
+
+    const matchIntent = (rawQuery) => {
+      const q = normalize(rawQuery);
+      for (const intent of INTENTS) {
+        if (intent.keys.some((k) => q.includes(k))) {
+          return intent;
+        }
+      }
+      return {
+        reply:
+          'Puedo ayudarte con dudas sobre el Diagnóstico IA, nuestros Mentores P2P, el Plan Freemium o cómo crear tu cuenta en MindFix. Elige una opción abajo:',
+        chips: QUICK_TOPICS,
+      };
+    };
+
+    const handleUserMessage = (displayText, overrideQuery) => {
+      const text = displayText.trim();
+      if (!text) return;
+      addMessage('user', text);
+      inputEl.value = '';
+
+      const typing = document.createElement('div');
+      typing.className = 'flex justify-start';
+      typing.innerHTML =
+        '<div class="px-3.5 py-2 rounded-2xl rounded-bl-sm bg-white border border-slate-200/80 text-xs text-slate-400 font-semibold">Escribiendo...</div>';
+      messagesEl.appendChild(typing);
+      scrollToBottom();
+
+      setTimeout(() => {
+        typing.remove();
+        const result = matchIntent(overrideQuery || text);
+        addMessage('bot', result.reply, result.action);
+        renderChips(result.chips || QUICK_TOPICS);
+      }, 280);
+    };
+
+    const initConversation = () => {
+      messagesEl.innerHTML = '';
+      let greeting =
+        '¡Hola! Soy el asistente de MindFix. ¿Quieres saber cómo subir tus notas sin amanecidas o crear tu cuenta Freemium?';
+      if (chatContext === 'blog') {
+        greeting = articleTitle
+          ? `¡Hola! Estás leyendo "${articleTitle}". ¿Tienes dudas sobre este tema, Active Recall o quieres probar tu Diagnóstico IA?`
+          : '¡Hola! Estás en el Blog de MindFix. Puedo recomendarte artículos sobre amanecidas, Active Recall, aprendizaje P2P o ayudarte a detectar tus vacíos.';
+      }
+      addMessage('bot', greeting);
+      renderChips(QUICK_TOPICS);
+    };
+
+    const setOpen = (open) => {
+      chatWindow.classList.toggle('hidden', !open);
+      chatWindow.classList.toggle('flex', open);
+      toggleBtn.setAttribute('aria-expanded', String(open));
+      if (open) inputEl.focus();
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = chatWindow.classList.contains('hidden');
+      setOpen(isHidden);
+    });
+
+    closeBtn?.addEventListener('click', () => setOpen(false));
+    resetBtn?.addEventListener('click', initConversation);
+
+    formEl.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleUserMessage(inputEl.value);
+    });
+
+    initConversation();
+  })();
+</script>
