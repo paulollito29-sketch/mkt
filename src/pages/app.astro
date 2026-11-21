@@ -29,49 +29,79 @@ const courses = [
   <body class="bg-[#F8FAFC] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased">
     <Navbar active="app" />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full flex-1 space-y-7">
-      <!-- ==================== 1. HEADER BIENVENIDA + BOTONES PREMIUM & PRUEBA ==================== -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
-        <div>
-          <div class="flex flex-wrap items-center gap-2 mb-2">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0077FE] text-xs font-extrabold uppercase tracking-wider">
-              👋 Menú Principal · MindFix App
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold">
-              Plan Actual: Gratuito
-            </span>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full flex-1 space-y-6">
+      
+      <!-- ==================== SELECTOR INTERACTIVO ENTRE PLANES: FREEMIUM, SMART, PRO, ELITE ==================== -->
+      <section class="bg-gradient-to-r from-slate-950 via-[#0B2545] to-slate-900 text-white rounded-3xl p-5 sm:p-7 border border-slate-700/60 shadow-xl relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-[11px] font-black uppercase text-[#00C2FF] tracking-wider">Membresía Universitaria Activa</span>
+              <span id="active-plan-pill" class="px-3 py-0.5 rounded-full text-xs font-black bg-slate-800 text-slate-300 border border-slate-700 transition-all">
+                ⚪ Freemium (Gratuito)
+              </span>
+            </div>
+            <h1 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+              <span>Hola, <span id="app-user-name">Valeria Rojas</span></span>
+              <span class="text-slate-400 font-normal text-sm">— Estás en:</span>
+              <span id="active-plan-name" class="text-emerald-400 font-extrabold">Plan Freemium</span>
+            </h1>
+            <p id="active-plan-desc" class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+              Modo básico con acceso limitado a foros y diagnósticos. Cambia de plan aquí para simular o probar cada nivel en tiempo real.
+            </p>
           </div>
-          <h1 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
-            Hola, <span id="app-user-name">Valeria Rojas</span>
-          </h1>
-          <p class="text-sm text-slate-500 mt-1">
-            Aquí tienes tu resumen académico de hoy, tus cursos activos y tu acceso al Plan Premium.
-          </p>
+
+          <!-- BOTONES SELECTORES INTERACTIVOS DE PLAN -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider self-center sm:self-auto hidden lg:inline">Cambiar Plan:</span>
+            <div class="inline-flex flex-wrap items-center gap-1.5 bg-black/50 p-1.5 rounded-2xl border border-white/10">
+              <button
+                type="button"
+                id="btn-plan-freemium"
+                onclick="setAppPlan('freemium')"
+                class="px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer bg-white text-slate-900 shadow-sm"
+              >
+                ⚪ Freemium
+              </button>
+              <button
+                type="button"
+                id="btn-plan-smart"
+                onclick="setAppPlan('smart')"
+                class="px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-300 hover:text-white"
+              >
+                ⭐ SMART
+              </button>
+              <button
+                type="button"
+                id="btn-plan-pro"
+                onclick="setAppPlan('pro')"
+                class="px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-300 hover:text-white"
+              >
+                👑 PRO
+              </button>
+              <button
+                type="button"
+                id="btn-plan-elite"
+                onclick="setAppPlan('elite')"
+                class="px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-300 hover:text-white"
+              >
+                💎 ELITE
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Botones principales de monetización / prueba en el menú -->
-        <div class="flex flex-wrap items-center gap-3 shrink-0">
-          <a
-            href="/prueba-gratuita"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-500/25 hover:scale-[1.02] transition-all"
-          >
-            <span>🎁 Probar Plan Premium (14 días)</span>
-          </a>
-
-          <a
-            href="/planes"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-[#0077FE]/25 hover:scale-[1.02] transition-all"
-          >
-            <span>👑 Pasar al Plan Premium</span>
-          </a>
-
-          <a
-            href="/upgrade"
-            class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#6D4AFF] to-[#4C28C9] text-white text-xs sm:text-sm font-extrabold shadow-md hover:scale-[1.02] transition-all"
-          >
-            <span>⚡ Upgrade -50%</span>
-          </a>
+        <!-- BANNER DE ESTADO Y ACCIONES RÁPIDAS DEL PLAN -->
+        <div id="plan-action-banner" class="mt-5 pt-4 border-t border-slate-700/60 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <!-- Inyectado con JS -->
         </div>
+      </section>
+
+      <!-- ==================== BANNER DINÁMICO DE FUNCIONALIDADES DEL PLAN ==================== -->
+      <div id="plan-features-callout" class="transition-all">
+        <!-- Renderizado dinámicamente con JS según el plan activo -->
       </div>
 
       <!-- ==================== 2. TARJETAS KPI DE RENDIMIENTO ==================== -->
@@ -395,6 +425,283 @@ const courses = [
     </main>
 
     <script is:inline>
+      const appPlans = {
+        freemium: {
+          name: 'Plan Freemium',
+          nameClass: 'text-slate-300 font-extrabold',
+          pill: '⚪ Freemium (Gratuito)',
+          pillClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-slate-800 text-slate-300 border border-slate-700',
+          desc: 'Versión básica con acceso limitado a foros y diagnósticos iniciales. Tienes 3 diagnósticos restantes de prueba.',
+          bannerHtml: `
+            <div class="flex items-center gap-2 text-amber-300 font-bold">
+              <span>⚠️</span>
+              <span>Estás en versión Freemium: el Planificador con IA y Tutorías 1-on-1 están bloqueados.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="/prueba-gratuita" class="px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-all shadow-sm">
+                🎁 Activar 14 días PRO gratis
+              </a>
+              <a href="/planes" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all">
+                Ver Planes SMART y ELITE →
+              </a>
+            </div>
+          `,
+          calloutHtml: `
+            <div class="bg-amber-50/70 border border-amber-200 rounded-3xl p-5 sm:p-6 text-slate-800">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-2xl">🔒</span>
+                  <div>
+                    <h3 class="text-sm sm:text-base font-black text-[#0B2545]">Límites de tu membresía Freemium</h3>
+                    <p class="text-xs text-slate-600">Actualiza a SMART, PRO o ELITE para desbloquear la suite universitaria completa.</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-black text-[11px] uppercase tracking-wide">
+                  1 de 3 diagnósticos usados
+                </span>
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                <div class="bg-white p-3 rounded-2xl border border-amber-100">
+                  <div class="font-extrabold text-[#0B2545]">Marketplace Apuntes</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">2 descargas / mes</div>
+                </div>
+                <div class="bg-white p-3 rounded-2xl border border-amber-100">
+                  <div class="font-extrabold text-[#0B2545]">Planificador con IA</div>
+                  <div class="text-[11px] text-rose-600 font-black mt-0.5">🔒 Requiere PRO</div>
+                </div>
+                <div class="bg-white p-3 rounded-2xl border border-amber-100">
+                  <div class="font-extrabold text-[#0B2545]">Diagnóstico Forense</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Básico (1 curso)</div>
+                </div>
+                <div class="bg-white p-3 rounded-2xl border border-amber-100">
+                  <div class="font-extrabold text-[#0B2545]">Tutorías 1-on-1</div>
+                  <div class="text-[11px] text-purple-600 font-black mt-0.5">🔒 Requiere ELITE</div>
+                </div>
+              </div>
+            </div>
+          `
+        },
+
+        smart: {
+          name: 'Plan SMART',
+          nameClass: 'text-rose-400 font-black',
+          pill: '⭐ Plan SMART Activo',
+          pillClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40',
+          desc: 'Acceso ilimitado al Marketplace MindPartners de apuntes universitarios, solucionarios de exámenes y foros de consulta entre pares.',
+          bannerHtml: `
+            <div class="flex items-center gap-2 text-rose-300 font-bold">
+              <span>⭐</span>
+              <span>¡Membresía SMART activa! Tienes descargas ilimitadas de apuntes certificados y exámenes pasados.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="/prueba-gratuita?plan=pro" class="px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-all shadow-sm">
+                👑 Subir a PRO (Hábitos IA)
+              </a>
+              <a href="/upgrade?plan=elite" class="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs transition-all">
+                💎 Upgrade ELITE (-50%)
+              </a>
+            </div>
+          `,
+          calloutHtml: `
+            <div class="bg-rose-50/70 border-2 border-rose-200 rounded-3xl p-5 sm:p-6 text-slate-800">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-2xl">⭐</span>
+                  <div>
+                    <h3 class="text-sm sm:text-base font-black text-[#0B2545]">Funcionalidades activas del Plan SMART</h3>
+                    <p class="text-xs text-slate-600">Recursos comunitarios y banco de exámenes pasados habilitados para tu ciclo.</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-900 font-black text-[11px] uppercase tracking-wide">
+                  Suscripción Mensual Activa
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-white p-3.5 rounded-2xl border border-rose-100 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-rose-700">
+                    <span>✔</span> Marketplace MindPartners
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Descarga ilimitada de solucionarios de Cálculo y Física.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-rose-100 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-rose-700">
+                    <span>✔</span> Foros de Estudio P2P
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">4 grupos universitarios activos por cátedra.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 bg-slate-50 opacity-80">
+                  <div class="flex items-center gap-1.5 font-black text-slate-500">
+                    <span>🔒</span> Planificador IA & Tutor 1-on-1
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1">Disponible al actualizar a Plan PRO o ELITE.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+
+        pro: {
+          name: 'Plan PRO (Más elegido)',
+          nameClass: 'text-emerald-400 font-black',
+          pill: '👑 Plan PRO Activo (Prueba 14 días)',
+          pillClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40',
+          desc: 'Acompañamiento inteligente de hábitos universitarios, planificador semanal con IA de 50m pomodoro y diagnóstico forense de vacíos conceptuales.',
+          bannerHtml: `
+            <div class="flex items-center gap-2 text-emerald-300 font-bold">
+              <span>👑</span>
+              <span>¡Prueba gratuita de 14 días activa sin costo! Planificador y diagnóstico forense 100% operativos.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="/upgrade?plan=elite" class="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs transition-all shadow-sm">
+                💎 Pasar a ELITE (Tutor 1-on-1)
+              </a>
+              <a href="/planes-app" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all">
+                📱 Ver Mockups Móviles
+              </a>
+            </div>
+          `,
+          calloutHtml: `
+            <div class="bg-emerald-50/80 border-2 border-emerald-300 rounded-3xl p-5 sm:p-6 text-slate-800 shadow-sm">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-2xl">👑</span>
+                  <div>
+                    <h3 class="text-sm sm:text-base font-black text-[#0B2545]">Funcionalidades activas del Plan PRO</h3>
+                    <p class="text-xs text-slate-600">Tu planificador inteligente y detector de vacíos conceptuales están sincronizados.</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-black text-[11px] uppercase tracking-wide">
+                  14 días de prueba activos
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-white p-3.5 rounded-2xl border border-emerald-100 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-emerald-700">
+                    <span>✔</span> Planificador de Hábitos IA
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Bloques de 50 min Active Recall y pausas neuronales.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-emerald-100 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-emerald-700">
+                    <span>✔</span> Diagnóstico Forense Continuo
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Detección de 2 vacíos antes del examen parcial.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-emerald-100 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-emerald-700">
+                    <span>✔</span> Replanificación Automática
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Ajuste de tiempos según tus notas y 7.5h de sueño.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+
+        elite: {
+          name: 'Plan ELITE (Tercio Superior VIP)',
+          nameClass: 'text-purple-400 font-black',
+          pill: '💎 Plan ELITE Activo (Tercio Superior VIP)',
+          pillClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-purple-500/20 text-purple-300 border border-purple-500/40',
+          desc: 'La experiencia universitaria más avanzada: IA predictiva de exámenes por cátedra, tutorías 1 a 1 semanales con alumnos del Tercio y sincronización con Canvas/Notion.',
+          bannerHtml: `
+            <div class="flex items-center gap-2 text-purple-300 font-bold">
+              <span>💎</span>
+              <span>¡Membresía ELITE VIP Activa! Tienes asignado a tu tutor Carlos M. y radar de exámenes al 92%.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="#tutor-vip" class="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs transition-all shadow-sm">
+                🎧 Sesión 1-on-1 (Jueves 6pm)
+              </a>
+              <a href="/planes-app" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all">
+                📱 Ver App Completa
+              </a>
+            </div>
+          `,
+          calloutHtml: `
+            <div class="bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50 border-2 border-purple-300 rounded-3xl p-5 sm:p-6 text-slate-800 shadow-md">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-2xl">💎</span>
+                  <div>
+                    <h3 class="text-sm sm:text-base font-black text-[#0B2545]">Suite VIP del Plan ELITE desbloqueada</h3>
+                    <p class="text-xs text-slate-600">Garantía de ingreso al Tercio Superior y mentoría personalizada 1-on-1.</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-purple-200 text-purple-900 font-black text-[11px] uppercase tracking-wide">
+                  Plan VIP Sin Restricciones
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+                <div class="bg-white p-3.5 rounded-2xl border border-purple-200 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-purple-700">
+                    <span>⚡</span> IA Predictiva
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">92% precisión de preguntas de parcial.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-purple-200 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-purple-700">
+                    <span>🎧</span> Tutor 1 a 1 Semanal
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Carlos M. (Tercio Superior asignado).</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-purple-200 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-purple-700">
+                    <span>🏆</span> Ranking Facultad #3
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Racha de 18 días sin trasnochar.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-purple-200 shadow-xs">
+                  <div class="flex items-center gap-1.5 font-black text-purple-700">
+                    <span>🔄</span> Canvas & Notion
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Sincronización automática activa.</p>
+                </div>
+              </div>
+            </div>
+          `
+        }
+      };
+
+      let activePlanKey = 'pro';
+
+      function setAppPlan(plan) {
+        if (!appPlans[plan]) plan = 'pro';
+        activePlanKey = plan;
+        localStorage.setItem('mindfix_active_plan', plan);
+
+        const data = appPlans[plan];
+
+        // Update Pill and Title in Header
+        const pill = document.getElementById('active-plan-pill');
+        pill.textContent = data.pill;
+        pill.className = data.pillClass;
+
+        const nameEl = document.getElementById('active-plan-name');
+        nameEl.textContent = data.name;
+        nameEl.className = data.nameClass;
+
+        document.getElementById('active-plan-desc').textContent = data.desc;
+        document.getElementById('plan-action-banner').innerHTML = data.bannerHtml;
+        document.getElementById('plan-features-callout').innerHTML = data.calloutHtml;
+
+        // Update selector buttons styling
+        ['freemium', 'smart', 'pro', 'elite'].forEach((p) => {
+          const btn = document.getElementById(`btn-plan-${p}`);
+          if (p === plan) {
+            btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer bg-white text-slate-900 shadow-sm';
+          } else {
+            btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-300 hover:text-white';
+          }
+        });
+      }
+
+      // Check URL query e.g. /app?plan=elite or localStorage
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramPlan = urlParams.get('plan');
+      const savedPlan = paramPlan || localStorage.getItem('mindfix_active_plan') || 'pro';
+      setAppPlan(savedPlan);
+
       try {
         const stored = JSON.parse(localStorage.getItem('mindfix_user') || '{}');
         if (stored.name) {
