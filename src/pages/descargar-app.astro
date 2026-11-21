@@ -1,0 +1,913 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Descargar App Móvil MindFix | iOS, Android & APK";
+const description = "Descarga la App oficial de MindFix en tu celular. Copiloto Fixi IA, hábitos de estudio de alto rendimiento, banco de apuntes offline y tutorías P2P en tu bolsillo.";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased selection:bg-[#0077FE] selection:text-white">
+    <!-- Navbar unificada con pestaña activa 'descargar' -->
+    <Navbar active="descargar" />
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-rose-500 via-[#0077FE] to-[#6D4AFF] text-white py-2 px-4 text-center text-xs font-bold shadow-xs">
+      <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+        <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] uppercase tracking-wider font-extrabold">🚀 Versión Móvil 2.4</span>
+        <span>¡Nueva actualización con Escáner OCR de apuntes y Modo 100% Offline disponible para descargar!</span>
+      </div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full space-y-16">
+
+      <!-- ========================================================================= -->
+      <!-- 1. HERO SECTION: DESCARGA DE LA APP MÓVIL                                 -->
+      <!-- ========================================================================= -->
+      <section class="relative bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/90 shadow-sm overflow-hidden">
+        <!-- Fondos difuminados decorativos -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-100/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Columna Izquierda: Información de descarga, botones y QR -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- Badge oficial de tiendas -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 text-xs font-black">
+              <span class="text-sm">⭐</span>
+              <span>4.9 / 5 en App Store & Google Play (+15,000 reseñas)</span>
+            </div>
+
+            <!-- Título y descripción -->
+            <div class="space-y-3">
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2545] tracking-tight leading-[1.15]">
+                Lleva <span class="bg-gradient-to-r from-[#0077FE] to-[#6D4AFF] bg-clip-text text-transparent">MindFix</span> en tu bolsillo y domina tu carrera
+              </h1>
+              <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-xl">
+                El copiloto académico que te acompaña en la facultad, el transporte y en tu casa. Resuelve dudas con <strong>Fixi IA</strong>, cumple tus hábitos de <strong>Active Recall</strong>, descarga exámenes <strong>sin conexión</strong> y chatea con tutores de ciclos superiores.
+              </p>
+            </div>
+
+            <!-- Selector de Dispositivo / Plataforma -->
+            <div class="bg-slate-50 p-1.5 rounded-2xl border border-slate-200 flex flex-wrap gap-1 max-w-lg">
+              <button
+                type="button"
+                onclick="setDownloadPlatform('all')"
+                id="tab-plat-all"
+                class="flex-1 min-w-[100px] py-2 px-3 rounded-xl text-xs font-black transition-all bg-[#0077FE] text-white shadow-xs cursor-pointer text-center"
+              >
+                Todos los Dispositivos
+              </button>
+              <button
+                type="button"
+                onclick="setDownloadPlatform('ios')"
+                id="tab-plat-ios"
+                class="flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-bold text-slate-600 hover:text-[#0B2545] hover:bg-white transition-all cursor-pointer text-center"
+              >
+                🍎 iOS (iPhone)
+              </button>
+              <button
+                type="button"
+                onclick="setDownloadPlatform('android')"
+                id="tab-plat-android"
+                class="flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-bold text-slate-600 hover:text-[#0B2545] hover:bg-white transition-all cursor-pointer text-center"
+              >
+                🤖 Android
+              </button>
+              <button
+                type="button"
+                onclick="setDownloadPlatform('apk')"
+                id="tab-plat-apk"
+                class="flex-1 min-w-[80px] py-2 px-3 rounded-xl text-xs font-bold text-slate-600 hover:text-[#0B2545] hover:bg-white transition-all cursor-pointer text-center"
+              >
+                📦 APK
+              </button>
+            </div>
+
+            <!-- Botones Oficiales de Tiendas -->
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <!-- Google Play -->
+              <a
+                href="#descargar-tiendas"
+                onclick="triggerDownloadAlert('Google Play')"
+                class="bg-black hover:bg-slate-800 text-white px-5 py-3 rounded-2xl flex items-center gap-3 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
+              >
+                <svg class="w-6 h-6 fill-current text-[#00E676]" viewBox="0 0 24 24">
+                  <path d="M3.609 1.814L13.793 12 3.61 22.186c-.36-.36-.61-.9-.61-1.586V3.4c0-.686.25-1.226.609-1.586zm11.238 11.238l2.673-2.673-9.529-5.498 6.856 8.171zm0 .977l-6.856 8.171 9.529-5.498-2.673-2.673zm1.621-1.621l4.032 2.327c.883.51.883 1.341 0 1.851l-4.032 2.327-2.327-2.327 2.327-2.178z"/>
+                </svg>
+                <div class="text-left">
+                  <div class="text-[10px] uppercase font-bold tracking-wider text-slate-300 leading-none">Disponible en</div>
+                  <div class="text-sm font-black leading-tight">Google Play</div>
+                </div>
+              </a>
+
+              <!-- App Store -->
+              <a
+                href="#descargar-tiendas"
+                onclick="triggerDownloadAlert('App Store')"
+                class="bg-black hover:bg-slate-800 text-white px-5 py-3 rounded-2xl flex items-center gap-3 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
+              >
+                <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 0.6-2.65 1.35-.58.66-1.09 1.73-.95 2.76 1.01.08 2.06-.51 2.68-1.26z"/>
+                </svg>
+                <div class="text-left">
+                  <div class="text-[10px] uppercase font-bold tracking-wider text-slate-300 leading-none">Consíguelo en</div>
+                  <div class="text-sm font-black leading-tight">App Store</div>
+                </div>
+              </a>
+
+              <!-- APK Directo -->
+              <a
+                href="#descargar-tiendas"
+                onclick="triggerDownloadAlert('APK Directo')"
+                class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 px-4 py-3 rounded-2xl flex items-center gap-2.5 transition-all text-xs font-black shadow-xs"
+              >
+                <span class="text-base">📦</span>
+                <div class="text-left">
+                  <div class="text-[9px] uppercase tracking-wider text-emerald-600 leading-none">Descarga Directa</div>
+                  <div class="text-xs font-black leading-tight">Archivo APK (28 MB)</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Tira de QR interactivo + Enlace al WhatsApp -->
+            <div class="pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              
+              <!-- Tarjeta de Código QR -->
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-4">
+                <div class="w-16 h-16 bg-white p-1.5 rounded-xl border border-slate-300 shadow-xs flex items-center justify-center shrink-0">
+                  <!-- SVG Mock QR Code -->
+                  <svg class="w-full h-full text-slate-800" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v2h-4v-2zm-4 0h2v4h-2v-4zm4 4h4v4h-4v-4zm-4 2h2v2h-2v-2zm-2-2h2v2h-2v-2zm6-4h2v2h-2v-2zM6 6h2v2H6V6zm12 0h2v2h-2V6zM6 18h2v2H6v-2z"/>
+                  </svg>
+                </div>
+                <div class="text-xs">
+                  <div class="font-black text-[#0B2545]">Escanea con tu celular</div>
+                  <div class="text-slate-500 text-[11px] mt-0.5">Apunta tu cámara para abrir el enlace de descarga directa en tu móvil.</div>
+                </div>
+              </div>
+
+              <!-- Enviar link por WhatsApp / SMS -->
+              <div class="p-4 rounded-2xl bg-blue-50/60 border border-blue-200/80">
+                <div class="text-xs font-black text-[#0B2545] mb-2">¿Estás en tu laptop? Envíate el link:</div>
+                <form onsubmit="handleSendLink(event)" class="flex gap-1.5">
+                  <input
+                    type="tel"
+                    id="phone-link-input"
+                    placeholder="Tu celular (ej: 987 654 321)"
+                    class="w-full text-xs px-3 py-2 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#0077FE]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="px-3 py-2 rounded-xl bg-[#0077FE] hover:bg-[#0062D2] text-white text-xs font-extrabold shrink-0 transition-colors shadow-xs cursor-pointer"
+                  >
+                    Enviar
+                  </button>
+                </form>
+                <div id="send-link-feedback" class="text-[11px] text-emerald-700 font-bold mt-1.5 hidden">
+                  ✅ ¡Enlace enviado a tu celular por WhatsApp!
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Datos técnicos ligeros -->
+            <div class="flex flex-wrap items-center gap-4 text-slate-500 text-xs font-bold pt-2">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                Peso: Sólo 28 MB
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                iOS 15+ / Android 9+
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                100% Sin publicidad
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Columna Derecha: Mockup Interactivo del Smartphone (Pantallas de la App) -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            
+            <!-- Selector de Pantallas del Mockup -->
+            <div class="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-2xl mb-4 border border-slate-200">
+              <button
+                type="button"
+                onclick="switchPhoneScreen('screen-dashboard')"
+                id="btn-screen-dashboard"
+                class="px-2.5 py-1 rounded-xl text-[11px] font-black transition-all bg-white text-[#0077FE] shadow-xs cursor-pointer"
+              >
+                🏠 Dashboard
+              </button>
+              <button
+                type="button"
+                onclick="switchPhoneScreen('screen-fixi')"
+                id="btn-screen-fixi"
+                class="px-2.5 py-1 rounded-xl text-[11px] font-bold text-slate-600 hover:text-[#0B2545] transition-all cursor-pointer"
+              >
+                🤖 Fixi IA
+              </button>
+              <button
+                type="button"
+                onclick="switchPhoneScreen('screen-offline')"
+                id="btn-screen-offline"
+                class="px-2.5 py-1 rounded-xl text-[11px] font-bold text-slate-600 hover:text-[#0B2545] transition-all cursor-pointer"
+              >
+                📦 Offline
+              </button>
+              <button
+                type="button"
+                onclick="switchPhoneScreen('screen-radar')"
+                id="btn-screen-radar"
+                class="px-2.5 py-1 rounded-xl text-[11px] font-bold text-slate-600 hover:text-[#0B2545] transition-all cursor-pointer"
+              >
+                🔮 Parciales
+              </button>
+            </div>
+
+            <!-- CHASSIS DEL SMARTPHONE -->
+            <div class="relative w-[280px] sm:w-[310px] rounded-[48px] p-3.5 bg-slate-900 shadow-2xl border-4 border-slate-800 ring-1 ring-white/20">
+              
+              <!-- Dynamic Island / Cámara frontal -->
+              <div class="absolute top-6 left-1/2 transform -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 flex items-center justify-between px-2.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-700"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-blue-500/80 animate-pulse"></div>
+              </div>
+
+              <!-- PANTALLA OLED DEL TELÉFONO -->
+              <div class="w-full bg-[#F8FAFC] rounded-[38px] overflow-hidden pt-8 pb-4 px-3.5 relative min-h-[540px] text-left border border-slate-200">
+                
+                <!-- Status bar del teléfono -->
+                <div class="flex items-center justify-between text-[11px] font-black text-slate-800 px-2 pb-2">
+                  <span>9:41</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-[10px]">5G</span>
+                    <span class="text-[11px]">⚡ 100%</span>
+                  </div>
+                </div>
+
+                <!-- Top App Header con Plan y Perfil -->
+                <div class="flex items-center justify-between bg-white p-2.5 rounded-2xl border border-slate-200/80 shadow-xs mb-3">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#0077FE] to-cyan-400 text-white flex items-center justify-center font-black text-xs">
+                      VR
+                    </div>
+                    <div>
+                      <div class="text-[10px] text-slate-400 font-bold leading-none">Hola, Valeria</div>
+                      <div class="text-xs font-black text-[#0B2545] leading-tight">5to ciclo • PUCP</div>
+                    </div>
+                  </div>
+                  <span class="text-[9px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
+                    👑 Plan PRO
+                  </span>
+                </div>
+
+                <!-- ==================== PANTALLA 1: DASHBOARD & HÁBITOS ==================== -->
+                <div id="mock-screen-dashboard" class="space-y-3 block">
+                  
+                  <!-- Banner Fixi IA Saludable del Estudio -->
+                  <div class="p-3 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xs">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[9px] font-extrabold uppercase tracking-wider text-emerald-200">Copiloto Activo</span>
+                      <span class="text-[9px] bg-white/20 px-1.5 py-0.5 rounded font-black">Racha: 18 días 🔥</span>
+                    </div>
+                    <div class="text-xs font-black leading-snug">"¡Buen trabajo! Has completado 2 bloques de Active Recall hoy."</div>
+                  </div>
+
+                  <!-- Checklist de Hábitos Universitarios -->
+                  <div class="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <div class="flex items-center justify-between text-[11px] font-black text-[#0B2545]">
+                      <span>Hábitos de Hoy</span>
+                      <span class="text-emerald-600">75% cumplido</span>
+                    </div>
+
+                    <div class="space-y-1.5 text-[10px]">
+                      <div class="flex items-center gap-2 p-1.5 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-200">
+                        <span class="text-xs">✅</span>
+                        <span class="font-bold flex-1">Bloque 50 min Finanzas</span>
+                        <span class="text-[9px] text-emerald-700 font-extrabold">Hecho</span>
+                      </div>
+
+                      <div class="flex items-center gap-2 p-1.5 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-200">
+                        <span class="text-xs">✅</span>
+                        <span class="font-bold flex-1">Pausa activa & caminata 10m</span>
+                        <span class="text-[9px] text-emerald-700 font-extrabold">Hecho</span>
+                      </div>
+
+                      <div class="flex items-center gap-2 p-1.5 rounded-xl bg-slate-50 text-slate-700 border border-slate-200">
+                        <span class="text-xs">⏳</span>
+                        <span class="font-bold flex-1">Simulacro Parcial Micro II</span>
+                        <span class="text-[9px] text-blue-600 font-black">Pendiente</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Anillo de Sueño y Rendimiento Cognitivo -->
+                  <div class="p-3 bg-white rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+                    <div>
+                      <div class="text-[10px] text-slate-400 font-bold">Sueño Reparador</div>
+                      <div class="text-xs font-black text-[#0B2545]">7h 45m • Óptimo</div>
+                      <div class="text-[9px] text-emerald-600 font-extrabold mt-0.5">Memoria consolidada</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border-4 border-emerald-500 border-t-transparent flex items-center justify-center font-black text-[10px] text-emerald-600">
+                      92%
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- ==================== PANTALLA 2: FIXI IA COPILOTO ==================== -->
+                <div id="mock-screen-fixi" class="space-y-2.5 hidden">
+                  <div class="p-2.5 bg-[#0077FE] text-white rounded-2xl shadow-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">🤖</span>
+                      <div>
+                        <div class="text-xs font-black">Fixi IA Universitario</div>
+                        <div class="text-[9px] text-blue-100">Escáner OCR & Explicaciones</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Conversación de Chat -->
+                  <div class="space-y-2 text-[10px]">
+                    <div class="bg-blue-50 text-slate-800 p-2 rounded-2xl rounded-tl-xs border border-blue-200">
+                      <div class="font-bold text-[#0077FE] mb-0.5">Valeria:</div>
+                      "Explícame cómo calcular el WACC con deuda y acciones preferentes para mi examen."
+                    </div>
+
+                    <div class="bg-white text-slate-800 p-2.5 rounded-2xl rounded-tr-xs border border-slate-200 shadow-xs space-y-1">
+                      <div class="font-black text-emerald-600 flex items-center gap-1">
+                        <span>🤖 Fixi IA:</span>
+                        <span class="text-[8px] bg-emerald-100 px-1 rounded">Fórmula Oficial</span>
+                      </div>
+                      <p class="leading-relaxed">
+                        El WACC es el costo promedio ponderado de capital. La fórmula en Perú:
+                      </p>
+                      <div class="p-1.5 rounded-lg bg-slate-900 text-cyan-300 font-mono text-[9px]">
+                        WACC = (E/V * Ke) + (D/V * Kd * (1 - T))
+                      </div>
+                      <div class="text-[9px] text-purple-700 font-bold">💡 Tip de parcial: Recuerda descontar el impuesto a la renta (29.5%).</div>
+                    </div>
+                  </div>
+
+                  <div class="p-2 bg-slate-100 rounded-xl flex items-center gap-2 border border-slate-200 text-slate-400 text-[10px]">
+                    <span>📷 Escanear fórmula...</span>
+                    <span class="ml-auto text-xs">🎙️</span>
+                  </div>
+                </div>
+
+                <!-- ==================== PANTALLA 3: MODO OFFLINE ==================== -->
+                <div id="mock-screen-offline" class="space-y-2.5 hidden">
+                  <div class="p-2.5 bg-amber-500 text-white rounded-2xl shadow-xs flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">📴</span>
+                      <div>
+                        <div class="text-xs font-black">Modo 100% Offline</div>
+                        <div class="text-[9px] text-amber-100">Sin consumir tus datos</div>
+                      </div>
+                    </div>
+                    <span class="text-[9px] bg-white/20 px-2 py-0.5 rounded-full font-bold">5 descargados</span>
+                  </div>
+
+                  <div class="space-y-1.5 text-[10px]">
+                    <div class="p-2 bg-white rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
+                      <div>
+                        <div class="font-black text-[#0B2545]">Examen Parcial 2025-II Resuelto</div>
+                        <div class="text-[9px] text-slate-400">Microeconomía Intermedia • PDF</div>
+                      </div>
+                      <span class="text-xs text-emerald-600 font-black">💾 Listo</span>
+                    </div>
+
+                    <div class="p-2 bg-white rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
+                      <div>
+                        <div class="font-black text-[#0B2545]">Resumen Flashcard de Fórmulas</div>
+                        <div class="text-[9px] text-slate-400">Estadística Aplicada • 45 tarjetas</div>
+                      </div>
+                      <span class="text-xs text-emerald-600 font-black">💾 Listo</span>
+                    </div>
+
+                    <div class="p-2 bg-white rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
+                      <div>
+                        <div class="font-black text-[#0B2545]">Audio-Resumen de Fixi (12 min)</div>
+                        <div class="text-[9px] text-slate-400">Derecho Empresarial • MP3</div>
+                      </div>
+                      <span class="text-xs text-emerald-600 font-black">💾 Listo</span>
+                    </div>
+                  </div>
+
+                  <div class="p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-800 font-bold text-center">
+                    ✈️ Puedes estudiar en el bus o metro sin señal.
+                  </div>
+                </div>
+
+                <!-- ==================== PANTALLA 4: RADAR DE PARCIALES ==================== -->
+                <div id="mock-screen-radar" class="space-y-2.5 hidden">
+                  <div class="p-2.5 bg-purple-600 text-white rounded-2xl shadow-xs">
+                    <div class="flex items-center justify-between">
+                      <div class="text-xs font-black">🔮 Radar Predictivo 2026</div>
+                      <span class="text-[9px] bg-white/20 px-1.5 py-0.5 rounded font-black">92% Acierto</span>
+                    </div>
+                    <div class="text-[9px] text-purple-200 mt-0.5">3 preguntas fijas detectadas para tu parcial</div>
+                  </div>
+
+                  <div class="space-y-1.5 text-[10px]">
+                    <div class="p-2 bg-white rounded-xl border border-purple-200 shadow-xs">
+                      <div class="flex items-center justify-between text-purple-700 font-black mb-0.5">
+                        <span>Pregunta Fija #1</span>
+                        <span class="text-emerald-600 font-extrabold">95% Probable</span>
+                      </div>
+                      <div class="text-slate-700 font-medium leading-snug">
+                        Demostración del Teorema de Coase y externalidades de red.
+                      </div>
+                    </div>
+
+                    <div class="p-2 bg-white rounded-xl border border-purple-200 shadow-xs">
+                      <div class="flex items-center justify-between text-purple-700 font-black mb-0.5">
+                        <span>Pregunta Fija #2</span>
+                        <span class="text-emerald-600 font-extrabold">89% Probable</span>
+                      </div>
+                      <div class="text-slate-700 font-medium leading-snug">
+                        Cálculo de flujo de caja descontado con tasa COK ajustada.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-2 rounded-xl bg-purple-50 border border-purple-200 text-[9px] text-purple-800 font-bold text-center">
+                    💎 Exclusivo para miembros Plan ELITE
+                  </div>
+                </div>
+
+                <!-- Barra inferior de la app móvil (Tabbar estilo NutriMind) -->
+                <div class="mt-4 pt-2 border-t border-slate-200/80 grid grid-cols-5 text-center text-[8px] font-bold text-slate-400">
+                  <div class="text-[#0077FE] flex flex-col items-center">
+                    <span class="text-xs">🏠</span>
+                    <span>Inicio</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="text-xs">📅</span>
+                    <span>Hábitos</span>
+                  </div>
+                  <!-- Ícono central flotante Fixi -->
+                  <div class="flex flex-col items-center -mt-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0077FE] to-cyan-400 text-white flex items-center justify-center text-sm shadow-md">
+                      🤖
+                    </div>
+                    <span class="text-[8px] font-black text-[#0077FE] mt-0.5">Fixi</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="text-xs">🛒</span>
+                    <span>Apuntes</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="text-xs">👤</span>
+                    <span>Perfil</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="text-center mt-3 text-xs text-slate-400 font-bold">
+              👆 Toca los botones superiores para interactuar con la app en vivo
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 2. FUNCIONES EXCLUSIVAS DE LA APP MÓVIL                                   -->
+      <!-- ========================================================================= -->
+      <section class="space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-wider text-[#0077FE] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+            Diseñada para la Vida Universitaria
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+            ¿Por qué estudiar con la App Móvil de MindFix?
+          </h2>
+          <p class="text-sm text-slate-600 font-medium">
+            Aprovecha los tiempos muertos entre clases, en el transporte o en la biblioteca sin depender de tener una laptop abierta ni wifi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: Modo Offline -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center text-2xl">
+              📴
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Modo 100% Offline</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Descarga apuntes, solucionarios de exámenes y resúmenes de fórmulas para estudiar en el bus, metro o combi sin gastar tus datos móviles.
+            </p>
+            <div class="text-[11px] font-black text-amber-700 bg-amber-50 px-2 py-1 rounded-lg inline-block">
+              Ahorra hasta 3.5 GB de internet al mes
+            </div>
+          </div>
+
+          <!-- Card 2: Notificaciones de Repaso Espaciado -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#0077FE] border border-blue-200 flex items-center justify-center text-2xl">
+              🔔
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Repaso Espaciado con Notificaciones</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Fixi IA te envía micro-preguntas clave de 2 minutos en los momentos precisos en que tu cerebro empezaría a olvidar la materia.
+            </p>
+            <div class="text-[11px] font-black text-blue-700 bg-blue-50 px-2 py-1 rounded-lg inline-block">
+              Retención de memoria multiplicada x3
+            </div>
+          </div>
+
+          <!-- Card 3: Escáner OCR de Apuntes -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center text-2xl">
+              📸
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Escáner de Pizarras y Apuntes con IA</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Toma una foto al pizarrón o a tus notas hechas a mano. El OCR con Fixi IA las digitaliza, organiza y te genera un resumen listo.
+            </p>
+            <div class="text-[11px] font-black text-purple-700 bg-purple-50 px-2 py-1 rounded-lg inline-block">
+              De foto a resumen digital en 3 segundos
+            </div>
+          </div>
+
+          <!-- Card 4: Audio-Resúmenes & Podcasts -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center text-2xl">
+              🎧
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Audio-Resúmenes para el Camino</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              ¿Cansado de leer en pantallas? Escucha la síntesis en voz alta generada por Fixi IA con audio natural mientras caminas hacia tu facultad.
+            </p>
+            <div class="text-[11px] font-black text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg inline-block">
+              Compatible con audífonos Bluetooth
+            </div>
+          </div>
+
+          <!-- Card 5: Widgets de Pantalla de Inicio -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center text-2xl">
+              📱
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Widgets de Racha y Foco</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Visualiza en la pantalla principal de tu iPhone o Android cuántos minutos de estudio llevas y cuántos días de racha sin romper.
+            </p>
+            <div class="text-[11px] font-black text-rose-700 bg-rose-50 px-2 py-1 rounded-lg inline-block">
+              Widgets para iOS 17 & Android 14
+            </div>
+          </div>
+
+          <!-- Card 6: Sincronización Automática con Web -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 border border-cyan-200 flex items-center justify-center text-2xl">
+              ⚡
+            </div>
+            <h3 class="text-base font-black text-[#0B2545]">Sincronización en Tiempo Real</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Lo que avanzas en el teléfono se actualiza instantáneamente en tu laptop y en Canvas LMS sin necesidad de guardar manualmente.
+            </p>
+            <div class="text-[11px] font-black text-cyan-700 bg-cyan-50 px-2 py-1 rounded-lg inline-block">
+              Cero pérdida de notas o avances
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 3. COMPARATIVA: APP MÓVIL vs. PLATAFORMA WEB                              -->
+      <!-- ========================================================================= -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-6">
+        <div class="text-center max-w-xl mx-auto space-y-2">
+          <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] tracking-tight">
+            ¿App Móvil o Plataforma Web? Usa ambas en armonía
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium">
+            Tu misma cuenta te da acceso simultáneo e ilimitado en tu celular, tablet y computadora.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 text-[#0B2545] font-black bg-slate-50/80">
+                <th class="p-3.5 rounded-l-2xl">Funcionalidad</th>
+                <th class="p-3.5 text-center text-[#0077FE]">📱 App Móvil (iOS / Android)</th>
+                <th class="p-3.5 text-center text-[#6D4AFF] rounded-r-2xl">💻 Plataforma Web (Laptop)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
+              <tr>
+                <td class="p-3.5 font-bold text-[#0B2545]">Estudio sin internet (Modo Offline)</td>
+                <td class="p-3.5 text-center text-emerald-600 font-black">✅ Sí, descarga directa</td>
+                <td class="p-3.5 text-center text-slate-400">Requiere conexión WiFi</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-[#0B2545]">Notificaciones push de repaso espaciado</td>
+                <td class="p-3.5 text-center text-emerald-600 font-black">✅ En tu pantalla de bloqueo</td>
+                <td class="p-3.5 text-center text-slate-400">Solo avisos en navegador</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-[#0B2545]">Escáner de pizarras con la cámara</td>
+                <td class="p-3.5 text-center text-emerald-600 font-black">✅ Directo con 1 toque</td>
+                <td class="p-3.5 text-center text-slate-400">Subir archivo manual</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-[#0B2545]">Sesiones de estudio profundo (50 min Pomodoro)</td>
+                <td class="p-3.5 text-center text-slate-700">Excelente para descansos</td>
+                <td class="p-3.5 text-center text-emerald-600 font-black">✅ Ideal en pantalla grande</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-[#0B2545]">Tutorías 1 a 1 por videollamada</td>
+                <td class="p-3.5 text-center text-slate-700">Soportado en audio/video</td>
+                <td class="p-3.5 text-center text-emerald-600 font-black">✅ Pantalla compartida óptima</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 4. RESEÑAS DE ESTUDIANTES UNIVERSITARIOS                                  -->
+      <!-- ========================================================================= -->
+      <section class="space-y-6">
+        <div class="text-center space-y-1">
+          <div class="text-xs font-black uppercase text-rose-600 tracking-wider">Prueba Social Real</div>
+          <h2 class="text-2xl font-black text-[#0B2545]">Lo que dicen los estudiantes de la App</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Reseña 1 -->
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p class="text-xs text-slate-700 font-medium leading-relaxed">
+              "El modo offline me salvó la vida en el micro. Me descargaba los solucionarios en la noche y repasaba todo el camino a la PUCP. Mi promedio subió a 16.8."
+            </p>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <div>
+                <div class="font-black text-[#0B2545]">Lucía M.</div>
+                <div class="text-slate-400">Ingeniería Industrial • PUCP</div>
+              </div>
+              <span class="text-[9px] bg-emerald-50 text-emerald-700 font-black px-2 py-0.5 rounded-full">App Store</span>
+            </div>
+          </div>
+
+          <!-- Reseña 2 -->
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p class="text-xs text-slate-700 font-medium leading-relaxed">
+              "Los widgets en la pantalla de inicio son lo mejor para la disciplina. Fixi IA me lanza una pregunta de anatomía justo cuando apago la alarma."
+            </p>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <div>
+                <div class="font-black text-[#0B2545]">Diego P.</div>
+                <div class="text-slate-400">Medicina Humana • UNMSM</div>
+              </div>
+              <span class="text-[9px] bg-emerald-50 text-emerald-700 font-black px-2 py-0.5 rounded-full">Google Play</span>
+            </div>
+          </div>
+
+          <!-- Reseña 3 -->
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p class="text-xs text-slate-700 font-medium leading-relaxed">
+              "El escáner de pizarra es pura magia. Le tomo foto al pizarrón lleno de derivadas y Fixi IA me entrega el ejercicio resuelto paso a paso."
+            </p>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <div>
+                <div class="font-black text-[#0B2545]">Camila S.</div>
+                <div class="text-slate-400">Economía • Universidad de Lima</div>
+              </div>
+              <span class="text-[9px] bg-emerald-50 text-emerald-700 font-black px-2 py-0.5 rounded-full">App Store</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 5. BANNER FINAL ESTILO NUTRIMIND: ¡DESCARGA LA APP Y COMIENZA HOY!         -->
+      <!-- ========================================================================= -->
+      <section id="descargar-tiendas" class="bg-gradient-to-r from-[#FF007A] via-[#E11D48] to-[#9333EA] text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shadow-inner shrink-0 hidden sm:flex">
+            📱
+          </div>
+          <div>
+            <h3 class="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+              ¡Descarga la App y comienza hoy!
+            </h3>
+            <p class="text-xs sm:text-sm text-pink-100 font-medium mt-1">
+              Disponible para Android, iOS y versión web para tu laptop. 14 días de prueba gratis.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <!-- Google Play Badge -->
+          <a
+            href="javascript:void(0)"
+            onclick="triggerDownloadAlert('Google Play')"
+            class="bg-black hover:bg-slate-900 text-white px-4 py-2.5 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
+          >
+            <span class="text-lg">▶</span>
+            <div class="text-left">
+              <div class="text-[9px] uppercase tracking-wider text-slate-300 leading-none">Disponible en</div>
+              <div class="text-xs font-black leading-tight">Google Play</div>
+            </div>
+          </a>
+
+          <!-- App Store Badge -->
+          <a
+            href="javascript:void(0)"
+            onclick="triggerDownloadAlert('App Store')"
+            class="bg-black hover:bg-slate-900 text-white px-4 py-2.5 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
+          >
+            <span class="text-lg"></span>
+            <div class="text-left">
+              <div class="text-[9px] uppercase tracking-wider text-slate-300 leading-none">Consíguelo en el</div>
+              <div class="text-xs font-black leading-tight">App Store</div>
+            </div>
+          </a>
+
+          <!-- Botón a la Web App -->
+          <a
+            href="/app"
+            class="bg-white hover:bg-slate-100 text-[#0B2545] px-4 py-2.5 rounded-xl flex items-center gap-2 shadow-md transition-all font-black text-xs hover:scale-105"
+          >
+            <span>💻</span>
+            <span>Abrir en Laptop</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER OFICIAL CON REDES SOCIALES -->
+    <footer class="bg-[#0B2545] text-white pt-12 pb-8 border-t border-slate-800 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0077FE] to-[#6D4AFF] text-white flex items-center justify-center font-black">
+                MF
+              </div>
+              <span class="font-black text-lg text-white">MIND<span class="text-[#0077FE]">FIX</span></span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Plataforma y aplicación móvil de estudio colaborativo con IA para estudiantes universitarios del Perú.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-black text-white uppercase text-[11px] tracking-wider mb-3">Descargas</h4>
+            <ul class="space-y-2 text-slate-300">
+              <li><a href="#descargar-tiendas" onclick="triggerDownloadAlert('App Store')" class="hover:text-white transition-colors">iOS (iPhone & iPad)</a></li>
+              <li><a href="#descargar-tiendas" onclick="triggerDownloadAlert('Google Play')" class="hover:text-white transition-colors">Android (Google Play)</a></li>
+              <li><a href="#descargar-tiendas" onclick="triggerDownloadAlert('APK Directo')" class="hover:text-white transition-colors">Archivo APK v2.4</a></li>
+              <li><a href="/app" class="hover:text-white transition-colors">Web App para Laptop</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-black text-white uppercase text-[11px] tracking-wider mb-3">Plataforma</h4>
+            <ul class="space-y-2 text-slate-300">
+              <li><a href="/planes" class="hover:text-white transition-colors">Planes y Precios</a></li>
+              <li><a href="/planes-app" class="hover:text-white transition-colors">Landing App NutriMind Style</a></li>
+              <li><a href="/app" class="hover:text-white transition-colors">Dashboard de la App</a></li>
+              <li><a href="/prueba-gratuita" class="hover:text-white transition-colors">Prueba 14 Días</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-black text-white uppercase text-[11px] tracking-wider mb-3">Comunidad & Redes</h4>
+            <div class="flex items-center gap-2 pt-1">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-pink-600 flex items-center justify-center transition-colors" title="Instagram">
+                📸
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-black flex items-center justify-center transition-colors" title="TikTok">
+                🎵
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-indigo-600 flex items-center justify-center transition-colors" title="Discord">
+                💬
+              </a>
+              <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-emerald-600 flex items-center justify-center transition-colors" title="WhatsApp">
+                🟢
+              </a>
+            </div>
+            <div class="mt-3 text-slate-400 text-[11px]">
+              contacto@mindfix.pe • Lima, Perú
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 text-center text-slate-400 text-[11px]">
+          © 2026 MindFix EdTech. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIVO CLIENTE -->
+    <script is:inline>
+      // Alternar pantallas en el Mockup del Teléfono
+      function switchPhoneScreen(screenId) {
+        const screens = ['mock-screen-dashboard', 'mock-screen-fixi', 'mock-screen-offline', 'mock-screen-radar'];
+        screens.forEach(s => {
+          const el = document.getElementById(s);
+          if (el) el.classList.add('hidden');
+        });
+
+        const activeScreen = document.getElementById(screenId);
+        if (activeScreen) {
+          activeScreen.classList.remove('hidden');
+        }
+
+        // Actualizar estilos de los botones
+        const btns = [
+          { id: 'btn-screen-dashboard', target: 'mock-screen-dashboard' },
+          { id: 'btn-screen-fixi', target: 'mock-screen-fixi' },
+          { id: 'btn-screen-offline', target: 'mock-screen-offline' },
+          { id: 'btn-screen-radar', target: 'mock-screen-radar' },
+        ];
+
+        btns.forEach(b => {
+          const btnEl = document.getElementById(b.id);
+          if (btnEl) {
+            if (b.target === screenId) {
+              btnEl.className = 'px-2.5 py-1 rounded-xl text-[11px] font-black transition-all bg-white text-[#0077FE] shadow-xs cursor-pointer';
+            } else {
+              btnEl.className = 'px-2.5 py-1 rounded-xl text-[11px] font-bold text-slate-600 hover:text-[#0B2545] transition-all cursor-pointer';
+            }
+          }
+        });
+      }
+
+      // Enviar enlace por celular
+      function handleSendLink(e) {
+        e.preventDefault();
+        const input = document.getElementById('phone-link-input');
+        const feedback = document.getElementById('send-link-feedback');
+        if (input && feedback) {
+          feedback.classList.remove('hidden');
+          input.value = '';
+          setTimeout(() => {
+            feedback.classList.add('hidden');
+          }, 4500);
+        }
+      }
+
+      // Alerta amigable de descarga
+      function triggerDownloadAlert(platform) {
+        alert('🎉 ¡Descargando MindFix para ' + platform + '!\nVersión: 2.4.0 (28 MB)\n\nTambién puedes abrir la versión web en https://mkt-snowy.vercel.app/app');
+      }
+
+      // Selector de plataforma
+      function setDownloadPlatform(plat) {
+        const tabs = ['all', 'ios', 'android', 'apk'];
+        tabs.forEach(t => {
+          const tabEl = document.getElementById('tab-plat-' + t);
+          if (tabEl) {
+            if (t === plat) {
+              tabEl.className = 'flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-black transition-all bg-[#0077FE] text-white shadow-xs cursor-pointer text-center';
+            } else {
+              tabEl.className = 'flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-bold text-slate-600 hover:text-[#0B2545] hover:bg-white transition-all cursor-pointer text-center';
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

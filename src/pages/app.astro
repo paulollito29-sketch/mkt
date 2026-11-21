@@ -1,50 +1,44 @@
 ---
 import '../styles/global.css';
 
-const title = "MindFix Platform | Tu Espacio de Estudio Universitario";
-const description = "Plataforma de estudio universitario de MindFix. Planificador de hábitos con neurociencia, diagnóstico forense de vacíos, tutorías entre pares e IA predictiva.";
-
-const courses = [
-  { id: "calc2", name: "Cálculo II", topic: "Integrales impropias y series", pct: 82, gap: "2 vacíos detectados", color: "from-[#0077FE] to-[#00C2FF]", professor: "Prof. Ramírez" },
-  { id: "estad", name: "Estadística Aplicada", topic: "Pruebas de hipótesis y p-valor", pct: 64, gap: "3 vacíos detectados", color: "from-[#6D4AFF] to-[#A78BFA]", professor: "Dra. Morales" },
-  { id: "micro", name: "Microeconomía I", topic: "Equilibrio del consumidor", pct: 91, gap: "Listo para el parcial", color: "from-emerald-500 to-teal-400", professor: "Lic. Vega" },
-  { id: "fisica", name: "Física General", topic: "Dinámica rotacional", pct: 55, gap: "4 vacíos detectados", color: "from-amber-500 to-orange-400", professor: "Ing. Herrera" },
-];
+const title = "MindFix App | Plataforma Universitaria";
+const description = "Plataforma de estudio para estudiantes universitarios con Fixi IA, hábitos de Active Recall, marketplace de apuntes y tutorías P2P.";
 ---
 
 <!doctype html>
-<html lang="es" class="h-full bg-slate-900">
+<html lang="es" class="h-full bg-slate-50">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
 
-  <body class="h-full bg-[#F8FAFC] text-[#0B2545] font-sans antialiased flex flex-col overflow-hidden selection:bg-[#0077FE] selection:text-white">
+  <body class="h-full flex flex-col font-sans antialiased text-[#0B2545] bg-[#F8FAFC] selection:bg-[#0077FE] selection:text-white">
     
     <!-- ========================================================================= -->
-    <!-- 1. APP TOPBAR (100% PLATAFORMA - NADA DE LA LANDING)                       -->
+    <!-- 1. APP TOPBAR (100% PLATAFORMA - CERO LANDING)                             -->
     <!-- ========================================================================= -->
-    <header class="h-16 bg-white border-b border-slate-200/90 px-4 sm:px-6 flex items-center justify-between gap-3 shrink-0 z-30 shadow-xs">
-      <!-- Izquierda: Brand & Botón Menú Móvil -->
-      <div class="flex items-center gap-3">
+    <header class="h-16 bg-white border-b border-slate-200/90 px-3 sm:px-6 flex items-center justify-between gap-3 shrink-0 z-30 shadow-xs">
+      
+      <!-- Izquierda: Brand & Botón Menú Móvil (Drawer) -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
         <button
           type="button"
           onclick="toggleSidebar()"
-          class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 cursor-pointer"
-          aria-label="Abrir menú"
+          class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 cursor-pointer active:scale-95 transition-transform"
+          aria-label="Abrir menú de navegación"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
 
-        <a href="/app" class="flex items-center gap-2.5 group">
+        <a href="/app" class="flex items-center gap-2 group">
           <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#0077FE] to-[#6D4AFF] text-white flex items-center justify-center font-black text-xs shadow-sm">
             MF
           </div>
@@ -58,14 +52,14 @@ const courses = [
         </a>
       </div>
 
-      <!-- Centro: Selector Dinámico de Planes (Freemium, SMART, PRO, ELITE) -->
-      <div class="hidden md:flex items-center gap-2 bg-slate-100 p-1 rounded-2xl border border-slate-200/80">
+      <!-- Centro: Selector Dinámico de Planes Desktop (Freemium, SMART, PRO, ELITE) -->
+      <div class="hidden md:flex items-center gap-1.5 bg-slate-100 p-1 rounded-2xl border border-slate-200/80">
         <span class="text-[10px] font-extrabold uppercase text-slate-400 px-2">Modo Plan:</span>
         <button
           type="button"
           id="top-plan-freemium"
           onclick="setAppPlan('freemium')"
-          class="px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-slate-900"
+          class="px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-slate-900"
         >
           ⚪ Freemium
         </button>
@@ -73,7 +67,7 @@ const courses = [
           type="button"
           id="top-plan-smart"
           onclick="setAppPlan('smart')"
-          class="px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-rose-600"
+          class="px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-rose-600"
         >
           ⭐ SMART
         </button>
@@ -81,7 +75,7 @@ const courses = [
           type="button"
           id="top-plan-pro"
           onclick="setAppPlan('pro')"
-          class="px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer bg-emerald-600 text-white shadow-xs"
+          class="px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer bg-emerald-600 text-white shadow-xs"
         >
           👑 PRO
         </button>
@@ -89,15 +83,15 @@ const courses = [
           type="button"
           id="top-plan-elite"
           onclick="setAppPlan('elite')"
-          class="px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-purple-600"
+          class="px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-purple-600"
         >
           💎 ELITE
         </button>
       </div>
 
-      <!-- Derecha: Descargar App, Notificaciones, Usuario & CERRAR SESIÓN -->
-      <div class="flex items-center gap-2.5 sm:gap-3">
-        <!-- Botón Descargar App Móvil -->
+      <!-- Derecha: App Móvil, Perfil Usuario & CERRAR SESIÓN -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Botón Ver Pantalla Descargar App Móvil -->
         <button
           type="button"
           onclick="switchAppView('download')"
@@ -119,7 +113,7 @@ const courses = [
         </button>
 
         <!-- Perfil Usuario -->
-        <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+        <div class="flex items-center gap-2 pl-1 sm:pl-2 border-l border-slate-200">
           <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0077FE] to-teal-400 text-white flex items-center justify-center font-black text-xs shadow-xs shrink-0">
             VR
           </div>
@@ -129,11 +123,11 @@ const courses = [
           </div>
         </div>
 
-        <!-- BOTÓN CERRAR SESIÓN (REGRESA A LA LANDING) -->
+        <!-- BOTÓN CERRAR SESIÓN (LIMPIA SESIÓN Y REGRESA A LA LANDING) -->
         <button
           type="button"
           onclick="handleLogout()"
-          class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-extrabold transition-all cursor-pointer shadow-xs"
+          class="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-extrabold transition-all cursor-pointer shadow-xs active:scale-95"
           title="Cerrar sesión y volver a la página principal"
         >
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,6 +137,50 @@ const courses = [
         </button>
       </div>
     </header>
+
+    <!-- ==================== SUB-BARRA MÓVIL: SELECTOR RÁPIDO DE PLANES ==================== -->
+    <div class="md:hidden bg-white border-b border-slate-200/90 px-3 py-1.5 flex items-center justify-between gap-1.5 overflow-x-auto scrollbar-none z-20 shrink-0">
+      <div class="flex items-center gap-1.5 shrink-0">
+        <span class="text-[9px] font-black uppercase text-slate-400">Plan:</span>
+        <span id="mobile-current-plan-pill" class="text-[9px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+          👑 Plan PRO
+        </span>
+      </div>
+      <div class="flex items-center gap-1 shrink-0">
+        <button
+          type="button"
+          onclick="setAppPlan('freemium')"
+          id="mob-plan-freemium"
+          class="px-2 py-1 rounded-lg text-[10px] font-bold text-slate-600 bg-slate-100 cursor-pointer"
+        >
+          ⚪ Free
+        </button>
+        <button
+          type="button"
+          onclick="setAppPlan('smart')"
+          id="mob-plan-smart"
+          class="px-2 py-1 rounded-lg text-[10px] font-bold text-slate-600 bg-slate-100 cursor-pointer"
+        >
+          ⭐ Smart
+        </button>
+        <button
+          type="button"
+          onclick="setAppPlan('pro')"
+          id="mob-plan-pro"
+          class="px-2 py-1 rounded-lg text-[10px] font-black text-white bg-emerald-600 shadow-xs cursor-pointer"
+        >
+          👑 Pro
+        </button>
+        <button
+          type="button"
+          onclick="setAppPlan('elite')"
+          id="mob-plan-elite"
+          class="px-2 py-1 rounded-lg text-[10px] font-bold text-slate-600 bg-slate-100 cursor-pointer"
+        >
+          💎 Elite
+        </button>
+      </div>
+    </div>
 
     <!-- ========================================================================= -->
     <!-- 2. BODY LAYOUT (SIDEBAR LATERAL + CONTENIDO PRINCIPAL)                    -->
@@ -156,7 +194,7 @@ const courses = [
       <aside id="app-sidebar" class="w-64 bg-white border-r border-slate-200/90 flex flex-col justify-between shrink-0 fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
         
         <!-- Lista de Vistas / Secciones de la App -->
-        <div class="p-4 space-y-6 overflow-y-auto">
+        <div class="p-4 space-y-5 overflow-y-auto">
           
           <!-- Banner de Plan Actual en Sidebar -->
           <div class="p-3.5 rounded-2xl bg-gradient-to-br from-slate-900 to-[#0B2545] text-white shadow-xs">
@@ -170,17 +208,10 @@ const courses = [
             <p class="text-[10px] text-slate-300 mt-0.5 leading-snug" id="sidebar-plan-desc">
               Hábitos con IA y detección de vacíos activa.
             </p>
-          </div>
-
-          <!-- Selector de Planes Móvil (Solo visible en pantallas pequeñas) -->
-          <div class="md:hidden space-y-1.5">
-            <span class="text-[10px] font-black uppercase text-slate-400 block px-2">Cambiar Plan:</span>
-            <div class="grid grid-cols-2 gap-1.5">
-              <button onclick="setAppPlan('freemium')" class="p-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-700">⚪ Free</button>
-              <button onclick="setAppPlan('smart')" class="p-1.5 rounded-lg text-[11px] font-bold bg-rose-50 text-rose-700">⭐ Smart</button>
-              <button onclick="setAppPlan('pro')" class="p-1.5 rounded-lg text-[11px] font-bold bg-emerald-50 text-emerald-700 font-black">👑 Pro</button>
-              <button onclick="setAppPlan('elite')" class="p-1.5 rounded-lg text-[11px] font-bold bg-purple-50 text-purple-700">💎 Elite</button>
-            </div>
+            <a href="/planes" class="mt-2.5 inline-flex items-center gap-1 text-[10px] text-[#00C2FF] font-black hover:underline">
+              <span>Gestionar o Mejorar Plan</span>
+              <span>→</span>
+            </a>
           </div>
 
           <!-- Navegación Principal -->
@@ -214,10 +245,10 @@ const courses = [
                 <span class="text-sm">📅</span>
                 <span>Planificador Hábitos</span>
               </div>
-              <span class="text-[9px] text-emerald-600 font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">PRO</span>
+              <span id="badge-nav-planner" class="text-[9px] text-emerald-600 font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">PRO</span>
             </button>
 
-            <!-- Tab 3: Marketplace MindPartners -->
+            <!-- Tab 3: Buscador de Apuntes (Marketplace) -->
             <button
               type="button"
               id="nav-btn-marketplace"
@@ -225,10 +256,10 @@ const courses = [
               class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer text-slate-600 hover:text-[#0B2545] hover:bg-slate-100"
             >
               <div class="flex items-center gap-2.5">
-                <span class="text-sm">🛒</span>
-                <span>Marketplace Apuntes</span>
+                <span class="text-sm">🔍</span>
+                <span>Buscador Apuntes</span>
               </div>
-              <span class="text-[9px] text-rose-600 font-extrabold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">SMART</span>
+              <span id="badge-nav-marketplace" class="text-[9px] text-rose-600 font-extrabold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">SMART</span>
             </button>
 
             <!-- Tab 4: IA Predictiva & Tutor 1-on-1 -->
@@ -242,7 +273,7 @@ const courses = [
                 <span class="text-sm">🔮</span>
                 <span>IA Predictiva & Tutor VIP</span>
               </div>
-              <span class="text-[9px] text-purple-600 font-extrabold bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">ELITE</span>
+              <span id="badge-nav-elite" class="text-[9px] text-purple-600 font-extrabold bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">ELITE</span>
             </button>
 
             <!-- Tab 5: Descargar App Móvil -->
@@ -287,6 +318,7 @@ const courses = [
               <span class="text-[9px] text-slate-400 font-bold">5to ciclo</span>
             </button>
           </div>
+
         </div>
 
         <!-- Footer Sidebar: Fixi IA Mini Helper + Botón Cerrar Sesión -->
@@ -313,384 +345,1238 @@ const courses = [
       <!-- ========================================================================= -->
       <!-- 3. VIEWPORT DE CONTENIDO (PANTALLAS INTERACTIVAS DE LA APP)               -->
       <!-- ========================================================================= -->
-      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6">
+      <main class="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-8 space-y-6 pb-28 lg:pb-8">
         
         <!-- ==================== VISTA 1: DASHBOARD / INICIO ==================== -->
         <div id="view-dashboard" class="space-y-6">
           
           <!-- Banner de Bienvenida y Estado del Plan -->
-          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/80 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-5">
             <div>
-              <div class="flex items-center gap-2 mb-1.5">
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                 <span class="px-3 py-0.5 rounded-full text-xs font-black bg-blue-50 text-[#0077FE]">
                   Panel de Estudio Activo
                 </span>
                 <span id="dash-active-plan-badge" class="px-3 py-0.5 rounded-full text-xs font-black bg-emerald-50 text-emerald-700 border border-emerald-200">
                   👑 Plan PRO
                 </span>
+                <a href="/planes" class="text-xs font-bold text-rose-600 hover:underline">
+                  Ver Planes & Precios →
+                </a>
               </div>
-              <h1 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+              <h1 class="text-xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
                 ¡Hola de nuevo, <span id="dash-user-name">Valeria</span>!
               </h1>
-              <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
-                Hoy tienes <strong>2 bloques de Active Recall (50 min)</strong> programados y 0 amanecidas registradas esta semana.
+              <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
+                Hoy es un gran día para consolidar hábitos neurocognitivos. Tus parciales inician en 14 días.
               </p>
             </div>
 
-            <!-- Accesos rápidos -->
-            <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+            <!-- Botones Rápidos de Acción -->
+            <div class="flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onclick="switchAppView('planner')"
-                class="px-4 py-2.5 rounded-xl bg-[#0077FE] hover:bg-blue-600 text-white font-extrabold text-xs shadow-xs transition-all"
+                class="px-4 py-2.5 rounded-xl bg-[#0077FE] hover:bg-[#0062D2] text-white text-xs font-black transition-all shadow-xs cursor-pointer flex items-center gap-1.5"
               >
-                📅 Ver Plan de Hoy
+                <span>📅</span>
+                <span>Mi Horario de Hoy</span>
               </button>
               <button
                 type="button"
-                onclick="switchAppView('download')"
-                class="px-4 py-2.5 rounded-xl bg-pink-50 hover:bg-pink-100 text-rose-600 border border-pink-200 font-extrabold text-xs transition-all"
+                onclick="switchAppView('marketplace')"
+                class="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
               >
-                📲 Abrir en Celular
+                <span>🔍</span>
+                <span>Buscar Apuntes</span>
               </button>
             </div>
           </div>
 
-          <!-- KPIs de Rendimiento -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Eficiencia Cognitiva</span>
-              <div class="flex items-baseline gap-2 mt-2">
-                <span class="text-2xl sm:text-3xl font-black text-[#0B2545]">78%</span>
-                <span class="text-xs font-extrabold text-emerald-600">+14% sem.</span>
+          <!-- Tarjetas de Métricas de Rendimiento -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div class="flex items-center justify-between text-slate-400 mb-2">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Racha Activa</span>
+                <span class="text-base sm:text-lg">🔥</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-1">Rumbo al Tercio Superior</p>
+              <div class="text-xl sm:text-2xl font-black text-[#0B2545]">18 días</div>
+              <div class="text-[10px] sm:text-xs text-emerald-600 font-extrabold mt-1">¡Récord del ciclo!</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Cursos Activos</span>
-              <div class="flex items-baseline gap-2 mt-2">
-                <span class="text-2xl sm:text-3xl font-black text-[#0077FE]">4</span>
-                <span class="text-xs font-bold text-slate-500">materias</span>
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div class="flex items-center justify-between text-slate-400 mb-2">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Active Recall</span>
+                <span class="text-base sm:text-lg">⏱️</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-1">9 micro-vacíos por cerrar</p>
+              <div class="text-xl sm:text-2xl font-black text-[#0077FE]">14.5 hrs</div>
+              <div class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-1">Meta semanal: 20 hrs</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Sueño Protegido</span>
-              <div class="flex items-baseline gap-2 mt-2">
-                <span class="text-2xl sm:text-3xl font-black text-[#6D4AFF]">7.5h</span>
-                <span class="text-xs font-bold text-emerald-600">0 trasnoches</span>
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div class="flex items-center justify-between text-slate-400 mb-2">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Cursos al Día</span>
+                <span class="text-base sm:text-lg">📚</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-1">Consolidación REM óptima</p>
+              <div class="text-xl sm:text-2xl font-black text-emerald-600">5 de 5</div>
+              <div class="text-[10px] sm:text-xs text-emerald-600 font-extrabold mt-1">0 vacíos críticos</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Racha Pomodoro</span>
-              <div class="flex items-baseline gap-2 mt-2">
-                <span class="text-2xl sm:text-3xl font-black text-amber-500">6 días</span>
-                <span class="text-sm">🔥</span>
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div class="flex items-center justify-between text-slate-400 mb-2">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Tercio Superior</span>
+                <span class="text-base sm:text-lg">🏆</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-1">100 min focalizados / día</p>
+              <div class="text-xl sm:text-2xl font-black text-purple-600">Puesto #3</div>
+              <div class="text-[10px] sm:text-xs text-purple-600 font-bold mt-1">Facultad de Sistemas</div>
             </div>
+
           </div>
 
-          <!-- Dos Columnas: Cursos Activos + Checklist de Hoy -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <!-- Columna Izquierda: Cursos & Dominio -->
-            <div class="lg:col-span-7 space-y-6">
-              <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs">
-                <div class="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 class="text-base font-black text-[#0B2545]">Dominio de Cursos del Ciclo</h3>
-                    <p class="text-xs text-slate-500">Monitoreo continuo de avance ponderado.</p>
+          <!-- Sección de Cursos y Metas de Hoy -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Columna 1: Horario de Estudio de Hoy -->
+            <div class="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/80 shadow-xs space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h2 class="text-base sm:text-lg font-black text-[#0B2545]">Bloques de Estudio de Hoy</h2>
+                  <p class="text-xs text-slate-400">Técnica Pomodoro 50/10 calibrada por Fixi IA</p>
+                </div>
+                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  Semana 8
+                </span>
+              </div>
+
+              <div class="space-y-3">
+                
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#0077FE] flex items-center justify-center font-black text-sm">
+                      FII
+                    </div>
+                    <div>
+                      <div class="text-xs sm:text-sm font-black text-[#0B2545]">Finanzas Corporativas II</div>
+                      <div class="text-[11px] text-slate-500">Tema: Costo de Capital WACC y Deuda</div>
+                    </div>
                   </div>
-                  <button type="button" onclick="switchAppView('marketplace')" class="text-xs font-extrabold text-[#0077FE] hover:underline">
-                    Ver Solucionarios →
-                  </button>
+                  <div class="text-right">
+                    <span class="text-xs font-black text-emerald-600 block">50 min</span>
+                    <span class="text-[10px] text-slate-400">Completado ✅</span>
+                  </div>
                 </div>
 
-                <div class="space-y-4">
-                  {courses.map((c) => (
-                    <div class="p-3.5 rounded-2xl bg-slate-50/70 border border-slate-100">
-                      <div class="flex items-center justify-between text-xs mb-1.5">
-                        <div>
-                          <span class="font-extrabold text-[#0B2545]">{c.name}</span>
-                          <span class="text-slate-400 ml-1.5 font-normal">({c.professor})</span>
-                        </div>
-                        <span class="font-black text-[#0B2545]">{c.pct}%</span>
-                      </div>
-                      <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-1.5">
-                        <div class={`h-full bg-gradient-to-r ${c.color} rounded-full`} style={`width: ${c.pct}%`}></div>
-                      </div>
-                      <div class="flex items-center justify-between text-[11px] text-slate-500">
-                        <span>{c.topic}</span>
-                        <span class="font-bold text-amber-600">{c.gap}</span>
-                      </div>
+                <div class="p-3.5 rounded-2xl bg-blue-50/50 border border-blue-200 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-black text-sm">
+                      BD
                     </div>
-                  ))}
+                    <div>
+                      <div class="text-xs sm:text-sm font-black text-[#0B2545]">Base de Datos Avanzada</div>
+                      <div class="text-[11px] text-slate-500">Tema: Indexación B-Tree y Optimización</div>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-xs font-black text-[#0077FE] block">50 min</span>
+                    <span class="text-[10px] text-[#0077FE] font-bold">En progreso ⏳</span>
+                  </div>
                 </div>
+
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-sm">
+                      IO
+                    </div>
+                    <div>
+                      <div class="text-xs sm:text-sm font-black text-[#0B2545]">Investigación de Operaciones</div>
+                      <div class="text-[11px] text-slate-500">Tema: Programación Lineal Dual Simplex</div>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-xs font-black text-slate-600 block">50 min</span>
+                    <span class="text-[10px] text-slate-400">Hoy 6:00 PM</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <!-- Columna Derecha: Checklist de Hoy + Acceso Rápido Móvil -->
-            <div class="lg:col-span-5 space-y-6">
-              <!-- Checklist de Hábitos -->
-              <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs">
-                <div class="flex items-center justify-between mb-3">
-                  <h3 class="text-base font-black text-[#0B2545]">Plan de Hoy (Jueves 13)</h3>
-                  <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2 py-0.5 rounded-full">3 de 4</span>
+            <!-- Columna 2: Fixi IA Sugerencia Diaria & Notificaciones -->
+            <div class="lg:col-span-5 space-y-4">
+              
+              <!-- Fixi IA Asistente Activo -->
+              <div class="bg-gradient-to-br from-[#0B2545] to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-xs space-y-3 relative overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl">🤖</span>
+                    <div>
+                      <h3 class="text-sm font-black">Fixi IA Universitario</h3>
+                      <span class="text-[10px] text-[#00C2FF] font-bold">Diagnóstico Cognitivo</span>
+                    </div>
+                  </div>
+                  <span class="text-[9px] bg-white/20 px-2 py-0.5 rounded-full font-black">Activo</span>
                 </div>
-                <div class="space-y-2.5 text-xs text-slate-700">
-                  <label class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50 cursor-pointer">
-                    <input type="checkbox" checked class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
-                    <span class="font-medium">Active Recall: 50m Cálculo (Series) <strong class="text-emerald-600 block text-[10px]">✔ Hecho</strong></span>
-                  </label>
-                  <label class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50 cursor-pointer">
-                    <input type="checkbox" checked class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
-                    <span class="font-medium">Pausa activa: 15m caminata e hidratación <strong class="text-emerald-600 block text-[10px]">✔ Hecho</strong></span>
-                  </label>
-                  <label class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50 cursor-pointer">
-                    <input type="checkbox" checked class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
-                    <span class="font-medium">Flashcards de Estadística (p-valor) <strong class="text-emerald-600 block text-[10px]">✔ Hecho</strong></span>
-                  </label>
-                  <label class="flex items-start gap-2.5 p-2 rounded-xl bg-blue-50/60 border border-blue-100 cursor-pointer">
-                    <input type="checkbox" class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
-                    <span class="font-bold text-[#0B2545]">Dormir 11:00 p.m. (7.5h sueño REM) <span class="text-blue-600 block text-[10px]">○ Pendiente noche</span></span>
-                  </label>
+
+                <p class="text-xs text-slate-200 leading-relaxed">
+                  "Valeria, tus métricas indican que retienes un 40% más cuando realizas una pausa activa de 10 min entre bloques. No olvides descansar antes de tu sesión de Investigación de Operaciones."
+                </p>
+
+                <div class="pt-2 border-t border-slate-700/60 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onclick="switchAppView('elite')"
+                    class="text-xs font-black text-[#00C2FF] hover:underline"
+                  >
+                    Ver Radar de Parciales →
+                  </button>
+                  <span class="text-[10px] text-slate-400">Calibrado con PUCP</span>
                 </div>
               </div>
 
-              <!-- Banner Descarga App Móvil -->
-              <div class="bg-gradient-to-br from-rose-500 to-pink-600 text-white rounded-3xl p-5 shadow-lg flex items-center justify-between gap-4">
+              <!-- Anuncio de la App Móvil Oficial -->
+              <div class="bg-gradient-to-br from-pink-500 to-rose-600 text-white rounded-3xl p-5 shadow-xs flex items-center justify-between gap-4">
                 <div>
-                  <div class="text-[10px] font-black uppercase text-pink-200 tracking-wider">Nueva App Móvil</div>
-                  <h4 class="text-sm font-black mt-0.5">Lleva a Fixi IA en tu bolsillo</h4>
-                  <p class="text-[11px] text-pink-100 mt-0.5">Sincroniza tus hábitos y notificaciones en tu iPhone o Android.</p>
+                  <span class="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-full">App Móvil 2.4</span>
+                  <h4 class="text-sm font-black mt-1">Estudia en el micro sin conexión</h4>
+                  <p class="text-[11px] text-pink-100 mt-0.5">Descarga exámenes y solucionarios a tu celular.</p>
                 </div>
                 <button
                   type="button"
                   onclick="switchAppView('download')"
-                  class="px-3.5 py-2 rounded-xl bg-white text-rose-600 font-black text-xs hover:bg-pink-50 transition-colors shrink-0 shadow-sm"
+                  class="px-3.5 py-2 rounded-xl bg-white text-rose-600 text-xs font-black shrink-0 hover:bg-pink-50 transition-colors shadow-xs cursor-pointer"
                 >
                   Descargar 📲
                 </button>
               </div>
+
             </div>
+
           </div>
+
         </div>
 
-        <!-- ==================== VISTA 2: PLANIFICADOR DE HÁBITOS (PRO) ==================== -->
+                <!-- ==================== VISTA 2: PLANIFICADOR DE HÁBITOS ==================== -->
         <div id="view-planner" class="hidden space-y-6">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-300 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-wider">
-                  Planificador Semanal Inteligente
-                </span>
-                <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] mt-1">
-                  Horario de Hábitos y Parciales (Semana 8)
-                </h2>
-                <p class="text-xs text-slate-500">Organización neurocognitiva: 50 minutos de enfoque + pausas + sueño REM.</p>
+          
+          <!-- PANTALLA DE UPGRADE (SE MUESTRA CUANDO EL PLAN ACTIVO NO INCLUYE ESTA VISTA) -->
+          <div id="upgrade-screen-planner" class="hidden bg-white rounded-3xl p-6 sm:p-12 border-2 border-dashed border-emerald-300 text-center space-y-5 max-w-2xl mx-auto shadow-sm">
+            <div class="w-16 h-16 rounded-3xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center text-3xl mx-auto shadow-xs">
+              🔒
+            </div>
+            <div class="space-y-2">
+              <span class="px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+                Exclusivo Plan PRO & Plan ELITE
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+                El Planificador Inteligente de Hábitos requiere Plan PRO
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                Organiza tu semana con la neurociencia del Active Recall: bloques de 50 minutos, pausas activas para consolidar memoria y detección forense de vacíos conceptuales.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-left max-w-md mx-auto space-y-2 text-xs">
+              <div class="font-black text-emerald-900">¿Qué obtienes con el Plan PRO?</div>
+              <ul class="space-y-1.5 text-slate-700">
+                <li class="flex items-center gap-2">✅ Horario semanal adaptativo con IA según tus notas</li>
+                <li class="flex items-center gap-2">✅ Monitoreo de sueño reparador y pausas cognitivas</li>
+                <li class="flex items-center gap-2">✅ Alertas de vacíos antes de parciales y finales</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <a
+                href="/planes"
+                class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs shadow-md hover:shadow-lg transition-all hover:scale-105"
+              >
+                🚀 Hacer Upgrade a Plan PRO (S/ 9.90/mes) →
+              </a>
+              <button
+                type="button"
+                onclick="setAppPlan('pro')"
+                class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+              >
+                Simular Plan PRO en este Demo
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTENIDO REGULAR DEL PLANIFICADOR (CUANDO ESTÁ DESBLOQUEADO) -->
+          <div id="content-planner" class="space-y-6">
+            
+            <!-- Header del Planificador con Nivel de Energía -->
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm space-y-5">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-wider border border-emerald-200">
+                      Neurociencia del Aprendizaje
+                    </span>
+                    <span class="text-xs text-slate-400 font-bold">Semana 8 de 16 • Ciclo 2026-I</span>
+                  </div>
+                  <h2 class="text-xl sm:text-2xl font-black text-[#0B2545]">
+                    Planificador Inteligente de Hábitos y Enfoque
+                  </h2>
+                  <p class="text-xs text-slate-500">Bloques calibrados de 50 min Active Recall + pausas neurocognitivas de 10 min.</p>
+                </div>
+
+                <button
+                  type="button"
+                  onclick="triggerReplanAI()"
+                  class="px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs shadow-md transition-all hover:scale-105 cursor-pointer flex items-center gap-2 self-start md:self-auto"
+                >
+                  <span>🔄</span>
+                  <span>Replanificar con IA</span>
+                </button>
               </div>
-              <button type="button" onclick="alert('Fixi IA está recalculando tu horario según tu última nota...')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs shadow-xs transition-colors">
-                🔄 Replanificar con IA
+
+              <!-- Selector de Estado de Energía del Día -->
+              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <span class="font-black text-[#0B2545]">¿Cómo está tu energía hoy, Valeria?</span>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <button type="button" onclick="setEnergyState('high')" id="energy-btn-high" class="px-3 py-1.5 rounded-xl font-black bg-emerald-600 text-white text-xs cursor-pointer shadow-xs transition-all">
+                    🔥 Máxima Energía (3 bloques)
+                  </button>
+                  <button type="button" onclick="setEnergyState('normal')" id="energy-btn-normal" class="px-3 py-1.5 rounded-xl font-bold bg-white text-slate-600 text-xs cursor-pointer hover:bg-slate-100 transition-all">
+                    ⚡ Normal (2 bloques)
+                  </button>
+                  <button type="button" onclick="setEnergyState('low')" id="energy-btn-low" class="px-3 py-1.5 rounded-xl font-bold bg-white text-slate-600 text-xs cursor-pointer hover:bg-slate-100 transition-all">
+                    😴 Cansada (Fixi prioriza pausas)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila de Herramientas: Temporizador Pomodoro 50/10 + Hidratación + Sueño -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+              
+              <!-- Temporizador Pomodoro 50/10 en Vivo -->
+              <div class="md:col-span-5 bg-gradient-to-br from-slate-900 to-[#0B2545] text-white rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xl">⏱️</span>
+                    <div>
+                      <h3 class="text-xs font-black uppercase tracking-wider text-[#00C2FF]">Temporizador Neurocognitivo</h3>
+                      <span class="text-[10px] text-slate-300">Técnica 50 min Foco / 10 min Pausa</span>
+                    </div>
+                  </div>
+                  <span id="timer-status-badge" class="text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-black">
+                    Listo
+                  </span>
+                </div>
+
+                <div class="text-center py-2">
+                  <div class="text-5xl font-black tracking-tight font-mono text-white" id="pomodoro-timer-display">
+                    50:00
+                  </div>
+                  <div class="text-xs text-slate-300 mt-1 font-semibold" id="pomodoro-current-task">
+                    Bloque 1: Finanzas Corporativas (WACC)
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 pt-2 border-t border-slate-800">
+                  <button
+                    type="button"
+                    onclick="startPomodoroTimer()"
+                    id="timer-start-btn"
+                    class="flex-1 py-2.5 rounded-xl bg-[#0077FE] hover:bg-[#0062D2] text-white font-black text-xs transition-colors shadow-xs cursor-pointer text-center"
+                  >
+                    ▶ Iniciar Foco
+                  </button>
+                  <button
+                    type="button"
+                    onclick="pausePomodoroTimer()"
+                    class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    ⏸ Pausar
+                  </button>
+                  <button
+                    type="button"
+                    onclick="resetPomodoroTimer()"
+                    class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    ⏹
+                  </button>
+                </div>
+              </div>
+
+              <!-- Registro de Hidratación & Sueño REM -->
+              <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Hidratación Universitaria -->
+                <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="text-2xl">💧</span>
+                      <div>
+                        <h4 class="text-xs font-black text-[#0B2545]">Hidratación Diaria</h4>
+                        <span class="text-[10px] text-slate-400 font-semibold">Oxigenación cerebral</span>
+                      </div>
+                    </div>
+                    <span class="text-xs font-black text-[#0077FE]" id="water-progress-text">1,250 / 2,000 ml</span>
+                  </div>
+
+                  <div class="space-y-1.5">
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                      <div id="water-progress-bar" class="h-full bg-gradient-to-r from-[#0077FE] to-cyan-400 rounded-full transition-all duration-300" style="width: 62.5%;"></div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 font-medium">5 de 8 vasos consumidos hoy (62.5%)</div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onclick="addWaterCup()"
+                    class="w-full py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0077FE] border border-blue-200 font-black text-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>+ 250 ml</span>
+                    <span>(Tomar 1 vaso)</span>
+                  </button>
+                </div>
+
+                <!-- Sueño REM & Consolidación -->
+                <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="text-2xl">🌙</span>
+                      <div>
+                        <h4 class="text-xs font-black text-[#0B2545]">Sueño de Consolidación</h4>
+                        <span class="text-[10px] text-emerald-600 font-bold">Fase REM activa</span>
+                      </div>
+                    </div>
+                    <span class="text-xs font-black text-purple-700">7h 45m</span>
+                  </div>
+
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Dormiste antes de las 11:30 PM. Fixi IA certifica que tu memoria a largo plazo consolidó las fórmulas de WACC.
+                  </p>
+
+                  <div class="p-2 rounded-xl bg-purple-50 text-purple-800 text-[10px] font-bold text-center border border-purple-200">
+                    💤 Meta de hoy: Apagar pantallas a las 11:00 PM
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Calendario Semanal & Checklist Detallado de Hábitos -->
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm space-y-6">
+              
+              <!-- Días de la Semana -->
+              <div>
+                <div class="flex items-center justify-between text-xs font-black text-[#0B2545] mb-3">
+                  <span>Cumplimiento Semanal de Hábitos:</span>
+                  <span class="text-emerald-600">88% promedio semanal</span>
+                </div>
+                <div class="grid grid-cols-7 gap-1.5 sm:gap-2 text-center">
+                  <div class="p-2.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Lun 10</span>
+                    <span class="font-black text-emerald-700">100%</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-emerald-500 text-white font-black text-xs shadow-sm">
+                    <span class="text-[10px] text-emerald-200 block">Mar 11</span>
+                    <span class="font-black">75% (Hoy)</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Mié 12</span>
+                    <span class="font-black text-slate-600">150 min</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Jue 13</span>
+                    <span class="font-black text-slate-600">100 min</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Vie 14</span>
+                    <span class="font-black text-slate-600">200 min</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Sáb 15</span>
+                    <span class="font-black text-slate-600">50 min</span>
+                  </div>
+                  <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                    <span class="text-[10px] text-slate-400 block font-bold">Dom 16</span>
+                    <span class="font-black text-slate-400">Descanso</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lista de Hábitos Categorizados -->
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-black text-[#0B2545]">Checklist Neurocognitivo de Hoy</h3>
+                  <span class="text-xs font-bold text-emerald-600" id="habits-counter-text">3 de 5 hábitos cumplidos (60%)</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                  
+                  <!-- Hábito 1 -->
+                  <label class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" checked onchange="updateHabitCount()" class="w-4 h-4 text-emerald-600 rounded mt-0.5 habit-checkbox" />
+                    <div>
+                      <div class="font-black text-[#0B2545]">🧠 Bloque 1: Finanzas Corporativas (50 min)</div>
+                      <div class="text-[11px] text-slate-500 mt-0.5">Active Recall: Cálculo de WACC y estructura óptima.</div>
+                    </div>
+                  </label>
+
+                  <!-- Hábito 2 -->
+                  <label class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" checked onchange="updateHabitCount()" class="w-4 h-4 text-emerald-600 rounded mt-0.5 habit-checkbox" />
+                    <div>
+                      <div class="font-black text-[#0B2545]">⚡ Pausa Activa: Caminata 10 min & Hidratación</div>
+                      <div class="text-[11px] text-slate-500 mt-0.5">Estiramiento de columna y descanso visual regla 20-20-20.</div>
+                    </div>
+                  </label>
+
+                  <!-- Hábito 3 -->
+                  <label class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" checked onchange="updateHabitCount()" class="w-4 h-4 text-emerald-600 rounded mt-0.5 habit-checkbox" />
+                    <div>
+                      <div class="font-black text-[#0B2545]">📴 Modo Cero Distracciones</div>
+                      <div class="text-[11px] text-slate-500 mt-0.5">Teléfono en modo concentración durante los 50 minutos.</div>
+                    </div>
+                  </label>
+
+                  <!-- Hábito 4 -->
+                  <label class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" onchange="updateHabitCount()" class="w-4 h-4 text-emerald-600 rounded mt-0.5 habit-checkbox" />
+                    <div>
+                      <div class="font-black text-[#0B2545]">📚 Bloque 2: Base de Datos Avanzada (50 min)</div>
+                      <div class="text-[11px] text-slate-500 mt-0.5">Programado para las 4:00 PM: Indexación B-Tree y joins.</div>
+                    </div>
+                  </label>
+
+                  <!-- Hábito 5 -->
+                  <label class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3 cursor-pointer md:col-span-2">
+                    <input type="checkbox" onchange="updateHabitCount()" class="w-4 h-4 text-emerald-600 rounded mt-0.5 habit-checkbox" />
+                    <div>
+                      <div class="font-black text-[#0B2545]">🌙 Micro-Repaso Nocturno con Flashcards (15 min)</div>
+                      <div class="text-[11px] text-slate-500 mt-0.5">15 tarjetas Anki antes de dormir a las 11:00 PM sin pantallas azules.</div>
+                    </div>
+                  </label>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ==================== VISTA 3: BUSCADOR DE APUNTES (MARKETPLACE) ==================== -->
+        <div id="view-marketplace" class="hidden space-y-6">
+          
+          <!-- PANTALLA DE UPGRADE (SE MUESTRA SI EL PLAN NO ES SMART NI ELITE) -->
+          <div id="upgrade-screen-marketplace" class="hidden bg-white rounded-3xl p-6 sm:p-12 border-2 border-dashed border-rose-300 text-center space-y-5 max-w-2xl mx-auto shadow-sm">
+            <div class="w-16 h-16 rounded-3xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center text-3xl mx-auto shadow-xs">
+              🔒
+            </div>
+            <div class="space-y-2">
+              <span class="px-3 py-1 rounded-full text-xs font-black bg-rose-100 text-rose-800 uppercase tracking-wider">
+                Exclusivo Plan SMART & Plan ELITE
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+                Acceso Ilimitado al Buscador de Apuntes y Solucionarios
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                Descarga miles de exámenes pasados resueltos por estudiantes del Tercio Superior de PUCP, UNMSM, UPC, ULima y más.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-rose-50/70 border border-rose-200 text-left max-w-md mx-auto space-y-2 text-xs">
+              <div class="font-black text-rose-900">¿Qué incluye el Plan SMART?</div>
+              <ul class="space-y-1.5 text-slate-700">
+                <li class="flex items-center gap-2">✅ Descargas ilimitadas de solucionarios verificados</li>
+                <li class="flex items-center gap-2">✅ Filtro de búsqueda por profesor, curso y ciclo</li>
+                <li class="flex items-center gap-2">✅ Foros comunitarios P2P para resolver dudas</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <a
+                href="/planes"
+                class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-[#FF007A] to-rose-600 text-white font-black text-xs shadow-md hover:shadow-lg transition-all hover:scale-105"
+              >
+                🚀 Hacer Upgrade a Plan SMART (S/ 19.90/mes) →
+              </a>
+              <button
+                type="button"
+                onclick="setAppPlan('smart')"
+                class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+              >
+                Simular Plan SMART en este Demo
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTENIDO REGULAR: BUSCADOR INTERACTIVO DE APUNTES -->
+          <div id="content-marketplace" class="space-y-6">
+            
+            <!-- Header del Buscador -->
+            <div class="bg-gradient-to-r from-[#0B2545] to-[#1E3A8A] text-white rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#00C2FF] text-xs font-black uppercase tracking-wider mb-2">
+                    <span>🔍</span>
+                    <span>Buscador Universitario MindPartners</span>
+                  </div>
+                  <h2 class="text-xl sm:text-3xl font-black tracking-tight">
+                    Encuentra Apuntes, Solucionarios y Fórmulas
+                  </h2>
+                  <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+                    Material verificado por los mejores alumnos de cada ciclo (Promedios 17+).
+                  </p>
+                </div>
+                
+                <a
+                  href="/planes"
+                  class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/20 text-white text-xs font-bold border border-white/20 self-start md:self-auto transition-colors"
+                >
+                  Planes & Membresías
+                </a>
+              </div>
+
+              <!-- BARRA DE BÚSQUEDA PRINCIPAL TIPO GOOGLE/NOTION -->
+              <div class="relative">
+                <input
+                  type="text"
+                  id="marketplace-search-input"
+                  oninput="handleMarketplaceSearch()"
+                  placeholder="Escribe el curso, tema, profesor o universidad... (ej: Microeconomía, WACC, PUCP)"
+                  class="w-full pl-12 pr-28 py-3.5 rounded-2xl bg-white text-[#0B2545] placeholder-slate-400 text-xs sm:text-sm font-semibold shadow-lg focus:outline-none focus:ring-4 focus:ring-[#0077FE]/40"
+                />
+                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-lg">
+                  🔍
+                </div>
+                <button
+                  type="button"
+                  onclick="clearMarketplaceSearch()"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+                >
+                  Limpiar
+                </button>
+              </div>
+
+              <!-- TAGS / FILTROS DE UNIVERSIDAD Y TIPO -->
+              <div class="flex flex-wrap items-center gap-2 pt-2 text-xs">
+                <span class="text-[11px] font-black text-slate-300 uppercase mr-1">Filtrar por:</span>
+                
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('all')"
+                  id="filter-uni-all"
+                  class="px-3 py-1 rounded-xl font-black bg-white text-[#0B2545] shadow-xs cursor-pointer transition-all"
+                >
+                  Todos los materiales
+                </button>
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('pucp')"
+                  id="filter-uni-pucp"
+                  class="px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all"
+                >
+                  PUCP
+                </button>
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('unmsm')"
+                  id="filter-uni-unmsm"
+                  class="px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all"
+                >
+                  UNMSM
+                </button>
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('upc')"
+                  id="filter-uni-upc"
+                  class="px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all"
+                >
+                  UPC
+                </button>
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('ulima')"
+                  id="filter-uni-ulima"
+                  class="px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all"
+                >
+                  ULima
+                </button>
+                <button
+                  type="button"
+                  onclick="setMarketplaceFilter('uni')"
+                  id="filter-uni-uni"
+                  class="px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all"
+                >
+                  UNI
+                </button>
+              </div>
+            </div>
+
+            <!-- Contador de Resultados -->
+            <div class="flex items-center justify-between text-xs text-slate-500 font-bold px-1">
+              <span id="marketplace-results-count">Mostrando 8 recursos verificados</span>
+              <span class="text-emerald-600 font-black">✔ Garantía de Calidad 100% Tercio Superior</span>
+            </div>
+
+            <!-- RESULTADOS DEL BUSCADOR: TARJETAS DE APUNTES -->
+            <div id="marketplace-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              <!-- Item 1: PUCP Finanzas -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="finanzas corporativas ii wacc capm pucp alarcon examen parcial 2025"
+                   data-uni="pucp">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-blue-50 text-[#0077FE] border border-blue-200">
+                      PUCP • Finanzas
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 19/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Examen Parcial 2025-II Resuelto Paso a Paso
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Cálculo de WACC, flujo de caja libre y valoración por múltiplos. Prof. Mendoza.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📄 PDF (4.2 MB)</span>
+                    <span>📥 1,240 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 4.9</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Examen Parcial Finanzas 2025-II', 'PUCP', '19/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Examen Parcial Finanzas 2025-II')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 2: UPC Microeconomía -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="microeconomia intermedia teoria de juegos monopolio upc examen final"
+                   data-uni="upc">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                      UPC • Economía
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 18.5/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Resumen Completo Microeconomía Intermedia
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Equilibrio de Nash, discriminación de precios de 1er, 2do y 3er grado con gráficas.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📄 PDF (5.8 MB)</span>
+                    <span>📥 980 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 5.0</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Resumen Microeconomía Intermedia', 'UPC', '18.5/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Resumen Microeconomía Intermedia')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 3: UNI Cálculo Vectorial -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="calculo vectorial integrales multiples stokes green uni solucionario practica calificada"
+                   data-uni="uni">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                      UNI • Ciencias
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 20/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Solucionario PC3: Teorema de Stokes y Divergencia
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Todas las preguntas resueltas a mano con diagrama vectorial explicativo.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📄 PDF (6.4 MB)</span>
+                    <span>📥 2,100 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 4.9</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Solucionario Stokes & Divergencia', 'UNI', '20/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Solucionario Stokes & Divergencia')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 4: UNMSM Anatomía Humana -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="anatomia humana sistema nervioso flashcards anki unmsm medicina parcial"
+                   data-uni="unmsm">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      UNMSM • Medicina
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 18/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Flashcards Anki & Banco de Preguntas de Anatomía
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Pares craneales, polígono de Willis y vías medulares con mnemotecnias.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📦 Mazo Anki (12 MB)</span>
+                    <span>📥 1,650 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 4.9</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Flashcards Anatomía San Fernando', 'UNMSM', '18/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Flashcards Anatomía San Fernando')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar Anki
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 5: ULima Derecho Societario -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="derecho societario ley general de sociedades jurisprudencia ulima examen"
+                   data-uni="ulima">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+                      ULima • Derecho
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 18.5/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Guía de Casos y Jurisprudencia Ley de Sociedades
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Análisis de SA, SAC y SRL con criterios del Tribunal Registral SUNARP.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📄 PDF (2.9 MB)</span>
+                    <span>📥 740 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 4.8</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Guía Jurisprudencia Societaria', 'ULima', '18.5/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Guía Jurisprudencia Societaria')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 6: PUCP Circuitos Eléctricos -->
+              <div class="market-item bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                   data-title="circuitos electricos thevenin norton rlc pucp fisica solucionario"
+                   data-uni="pucp">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-blue-50 text-[#0077FE] border border-blue-200">
+                      PUCP • Ingeniería
+                    </span>
+                    <span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Nota: 19/20
+                    </span>
+                  </div>
+                  <h3 class="text-sm font-black text-[#0B2545] leading-snug">
+                    Solucionario Teoremas de Thevenin y Norton
+                  </h3>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Circuitos de corriente alterna, fasores e impedancia con simulaciones Multisim.
+                  </p>
+                  <div class="flex items-center gap-3 text-[11px] text-slate-400 font-semibold mt-3">
+                    <span>📄 PDF (4.5 MB)</span>
+                    <span>📥 1,420 descargas</span>
+                    <span class="text-amber-500 font-bold">⭐ 4.9</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 mt-4">
+                  <button type="button" onclick="previewDoc('Solucionario Thevenin & Norton', 'PUCP', '19/20')" class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer">
+                    Vista Previa
+                  </button>
+                  <button type="button" onclick="downloadDoc('Solucionario Thevenin & Norton')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-[#0077FE] text-white text-xs font-black transition-colors cursor-pointer">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Banner para que estudiantes suban sus apuntes -->
+            <div class="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-full">Programa Creadores</span>
+                <h4 class="text-base font-black mt-1">¿Tuviste 18+ en tus parciales pasados?</h4>
+                <p class="text-xs text-amber-100 mt-0.5">Sube tus apuntes a MindPartners y genera ingresos pasivos cada ciclo universitario.</p>
+              </div>
+              <button
+                type="button"
+                onclick="alert('¡Gracias por tu interés! Nuestro equipo de revisión académica te contactará para validar tus notas.')"
+                class="px-4 py-2.5 rounded-xl bg-white text-amber-800 text-xs font-black shrink-0 hover:bg-amber-50 transition-colors shadow-xs cursor-pointer"
+              >
+                Subir Mis Apuntes 📤
               </button>
             </div>
 
-            <!-- Días de la Semana -->
-            <div class="grid grid-cols-7 gap-2 text-center mb-6">
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Lun 10</span>
-                <span class="font-black text-sm">100m</span>
-                <span class="text-emerald-500 block text-xs">✔</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Mar 11</span>
-                <span class="font-black text-sm">150m</span>
-                <span class="text-emerald-500 block text-xs">✔</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Mié 12</span>
-                <span class="font-black text-sm">100m</span>
-                <span class="text-emerald-500 block text-xs">✔</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-emerald-600 text-white shadow-md text-xs">
-                <span class="text-[10px] text-emerald-200 block font-black uppercase">Jue 13 (Hoy)</span>
-                <span class="font-black text-sm">100m</span>
-                <span class="text-amber-300 block text-xs">⚡ Activo</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Vie 14</span>
-                <span class="font-black text-sm">50m</span>
-                <span class="text-slate-400 block text-xs">○</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Sáb 15</span>
-                <span class="font-black text-sm">Simulacro</span>
-                <span class="text-slate-400 block text-xs">○</span>
-              </div>
-              <div class="p-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                <span class="text-[10px] text-slate-400 block font-bold">Dom 16</span>
-                <span class="font-black text-sm">Descanso</span>
-                <span class="text-slate-400 block text-xs">🌿</span>
-              </div>
-            </div>
-
-            <!-- Sugerencia de Fixi IA -->
-            <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-3">
-              <span class="text-2xl">🤖</span>
-              <div class="text-xs">
-                <div class="font-black text-emerald-950">Fixi IA te sugiere:</div>
-                <div class="text-emerald-800">
-                  "Resuelve los 2 ejercicios de Series de Fourier antes de las 8:00 p.m. para poder desconectarte a las 10:30 p.m."
-                </div>
-              </div>
-            </div>
           </div>
+
         </div>
 
-        <!-- ==================== VISTA 3: MARKETPLACE MINDPARTNERS (SMART) ==================== -->
-        <div id="view-marketplace" class="hidden space-y-6">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[10px] font-black uppercase tracking-wider">
-                  Marketplace MindPartners
-                </span>
-                <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] mt-1">
-                  Solucionarios y Apuntes Certificados de tu Universidad
-                </h2>
-                <p class="text-xs text-slate-500">Descarga resúmenes forenses elaborados por estudiantes del Tercio Superior.</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <input
-                  type="text"
-                  placeholder="Buscar curso o tema..."
-                  class="px-3.5 py-2 rounded-xl border border-slate-200 text-xs bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0077FE]"
-                />
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 flex flex-col justify-between">
-                <div>
-                  <span class="text-[10px] bg-rose-100 text-rose-700 px-2 py-0.5 rounded font-black">Cálculo Vectorial</span>
-                  <h3 class="text-sm font-black text-[#0B2545] mt-2">Solucionario Parcial 2024-II</h3>
-                  <p class="text-xs text-slate-500 mt-1">Teoremas de Green, Stokes y Gauss explicados paso a paso.</p>
-                </div>
-                <button type="button" onclick="alert('Descargando PDF certificado...')" class="mt-4 py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs transition-colors">
-                  Descargar PDF (4.2 MB) ⬇
-                </button>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 flex flex-col justify-between">
-                <div>
-                  <span class="text-[10px] bg-rose-100 text-rose-700 px-2 py-0.5 rounded font-black">Física General</span>
-                  <h3 class="text-sm font-black text-[#0B2545] mt-2">Formulario & Matriz de Errores</h3>
-                  <p class="text-xs text-slate-500 mt-1">Dinámica rotacional y momento de inercia con gráficos clave.</p>
-                </div>
-                <button type="button" onclick="alert('Descargando PDF certificado...')" class="mt-4 py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs transition-colors">
-                  Descargar PDF (2.8 MB) ⬇
-                </button>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 flex flex-col justify-between">
-                <div>
-                  <span class="text-[10px] bg-rose-100 text-rose-700 px-2 py-0.5 rounded font-black">Estadística</span>
-                  <h3 class="text-sm font-black text-[#0B2545] mt-2">Guía Forense de Pruebas Z y T</h3>
-                  <p class="text-xs text-slate-500 mt-1">Ejercicios de parcial resueltos con p-valor e intervalos de confianza.</p>
-                </div>
-                <button type="button" onclick="alert('Descargando PDF certificado...')" class="mt-4 py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs transition-colors">
-                  Descargar PDF (3.1 MB) ⬇
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==================== VISTA 4: IA PREDICTIVA & TUTOR 1-ON-1 (ELITE) ==================== -->
+                <!-- ==================== VISTA 4: IA PREDICTIVA & TUTOR VIP ==================== -->
         <div id="view-elite" class="hidden space-y-6">
-          <div class="bg-gradient-to-br from-[#1E1B4B] via-[#0B2545] to-[#2E1065] text-white rounded-3xl p-6 sm:p-8 border-2 border-purple-400/50 shadow-xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-purple-400/20 text-purple-300 border border-purple-400/40 text-[10px] font-black uppercase tracking-wider">
-                  Suite VIP Plan ELITE
-                </span>
-                <h2 class="text-xl sm:text-2xl font-black mt-1">
-                  Radar de IA Predictiva & Tutoría 1 a 1 en Vivo
-                </h2>
-                <p class="text-xs text-purple-200">Preguntas predichas con 92% de precisión por cátedra y profesor.</p>
-              </div>
-              <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1.5 rounded-xl font-bold border border-purple-400/30">
-                Garantía Tercio Superior
+          
+          <!-- PANTALLA DE UPGRADE (SE MUESTRA CUANDO NO SE TIENE PLAN ELITE) -->
+          <div id="upgrade-screen-elite" class="hidden bg-white rounded-3xl p-6 sm:p-12 border-2 border-dashed border-purple-300 text-center space-y-5 max-w-2xl mx-auto shadow-sm">
+            <div class="w-16 h-16 rounded-3xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center text-3xl mx-auto shadow-xs">
+              🔒
+            </div>
+            <div class="space-y-2">
+              <span class="px-3 py-1 rounded-full text-xs font-black bg-purple-100 text-purple-800 uppercase tracking-wider">
+                Exclusivo Plan ELITE (Tercio Superior VIP)
               </span>
+              <h2 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+                La Suite de Alto Rendimiento requiere Plan ELITE
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                Desbloquea el Radar Predictivo de preguntas de examen (92% de acierto histórico), chat en vivo con Fixi Predictor IA, tutorías privadas 1 a 1 semanales y garantía de Tercio Superior.
+              </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <!-- Radar de Preguntas Predictivas -->
-              <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 space-y-3">
-                <div class="flex items-center justify-between text-xs">
-                  <span class="font-black text-[#00C2FF] flex items-center gap-1.5">
-                    <span>⚡</span> Preguntas Detectadas para el Parcial
+            <div class="p-4 rounded-2xl bg-purple-50/70 border border-purple-200 text-left max-w-md mx-auto space-y-2 text-xs">
+              <div class="font-black text-purple-900">¿Qué incluye el Plan ELITE VIP?</div>
+              <ul class="space-y-1.5 text-slate-700">
+                <li class="flex items-center gap-2">✅ Radar Predictivo de preguntas fijas de parciales con IA</li>
+                <li class="flex items-center gap-2">✅ Chat en vivo con Fixi Predictor IA (respuestas instantáneas)</li>
+                <li class="flex items-center gap-2">✅ Sesión semanal privada de 45 min con Tutor Tercio Superior</li>
+                <li class="flex items-center gap-2">✅ Sincronización automática con Canvas LMS y Notion</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <a
+                href="/planes"
+                class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-[#6D4AFF] to-purple-700 text-white font-black text-xs shadow-md hover:shadow-lg transition-all hover:scale-105"
+              >
+                🚀 Hacer Upgrade a Plan ELITE (S/ 39.90/mes) →
+              </a>
+              <button
+                type="button"
+                onclick="setAppPlan('elite')"
+                class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+              >
+                Simular Plan ELITE en este Demo
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTENIDO REGULAR: SUITE ELITE (LAYOUT INNOVADOR: RADAR A LA IZQUIERDA + CHAT EN VIVO A LA DERECHA) -->
+          <div id="content-elite" class="space-y-6">
+            
+            <!-- Header Suite Elite -->
+            <div class="bg-gradient-to-r from-[#1E1B4B] via-[#0B2545] to-[#3B0764] text-white rounded-3xl p-5 sm:p-7 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px] font-black uppercase tracking-wider">
+                    🔮 Suite Predictiva VIP
                   </span>
-                  <span class="bg-purple-400/20 text-purple-200 px-2 py-0.5 rounded text-[10px] font-bold">92% probabilidad</span>
+                  <span class="text-xs text-emerald-400 font-black">92% de Precisión Histórica</span>
                 </div>
-                <p class="text-xs text-slate-200">Cátedra Cálculo II - Prof. Ramírez:</p>
-                <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1 text-xs">
-                  <div class="font-black text-amber-300">Pregunta Clave #1:</div>
-                  <div class="text-slate-300 text-[11px]">Cálculo de masa y centro de gravedad en lámina plana con densidad variable. Trampa típica: olvido de jacobiano en polares.</div>
-                </div>
-                <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1 text-xs">
-                  <div class="font-black text-amber-300">Pregunta Clave #2:</div>
-                  <div class="text-slate-300 text-[11px]">Teorema de la Divergencia de Gauss aplicado a sólido cilíndrico truncado.</div>
-                </div>
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight">
+                  Radar de Parciales & Chat en Vivo con Fixi Predictor
+                </h2>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Análisis algorítmico entrenado con 12,000+ exámenes pasados de universidades peruanas.
+                </p>
               </div>
 
-              <!-- Ficha del Tutor 1-on-1 -->
-              <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between text-xs mb-3">
-                    <span class="font-black text-emerald-400">🎧 Tutor Personal Asignado</span>
-                    <span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-bold">En Línea</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs bg-white/10 px-3 py-1.5 rounded-xl border border-white/10 font-bold">
+                  🎯 Meta: Tercio Superior (17+)
+                </span>
+              </div>
+            </div>
+
+            <!-- LAYOUT EN 2 COLUMNAS: IZQUIERDA INNOVACIÓN/RADAR, DERECHA CHAT EN VIVO -->
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+              
+              <!-- ==================== COLUMNA IZQUIERDA (7 COLS): RADAR & SIMULADOR ==================== -->
+              <div class="xl:col-span-7 space-y-5">
+                
+                <!-- Radar de Probabilidad de Temas de Examen -->
+                <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-xs space-y-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="text-sm font-black text-[#0B2545]">Radar de Preguntas Fijas (Semana 9)</h3>
+                      <p class="text-xs text-slate-400">Probabilidad calculada según el sílabo y profesor de turno</p>
+                    </div>
+                    <span class="text-xs font-black text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-200">
+                      Finanzas II • PUCP
+                    </span>
                   </div>
-                  <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 text-white flex items-center justify-center font-black text-base shadow-sm">
+
+                  <!-- Barras de Probabilidad Predictiva -->
+                  <div class="space-y-3 pt-1">
+                    
+                    <!-- Tema 1 -->
+                    <div class="p-3 rounded-2xl bg-purple-50/60 border border-purple-200/80 space-y-1.5">
+                      <div class="flex items-center justify-between text-xs font-black">
+                        <span class="text-[#0B2545]">1. Estructura Óptima MM & Escudo Fiscal</span>
+                        <span class="text-rose-600 font-black">95% Probable • Fija</span>
+                      </div>
+                      <div class="w-full h-2 bg-purple-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-rose-500 rounded-full" style="width: 95%;"></div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Vino en 4 de los últimos 4 parciales</span>
+                        <span class="text-purple-700 font-bold">Peso estimado: 6 puntos</span>
+                      </div>
+                    </div>
+
+                    <!-- Tema 2 -->
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+                      <div class="flex items-center justify-between text-xs font-black">
+                        <span class="text-[#0B2545]">2. CAPM, Beta Apalancado & Ecuación de Hamada</span>
+                        <span class="text-emerald-600 font-black">89% Probable</span>
+                      </div>
+                      <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-emerald-500 rounded-full" style="width: 89%;"></div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Ejercicio práctico con datos de Bloomberg</span>
+                        <span class="text-slate-700 font-bold">Peso estimado: 5 puntos</span>
+                      </div>
+                    </div>
+
+                    <!-- Tema 3 -->
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+                      <div class="flex items-center justify-between text-xs font-black">
+                        <span class="text-[#0B2545]">3. Valoración por Flujo de Caja Descontado (DCF)</span>
+                        <span class="text-blue-600 font-black">82% Probable</span>
+                      </div>
+                      <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-500 rounded-full" style="width: 82%;"></div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Cálculo de valor residual a perpetuidad</span>
+                        <span class="text-slate-700 font-bold">Peso estimado: 5 puntos</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Simulador Rápido de Pregunta con Rúbrica -->
+                <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-xs space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-black text-purple-700 uppercase tracking-wider">Simulador de Pregunta Real</span>
+                    <span class="text-[11px] text-slate-400 font-bold">Tiempo sugerido: 15 min</span>
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-slate-900 text-white text-xs font-mono leading-relaxed">
+                    "Una empresa peruana tiene una deuda de S/ 40 millones al 8% anual y patrimonio de S/ 60 millones con Ke del 14%. Si la tasa de impuesto a la renta es 29.5%, determine el WACC antes y después de emitir S/ 10 millones adicionales de deuda."
+                  </div>
+
+                  <div class="flex items-center justify-between pt-1">
+                    <button
+                      type="button"
+                      onclick="toggleRubricDetails()"
+                      id="rubric-toggle-btn"
+                      class="text-xs font-black text-[#0077FE] hover:underline cursor-pointer"
+                    >
+                      👁️ Revelar Rúbrica de Calificación del Profesor →
+                    </button>
+                    <button
+                      type="button"
+                      onclick="askFixiToSolveQuestion()"
+                      class="px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 text-xs font-black transition-colors cursor-pointer"
+                    >
+                      Resolver con Fixi IA 🤖
+                    </button>
+                  </div>
+
+                  <!-- Detalle de la Rúbrica (Oculto inicialmente) -->
+                  <div id="rubric-details" class="hidden p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs space-y-1.5 text-slate-700">
+                    <div class="font-black text-amber-900">Rúbrica oficial del examen (6 puntos):</div>
+                    <ul class="space-y-1 text-[11px]">
+                      <li>• <strong>2 pts:</strong> Correcta ponderación de WACC con escudo fiscal (1 - 0.295).</li>
+                      <li>• <strong>2 pts:</strong> Re-cálculo de Ke usando la proposición II de Modigliani-Miller.</li>
+                      <li>• <strong>2 pts:</strong> Interpretación económica del costo de quiebra financiera.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Tarjeta del Tutor Asignado 1 a 1 -->
+                <div class="p-5 rounded-3xl bg-gradient-to-r from-[#0B2545] to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div class="flex items-center gap-3.5 text-center sm:text-left">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 text-white flex items-center justify-center font-black text-base border-2 border-purple-300 shrink-0">
                       CM
                     </div>
                     <div>
-                      <div class="text-sm font-black text-white">Carlos Mendoza (Tercio Superior)</div>
-                      <div class="text-xs text-slate-300">9no Ciclo · Ing. de Sistemas · Nota 19</div>
+                      <div class="flex items-center gap-2 justify-center sm:justify-start">
+                        <span class="text-sm font-black text-white">Carlos Mendoza</span>
+                        <span class="text-[9px] bg-emerald-500 text-white px-2 py-0.5 rounded-full font-bold">Tutor Activo</span>
+                      </div>
+                      <p class="text-xs text-slate-300">Puesto #1 Graduado PUCP • Especialista en Finanzas</p>
+                      <p class="text-[10px] text-[#00C2FF] font-semibold mt-0.5">Próxima sesión: Jueves 13 a las 7:00 PM</p>
                     </div>
                   </div>
-                  <p class="text-xs text-purple-200 leading-relaxed">
-                    Próxima sesión 1 a 1 programada para hoy <strong>6:00 p.m.</strong> por Sala Privada.
-                  </p>
-                </div>
-                <div class="mt-4 flex gap-2">
-                  <button type="button" onclick="alert('Abriendo sala privada de Zoom con Carlos Mendoza...')" class="flex-1 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs transition-colors">
-                    🎥 Entrar a Sala 1-on-1
-                  </button>
-                  <button type="button" onclick="alert('Abriendo chat privado con Carlos Mendoza...')" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors">
-                    💬 Chat
+
+                  <button
+                    type="button"
+                    onclick="alert('Conectando con la sala de Zoom de Carlos Mendoza...')"
+                    class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-black text-xs shrink-0 transition-all shadow-md cursor-pointer"
+                  >
+                    Entrar a Zoom 📹
                   </button>
                 </div>
+
               </div>
+
+              <!-- ==================== COLUMNA DERECHA (5 COLS): CHAT EN VIVO CON FIXI PREDICTOR IA ==================== -->
+              <div class="xl:col-span-5 bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col h-[620px] sticky top-4">
+                
+                <!-- Chat Header -->
+                <div class="p-4 bg-slate-900 text-white flex items-center justify-between shrink-0">
+                  <div class="flex items-center gap-2.5">
+                    <div class="relative">
+                      <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-purple-500 to-[#0077FE] flex items-center justify-center text-lg shadow-xs">
+                        🤖
+                      </div>
+                      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 border-2 border-slate-900"></span>
+                    </div>
+                    <div>
+                      <div class="text-xs font-black flex items-center gap-1.5">
+                        <span>Fixi Predictor IA</span>
+                        <span class="text-[8px] bg-purple-500/30 text-purple-300 px-1.5 py-0.2 rounded font-extrabold uppercase">VIP</span>
+                      </div>
+                      <div class="text-[10px] text-slate-400">Entrenado con exámenes 2024-2026</div>
+                    </div>
+                  </div>
+
+                  <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    En Vivo
+                  </span>
+                </div>
+
+                <!-- Quick Prompts Buttons (Pills superiores) -->
+                <div class="p-2.5 bg-slate-50 border-b border-slate-200/80 flex items-center gap-1.5 overflow-x-auto scrollbar-none shrink-0 text-[10px]">
+                  <button type="button" onclick="sendQuickPrompt('¿Qué preguntas vienen fijas en el parcial?')" class="px-2.5 py-1 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold hover:bg-purple-50 hover:text-purple-700 shrink-0 cursor-pointer transition-colors">
+                    🔮 ¿Qué viene fijo?
+                  </button>
+                  <button type="button" onclick="sendQuickPrompt('Hazme una pregunta de prueba para practicar')" class="px-2.5 py-1 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold hover:bg-purple-50 hover:text-purple-700 shrink-0 cursor-pointer transition-colors">
+                    📝 Simulacro
+                  </button>
+                  <button type="button" onclick="sendQuickPrompt('¿Cuáles son mis puntos débiles detectados?')" class="px-2.5 py-1 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold hover:bg-purple-50 hover:text-purple-700 shrink-0 cursor-pointer transition-colors">
+                    ⚠️ Mis puntos débiles
+                  </button>
+                </div>
+
+                <!-- Chat Message Stream (Área con scroll) -->
+                <div id="elite-chat-stream" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
+                  
+                  <!-- Mensaje de bienvenida de Fixi -->
+                  <div class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs shrink-0 font-black">
+                      🤖
+                    </div>
+                    <div class="bg-slate-100 rounded-2xl rounded-tl-xs p-3 text-slate-800 space-y-1.5 max-w-[85%]">
+                      <div class="font-bold text-purple-700 text-[11px]">Fixi Predictor:</div>
+                      <p class="leading-relaxed">
+                        ¡Hola Valeria! He analizado los últimos 4 exámenes de <strong>Finanzas Corporativas II</strong> con tu profesor. 
+                      </p>
+                      <p class="leading-relaxed text-slate-600">
+                        La pregunta con mayor probabilidad (95%) es la demostración del <strong>escudo fiscal en WACC</strong>. ¿Quieres que te muestre el ejercicio resuelto o prefieres practicar?
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Chat Input Bar -->
+                <div class="p-3 bg-white border-t border-slate-200 shrink-0">
+                  <form onsubmit="handleEliteChatSubmit(event)" class="flex items-center gap-1.5">
+                    <input
+                      type="text"
+                      id="elite-chat-input"
+                      placeholder="Pregúntale a Fixi sobre tu examen..."
+                      class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs text-[#0B2545] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <button
+                      type="submit"
+                      class="p-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shrink-0 transition-colors shadow-xs cursor-pointer"
+                      title="Enviar mensaje"
+                    >
+                      ➤
+                    </button>
+                  </form>
+                  <div class="text-[9px] text-slate-400 text-center mt-1.5">
+                    Fixi IA calibra respuestas según tu universidad y promedios históricos.
+                  </div>
+                </div>
+
+              </div>
+
             </div>
+
           </div>
+
         </div>
 
-        <!-- ==================== VISTA 5: PANTALLAS DE DESCARGA APP MÓVIL (NUEVO) ==================== -->
+        <!-- ==================== VISTA 5: PANTALLA DE DESCARGA DE LA APP MÓVIL ==================== -->
         <div id="view-download" class="hidden space-y-6">
-          <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-sm space-y-6">
+            
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <!-- Columna Izquierda: QR y Botones de Descarga -->
               <div class="lg:col-span-6 space-y-5">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-rose-600 text-xs font-black uppercase tracking-wider">
-                  📲 Descarga la App Móvil Oficial
+                <div class="flex items-center gap-2 flex-wrap">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-rose-600 text-xs font-black uppercase tracking-wider">
+                    📲 Descarga la App Móvil Oficial
+                  </div>
+                  <a
+                    href="/descargar-app"
+                    target="_blank"
+                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all"
+                  >
+                    <span>🌐</span>
+                    <span>Ver Landing de Descarga ↗</span>
+                  </a>
                 </div>
-                <h2 class="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
+
+                <h2 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
                   Lleva a MindFix y a Fixi IA en tu celular
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -699,8 +1585,7 @@ const courses = [
 
                 <!-- Tarjeta de Código QR -->
                 <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-4">
-                  <!-- QR Code Vectorial Ilustrado -->
-                  <div class="w-24 h-24 bg-white p-2 rounded-xl shadow-xs border border-slate-200 flex items-center justify-center shrink-0">
+                  <div class="w-20 h-20 bg-white p-2 rounded-xl shadow-xs border border-slate-200 flex items-center justify-center shrink-0">
                     <svg class="w-full h-full text-[#0B2545]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14-2h4v2h-4v-2zm-4 0h2v4h-2v-4zm2 4h4v4h-4v-4zm-2 2h2v2h-2v-2zm4-6h2v2h-2v-2zM6 6h2v2H6V6zm12 0h2v2h-2V6zM6 18h2v2H6v-2z"/>
                     </svg>
@@ -708,18 +1593,17 @@ const courses = [
                   <div>
                     <div class="text-xs font-black text-[#0B2545]">Escanea con la cámara de tu celular</div>
                     <p class="text-[11px] text-slate-500 mt-0.5">Detecta automáticamente si usas iPhone (iOS) o Android para instalar la versión oficial.</p>
-                    <span class="text-[10px] text-emerald-600 font-bold block mt-1">✔ Enlace seguro verificado v2.4.0 (48 MB)</span>
+                    <span class="text-[10px] text-emerald-600 font-bold block mt-1">✔ Enlace seguro verificado v2.4.0 (28 MB)</span>
                   </div>
                 </div>
 
                 <!-- Botones Oficiales App Store & Google Play & APK -->
                 <div class="flex flex-wrap items-center gap-3">
                   <a
-                    href="https://apps.apple.com"
-                    target="_blank"
+                    href="/descargar-app"
                     class="bg-black hover:bg-slate-900 text-white px-4 py-2.5 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
                   >
-                    <span class="text-xl">🍎</span>
+                    <span class="text-lg">🍎</span>
                     <div class="text-left">
                       <div class="text-[8px] uppercase tracking-wider text-slate-300 leading-none">Consíguelo en</div>
                       <div class="text-xs font-black leading-tight">App Store</div>
@@ -727,125 +1611,112 @@ const courses = [
                   </a>
 
                   <a
-                    href="https://play.google.com"
-                    target="_blank"
+                    href="/descargar-app"
                     class="bg-black hover:bg-slate-900 text-white px-4 py-2.5 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
                   >
-                    <span class="text-xl">▶</span>
+                    <span class="text-lg">▶</span>
                     <div class="text-left">
                       <div class="text-[8px] uppercase tracking-wider text-slate-300 leading-none">Disponible en</div>
                       <div class="text-xs font-black leading-tight">Google Play</div>
                     </div>
                   </a>
 
-                  <button
-                    type="button"
-                    onclick="alert('Descargando archivo APK oficial de MindFix (mindfix-v2.4.apk - 48 MB)...')"
-                    class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-2 transition-colors cursor-pointer"
+                  <a
+                    href="/descargar-app"
+                    class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 px-3.5 py-2.5 rounded-xl flex items-center gap-2 text-xs font-bold transition-all"
                   >
                     <span>📦</span>
-                    <span>Descargar APK directo</span>
-                  </button>
+                    <span>Descarga Directa APK</span>
+                  </a>
                 </div>
+
               </div>
 
-              <!-- Columna Derecha: Mockup Interactivo de la Pantalla del Celular -->
+              <!-- Columna Derecha: Mockup Móvil de la App -->
               <div class="lg:col-span-6 flex justify-center">
-                <div class="w-64 sm:w-72 bg-slate-950 rounded-[44px] p-3 shadow-2xl border-4 border-slate-800 text-slate-800 relative">
-                  <!-- Dynamic Island -->
-                  <div class="w-24 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-end px-2">
-                    <div class="w-2 h-2 rounded-full bg-slate-800"></div>
-                  </div>
-
-                  <!-- Pantalla Interna -->
-                  <div class="bg-white rounded-[32px] p-3.5 space-y-2 text-[9px] min-h-[460px] flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center justify-between border-b border-slate-100 pb-1.5 mb-2">
-                        <span class="font-black text-[#0B2545] text-xs">MINDFIX</span>
-                        <span class="bg-emerald-50 text-emerald-700 text-[8px] font-black px-2 py-0.5 rounded-full">Sincronizado</span>
+                <div class="w-full max-w-[280px] bg-slate-900 rounded-[44px] p-3.5 shadow-2xl border-4 border-slate-800 text-left">
+                  <div class="bg-[#F8FAFC] rounded-[34px] overflow-hidden p-3.5 space-y-3 min-h-[460px] flex flex-col justify-between">
+                    
+                    <div class="space-y-2.5">
+                      <div class="flex items-center justify-between text-[10px] font-black text-slate-800">
+                        <span>9:41</span>
+                        <span>⚡ 100%</span>
                       </div>
 
-                      <!-- Notificación flotante de bloqueo de pantalla -->
-                      <div class="p-2 rounded-xl bg-slate-900 text-white shadow-md mb-2 flex items-center gap-2">
-                        <span class="text-sm">🔔</span>
-                        <div class="text-[8px] leading-tight">
-                          <span class="font-bold text-[#00C2FF] block">Fixi IA · Notificación</span>
-                          <span>"En 30 min inicias bloque de 50m en Cálculo. ¿Todo listo?"</span>
+                      <div class="p-2.5 bg-white rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                          <div class="w-6 h-6 rounded-full bg-[#0077FE] text-white flex items-center justify-center text-[10px] font-black">VR</div>
+                          <div class="text-[10px] font-black text-[#0B2545]">Valeria Rojas</div>
                         </div>
+                        <span class="text-[8px] font-extrabold bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded">👑 Plan PRO</span>
                       </div>
 
-                      <!-- Greeting inside app -->
-                      <div class="p-2 rounded-xl bg-emerald-50 flex items-center gap-2 mb-2">
-                        <span class="text-base">🤖</span>
-                        <div>
-                          <div class="font-black text-[#0B2545]">¡Hola, Valeria!</div>
-                          <div class="text-[8px] text-emerald-800">Racha activa de 6 días</div>
-                        </div>
+                      <div class="p-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-2xl shadow-xs">
+                        <div class="text-[9px] uppercase font-bold text-emerald-100">Fixi IA Móvil</div>
+                        <div class="text-[11px] font-black leading-tight">"¡Racha de 18 días! Tienes examen en 14 días."</div>
                       </div>
 
-                      <!-- Mini Widgets -->
-                      <div class="space-y-1.5">
-                        <div class="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
-                          <span class="font-bold">Active Recall Cálculo II</span>
-                          <span class="text-emerald-600 font-black">50 min</span>
+                      <div class="space-y-1.5 text-[10px]">
+                        <div class="p-2 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                          <span>✅ 50 min Active Recall</span>
+                          <span class="text-emerald-600 font-black">Hecho</span>
                         </div>
-                        <div class="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
-                          <span class="font-bold">Radar de Vacíos</span>
-                          <span class="text-amber-600 font-black">2 alertas</span>
+                        <div class="p-2 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                          <span>✅ Pausa activa 10m</span>
+                          <span class="text-emerald-600 font-black">Hecho</span>
                         </div>
-                        <div class="p-2 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-between">
-                          <span class="font-bold text-purple-900">Tutor Carlos M.</span>
-                          <span class="text-purple-700 font-black">Hoy 6:00pm</span>
+                        <div class="p-2 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between text-blue-800 font-bold">
+                          <span>⏳ Repaso WACC Parcial</span>
+                          <span class="text-[9px]">4:00 PM</span>
                         </div>
                       </div>
                     </div>
 
-                    <!-- Bottom Nav -->
-                    <div class="border-t border-slate-100 pt-1.5 flex justify-around text-slate-400 font-bold text-[8px]">
-                      <span class="text-[#0077FE]">Inicio</span>
-                      <span>Plan</span>
-                      <span class="text-xs -mt-1">🤖</span>
-                      <span>P2P</span>
-                      <span>Perfil</span>
+                    <div class="pt-2 border-t border-slate-200 grid grid-cols-4 text-center text-[9px] font-bold text-slate-400">
+                      <span class="text-[#0077FE]">🏠 Inicio</span>
+                      <span>📅 Hábitos</span>
+                      <span>🛒 Apuntes</span>
+                      <span>👤 Perfil</span>
                     </div>
+
                   </div>
                 </div>
               </div>
 
             </div>
+
           </div>
         </div>
 
-        <!-- ==================== VISTA 6: REDES SOCIALES & CONEXIONES (NUEVO) ==================== -->
+        <!-- ==================== VISTA 6: REDES SOCIALES & CONEXIONES ==================== -->
         <div id="view-social" class="hidden space-y-6">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#0077FE] text-[10px] font-black uppercase tracking-wider">
-                  Redes Sociales e Integraciones
-                </span>
-                <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] mt-1">
-                  Conecta tus Cuentas y Comparte tu Progreso
-                </h2>
-                <p class="text-xs text-slate-500">Sincroniza con tus redes sociales, canales de estudio y plataformas de tu universidad.</p>
-              </div>
+          <div class="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-sm space-y-6">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#0077FE] text-[10px] font-black uppercase tracking-wider">
+                Ecosistema & Comunidad Universitaria
+              </span>
+              <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] mt-1">
+                Conexión con Redes Sociales y Plataformas Académicas
+              </h2>
+              <p class="text-xs text-slate-500">Comparte tus rachas, únete a grupos de estudio virtuales y sincroniza tu universidad.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              
               <!-- Instagram -->
               <div class="p-5 rounded-2xl bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-200/80 flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between mb-3">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center text-xl shadow-xs">
-                      📷
+                      📸
                     </div>
-                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Conectado</span>
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Vinculado</span>
                   </div>
                   <h3 class="text-sm font-black text-[#0B2545]">Instagram Stories</h3>
-                  <p class="text-xs text-slate-600 mt-1">Comparte automáticamente tus rachas de estudio de 50 min y tus insignias de #CeroAmanecidas.</p>
+                  <p class="text-xs text-slate-600 mt-1">Comparte tus insignias de racha de estudio y logros académicos con 1 toque.</p>
                 </div>
-                <button type="button" onclick="alert('Generando Story de Instagram con tu racha de 6 días...')" class="mt-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:opacity-90 text-white font-black text-xs transition-opacity">
-                  Compartir en Story ✨
+                <button type="button" onclick="alert('Generando plantilla de historia para Instagram con tu racha de 18 días...')" class="mt-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold text-xs transition-colors cursor-pointer">
+                  Compartir Racha en Story 📤
                 </button>
               </div>
 
@@ -856,47 +1727,47 @@ const courses = [
                     <div class="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center text-xl shadow-xs">
                       🎵
                     </div>
-                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-200 text-slate-700">Disponible</span>
+                    <span class="text-[10px] font-bold text-slate-500">Comunidad</span>
                   </div>
-                  <h3 class="text-sm font-black text-[#0B2545]">TikTok Challenge</h3>
-                  <p class="text-xs text-slate-600 mt-1">Únete a la comunidad de estudio universitario #TercioSuperior y sube tus avances de ciclo.</p>
+                  <h3 class="text-sm font-black text-[#0B2545]">TikTok Universitario</h3>
+                  <p class="text-xs text-slate-600 mt-1">Sigue el hashtag <span class="font-bold text-[#0077FE]">#TercioSuperior</span> para consejos de estudio y resúmenes de parciales.</p>
                 </div>
-                <a href="https://tiktok.com" target="_blank" class="mt-4 py-2 rounded-xl bg-black hover:bg-slate-900 text-white text-center font-black text-xs transition-colors">
-                  Ver Comunidad TikTok →
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="mt-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-center font-bold text-xs transition-colors">
+                  Ver TikToks de Estudio →
                 </a>
               </div>
 
-              <!-- Discord / WhatsApp Salas P2P -->
-              <div class="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-200/80 flex flex-col justify-between">
+              <!-- Discord / Salas de Voz -->
+              <div class="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-200/80 flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between mb-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#5865F2] text-white flex items-center justify-center text-xl shadow-xs">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-xs">
                       💬
                     </div>
-                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Canal Activo</span>
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">En Línea</span>
                   </div>
-                  <h3 class="text-sm font-black text-[#0B2545]">Salas de Voz en Discord</h3>
-                  <p class="text-xs text-slate-600 mt-1">Conéctate a las salas de estudio silencioso Pomodoro 50/10 con otros estudiantes de tu carrera.</p>
+                  <h3 class="text-sm font-black text-[#0B2545]">Discord Study Rooms 24/7</h3>
+                  <p class="text-xs text-slate-600 mt-1">Salas virtuales con cámara y micrófono apagado para enfocar con otros universitarios.</p>
                 </div>
-                <button type="button" onclick="alert('Conectando a la Sala de Voz Pomodoro en Discord...')" class="mt-4 py-2 rounded-xl bg-[#5865F2] hover:bg-indigo-600 text-white font-black text-xs transition-colors">
-                  Entrar a Sala de Voz 🎧
+                <button type="button" onclick="alert('Abriendo sala Pomodoro en Discord con 42 estudiantes conectados...')" class="mt-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors cursor-pointer">
+                  Unirse a Sala de Estudio 🎧
                 </button>
               </div>
 
-              <!-- Spotify -->
+              <!-- Spotify Lo-Fi -->
               <div class="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between mb-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#1DB954] text-white flex items-center justify-center text-xl shadow-xs">
-                      🟢
+                    <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl shadow-xs">
+                      🎵
                     </div>
-                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Sincronizado</span>
+                    <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">Integrado</span>
                   </div>
-                  <h3 class="text-sm font-black text-[#0B2545]">Spotify Focus & Lo-Fi</h3>
-                  <p class="text-xs text-slate-600 mt-1">Listas de ondas binaurales de 40Hz calibradas para máxima retención de lectura.</p>
+                  <h3 class="text-sm font-black text-[#0B2545]">Spotify Focus Beats</h3>
+                  <p class="text-xs text-slate-600 mt-1">Música Lo-Fi y ondas binaurales de 40 Hz calibradas para concentración profunda.</p>
                 </div>
-                <button type="button" onclick="alert('Reproduciendo playlist oficial MindFix Lo-Fi Focus...')" class="mt-4 py-2 rounded-xl bg-[#1DB954] hover:opacity-90 text-white font-black text-xs transition-opacity">
-                  Reproducir Playlist ▶
+                <button type="button" onclick="alert('Reproduciendo playlist oficial: Ondas Gamma 40Hz para Estudio...')" class="mt-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors cursor-pointer">
+                  Reproducir Playlist Focus ▶
                 </button>
               </div>
 
@@ -939,7 +1810,7 @@ const courses = [
 
         <!-- ==================== VISTA 7: MI PERFIL ACADÉMICO ==================== -->
         <div id="view-profile" class="hidden space-y-6">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-3xl">
+          <div class="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-sm max-w-3xl">
             <h2 class="text-xl sm:text-2xl font-black text-[#0B2545] mb-2">Mi Perfil Universitario</h2>
             <p class="text-xs text-slate-500 mb-6">Configura tus cursos, carrera y objetivos de ciclo para que Fixi IA calibre tu diagnóstico.</p>
 
@@ -959,14 +1830,17 @@ const courses = [
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-slate-700 mb-1">Ciclo actual</label>
-                  <input type="text" value="5.º Ciclo (2026-I)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-slate-50" />
+                  <input type="text" value="5to ciclo (2026-I)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-slate-50" />
                 </div>
               </div>
 
-              <div class="pt-2">
-                <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#0077FE] text-white font-black text-xs hover:bg-blue-600 transition-colors">
-                  Guardar Cambios ✓
+              <div class="pt-4 flex items-center justify-between">
+                <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#0077FE] hover:bg-[#0062D2] text-white font-black text-xs transition-colors cursor-pointer shadow-xs">
+                  Guardar Cambios
                 </button>
+                <a href="/planes" class="text-xs font-bold text-rose-600 hover:underline">
+                  Cambiar Plan de Suscripción →
+                </a>
               </div>
             </form>
           </div>
@@ -975,20 +1849,162 @@ const courses = [
       </main>
     </div>
 
+    <!-- ==================== FIXED MOBILE BOTTOM TAB BAR (ESTILO NUTRIMIND KIDS) ==================== -->
+    <nav class="lg:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-xl border-t border-slate-200/90 py-2 px-3 z-40 shadow-lg">
+      <div class="max-w-md mx-auto grid grid-cols-5 items-center text-center">
+        
+        <!-- Tab 1: Inicio -->
+        <button
+          type="button"
+          id="bottom-nav-dashboard"
+          onclick="switchAppView('dashboard')"
+          class="flex flex-col items-center justify-center gap-0.5 text-[#0077FE] cursor-pointer"
+        >
+          <span class="text-lg">🏠</span>
+          <span class="text-[9px] font-black leading-tight">Inicio</span>
+        </button>
+
+        <!-- Tab 2: Hábitos -->
+        <button
+          type="button"
+          id="bottom-nav-planner"
+          onclick="switchAppView('planner')"
+          class="flex flex-col items-center justify-center gap-0.5 text-slate-500 hover:text-slate-800 cursor-pointer"
+        >
+          <span class="text-lg">📅</span>
+          <span class="text-[9px] font-bold leading-tight flex items-center gap-0.5">
+            <span>Hábitos</span>
+            <span id="bottom-lock-planner" class="hidden text-[8px]">🔒</span>
+          </span>
+        </button>
+
+        <!-- Tab 3: Central Floating Button: Fixi IA -->
+        <button
+          type="button"
+          onclick="triggerFixiModal()"
+          class="flex flex-col items-center justify-center -mt-6 cursor-pointer group"
+        >
+          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#0077FE] to-cyan-400 text-white flex items-center justify-center text-xl shadow-lg border-2 border-white group-active:scale-95 transition-transform">
+            🤖
+          </div>
+          <span class="text-[9px] font-black text-[#0077FE] mt-0.5 leading-tight">Fixi IA</span>
+        </button>
+
+        <!-- Tab 4: Apuntes (Marketplace) -->
+        <button
+          type="button"
+          id="bottom-nav-marketplace"
+          onclick="switchAppView('marketplace')"
+          class="flex flex-col items-center justify-center gap-0.5 text-slate-500 hover:text-slate-800 cursor-pointer"
+        >
+          <span class="text-lg">🔍</span>
+          <span class="text-[9px] font-bold leading-tight flex items-center gap-0.5">
+            <span>Apuntes</span>
+            <span id="bottom-lock-marketplace" class="hidden text-[8px]">🔒</span>
+          </span>
+        </button>
+
+        <!-- Tab 5: App Móvil / Descarga -->
+        <button
+          type="button"
+          id="bottom-nav-download"
+          onclick="switchAppView('download')"
+          class="flex flex-col items-center justify-center gap-0.5 text-slate-500 hover:text-slate-800 cursor-pointer"
+        >
+          <span class="text-lg">📲</span>
+          <span class="text-[9px] font-bold leading-tight">App Móvil</span>
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- ==================== MODAL DE VISTA PREVIA RÁPIDA DE APUNTES ==================== -->
+    <div id="preview-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-slate-200">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-black text-[#0077FE] bg-blue-50 px-2.5 py-1 rounded-full" id="modal-uni">PUCP</span>
+          <button type="button" onclick="closePreviewModal()" class="text-slate-400 hover:text-slate-700 font-bold text-lg">✕</button>
+        </div>
+        <div>
+          <h3 class="text-lg font-black text-[#0B2545]" id="modal-title">Título del Material</h3>
+          <p class="text-xs text-slate-500 mt-1">Calificación en el ciclo: <span class="font-black text-emerald-600" id="modal-grade">19/20</span></p>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
+          <div class="font-bold text-[#0B2545]">Resumen del contenido:</div>
+          <p>Este documento contiene la solución completa explicada paso a paso por estudiantes del Tercio Superior, incluyendo gráficos, fórmulas oficiales y observaciones del docente corrector.</p>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" onclick="closePreviewModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold">Cerrar</button>
+          <button type="button" onclick="downloadCurrentDoc()" class="px-4 py-2 rounded-xl bg-[#0077FE] hover:bg-[#0062D2] text-white text-xs font-black">Descargar Ahora 📥</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ========================================================================= -->
-    <!-- 4. LÓGICA JAVASCRIPT DE NAVEGACIÓN Y PLANES                               -->
+    <!-- SCRIPT CLIENTE: NAVEGACIÓN, PLANES DINÁMICOS & BÚSQUEDA                    -->
     <!-- ========================================================================= -->
     <script is:inline>
-      // 1. Navegación entre vistas dentro de la app (SPA navigation)
       const appViews = ['dashboard', 'planner', 'marketplace', 'elite', 'download', 'social', 'profile'];
+      let currentActivePlan = 'pro';
 
+      // 1. Configuración de permisos por plan
+      const planPermissions = {
+        freemium: {
+          allowed: ['dashboard', 'download', 'social', 'profile'],
+          locked: ['planner', 'marketplace', 'elite']
+        },
+        smart: {
+          allowed: ['dashboard', 'marketplace', 'download', 'social', 'profile'],
+          locked: ['planner', 'elite']
+        },
+        pro: {
+          allowed: ['dashboard', 'planner', 'download', 'social', 'profile'],
+          locked: ['marketplace', 'elite']
+        },
+        elite: {
+          allowed: ['dashboard', 'planner', 'marketplace', 'elite', 'download', 'social', 'profile'],
+          locked: []
+        }
+      };
+
+      const planMeta = {
+        freemium: {
+          title: 'Plan Freemium Gratuito',
+          desc: 'Diagnósticos iniciales y foros comunitarios.',
+          badge: '⚪ Freemium',
+          pillClass: 'bg-slate-100 text-slate-700 border-slate-300'
+        },
+        smart: {
+          title: 'Plan SMART Activo',
+          desc: 'Buscador de apuntes y solucionarios ilimitados.',
+          badge: '⭐ Plan SMART',
+          pillClass: 'bg-rose-100 text-rose-700 border-rose-300'
+        },
+        pro: {
+          title: 'Plan PRO Universitario',
+          desc: 'Hábitos con IA y detección de vacíos activa.',
+          badge: '👑 Plan PRO',
+          pillClass: 'bg-emerald-100 text-emerald-700 border-emerald-300'
+        },
+        elite: {
+          title: 'Plan ELITE VIP (Tercio Superior)',
+          desc: 'IA predictiva, tutor 1-on-1 y ranking VIP.',
+          badge: '💎 Plan ELITE',
+          pillClass: 'bg-purple-100 text-purple-700 border-purple-300'
+        }
+      };
+
+      // 2. Cambiar Vista (SPA Navigation)
       function switchAppView(viewId) {
         appViews.forEach((v) => {
           const viewEl = document.getElementById(`view-${v}`);
           const navBtn = document.getElementById(`nav-btn-${v}`);
+          const bottomBtn = document.getElementById(`bottom-nav-${v}`);
+
           if (viewEl) {
             viewEl.classList.toggle('hidden', v !== viewId);
           }
+
           if (navBtn) {
             if (v === viewId) {
               navBtn.className = 'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-[#0077FE] text-white shadow-xs';
@@ -996,136 +2012,493 @@ const courses = [
               navBtn.className = 'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer text-slate-600 hover:text-[#0B2545] hover:bg-slate-100';
             }
           }
+
+          if (bottomBtn) {
+            if (v === viewId) {
+              bottomBtn.className = 'flex flex-col items-center justify-center gap-0.5 text-[#0077FE] cursor-pointer';
+            } else {
+              bottomBtn.className = 'flex flex-col items-center justify-center gap-0.5 text-slate-500 hover:text-slate-800 cursor-pointer';
+            }
+          }
         });
 
-        // Cerrar sidebar en móvil si estaba abierto
+        // Actualizar visualización según bloqueo del plan
+        applyPlanLockToView(viewId);
+
+        // Cerrar sidebar en móvil si está abierto
         const sidebar = document.getElementById('app-sidebar');
         const backdrop = document.getElementById('sidebar-backdrop');
         if (sidebar && window.innerWidth < 1024) {
           sidebar.classList.add('-translate-x-full');
-          backdrop.classList.add('hidden');
+          if (backdrop) backdrop.classList.add('hidden');
         }
       }
 
+      // 3. Aplicar Pantallas de Upgrade según el plan activo
+      function applyPlanLockToView(viewId) {
+        const perms = planPermissions[currentActivePlan] || planPermissions.pro;
+        const isLocked = perms.locked.includes(viewId);
+
+        // Planner
+        if (viewId === 'planner') {
+          const upScreen = document.getElementById('upgrade-screen-planner');
+          const content = document.getElementById('content-planner');
+          if (upScreen && content) {
+            upScreen.classList.toggle('hidden', !isLocked);
+            content.classList.toggle('hidden', isLocked);
+          }
+        }
+
+        // Marketplace
+        if (viewId === 'marketplace') {
+          const upScreen = document.getElementById('upgrade-screen-marketplace');
+          const content = document.getElementById('content-marketplace');
+          if (upScreen && content) {
+            upScreen.classList.toggle('hidden', !isLocked);
+            content.classList.toggle('hidden', isLocked);
+          }
+        }
+
+        // Elite
+        if (viewId === 'elite') {
+          const upScreen = document.getElementById('upgrade-screen-elite');
+          const content = document.getElementById('content-elite');
+          if (upScreen && content) {
+            upScreen.classList.toggle('hidden', !isLocked);
+            content.classList.toggle('hidden', isLocked);
+          }
+        }
+      }
+
+      // 4. Cambiar Plan Activo (Freemium, SMART, PRO, ELITE)
+      function setAppPlan(planId) {
+        if (!planPermissions[planId]) planId = 'pro';
+        currentActivePlan = planId;
+        localStorage.setItem('mindfix_active_plan', planId);
+
+        const meta = planMeta[planId];
+
+        // Actualizar Badges
+        const headerBadge = document.getElementById('header-plan-badge');
+        const dashBadge = document.getElementById('dash-active-plan-badge');
+        const sidePill = document.getElementById('sidebar-plan-pill');
+        const mobPill = document.getElementById('mobile-current-plan-pill');
+        const sideTitle = document.getElementById('sidebar-plan-title');
+        const sideDesc = document.getElementById('sidebar-plan-desc');
+
+        if (headerBadge) headerBadge.textContent = meta.badge;
+        if (dashBadge) dashBadge.textContent = meta.badge;
+        if (sidePill) sidePill.textContent = meta.badge;
+        if (mobPill) mobPill.textContent = meta.badge;
+        if (sideTitle) sideTitle.textContent = meta.title;
+        if (sideDesc) sideDesc.textContent = meta.desc;
+
+        // Estilos de botones de plan en Desktop
+        ['freemium', 'smart', 'pro', 'elite'].forEach((p) => {
+          const topBtn = document.getElementById(`top-plan-${p}`);
+          const mobBtn = document.getElementById(`mob-plan-${p}`);
+          const isActive = p === planId;
+
+          if (topBtn) {
+            if (isActive) {
+              const bg = p === 'freemium' ? 'bg-slate-700 text-white' : p === 'smart' ? 'bg-rose-600 text-white' : p === 'pro' ? 'bg-emerald-600 text-white' : 'bg-purple-600 text-white';
+              topBtn.className = `px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-xs ${bg}`;
+            } else {
+              topBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-slate-900';
+            }
+          }
+
+          if (mobBtn) {
+            if (isActive) {
+              const bg = p === 'freemium' ? 'bg-slate-700 text-white' : p === 'smart' ? 'bg-rose-600 text-white' : p === 'pro' ? 'bg-emerald-600 text-white' : 'bg-purple-600 text-white';
+              mobBtn.className = `px-2 py-1 rounded-lg text-[10px] font-black shadow-xs cursor-pointer ${bg}`;
+            } else {
+              mobBtn.className = 'px-2 py-1 rounded-lg text-[10px] font-bold text-slate-600 bg-slate-100 cursor-pointer';
+            }
+          }
+        });
+
+        // Actualizar badges de bloqueo en el sidebar y bottom bar
+        const perms = planPermissions[planId];
+        
+        // Planner badge
+        const badgePlanner = document.getElementById('badge-nav-planner');
+        const bottomLockPlanner = document.getElementById('bottom-lock-planner');
+        if (perms.locked.includes('planner')) {
+          if (badgePlanner) {
+            badgePlanner.textContent = '🔒 Upgrade';
+            badgePlanner.className = 'text-[9px] text-amber-700 font-extrabold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200';
+          }
+          if (bottomLockPlanner) bottomLockPlanner.classList.remove('hidden');
+        } else {
+          if (badgePlanner) {
+            badgePlanner.textContent = 'PRO';
+            badgePlanner.className = 'text-[9px] text-emerald-600 font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200';
+          }
+          if (bottomLockPlanner) bottomLockPlanner.classList.add('hidden');
+        }
+
+        // Marketplace badge
+        const badgeMarket = document.getElementById('badge-nav-marketplace');
+        const bottomLockMarket = document.getElementById('bottom-lock-marketplace');
+        if (perms.locked.includes('marketplace')) {
+          if (badgeMarket) {
+            badgeMarket.textContent = '🔒 Upgrade';
+            badgeMarket.className = 'text-[9px] text-amber-700 font-extrabold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200';
+          }
+          if (bottomLockMarket) bottomLockMarket.classList.remove('hidden');
+        } else {
+          if (badgeMarket) {
+            badgeMarket.textContent = 'SMART';
+            badgeMarket.className = 'text-[9px] text-rose-600 font-extrabold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200';
+          }
+          if (bottomLockMarket) bottomLockMarket.classList.add('hidden');
+        }
+
+        // Elite badge
+        const badgeElite = document.getElementById('badge-nav-elite');
+        if (perms.locked.includes('elite')) {
+          if (badgeElite) {
+            badgeElite.textContent = '🔒 Upgrade';
+            badgeElite.className = 'text-[9px] text-amber-700 font-extrabold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200';
+          }
+        } else {
+          if (badgeElite) {
+            badgeElite.textContent = 'ELITE';
+            badgeElite.className = 'text-[9px] text-purple-600 font-extrabold bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200';
+          }
+        }
+
+        // Re-evaluar la vista actualmente abierta
+        const currentOpenView = appViews.find(v => {
+          const el = document.getElementById(`view-${v}`);
+          return el && !el.classList.contains('hidden');
+        }) || 'dashboard';
+
+        applyPlanLockToView(currentOpenView);
+      }
+
+      // 5. Drawer lateral móvil
       function toggleSidebar() {
         const sidebar = document.getElementById('app-sidebar');
         const backdrop = document.getElementById('sidebar-backdrop');
+        if (!sidebar) return;
         const isOpen = !sidebar.classList.contains('-translate-x-full');
         if (isOpen) {
           sidebar.classList.add('-translate-x-full');
-          backdrop.classList.add('hidden');
+          if (backdrop) backdrop.classList.add('hidden');
         } else {
           sidebar.classList.remove('-translate-x-full');
-          backdrop.classList.remove('hidden');
+          if (backdrop) backdrop.classList.remove('hidden');
         }
       }
 
-      // 2. Control de Planes (Freemium, SMART, PRO, ELITE)
-      const planConfigs = {
-        freemium: {
-          badgeText: '⚪ Freemium',
-          badgeClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-slate-100 text-slate-700 border border-slate-300',
-          title: 'Plan Freemium Gratuito',
-          desc: 'Acceso básico a diagnósticos iniciales y foros.',
-          pillClass: 'text-[8px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-black'
-        },
-        smart: {
-          badgeText: '⭐ Plan SMART',
-          badgeClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-rose-50 text-rose-700 border border-rose-200',
-          title: 'Plan SMART Activo',
-          desc: 'Marketplace de apuntes y solucionarios ilimitados.',
-          pillClass: 'text-[8px] bg-rose-500/20 text-rose-700 border border-rose-300 px-2 py-0.5 rounded-full font-black'
-        },
-        pro: {
-          badgeText: '👑 Plan PRO (Prueba Activa)',
-          badgeClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-emerald-50 text-emerald-700 border border-emerald-200',
-          title: 'Plan PRO Universitario',
-          desc: 'Hábitos con IA y detección de vacíos activa.',
-          pillClass: 'text-[8px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-black'
-        },
-        elite: {
-          badgeText: '💎 Plan ELITE VIP',
-          badgeClass: 'px-3 py-0.5 rounded-full text-xs font-black bg-purple-50 text-purple-700 border border-purple-200',
-          title: 'Plan ELITE Tercio Superior',
-          desc: 'IA predictiva, tutor 1-on-1 y ranking VIP.',
-          pillClass: 'text-[8px] bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-full font-black'
+      // 6. Cerrar Sesión (Limpia sesión y redirige a la Landing /)
+      function handleLogout() {
+        if (confirm('¿Deseas cerrar tu sesión y volver a la página principal de MindFix?')) {
+          localStorage.removeItem('mindfix_session_token');
+          window.location.href = '/';
         }
-      };
+      }
 
-      function setAppPlan(plan) {
-        if (!planConfigs[plan]) plan = 'pro';
-        localStorage.setItem('mindfix_active_plan', plan);
+      // 7. Buscador de Apuntes y Filtros en tiempo real
+      let currentUniFilter = 'all';
 
-        const config = planConfigs[plan];
+      function handleMarketplaceSearch() {
+        const query = (document.getElementById('marketplace-search-input')?.value || '').toLowerCase().trim();
+        const items = document.querySelectorAll('.market-item');
+        let visibleCount = 0;
 
-        // Actualizar badges
-        const headerBadge = document.getElementById('header-plan-badge');
-        const dashBadge = document.getElementById('dash-active-plan-badge');
-        const sidebarTitle = document.getElementById('sidebar-plan-title');
-        const sidebarDesc = document.getElementById('sidebar-plan-desc');
-        const sidebarPill = document.getElementById('sidebar-plan-pill');
+        items.forEach((item) => {
+          const itemText = item.getAttribute('data-title') || '';
+          const itemUni = item.getAttribute('data-uni') || '';
 
-        if (headerBadge) headerBadge.textContent = config.badgeText;
-        if (dashBadge) {
-          dashBadge.textContent = config.badgeText;
-          dashBadge.className = config.badgeClass;
+          const matchQuery = !query || itemText.includes(query);
+          const matchUni = currentUniFilter === 'all' || itemUni === currentUniFilter;
+
+          if (matchQuery && matchUni) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        const countEl = document.getElementById('marketplace-results-count');
+        if (countEl) {
+          countEl.textContent = `Mostrando ${visibleCount} recurso${visibleCount === 1 ? '' : 's'} encontrado${visibleCount === 1 ? '' : 's'}`;
         }
-        if (sidebarTitle) sidebarTitle.textContent = config.title;
-        if (sidebarDesc) sidebarDesc.textContent = config.desc;
-        if (sidebarPill) {
-          sidebarPill.textContent = plan.toUpperCase();
-          sidebarPill.className = config.pillClass;
-        }
+      }
 
-        // Resaltar botón en topbar
-        ['freemium', 'smart', 'pro', 'elite'].forEach((p) => {
-          const btn = document.getElementById(`top-plan-${p}`);
+      function setMarketplaceFilter(uni) {
+        currentUniFilter = uni;
+        ['all', 'pucp', 'unmsm', 'upc', 'ulima', 'uni'].forEach(u => {
+          const btn = document.getElementById(`filter-uni-${u}`);
           if (btn) {
-            if (p === plan) {
-              const colors = {
-                freemium: 'bg-slate-700 text-white shadow-xs',
-                smart: 'bg-rose-500 text-white shadow-xs',
-                pro: 'bg-emerald-600 text-white shadow-xs',
-                elite: 'bg-purple-700 text-white shadow-xs'
-              };
-              btn.className = `px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${colors[p]}`;
+            if (u === uni) {
+              btn.className = 'px-3 py-1 rounded-xl font-black bg-white text-[#0B2545] shadow-xs cursor-pointer transition-all';
             } else {
-              btn.className = 'px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer text-slate-600 hover:text-slate-900';
+              btn.className = 'px-3 py-1 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white cursor-pointer transition-all';
+            }
+          }
+        });
+        handleMarketplaceSearch();
+      }
+
+      function clearMarketplaceSearch() {
+        const input = document.getElementById('marketplace-search-input');
+        if (input) input.value = '';
+        setMarketplaceFilter('all');
+      }
+
+      // 8. Modales y Descarga de Documentos
+      let currentDocTitle = '';
+
+      function previewDoc(title, uni, grade) {
+        currentDocTitle = title;
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-uni').textContent = uni;
+        document.getElementById('modal-grade').textContent = grade;
+        document.getElementById('preview-modal').classList.remove('hidden');
+      }
+
+      function closePreviewModal() {
+        document.getElementById('preview-modal').classList.add('hidden');
+      }
+
+      function downloadCurrentDoc() {
+        closePreviewModal();
+        downloadDoc(currentDocTitle);
+      }
+
+      function downloadDoc(title) {
+        alert(`📥 Descargando: "${title}"\n¡Material verificado descargado con éxito!`);
+      }
+
+      function triggerFixiModal() {
+        alert('🤖 Fixi IA está analizando tu racha y tus materias de hoy. ¡Todo en orden para tu bloque de estudio!');
+      }
+
+
+      // 8.1 Planificador de Hábitos: Temporizador Pomodoro 50/10
+      let pomodoroInterval = null;
+      let pomodoroSecondsLeft = 50 * 60; // 50 min
+      let isPomodoroRunning = false;
+
+      function updateTimerDisplay() {
+        const display = document.getElementById("pomodoro-timer-display");
+        if (!display) return;
+        const mins = Math.floor(pomodoroSecondsLeft / 60);
+        const secs = pomodoroSecondsLeft % 60;
+        display.textContent = `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+      }
+
+      function startPomodoroTimer() {
+        if (isPomodoroRunning) return;
+        isPomodoroRunning = true;
+        const badge = document.getElementById("timer-status-badge");
+        const startBtn = document.getElementById("timer-start-btn");
+        if (badge) {
+          badge.textContent = "Enfoque Activo 🔥";
+          badge.className = "text-[9px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded-full font-black animate-pulse";
+        }
+        if (startBtn) startBtn.textContent = "En Foco ⏱️";
+
+        pomodoroInterval = setInterval(() => {
+          if (pomodoroSecondsLeft > 0) {
+            pomodoroSecondsLeft--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(pomodoroInterval);
+            isPomodoroRunning = false;
+            alert("🎉 ¡Bloque de 50 minutos completado con éxito! Toca tu pausa activa de 10 min.");
+            resetPomodoroTimer();
+          }
+        }, 1000);
+      }
+
+      function pausePomodoroTimer() {
+        if (!isPomodoroRunning) return;
+        clearInterval(pomodoroInterval);
+        isPomodoroRunning = false;
+        const badge = document.getElementById("timer-status-badge");
+        const startBtn = document.getElementById("timer-start-btn");
+        if (badge) {
+          badge.textContent = "En Pausa";
+          badge.className = "text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-black";
+        }
+        if (startBtn) startBtn.textContent = "▶ Reanudar";
+      }
+
+      function resetPomodoroTimer() {
+        clearInterval(pomodoroInterval);
+        isPomodoroRunning = false;
+        pomodoroSecondsLeft = 50 * 60;
+        updateTimerDisplay();
+        const badge = document.getElementById("timer-status-badge");
+        const startBtn = document.getElementById("timer-start-btn");
+        if (badge) {
+          badge.textContent = "Listo";
+          badge.className = "text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-black";
+        }
+        if (startBtn) startBtn.textContent = "▶ Iniciar Foco";
+      }
+
+      // 8.2 Contador de Hidratación
+      let waterDrunkMl = 1250;
+      const waterGoalMl = 2000;
+
+      function addWaterCup() {
+        waterDrunkMl = Math.min(waterGoalMl, waterDrunkMl + 250);
+        const percent = Math.min(100, Math.round((waterDrunkMl / waterGoalMl) * 100));
+        const bar = document.getElementById("water-progress-bar");
+        const text = document.getElementById("water-progress-text");
+        if (bar) bar.style.width = percent + "%";
+        if (text) text.textContent = `${waterDrunkMl.toLocaleString()} / ${waterGoalMl.toLocaleString()} ml (${percent}%)`;
+      }
+
+      // 8.3 Selector de Estado de Energía
+      function setEnergyState(state) {
+        ["high", "normal", "low"].forEach(s => {
+          const btn = document.getElementById("energy-btn-" + s);
+          if (btn) {
+            if (s === state) {
+              btn.className = "px-3 py-1.5 rounded-xl font-black bg-emerald-600 text-white text-xs cursor-pointer shadow-xs transition-all";
+            } else {
+              btn.className = "px-3 py-1.5 rounded-xl font-bold bg-white text-slate-600 text-xs cursor-pointer hover:bg-slate-100 transition-all";
             }
           }
         });
       }
 
-      // 3. Función CERRAR SESIÓN (Regresa a la Landing Page)
-      function handleLogout() {
-        if (confirm('¿Deseas cerrar tu sesión en MindFix y volver a la página principal?')) {
-          localStorage.removeItem('mindfix_session');
-          // Redirección inmediata a la landing principal
-          window.location.href = '/';
+      function triggerReplanAI() {
+        alert("🤖 Fixi IA está recalculando tus bloques de la semana... ¡Listo! Se equilibraron tus horas de Active Recall y pausas.");
+      }
+
+      function updateHabitCount() {
+        const checkboxes = document.querySelectorAll(".habit-checkbox");
+        let checked = 0;
+        checkboxes.forEach(cb => { if (cb.checked) checked++; });
+        const percent = Math.round((checked / checkboxes.length) * 100);
+        const text = document.getElementById("habits-counter-text");
+        if (text) {
+          text.textContent = `${checked} de ${checkboxes.length} hábitos cumplidos (${percent}%)`;
         }
       }
 
-      // Inicialización de la sesión
-      try {
-        const stored = JSON.parse(localStorage.getItem('mindfix_user') || '{}');
-        if (stored.name) {
-          const names = document.querySelectorAll('#header-user-name, #dash-user-name');
-          names.forEach(el => el.textContent = stored.name);
-          const profInput = document.getElementById('profile-input-name');
-          if (profInput) profInput.value = stored.name;
-        }
-      } catch (e) {}
-
-      // Leer parámetro URL o localStorage para plan inicial
-      const urlParams = new URLSearchParams(window.location.search);
-      const urlPlan = urlParams.get('plan') || localStorage.getItem('mindfix_active_plan') || 'pro';
-      setAppPlan(urlPlan);
-
-      // Si viene con parámetro view ej. ?view=download
-      const urlView = urlParams.get('view');
-      if (urlView && appViews.includes(urlView)) {
-        switchAppView(urlView);
+      // 8.4 Suite Elite: Chat en Vivo con Fixi Predictor IA
+      function sendQuickPrompt(promptText) {
+        appendUserMessage(promptText);
+        setTimeout(() => {
+          generateFixiResponse(promptText);
+        }, 600);
       }
+
+      function handleEliteChatSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById("elite-chat-input");
+        if (!input || !input.value.trim()) return;
+        const msg = input.value.trim();
+        input.value = "";
+        appendUserMessage(msg);
+        setTimeout(() => {
+          generateFixiResponse(msg);
+        }, 700);
+      }
+
+      function appendUserMessage(text) {
+        const stream = document.getElementById("elite-chat-stream");
+        if (!stream) return;
+        const msgHtml = `
+          <div class="flex items-start justify-end gap-2">
+            <div class="bg-purple-600 text-white rounded-2xl rounded-tr-xs p-3 max-w-[85%] space-y-1">
+              <div class="font-bold text-[11px] text-purple-200 text-right">Tú:</div>
+              <p class="leading-relaxed">${text}</p>
+            </div>
+          </div>
+        `;
+        stream.insertAdjacentHTML("beforeend", msgHtml);
+        stream.scrollTop = stream.scrollHeight;
+      }
+
+      function generateFixiResponse(query) {
+        const stream = document.getElementById("elite-chat-stream");
+        if (!stream) return;
+
+        let reply = "";
+        const lower = query.toLowerCase();
+
+        if (lower.includes("fija") || lower.includes("viene") || lower.includes("parcial")) {
+          reply = `<strong>🔮 Predicción Oficial Finanzas II (Semana 9):</strong><br/>
+          El profesor Mendoza evaluará al 100% de probabilidad:
+          <ul class="mt-1 space-y-1 list-disc list-inside text-slate-700">
+            <li><strong>Pregunta 1:</strong> Estructura de capital MM con escudo fiscal (6 pts).</li>
+            <li><strong>Pregunta 2:</strong> CAPM y beta desapalancado con ecuación de Hamada (5 pts).</li>
+            <li><strong>Pregunta 3:</strong> Valoración de proyecto con WACC vs APV (5 pts).</li>
+          </ul>
+          <em>💡 Consejo de oro:</em> El profesor suele descontar puntos si no explicitas la tasa impositiva corporativa de Perú (29.5%).`;
+        } else if (lower.includes("prueba") || lower.includes("simulacro") || lower.includes("pregunta")) {
+          reply = `<strong>📝 Ejercicio tipo Examen Detectado:</strong><br/>
+          <em>"Si el costo de deuda Kd es 9% y la empresa emite deuda por S/ 20 millones manteniendo D/E = 0.5, ¿cuál es el nuevo Ke apalancado?"</em><br/>
+          <span class="text-purple-700 font-bold">Respuesta clave:</span> Usa la fórmula de Hamada: Ke = Ku + (1 - T)(Ku - Kd)(D/E). ¡Resuélvelo en tu cuaderno y avísame cuando tengas el número!`;
+        } else if (lower.includes("débil") || lower.includes("puntos débiles") || lower.includes("falla")) {
+          reply = `<strong>⚠️ Análisis Forense de Rendimiento:</strong><br/>
+          En tu última práctica calificada observamos:
+          <ul class="mt-1 space-y-1 list-disc list-inside text-slate-700">
+            <li><strong>Velocidad en WACC:</strong> Demoras 22 min (el tiempo óptimo es 15 min).</li>
+            <li><strong>Confusión de tasas:</strong> Confundes tasa efectiva semestral con anual en el cálculo del escudo fiscal.</li>
+          </ul>
+          Carlos Mendoza (tu tutor) ya preparó una hoja de atajos para corregir esto en tu sesión del jueves.`;
+        } else {
+          reply = `Entendido, Valeria. Para el examen de Finanzas y Base de Datos, mi recomendación algorítmica es enfocar tu siguiente bloque Pomodoro de 50 minutos en resolver los 3 ejercicios fijados en el Radar de la izquierda. ¿Quieres que te desglose el cálculo paso a paso?`;
+        }
+
+        const msgHtml = `
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs shrink-0 font-black">
+              🤖
+            </div>
+            <div class="bg-slate-100 rounded-2xl rounded-tl-xs p-3 text-slate-800 space-y-1.5 max-w-[85%]">
+              <div class="font-bold text-purple-700 text-[11px]">Fixi Predictor IA:</div>
+              <div class="leading-relaxed text-slate-700 text-xs">${reply}</div>
+            </div>
+          </div>
+        `;
+        stream.insertAdjacentHTML("beforeend", msgHtml);
+        stream.scrollTop = stream.scrollHeight;
+      }
+
+      function toggleRubricDetails() {
+        const rubric = document.getElementById("rubric-details");
+        const btn = document.getElementById("rubric-toggle-btn");
+        if (rubric) {
+          const isHidden = rubric.classList.contains("hidden");
+          rubric.classList.toggle("hidden", !isHidden);
+          if (btn) btn.textContent = isHidden ? "▲ Ocultar Rúbrica de Calificación" : "👁️ Revelar Rúbrica de Calificación del Profesor →";
+        }
+      }
+
+      function askFixiToSolveQuestion() {
+        sendQuickPrompt("Explícame paso a paso cómo resolver el ejercicio de la empresa peruana con deuda de S/ 40 millones y WACC.");
+      }
+
+
+      // 9. Inicialización al cargar la página
+      window.addEventListener('DOMContentLoaded', () => {
+        // Leer parámetro ?plan= de la URL si existe
+        const urlParams = new URLSearchParams(window.location.search);
+        const planParam = urlParams.get('plan');
+        const viewParam = urlParams.get('view');
+
+        const initialPlan = planParam || localStorage.getItem('mindfix_active_plan') || 'pro';
+        setAppPlan(initialPlan);
+
+        if (viewParam && appViews.includes(viewParam)) {
+          switchAppView(viewParam);
+        } else {
+          switchAppView('dashboard');
+        }
+      });
     </script>
   </body>
 </html>
