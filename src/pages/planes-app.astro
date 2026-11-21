@@ -347,202 +347,145 @@ const description = "Acompaña tu estudio, hábitos de alto rendimiento y el ing
         </div>
       </section>
 
-      <!-- FEATURE SHOWCASE: 2 MOBILE PHONES + "¿Qué puedes hacer con MindFix?" -->
+      <!-- FEATURE SHOWCASE: MOCKUP INTERACTIVO POR CADA PLAN (SMART, PRO, ELITE) -->
       <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm mb-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0077FE] font-black text-xs uppercase tracking-wider mb-2">
+            📱 Mockup Interactivo de la App
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
+            Descubre cómo cambia la app en cada plan
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 font-medium">
+            Selecciona un plan para ver en tiempo real qué funciones se activan, se amplían o se desbloquean en tu interfaz universitaria.
+          </p>
+
+          <!-- TABS INTERACTIVAS: SMART / PRO / ELITE -->
+          <div class="inline-flex flex-wrap items-center justify-center gap-2 mt-6 p-1.5 bg-slate-100 rounded-2xl border border-slate-200">
+            <button
+              id="tab-btn-smart"
+              type="button"
+              onclick="showPlanMockup('smart')"
+              class="px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer text-slate-600 hover:text-rose-600 flex items-center gap-1.5"
+            >
+              <span>⭐</span> Plan SMART
+            </button>
+            <button
+              id="tab-btn-pro"
+              type="button"
+              onclick="showPlanMockup('pro')"
+              class="px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-emerald-600 text-white shadow-md flex items-center gap-1.5"
+            >
+              <span>👑</span> Plan PRO <span class="text-[9px] bg-white/20 px-1.5 py-0.5 rounded-md uppercase">Popular</span>
+            </button>
+            <button
+              id="tab-btn-elite"
+              type="button"
+              onclick="showPlanMockup('elite')"
+              class="px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer text-slate-600 hover:text-purple-600 flex items-center gap-1.5"
+            >
+              <span>💎</span> Plan ELITE
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
           
-          <!-- LADO IZQUIERDO: 2 Maquetas Móviles (Replicando la imagen de NutriMind adaptada a MindFix) -->
-          <div class="lg:col-span-6 flex justify-center items-center gap-4 relative">
-            
-            <!-- PHONE 1: Home Dashboard de Valeria -->
-            <div class="w-48 sm:w-56 bg-slate-900 rounded-[38px] p-2.5 shadow-2xl border-4 border-slate-800 text-slate-800 relative transform -rotate-2 hover:rotate-0 transition-transform">
+          <!-- LADO IZQUIERDO: EL SMARTPHONE MOCKUP DINÁMICO -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="w-72 sm:w-80 bg-slate-900 rounded-[44px] p-3 shadow-2xl border-4 border-slate-800 text-slate-800 relative">
               <!-- Notch / Dynamic Island -->
-              <div class="w-20 h-3.5 bg-black rounded-full mx-auto mb-2"></div>
+              <div class="w-24 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-end px-2">
+                <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+              </div>
               
-              <div class="bg-white rounded-[28px] p-2.5 space-y-2 text-[9px] overflow-hidden">
-                <!-- App header -->
-                <div class="flex items-center justify-between border-b border-slate-100 pb-1">
-                  <div class="flex items-center gap-1">
-                    <span class="text-xs">🤖</span>
-                    <span class="font-black text-[#0B2545] text-[10px]">MINDFIX</span>
+              <!-- PANTALLA INTERNA DEL TELÉFONO -->
+              <div class="bg-white rounded-[32px] p-3.5 space-y-2.5 text-[10px] overflow-hidden min-h-[510px] flex flex-col justify-between" id="phone-screen-container">
+                
+                <!-- TOP BAR MOCKUP -->
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                    <div class="flex items-center gap-1.5">
+                      <div class="w-5 h-5 rounded-md bg-[#0077FE] text-white flex items-center justify-center font-black text-[9px]">MF</div>
+                      <span class="font-black text-[#0B2545] text-xs">MINDFIX</span>
+                    </div>
+                    <!-- Badge Dinámico del Plan -->
+                    <span id="mockup-plan-badge" class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wide">
+                      👑 Plan PRO
+                    </span>
                   </div>
-                  <span class="bg-rose-50 text-rose-600 px-1.5 py-0.5 rounded-full text-[8px] font-black">Plan SMART</span>
-                </div>
 
-                <!-- Greeting -->
-                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-2 rounded-xl flex items-center gap-2">
-                  <div class="text-base">🤖</div>
-                  <div>
-                    <div class="font-black text-[#0B2545]">¡Hola, Valeria!</div>
-                    <div class="text-[8px] text-slate-500">Vamos por el Tercio Superior</div>
+                  <!-- GREETING & MASCOT -->
+                  <div id="mockup-greeting-box" class="p-2.5 rounded-2xl flex items-center gap-2.5 transition-colors bg-emerald-50/80 border border-emerald-100">
+                    <div class="w-8 h-8 rounded-xl bg-white shadow-xs flex items-center justify-center text-lg shrink-0">
+                      🤖
+                    </div>
+                    <div class="flex-1">
+                      <div class="font-black text-[#0B2545] text-xs">¡Hola, Valeria!</div>
+                      <div id="mockup-mascot-status" class="text-[9px] text-emerald-800 font-bold">Fixi IA: "Semana 8 de parciales activada"</div>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Habits Progress Ring -->
-                <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div class="font-extrabold text-[8px] text-slate-700">Progreso de Hábitos</div>
-                    <div class="text-[8px] text-emerald-600 font-bold">75% semanal</div>
-                  </div>
-                  <div class="w-7 h-7 rounded-full border-2 border-emerald-500 flex items-center justify-center font-black text-[8px] text-emerald-600">
-                    75%
-                  </div>
-                </div>
-
-                <!-- Mini Grid Cards -->
-                <div class="grid grid-cols-2 gap-1.5 pt-1">
-                  <div class="bg-blue-50/60 p-1.5 rounded-lg text-center">
-                    <div class="text-[10px]">👤</div>
-                    <div class="font-extrabold text-[8px] text-blue-900">Perfil Alumno</div>
-                  </div>
-                  <div class="bg-emerald-50/60 p-1.5 rounded-lg text-center">
-                    <div class="text-[10px]">📋</div>
-                    <div class="font-extrabold text-[8px] text-emerald-900">Evaluación IA</div>
-                  </div>
-                  <div class="bg-purple-50/60 p-1.5 rounded-lg text-center">
-                    <div class="text-[10px]">📅</div>
-                    <div class="font-extrabold text-[8px] text-purple-900">Plan Parciales</div>
-                  </div>
-                  <div class="bg-amber-50/60 p-1.5 rounded-lg text-center">
-                    <div class="text-[10px]">👥</div>
-                    <div class="font-extrabold text-[8px] text-amber-900">Red P2P</div>
+                  <!-- CONTENIDO DINÁMICO DE CARDS SEGÚN EL PLAN -->
+                  <div id="mockup-dynamic-content" class="mt-2.5 space-y-2">
+                    <!-- Se inyecta dinámicamente con JavaScript -->
                   </div>
                 </div>
 
-                <!-- Bottom Tab Bar -->
-                <div class="flex justify-around pt-2 border-t border-slate-100 text-[8px] text-slate-400">
-                  <span class="text-emerald-600 font-bold">Inicio</span>
-                  <span>Cursos</span>
-                  <span class="text-xs -mt-1">🤖</span>
-                  <span>Comunidad</span>
-                  <span>Perfil</span>
+                <!-- BOTTOM NAVIGATION BAR DEL MOCKUP -->
+                <div class="border-t border-slate-100 pt-2 flex justify-around items-center text-[9px] text-slate-400 font-bold">
+                  <div class="flex flex-col items-center text-emerald-600">
+                    <span>🏠</span>
+                    <span class="text-[8px]">Inicio</span>
+                  </div>
+                  <div class="flex flex-col items-center hover:text-slate-600">
+                    <span>📚</span>
+                    <span class="text-[8px]">Cursos</span>
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-[#0077FE] text-white flex items-center justify-center text-xs shadow-sm -mt-3">
+                    🤖
+                  </div>
+                  <div class="flex flex-col items-center hover:text-slate-600">
+                    <span>👥</span>
+                    <span class="text-[8px]">P2P</span>
+                  </div>
+                  <div class="flex flex-col items-center hover:text-slate-600">
+                    <span>👤</span>
+                    <span class="text-[8px]">Perfil</span>
+                  </div>
                 </div>
+
               </div>
             </div>
-
-            <!-- PHONE 2: Planificador de Hábitos de Estudio -->
-            <div class="w-48 sm:w-56 bg-slate-900 rounded-[38px] p-2.5 shadow-2xl border-4 border-slate-800 text-slate-800 relative transform rotate-2 hover:rotate-0 transition-transform hidden sm:block">
-              <!-- Notch -->
-              <div class="w-20 h-3.5 bg-black rounded-full mx-auto mb-2"></div>
-
-              <div class="bg-white rounded-[28px] p-2.5 space-y-2 text-[9px] overflow-hidden">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-1">
-                  <span class="text-slate-400">←</span>
-                  <span class="font-black text-[#0B2545] text-[10px]">Planificador Semanal</span>
-                  <span class="text-emerald-600 font-bold">Hoy</span>
-                </div>
-
-                <!-- Mascot tip -->
-                <div class="bg-emerald-50 p-2 rounded-xl flex items-center gap-1.5">
-                  <span class="text-sm">🤖</span>
-                  <span class="text-[8px] text-emerald-900 font-bold leading-tight">Fixi IA: "50 min de Active Recall en Cálculo hoy a las 5pm"</span>
-                </div>
-
-                <!-- Day habits checklist -->
-                <div class="space-y-1.5 pt-1">
-                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-1.5">
-                      <span class="text-emerald-500 font-black">✔</span>
-                      <span class="font-bold text-[8px]">Active Recall (50 min)</span>
-                    </div>
-                    <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
-                  </div>
-
-                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-1.5">
-                      <span class="text-emerald-500 font-black">✔</span>
-                      <span class="font-bold text-[8px]">Repaso P2P con tutor</span>
-                    </div>
-                    <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
-                  </div>
-
-                  <div class="flex items-center justify-between bg-blue-50/50 p-1.5 rounded-lg border border-blue-100">
-                    <div class="flex items-center gap-1.5">
-                      <span class="text-blue-500">○</span>
-                      <span class="font-bold text-[8px]">Pausa activa y descanso</span>
-                    </div>
-                    <span class="text-blue-600 font-extrabold text-[7px]">En curso</span>
-                  </div>
-
-                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-1.5">
-                      <span class="text-slate-300">○</span>
-                      <span class="font-bold text-[8px]">Sueño reparador (7-8 hrs)</span>
-                    </div>
-                    <span class="text-slate-400 font-extrabold text-[7px]">Noche</span>
-                  </div>
-                </div>
-
-                <!-- Bottom Tab Bar -->
-                <div class="flex justify-around pt-2 border-t border-slate-100 text-[8px] text-slate-400">
-                  <span>Inicio</span>
-                  <span class="text-emerald-600 font-bold">Plan</span>
-                  <span class="text-xs -mt-1">🤖</span>
-                  <span>Reportes</span>
-                  <span>Perfil</span>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          <!-- LADO DERECHO: 4 Cards "¿Qué puedes hacer con MindFix?" -->
-          <div class="lg:col-span-6">
-            <h3 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight mb-6 text-center lg:text-left">
-              ¿Qué puedes hacer con <span class="text-[#0077FE]">MindFix</span>?
-            </h3>
+          <!-- LADO DERECHO: EXPLICACIÓN DETALLADA DEL PLAN SELECCIONADO -->
+          <div class="lg:col-span-6 space-y-5">
+            <div id="plan-info-card" class="bg-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200 transition-all">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 bg-emerald-100 text-emerald-800" id="info-badge">
+                Plan PRO — El estándar del estudiante universitario
+              </div>
+              <h4 class="text-xl sm:text-2xl font-black text-[#0B2545] mb-2" id="info-title">
+                Hábitos de alto rendimiento + Planificador con IA
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5" id="info-desc">
+                Diseñado para estudiantes que buscan organizarse sin amanecidas y cerrar sus vacíos conceptuales antes de rendir exámenes parciales.
+              </p>
 
-            <div class="space-y-4">
-              <!-- Item 1: Planifica -->
-              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
-                <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl shrink-0 shadow-xs">
-                  📅
-                </div>
-                <div>
-                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Planifica parciales y horarios de estudio</h4>
-                  <p class="text-xs text-slate-600 leading-relaxed">
-                    Bloques inteligentes de 50 minutos con técnica Active Recall, pausas activas y rutinas de sueño para llegar al examen sin amanecidas.
-                  </p>
-                </div>
+              <!-- Lista de lo que incluye vs lo que no -->
+              <div class="space-y-3 border-t border-slate-200/80 pt-4" id="info-features-list">
+                <!-- Se llena con JS -->
               </div>
 
-              <!-- Item 2: Recomendaciones IA -->
-              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
-                <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl shrink-0 shadow-xs">
-                  🚀
-                </div>
-                <div>
-                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Recibe recomendaciones con Inteligencia Artificial</h4>
-                  <p class="text-xs text-slate-600 leading-relaxed">
-                    Fixi IA diagnostica tus vacíos conceptuales en tiempo real y te dice exactamente qué tema repasar 48 horas antes de tu evaluación.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 3: Retos y Logros -->
-              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
-                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl shrink-0 shadow-xs">
-                  🏆
-                </div>
-                <div>
-                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Participa en microretos y gana logros académicos</h4>
-                  <p class="text-xs text-slate-600 leading-relaxed">
-                    Sube de nivel, acumula rachas de estudio sin distracciones y desbloquea simulacros premium con soluciones detalladas.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 4: Red P2P -->
-              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
-                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0 shadow-xs">
-                  👥
-                </div>
-                <div>
-                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Conecta con una comunidad de compañeros universitarios</h4>
-                  <p class="text-xs text-slate-600 leading-relaxed">
-                    Tutorías entre pares: estudiantes de ciclos avanzados que ya sacaron 18 en tu mismo curso te explican paso a paso.
-                  </p>
-                </div>
+              <!-- Botón de acción directo para el plan seleccionado -->
+              <div class="mt-6 pt-2">
+                <a
+                  href="/prueba-gratuita?plan=pro"
+                  id="info-cta-btn"
+                  class="block w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-xs sm:text-sm uppercase tracking-wider text-center shadow-lg shadow-emerald-500/20 hover:scale-[1.02] transition-all"
+                >
+                  Probar Plan PRO 14 días gratis
+                </a>
               </div>
             </div>
           </div>
@@ -700,8 +643,278 @@ const description = "Acompaña tu estudio, hábitos de alto rendimiento y el ing
       </div>
     </footer>
 
-    <!-- Script de Cambio de Facturación Mensual / Anual -->
+    <!-- Script de Cambio de Facturación Mensual / Anual y Mockup Dinámico por Plan -->
     <script is:inline>
+      const planData = {
+        smart: {
+          badgeText: '⭐ Plan SMART',
+          badgeClass: 'bg-rose-50 text-rose-700 border border-rose-200 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wide',
+          greetingBoxClass: 'p-2.5 rounded-2xl flex items-center gap-2.5 transition-colors bg-rose-50/80 border border-rose-100',
+          mascotText: 'Fixi IA: "Modo Comunidad & Apuntes activado"',
+          tabClass: 'px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-rose-500 text-white shadow-md flex items-center gap-1.5',
+          mockupHtml: `
+            <!-- Card 1: Marketplace Apuntes -->
+            <div class="bg-rose-50/60 p-2 rounded-xl border border-rose-100">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-black text-[#0B2545] text-[9px]">🛒 Marketplace MindPartners</span>
+                <span class="text-[8px] bg-rose-100 text-rose-700 font-extrabold px-1.5 py-0.2 rounded-full">Activo</span>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center justify-between bg-white p-1 rounded-lg text-[8px]">
+                  <span>📄 Resumen Cálculo Vectorial (Semanas 1-8)</span>
+                  <span class="text-emerald-600 font-bold">Descargado</span>
+                </div>
+                <div class="flex items-center justify-between bg-white p-1 rounded-lg text-[8px]">
+                  <span>📄 Solucionario Parcial Física II (2025-II)</span>
+                  <span class="text-emerald-600 font-bold">Verificado</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Comunidad P2P -->
+            <div class="bg-blue-50/60 p-2 rounded-xl border border-blue-100">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-black text-[#0B2545] text-[9px]">👥 Foros de Consulta Universitaria</span>
+                <span class="text-[8px] text-blue-600 font-bold">4 activos</span>
+              </div>
+              <p class="text-[8px] text-slate-500 leading-tight">Grupo de Estudio: "Parcial de Estructuras Discretas - Ciclo 2026-I"</p>
+            </div>
+
+            <!-- Card Bloqueada: Planificador IA -->
+            <div class="bg-slate-100/90 p-2 rounded-xl border border-dashed border-slate-300 opacity-80 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xs">🔒</span>
+                <div>
+                  <div class="font-black text-slate-700 text-[8px]">Planificador Semanal IA</div>
+                  <div class="text-[7px] text-slate-500">Exclusivo en Plan PRO</div>
+                </div>
+              </div>
+              <span class="text-[7px] bg-emerald-100 text-emerald-800 font-black px-1.5 py-0.5 rounded">Desbloquear</span>
+            </div>
+
+            <!-- Card Bloqueada: Tutoría 1 a 1 -->
+            <div class="bg-slate-100/90 p-2 rounded-xl border border-dashed border-slate-300 opacity-80 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xs">🔒</span>
+                <div>
+                  <div class="font-black text-slate-700 text-[8px]">IA Predictiva & Tutor 1-on-1</div>
+                  <div class="text-[7px] text-slate-500">Exclusivo en Plan ELITE</div>
+                </div>
+              </div>
+              <span class="text-[7px] bg-purple-100 text-purple-800 font-black px-1.5 py-0.5 rounded">Desbloquear</span>
+            </div>
+          `,
+          infoBadge: 'Plan SMART — El punto de partida de recursos',
+          infoBadgeClass: 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 bg-rose-100 text-rose-800',
+          infoTitle: 'Apuntes universitarios certificados + Comunidad de estudio',
+          infoDesc: 'Ideal para estudiantes que buscan banco de solucionarios de exámenes pasados, resúmenes validados por carrera y foros de consulta entre compañeros.',
+          infoFeatures: [
+            { included: true, text: '<strong>Marketplace MindPartners:</strong> Acceso a apuntes y resúmenes de tu facultad' },
+            { included: true, text: '<strong>Banco de exámenes pasados:</strong> Soluciones paso a paso' },
+            { included: true, text: '<strong>Comunidad P2P:</strong> Grupos de estudio y consultas' },
+            { included: false, text: 'Planificador inteligente con IA y rutinas pomodoro' },
+            { included: false, text: 'Predicción de preguntas de examen y tutorías 1 a 1' }
+          ],
+          ctaText: 'Elegir Plan SMART (S/ 19.90/mes)',
+          ctaHref: '/login?plan=smart',
+          ctaClass: 'block w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-black text-xs sm:text-sm uppercase tracking-wider text-center shadow-lg shadow-rose-500/20 hover:scale-[1.02] transition-all'
+        },
+
+        pro: {
+          badgeText: '👑 Plan PRO',
+          badgeClass: 'bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wide',
+          greetingBoxClass: 'p-2.5 rounded-2xl flex items-center gap-2.5 transition-colors bg-emerald-50/80 border border-emerald-100',
+          mascotText: 'Fixi IA: "Planificador de Hábitos activo: 50 min Pomodoro hoy"',
+          tabClass: 'px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-emerald-600 text-white shadow-md flex items-center gap-1.5',
+          mockupHtml: `
+            <!-- Card 1: Planificador de Hábitos de Estudio -->
+            <div class="bg-emerald-50/70 p-2 rounded-xl border border-emerald-100">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-black text-[#0B2545] text-[9px]">📅 Planificador de Hábitos de Hoy</span>
+                <span class="text-[8px] bg-emerald-100 text-emerald-800 font-black px-1.5 py-0.2 rounded-full">Activo</span>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center justify-between bg-white p-1 rounded-lg text-[8px] border border-slate-100">
+                  <span class="flex items-center gap-1 font-bold text-slate-700"><span class="text-emerald-500">✔</span> Active Recall (50 min Cálculo)</span>
+                  <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
+                </div>
+                <div class="flex items-center justify-between bg-white p-1 rounded-lg text-[8px] border border-slate-100">
+                  <span class="flex items-center gap-1 font-bold text-slate-700"><span class="text-emerald-500">✔</span> Pausa activa y caminata 15 min</span>
+                  <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
+                </div>
+                <div class="flex items-center justify-between bg-white p-1 rounded-lg text-[8px] border border-slate-100">
+                  <span class="flex items-center gap-1 font-bold text-slate-700"><span class="text-blue-500">○</span> Sueño reparador (7-8 hrs pre-examen)</span>
+                  <span class="text-blue-600 font-extrabold text-[7px]">Programado</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Progreso de Hábitos Semanales -->
+            <div class="bg-white p-2 rounded-xl border border-slate-100 shadow-xs flex items-center justify-between">
+              <div>
+                <div class="font-black text-[#0B2545] text-[9px]">Avance de Hábitos de Ciclo</div>
+                <div class="text-[8px] text-emerald-600 font-extrabold">75% cumplido · Rumbo al Tercio</div>
+              </div>
+              <div class="w-8 h-8 rounded-full border-2 border-emerald-500 flex items-center justify-center font-black text-[9px] text-emerald-600">
+                75%
+              </div>
+            </div>
+
+            <!-- Card 3: Diagnóstico de Vacíos -->
+            <div class="bg-blue-50/60 p-2 rounded-xl border border-blue-100">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="font-black text-blue-900 text-[9px]">⚡ Alertas de Vacíos Conceptuales</span>
+                <span class="text-[8px] text-blue-700 font-bold">2 detectados</span>
+              </div>
+              <p class="text-[8px] text-slate-600 leading-tight">Tema crítico: "Transformada de Laplace". Fixi IA sugiere sesión de 30m.</p>
+            </div>
+
+            <!-- Card Bloqueada: IA Predictiva de Examen -->
+            <div class="bg-slate-100/90 p-1.5 rounded-xl border border-dashed border-slate-300 opacity-80 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xs">🔒</span>
+                <div>
+                  <div class="font-black text-slate-700 text-[8px]">IA Predictiva de Preguntas & Mentor 1-on-1</div>
+                  <div class="text-[7px] text-slate-500">Exclusivo en Plan ELITE</div>
+                </div>
+              </div>
+              <span class="text-[7px] bg-purple-100 text-purple-800 font-black px-1.5 py-0.5 rounded">Mejorar</span>
+            </div>
+          `,
+          infoBadge: 'Plan PRO — Más elegido por universitarios',
+          infoBadgeClass: 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 bg-emerald-100 text-emerald-800',
+          infoTitle: 'Hábitos de alto rendimiento + Planificador con IA',
+          infoDesc: 'El plan ideal para ordenar tus semanas de parciales, evitar amanecidas y asegurar un ritmo constante de estudio con la técnica Active Recall.',
+          infoFeatures: [
+            { included: true, text: '<strong>Planificador inteligente semanal:</strong> Rutinas automáticas de 50 minutos' },
+            { included: true, text: '<strong>Acompañamiento inteligente:</strong> Monitoreo de hábitos y descanso' },
+            { included: true, text: '<strong>Diagnóstico forense:</strong> Identificación de vacíos conceptuales' },
+            { included: true, text: '<strong>Replanificación automática:</strong> Se adapta según tus avances' },
+            { included: true, text: '<strong>14 días de prueba Premium gratuita:</strong> Sin cobro hoy' }
+          ],
+          ctaText: 'Probar Plan PRO 14 días gratis',
+          ctaHref: '/prueba-gratuita?plan=pro',
+          ctaClass: 'block w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-xs sm:text-sm uppercase tracking-wider text-center shadow-lg shadow-emerald-500/20 hover:scale-[1.02] transition-all'
+        },
+
+        elite: {
+          badgeText: '💎 Plan ELITE',
+          badgeClass: 'bg-purple-50 text-purple-700 border border-purple-200 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wide',
+          greetingBoxClass: 'p-2.5 rounded-2xl flex items-center gap-2.5 transition-colors bg-purple-50/80 border border-purple-100',
+          mascotText: 'Fixi IA: "Copiloto 24/7: Pregunta #4 tiene 92% probabilidad de parcial"',
+          tabClass: 'px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-purple-700 text-white shadow-md flex items-center gap-1.5',
+          mockupHtml: `
+            <!-- Card 1: IA Predictiva de Preguntas de Examen -->
+            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-2 rounded-xl border border-purple-200">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-black text-purple-900 text-[9px]">⚡ IA Predictiva de Exámenes</span>
+                <span class="text-[8px] bg-purple-200 text-purple-800 font-black px-1.5 py-0.2 rounded-full">92% precisión</span>
+              </div>
+              <p class="text-[8px] text-purple-950 font-bold leading-tight">Pregunta de Teorema de Green con alta probabilidad de venir en la evaluación del jueves.</p>
+            </div>
+
+            <!-- Card 2: Tutoría 1 a 1 en Vivo Asignada -->
+            <div class="bg-white p-2 rounded-xl border border-purple-100 shadow-xs flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 font-black flex items-center justify-center text-[10px]">CM</div>
+                <div>
+                  <div class="font-black text-[#0B2545] text-[9px]">Tutor Asignado: Carlos M.</div>
+                  <div class="text-[8px] text-emerald-600 font-bold">Tercio Superior · Sesión Mañana 6:00pm</div>
+                </div>
+              </div>
+              <span class="text-[8px] bg-purple-50 text-purple-700 font-extrabold px-1.5 py-0.5 rounded">1-on-1</span>
+            </div>
+
+            <!-- Card 3: Gamificación & Ranking de Facultad -->
+            <div class="bg-amber-50/70 p-2 rounded-xl border border-amber-200 flex items-center justify-between">
+              <div>
+                <div class="font-black text-amber-900 text-[9px]">🏆 Ranking Facultad de Ingeniería</div>
+                <div class="text-[8px] text-amber-800 font-bold">Puesto #3 · Racha de 18 días sin amanecidas</div>
+              </div>
+              <div class="text-base">🥇</div>
+            </div>
+
+            <!-- Card 4: Sincronización Canvas & Notion -->
+            <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px]">🔄</span>
+                <span class="font-extrabold text-[8px] text-slate-700">Canvas LMS + Notion + Google Calendar</span>
+              </div>
+              <span class="text-emerald-600 text-[8px] font-black">Sincronizado</span>
+            </div>
+          `,
+          infoBadge: 'Plan ELITE — La experiencia universitaria más avanzada',
+          infoBadgeClass: 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 bg-purple-100 text-purple-800',
+          infoTitle: 'IA Predictiva + Tutoría 1 a 1 con alumnos del Tercio Superior',
+          infoDesc: 'Diseñado para alumnos que apuntan a becas, primeros puestos o requieren acompañamiento personalizado intensivo para asegurar las notas más altas.',
+          infoFeatures: [
+            { included: true, text: '<strong>Todo lo de SMART y PRO incluido:</strong> Apuntes, planificador y comunidad' },
+            { included: true, text: '<strong>IA predictiva de exámenes:</strong> Banco predictivo por docente y cátedra' },
+            { included: true, text: '<strong>Tutorías 1-on-1 semanales:</strong> Con mentores del Tercio Superior' },
+            { included: true, text: '<strong>Copiloto de gestión de estrés:</strong> Monitoreo de sueño REM' },
+            { included: true, text: '<strong>Integración de plataformas:</strong> Canvas, Notion y Google Calendar' }
+          ],
+          ctaText: 'Elegir Plan ELITE con Garantía',
+          ctaHref: '/upgrade?plan=elite',
+          ctaClass: 'block w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-black text-xs sm:text-sm uppercase tracking-wider text-center shadow-lg shadow-purple-500/25 hover:scale-[1.02] transition-all'
+        }
+      };
+
+      function showPlanMockup(plan) {
+        const data = planData[plan];
+        if (!data) return;
+
+        // Reset tabs style
+        ['smart', 'pro', 'elite'].forEach((p) => {
+          const tab = document.getElementById(`tab-btn-${p}`);
+          if (p === plan) {
+            tab.className = data.tabClass;
+          } else {
+            tab.className = 'px-4 sm:px-6 py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer text-slate-600 hover:text-[#0B2545] flex items-center gap-1.5';
+          }
+        });
+
+        // Update Phone Mockup Screen
+        const badgeEl = document.getElementById('mockup-plan-badge');
+        badgeEl.textContent = data.badgeText;
+        badgeEl.className = data.badgeClass;
+
+        const greetingBox = document.getElementById('mockup-greeting-box');
+        greetingBox.className = data.greetingBoxClass;
+
+        const mascotStatus = document.getElementById('mockup-mascot-status');
+        mascotStatus.textContent = data.mascotText;
+
+        const dynamicContent = document.getElementById('mockup-dynamic-content');
+        dynamicContent.innerHTML = data.mockupHtml;
+
+        // Update Info Side Card
+        const infoBadge = document.getElementById('info-badge');
+        infoBadge.textContent = data.infoBadge;
+        infoBadge.className = data.infoBadgeClass;
+
+        document.getElementById('info-title').textContent = data.infoTitle;
+        document.getElementById('info-desc').textContent = data.infoDesc;
+
+        const featuresContainer = document.getElementById('info-features-list');
+        featuresContainer.innerHTML = data.infoFeatures.map(item => `
+          <div class="flex items-start gap-2.5 text-xs text-slate-700">
+            <span class="${item.included ? 'text-emerald-500' : 'text-slate-300'} font-black text-sm shrink-0">
+              ${item.included ? '✔' : '✖'}
+            </span>
+            <span>${item.text}</span>
+          </div>
+        `).join('');
+
+        const ctaBtn = document.getElementById('info-cta-btn');
+        ctaBtn.textContent = data.ctaText;
+        ctaBtn.href = data.ctaHref;
+        ctaBtn.className = data.ctaClass;
+      }
+
+      // Inicializar en Plan PRO
+      showPlanMockup('pro');
+
       function switchPricing(mode) {
         const btnMonthly = document.getElementById('toggle-monthly');
         const btnAnnual = document.getElementById('toggle-annual');
