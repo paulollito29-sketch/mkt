@@ -1,4 +1,5 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import '../styles/global.css';
 import MindFixChatbot from '../components/MindFixChatbot.astro';
 import SignupModal from '../components/SignupModal.astro';
@@ -438,21 +439,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mindfix-
     </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="container nav-bar">
-        <a href="/" class="brand">
-          <div class="brand-wordmark">
-            <span style="color: #0B2545;">MIND</span><span style="color: #0077FE;">FIX</span>
-          </div>
-          <span class="brand-slogan">Estudia mejor, llega más lejos</span>
-        </a>
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Inicio</a>
-          <a href="/blog" class="nav-link">Blog & Neurociencia</a>
-          <a href="/test-diagnostico" class="btn-header">Realizar Test Gratuito</a>
-        </nav>
-      </div>
-    </header>
+    <Navbar active="blog" />
 
     <main>
       <slot />

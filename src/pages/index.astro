@@ -1,4 +1,5 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import '../styles/global.css';
 
 const heroCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_hero&utm_campaign=mindfix_cro";
@@ -44,115 +45,8 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
       ></div>
     </div>
 
-    <!-- ==================== NAVBAR ==================== -->
-    <header
-      id="main-navbar"
-      class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <!-- Brand Wordmark (Sin ícono de logo) -->
-        <a
-          href="/"
-          class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE] rounded-xl p-1"
-          aria-label="MindFix - Ir al inicio"
-        >
-          <div class="text-2xl font-extrabold tracking-tight leading-none">
-            <span class="text-[#0B2545]">MIND</span><span class="text-[#0077FE] group-hover:text-[#00A3FF] transition-colors">FIX</span>
-          </div>
-          <span class="text-[11px] font-semibold text-slate-500 tracking-tight mt-0.5">
-            Estudia mejor, llega más lejos
-          </span>
-        </a>
-
-        <!-- Desktop Navigation Links con indicador inferior animado -->
-        <nav class="hidden lg:flex items-center gap-1.5" aria-label="Navegación principal">
-          <a href="/" class="px-2.5 py-1.5 rounded-lg text-xs font-extrabold bg-[#0077FE] text-white">Inicio</a>
-          <a href="/blog" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Blog</a>
-          <a href="/guia-gratuita" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Lead Magnet</a>
-          <a href="/webinar" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Webinar</a>
-          <a href="/test-diagnostico" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Test IA</a>
-          <a href="/ugc" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">UGC</a>
-          <a href="/planes" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Planes</a>
-          <a href="/upgrade" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#6D4AFF] bg-purple-50 hover:bg-purple-100">Upgrade -50%</a>
-          <a href="/prueba-gratuita" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100">Prueba Gratis</a>
-        </nav>
-
-        <!-- Secondary Action Button + Mobile Menu Trigger -->
-        <div class="flex items-center gap-3">
-          <button
-            type="button"
-            onclick="window.location.href='/login'"
-            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
-          >
-            Iniciar Sesión
-          </button>
-
-          <button
-            type="button"
-            id="mobile-menu-btn"
-            class="md:hidden inline-flex items-center justify-center p-2.5 rounded-xl text-[#0B2545] hover:bg-[#F1F5F9] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
-            aria-label="Abrir menú de navegación"
-          >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Navigation Drawer -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg"
-      >
-        <a
-          href="#como-funciona"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Cómo funciona
-        </a>
-        <a
-          href="#que-lograras"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Qué lograrás
-        </a>
-        <a
-          href="#diagnostico-ia"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Diagnóstico IA
-        </a>
-        <a
-          href="#comunidad-p2p"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Comunidad P2P
-        </a>
-        <a
-          href="#testimonios"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Testimonios
-        </a>
-        <a
-          href="/blog"
-          class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-[#0B2545] hover:bg-[#F1F5F9] hover:text-[#0077FE]"
-        >
-          Blog Académico
-        </a>
-        <div class="pt-2">
-          <a
-            href={heroCtaUrl}
-            class="cta-shimmer w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md"
-          >
-            Realizar Test Gratuito
-          </a>
-        </div>
-      </div>
-    </header>
+    <!-- ==================== NAVBAR UNIFICADA ==================== -->
+    <Navbar active="inicio" />
 
     <main>
       <!-- ==================== SECCIÓN HERO (IMAGEN A LA DERECHA + TEST + BLOG) ==================== -->
@@ -298,6 +192,156 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ==================== PRESENTACIÓN DEL PROYECTO: MINDFIX ==================== -->
+      <section id="presentacion-proyecto" class="relative py-20 sm:py-24 bg-white border-b border-slate-200/80 overflow-hidden">
+        <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-r from-[#0077FE]/10 to-[#6D4AFF]/10 blur-3xl rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+          
+          <div class="max-w-3xl mx-auto text-center space-y-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 text-[#0077FE] text-xs font-black uppercase tracking-wider shadow-xs">
+              <span>🎓</span>
+              <span>Proyecto Universitario EdTech • Exposición Oficial 2026</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B2545] tracking-tight">
+              Presentación del Proyecto: <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0077FE] to-[#6D4AFF]">MindFix</span>
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+              Ecosistema educativo universitario que combina <strong>Inteligencia Artificial Predictiva</strong>, <strong>Mentoría P2P entre Pares</strong> y <strong>Neurociencia de Hábitos</strong> para eliminar la reprobación y acompañar al estudiante hacia el Tercio Superior.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-rose-50/50 rounded-3xl p-6 sm:p-7 border border-rose-200/80 shadow-xs space-y-4 flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl font-black shadow-xs">
+                  ⚠️
+                </div>
+                <h3 class="text-lg font-black text-[#0B2545]">1. El Problema Universitario</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  En el Perú, <strong>4 de cada 10 universitarios</strong> reprueban cursos clave o abandonan su carrera debido a:
+                </p>
+                <ul class="space-y-2 text-xs text-slate-700 font-semibold">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-500 font-bold">✕</span>
+                    <span>Vacíos conceptuales arrastrados sin diagnóstico temprano.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-500 font-bold">✕</span>
+                    <span>Docentes con aulas saturadas sin tiempo para dar feedback.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-500 font-bold">✕</span>
+                    <span>Amanecidas inútiles que dañan la memoria de trabajo.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-rose-200/60 text-[11px] font-black text-rose-700">
+                Tasa de reprobación en cálculo y finanzas: 38%
+              </div>
+            </div>
+
+            <div class="bg-blue-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200/80 shadow-xs space-y-4 flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-[#0077FE] text-white flex items-center justify-center text-2xl font-black shadow-xs">
+                  💡
+                </div>
+                <h3 class="text-lg font-black text-[#0B2545]">2. Nuestra Solución (Ecosistema)</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  MindFix articula 4 componentes innovadores en una sola plataforma web y móvil:
+                </p>
+                <ul class="space-y-2 text-xs text-slate-700 font-semibold">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#0077FE] font-bold">✔</span>
+                    <span><strong>Fixi IA:</strong> Diagnóstico de vacíos y radar predictivo de parciales.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#0077FE] font-bold">✔</span>
+                    <span><strong>Mentoría P2P:</strong> Alumnos del Tercio Superior enseñan a sus pares.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#0077FE] font-bold">✔</span>
+                    <span><strong>Hábitos de Active Recall:</strong> Sesiones de 50 min sin burnout.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#0077FE] font-bold">✔</span>
+                    <span><strong>Buscador Universitario:</strong> Solucionarios verificados con 18+.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-blue-200/60 text-[11px] font-black text-[#0077FE]">
+                Arquitectura Web & App Móvil Offline sincronizada
+              </div>
+            </div>
+
+            <div class="bg-emerald-50/50 rounded-3xl p-6 sm:p-7 border border-emerald-200/80 shadow-xs space-y-4 flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl font-black shadow-xs">
+                  📈
+                </div>
+                <h3 class="text-lg font-black text-[#0B2545]">3. Impacto & Validación</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Métricas medidas en estudiantes de PUCP, UNMSM, UPC, ULima y UNI:
+                </p>
+                <ul class="space-y-2 text-xs text-slate-700 font-semibold">
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">★</span>
+                    <span><strong>+3.8 puntos</strong> de mejora promedio en el parcial siguiente.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">★</span>
+                    <span><strong>65% de reducción</strong> en horas de estudio improductivo.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">★</span>
+                    <span><strong>92% de precisión</strong> en preguntas detectadas por el radar.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">★</span>
+                    <span><strong>0 amanecidas tóxicas:</strong> 7h 45m de sueño promedio.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-emerald-200/60 text-[11px] font-black text-emerald-700">
+                Garantía de ingreso al Tercio Superior en Plan ELITE
+              </div>
+            </div>
+
+          </div>
+
+          <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+            <div class="space-y-2 text-center lg:text-left">
+              <span class="text-[10px] font-black uppercase tracking-wider text-[#00C2FF] bg-white/10 px-3 py-1 rounded-full">
+                Stack & Ficha del Proyecto
+              </span>
+              <h4 class="text-lg sm:text-xl font-black">
+                Desarrollo Full-Stack con Astro, React, Tailwind & Modelos Cognitivos
+              </h4>
+              <p class="text-xs text-slate-300 max-w-2xl">
+                Plataforma multi-dispositivo con arquitectura desacoplada: Web App SaaS universitaria, Landing Pages de alta conversión, Buscador de Apuntes y App Móvil en PWA/APK.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+              <a
+                href="/app"
+                class="px-5 py-3 rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white font-black text-xs shadow-lg hover:scale-105 transition-all"
+              >
+                Abrir App Universitaria 🚀
+              </a>
+              <a
+                href="/planes"
+                class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs border border-white/20 transition-all"
+              >
+                Ver Estructura de Planes →
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

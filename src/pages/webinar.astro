@@ -1,4 +1,5 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import '../styles/global.css';
 
 const title = "Webinar Gratuito: Hábitos y organización para estudiar mejor | MindFix";
@@ -31,43 +32,7 @@ const description = "Estrategias prácticas para mejorar tu productividad, reduc
 
   <body class="bg-[#FFFFFF] text-[#1E1B4B] antialiased selection:bg-[#6D4AFF] selection:text-white min-h-screen flex flex-col font-sans">
     <!-- ==================== NAVBAR ==================== -->
-    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-purple-100">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between py-3">
-        <!-- Logo MindFix Morado -->
-        <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6D4AFF] to-[#4C28C9] text-white flex items-center justify-center shadow-md shadow-purple-500/20">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5C9.5 4.5 7.5 6.3 7.2 8.7C5.4 9.2 4 10.9 4 13c0 2.3 1.7 4.2 3.9 4.5.5 1.7 2.1 3 4.1 3V4.5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c2.5 0 4.5 1.8 4.8 4.2 1.8.5 3.2 2.2 3.2 4.3 0 2.3-1.7 4.2-3.9 4.5-.5 1.7-2.1 3-4.1 3V4.5z" />
-            </svg>
-          </div>
-          <span class="text-xl font-black tracking-tight text-[#1E1B4B]">
-            MIND <span class="text-[#6D4AFF]">FIX</span>
-          </span>
-        </a>
-
-        <!-- Links centrales (todas las páginas para exposición) -->
-        <nav class="hidden lg:flex items-center gap-1.5 text-xs font-bold text-slate-600">
-          <a href="/" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">Inicio</a>
-          <a href="/blog" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">Blog</a>
-          <a href="/guia-gratuita" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">Lead Magnet</a>
-          <a href="/webinar" class="px-2.5 py-1.5 rounded-lg bg-[#6D4AFF] text-white">Webinar</a>
-          <a href="/test-diagnostico" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">Test IA</a>
-          <a href="/ugc" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">UGC</a>
-          <a href="/planes" class="px-2.5 py-1.5 rounded-lg hover:text-[#6D4AFF] hover:bg-purple-50">Planes</a>
-          <a href="/upgrade" class="px-2.5 py-1.5 rounded-lg text-[#6D4AFF] bg-purple-50">Upgrade -50%</a>
-          <a href="/prueba-gratuita" class="px-2.5 py-1.5 rounded-lg text-emerald-700 bg-emerald-50">Prueba Gratis</a>
-        </nav>
-
-        <!-- Botón Registrarme -->
-        <a
-          href="#registro-webinar"
-          class="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6D4AFF] to-[#5633E0] text-white text-sm font-extrabold shadow-md shadow-purple-500/25 hover:scale-105 active:scale-95 transition-all"
-        >
-          Registrarme
-        </a>
-      </div>
-    </header>
+    <Navbar active="webinar" />
 
     <main class="flex-1">
       <!-- ==================== HERO WEBINAR ==================== -->
