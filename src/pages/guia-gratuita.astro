@@ -1,4 +1,5 @@
 ---
+import Navbar from '../components/Navbar.astro';
 import '../styles/global.css';
 
 const title = "Guía Gratuita para Universitarios | Auditoría de Exámenes y Vacíos de Aprendizaje — MindFix";
@@ -56,22 +57,7 @@ const description = "Descarga gratis la guía práctica de MindFix y aprende a a
 
   <body class="bg-[#F8FAFC] text-[#0B2545] antialiased selection:bg-[#0077FE] selection:text-white min-h-screen flex flex-col font-sans">
     
-    <!-- Top Micro Header -->
-    <header class="w-full bg-white border-b border-slate-200/80 py-4 px-4 sm:px-8">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="flex items-baseline gap-2 group">
-          <span class="text-2xl font-black tracking-tight text-[#0B2545] group-hover:text-[#0077FE] transition-colors">
-            MIND<span class="text-[#0077FE]">FIX</span>
-          </span>
-          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest border-l border-slate-200 pl-2">
-            EdTech P2P
-          </span>
-        </a>
-        <a href="/" class="text-xs sm:text-sm font-bold text-slate-600 hover:text-[#0077FE] transition-colors flex items-center gap-1">
-          <span>← Volver al inicio</span>
-        </a>
-      </div>
-    </header>
+    <Navbar active="guia" />
 
     <!-- Banner Superior Central: Formato Exacto de la Referencia -->
     <div class="pt-8 sm:pt-12 pb-4 text-center px-4 max-w-4xl mx-auto">

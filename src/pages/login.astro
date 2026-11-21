@@ -1,0 +1,158 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Iniciar Sesión / Crear Cuenta | MindFix";
+const description = "Crea tu cuenta en MindFix en 20 segundos usando solo tus datos básicos. Completa tu perfil académico cuando quieras dentro de la app.";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased">
+    <Navbar active="login" />
+
+    <main class="flex-1 flex items-center justify-center px-4 py-12 relative overflow-hidden">
+      <div class="pointer-events-none absolute -top-24 right-1/4 w-96 h-96 rounded-full bg-[#0077FE]/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 left-1/4 w-96 h-96 rounded-full bg-[#6D4AFF]/10 blur-3xl"></div>
+
+      <div class="w-full max-w-md bg-white rounded-3xl border border-slate-200/90 shadow-2xl p-7 sm:p-9 relative z-10">
+        <!-- Toggle Crear Cuenta / Iniciar Sesión -->
+        <div class="flex bg-slate-100 p-1 rounded-2xl mb-6">
+          <button
+            id="tab-register"
+            type="button"
+            onclick="switchMode('register')"
+            class="flex-1 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl bg-white text-[#0B2545] shadow-xs transition-all cursor-pointer"
+          >
+            Crear cuenta rápida
+          </button>
+          <button
+            id="tab-login"
+            type="button"
+            onclick="switchMode('login')"
+            class="flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-xl text-slate-500 hover:text-[#0B2545] transition-all cursor-pointer"
+          >
+            Ya tengo cuenta
+          </button>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-extrabold uppercase tracking-wider mb-3">
+            ⚡ Registro en 1 paso · Solo datos básicos
+          </span>
+          <h1 id="auth-title" class="text-2xl font-black text-[#0B2545] tracking-tight">
+            Crea tu cuenta en MindFix
+          </h1>
+          <p id="auth-subtitle" class="text-xs sm:text-sm text-slate-500 mt-1.5">
+            Solo te pedimos tus datos esenciales. Podrás completar tu carrera, cursos y perfil académico dentro de la app.
+          </p>
+        </div>
+
+        <form id="auth-form" class="space-y-4" onsubmit="event.preventDefault(); handleAuthSubmit();">
+          <div id="name-field">
+            <label for="auth-name" class="block text-xs font-bold text-slate-700 mb-1.5">Nombre completo</label>
+            <input
+              id="auth-name"
+              type="text"
+              required
+              placeholder="Ej. Valeria Rojas"
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE]"
+            />
+          </div>
+
+          <div>
+            <label for="auth-email" class="block text-xs font-bold text-slate-700 mb-1.5">Correo electrónico</label>
+            <input
+              id="auth-email"
+              type="email"
+              required
+              placeholder="valeria@universidad.edu.pe"
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE]"
+            />
+          </div>
+
+          <div>
+            <label for="auth-password" class="block text-xs font-bold text-slate-700 mb-1.5">Contraseña</label>
+            <input
+              id="auth-password"
+              type="password"
+              required
+              minlength="6"
+              placeholder="Mínimo 6 caracteres"
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0077FE]"
+            />
+          </div>
+
+          <button
+            id="auth-submit-btn"
+            type="submit"
+            class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#6D4AFF] text-white font-extrabold text-sm shadow-lg shadow-[#0077FE]/25 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
+          >
+            Entrar a MindFix →
+          </button>
+        </form>
+
+        <div class="mt-6 pt-5 border-t border-slate-100 text-center">
+          <p class="text-[11px] text-slate-400">
+            Sin formularios largos al inicio. Tu perfil académico se configura en el apartado de Inicio dentro de la app.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script is:inline>
+      let currentMode = 'register';
+
+      function switchMode(mode) {
+        currentMode = mode;
+        const tabReg = document.getElementById('tab-register');
+        const tabLog = document.getElementById('tab-login');
+        const nameField = document.getElementById('name-field');
+        const nameInput = document.getElementById('auth-name');
+        const title = document.getElementById('auth-title');
+        const subtitle = document.getElementById('auth-subtitle');
+        const btn = document.getElementById('auth-submit-btn');
+
+        if (mode === 'login') {
+          tabLog.className = 'flex-1 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl bg-white text-[#0B2545] shadow-xs transition-all cursor-pointer';
+          tabReg.className = 'flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-xl text-slate-500 hover:text-[#0B2545] transition-all cursor-pointer';
+          nameField.classList.add('hidden');
+          nameInput.removeAttribute('required');
+          title.textContent = 'Bienvenido de vuelta';
+          subtitle.textContent = 'Ingresa con tu correo y contraseña para ir a tu panel de estudio.';
+          btn.textContent = 'Iniciar sesión →';
+        } else {
+          tabReg.className = 'flex-1 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl bg-white text-[#0B2545] shadow-xs transition-all cursor-pointer';
+          tabLog.className = 'flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-xl text-slate-500 hover:text-[#0B2545] transition-all cursor-pointer';
+          nameField.classList.remove('hidden');
+          nameInput.setAttribute('required', 'true');
+          title.textContent = 'Crea tu cuenta en MindFix';
+          subtitle.textContent = 'Solo te pedimos tus datos esenciales. Podrás completar tu carrera, cursos y perfil académico dentro de la app.';
+          btn.textContent = 'Entrar a MindFix →';
+        }
+      }
+
+      function handleAuthSubmit() {
+        const name = document.getElementById('auth-name').value || 'Valeria Rojas';
+        const email = document.getElementById('auth-email').value || 'valeria@universidad.edu.pe';
+        localStorage.setItem('mindfix_user', JSON.stringify({
+          name,
+          email,
+          profileCompleted: false
+        }));
+        window.location.href = '/app';
+      }
+    </script>
+  </body>
+</html>

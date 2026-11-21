@@ -1,0 +1,122 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Lleva tu experiencia al siguiente nivel | Actualiza con 50% OFF — MindFix";
+const description = "Actualiza al siguiente plan de MindFix con 50% de descuento por tiempo limitado y desbloquea mentorías P2P ilimitadas, simulacros y diagnóstico IA continuo.";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#070D18] text-white min-h-screen flex flex-col font-sans antialiased">
+    <Navbar active="upgrade" />
+
+    <main class="relative flex-1 py-12 sm:py-18 px-4 sm:px-6 overflow-hidden">
+      <div class="pointer-events-none absolute -top-24 left-1/3 w-[500px] h-[500px] rounded-full bg-[#6D4AFF]/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute bottom-0 right-1/4 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/15 blur-3xl"></div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FF0050]/20 to-[#6D4AFF]/20 border border-[#FF0050]/40 text-rose-300 text-xs font-black uppercase tracking-wider mb-5">
+            <span>🔥 Promoción Especial de Upgrade · 50% DE DESCUENTO</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-4">
+            Lleva tu experiencia al <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] via-[#00C2FF] to-emerald-300">siguiente nivel</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-300">
+            Actualiza al siguiente plan hoy y obtén un <strong class="text-white">50% de descuento</strong> exclusivo para desbloquear todo el ecosistema MindFix sin límites.
+          </p>
+        </div>
+
+        <!-- Comparativa Plan Actual vs Siguiente Plan (-50%) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
+          <!-- Plan Actual -->
+          <div class="bg-white/5 rounded-3xl p-8 border border-white/10 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Tu Plan Actual</span>
+              <h2 class="text-2xl font-black text-white mt-1">Plan Básico / Estándar</h2>
+              <p class="text-xs text-slate-400 mt-1">Funciones limitadas por semana.</p>
+
+              <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                <li class="flex items-center gap-2.5"><span class="text-slate-400">✓</span> 1 Test Diagnóstico IA al mes</li>
+                <li class="flex items-center gap-2.5"><span class="text-slate-400">✓</span> Acceso básico a la guía PDF</li>
+                <li class="flex items-center gap-2.5 text-slate-500"><span>✕</span> Sin mentores pares P2P ilimitados</li>
+                <li class="flex items-center gap-2.5 text-slate-500"><span>✕</span> Sin banco completo de parciales pasados</li>
+                <li class="flex items-center gap-2.5 text-slate-500"><span>✕</span> Sin auditoría forense automática</li>
+              </ul>
+            </div>
+            <div class="mt-8 pt-4 border-t border-white/10 text-xs text-slate-400 font-semibold">
+              Plan activo actualmente
+            </div>
+          </div>
+
+          <!-- Siguiente Plan con 50% OFF -->
+          <div class="relative bg-gradient-to-br from-[#1E1B4B] via-[#0E1729] to-[#0B2545] rounded-3xl p-8 border-2 border-[#00C2FF] shadow-2xl shadow-[#0077FE]/20 flex flex-col justify-between">
+            <div class="absolute -top-4 right-6 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-[#070D18] text-xs font-black uppercase tracking-wider shadow-lg">
+              50% DE DESCUENTO
+            </div>
+
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#00C2FF]">Siguiente Nivel</span>
+              <h2 class="text-2xl font-black text-white mt-1">MindFix Pro Max (Anual / Mensual)</h2>
+
+              <div class="my-5 flex items-baseline gap-3">
+                <span class="text-lg text-slate-400 line-through font-bold">S/ 39.00/mes</span>
+                <span class="text-4xl font-black text-white">S/ 19.50</span>
+                <span class="text-xs font-semibold text-emerald-300">/ mes (50% OFF)</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-slate-200">
+                <li class="flex items-center gap-2.5"><span class="text-[#00C2FF] font-bold">✓</span> Diagnósticos IA ilimitados en todos tus cursos</li>
+                <li class="flex items-center gap-2.5"><span class="text-[#00C2FF] font-bold">✓</span> Sesiones ilimitadas con mentores pares (Tercio Superior)</li>
+                <li class="flex items-center gap-2.5"><span class="text-[#00C2FF] font-bold">✓</span> Simulacros cronometrados con parciales reales</li>
+                <li class="flex items-center gap-2.5"><span class="text-[#00C2FF] font-bold">✓</span> Matriz automática de auditoría de errores</li>
+                <li class="flex items-center gap-2.5"><span class="text-[#00C2FF] font-bold">✓</span> Modo Sin Amanecidas + Planificador 50/10</li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <button
+                id="upgrade-btn"
+                type="button"
+                onclick="activateUpgrade()"
+                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white font-black text-base shadow-xl shadow-[#0077FE]/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+              >
+                Actualizar al Siguiente Plan con 50% OFF →
+              </button>
+              <div id="upgrade-confirmed" class="hidden mt-4 p-4 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-center text-sm font-bold text-emerald-200">
+                ✓ ¡Descuento del 50% aplicado! Ya desbloqueaste el siguiente nivel de MindFix.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="/planes" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-colors">
+            ← Ver todos los planes y comparativas
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script is:inline>
+      function activateUpgrade() {
+        document.getElementById('upgrade-btn').classList.add('hidden');
+        document.getElementById('upgrade-confirmed').classList.remove('hidden');
+      }
+    </script>
+  </body>
+</html>

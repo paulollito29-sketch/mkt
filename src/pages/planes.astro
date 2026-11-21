@@ -1,0 +1,385 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Planes Premium MindFix | Plan SMART, PRO y ELITE";
+const description = "Elige el plan ideal para tu ciclo universitario: Plan SMART, Plan PRO o Plan ELITE con IA de estudio y tutorías P2P. Comienza con 14 días de prueba gratis.";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased">
+    <Navbar active="planes" />
+
+    <!-- Banner de Promoción por Tiempo Limitado -->
+    <div class="bg-gradient-to-r from-[#FF2E79] via-[#0077FE] to-[#7928CA] text-white py-2.5 px-4 text-center">
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-extrabold">
+        <span class="px-2.5 py-0.5 rounded-full bg-white/20 uppercase tracking-wider text-[11px]">🔥 Descuento de Ciclo Universitario</span>
+        <span>Ahorra hasta 45% en el Plan Anual o activa 14 días gratis de prueba Premium</span>
+        <span class="px-3 py-1 rounded-lg bg-[#0B2545] text-[#00C2FF] font-mono text-xs" id="promo-countdown">
+          Termina en 02:14:48
+        </span>
+      </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 w-full flex-1">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-[#FF2E79] text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          ⭐ Planes Premium Oficiales MindFix
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-[#0B2545] tracking-tight mb-4">
+          Elige el plan ideal para tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF2E79] via-[#0077FE] to-[#7928CA]">ciclo universitario</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 mb-8">
+          Acompaña tu estudio, elimina vacíos conceptuales y asegura tu puesto en el Tercio Superior con el Plan SMART, Plan PRO o Plan ELITE.
+        </p>
+
+        <!-- Selector Mensual / Anual -->
+        <div class="inline-flex items-center bg-white p-1.5 rounded-2xl border border-slate-200 shadow-md">
+          <button
+            id="btn-monthly"
+            type="button"
+            onclick="setBilling('monthly')"
+            class="px-6 py-2.5 rounded-xl bg-[#0B2545] text-white text-xs sm:text-sm font-extrabold transition-all cursor-pointer"
+          >
+            Pago Mensual
+          </button>
+          <button
+            id="btn-annual"
+            type="button"
+            onclick="setBilling('annual')"
+            class="px-6 py-2.5 rounded-xl text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Pago Anual</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] font-black uppercase tracking-wide">Ahorra 45%</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de los 3 Planes: SMART, PRO, ELITE -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch mb-14">
+        <!-- Plan 1: Plan SMART -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-pink-100 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-12 -right-12 w-28 h-28 bg-pink-100/50 rounded-full blur-2xl group-hover:bg-pink-200/60 transition-colors"></div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-[#FF2E79] font-black text-xs uppercase tracking-wider mb-3">
+              <span class="text-sm">⭐</span> Plan SMART
+            </div>
+            <h2 class="text-2xl font-black text-[#0B2545]">Plan SMART</h2>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              Conecta, descubre y accede a soluciones de estudio efectivas y apuntes validados.
+            </p>
+
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl sm:text-5xl font-black text-[#FF2E79]" id="price-smart">S/ 19.90</span>
+                <span class="text-xs font-semibold text-slate-400" id="period-smart">/mes</span>
+              </div>
+              <p class="text-[11px] text-pink-600 font-bold mt-1.5" id="billing-note-smart">Facturación mensual flexible</p>
+            </div>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Marketplace MindPartners:</strong> Apuntes y solucionarios de tu universidad</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Soluciones y resúmenes:</strong> Exámenes pasados verificados</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Comunidad P2P:</strong> Foros universitarios por carrera y curso</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Certificación MindPartners:</strong> Calidad de apuntes auditada</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-slate-400">
+                <span class="font-bold text-slate-300 shrink-0">—</span>
+                <span>Acompañamiento inteligente con IA 24/7</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 space-y-2">
+            <a
+              href="/login?plan=smart"
+              class="block w-full py-3.5 rounded-2xl border-2 border-[#FF2E79] text-[#FF2E79] hover:bg-[#FF2E79] hover:text-white text-center font-black text-sm transition-all shadow-xs"
+            >
+              Elegir Plan SMART
+            </a>
+            <p class="text-center text-[11px] text-slate-400">Sin compromiso, cancela cuando quieras</p>
+          </div>
+        </div>
+
+        <!-- Plan 2: Plan PRO (MÁS ELEGIDO) -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-emerald-500 shadow-2xl hover:shadow-emerald-200/50 transition-all flex flex-col justify-between relative overflow-hidden lg:-translate-y-2">
+          <!-- Badge Más Elegido -->
+          <div class="absolute -top-1 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-[#0077FE] text-white px-5 py-1.5 rounded-b-2xl text-[11px] font-black uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <span>👑</span> Más elegido por universitarios
+          </div>
+
+          <div class="pt-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-black text-xs uppercase tracking-wider mb-3">
+              <span>👑</span> Plan PRO
+            </div>
+            <h2 class="text-2xl font-black text-[#0B2545]">Plan PRO</h2>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              Organiza, acompaña y asegura tus parciales con IA y hábitos de alto rendimiento.
+            </p>
+
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-2">
+                <span class="text-4xl sm:text-5xl font-black text-emerald-600" id="price-pro">S/ 9.90</span>
+                <span class="text-xs font-semibold text-slate-400" id="period-pro">/mes</span>
+                <span class="text-xs text-slate-400 line-through" id="orig-pro">S/ 29.90</span>
+              </div>
+              <p class="text-[11px] text-emerald-700 font-black mt-1.5" id="billing-note-pro">🔥 Oferta especial de inicio de ciclo</p>
+            </div>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Acompañamiento inteligente:</strong> Monitoreo de hábitos de estudio</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Historial y diagnóstico forense:</strong> Detección de vacíos conceptuales</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Planificador inteligente semanal:</strong> Rutinas de 50 min personalizadas</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Replanificación automática:</strong> Ajuste según tus avances y horas de sueño</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Banco de simulacros tipo parcial:</strong> Con soluciones paso a paso</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 space-y-2">
+            <a
+              href="/prueba-gratuita?plan=pro"
+              class="block w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-center font-black text-sm transition-all shadow-lg shadow-emerald-500/25"
+            >
+              Elegir Plan PRO (14 días gratis)
+            </a>
+            <p class="text-center text-[11px] text-emerald-800 font-bold">14 días de prueba sin cargo hoy</p>
+          </div>
+        </div>
+
+        <!-- Plan 3: Plan ELITE -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-purple-100 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-12 -right-12 w-28 h-28 bg-purple-100/50 rounded-full blur-2xl group-hover:bg-purple-200/60 transition-colors"></div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#7928CA] font-black text-xs uppercase tracking-wider mb-3">
+              <span>💎</span> Plan ELITE
+            </div>
+            <h2 class="text-2xl font-black text-[#0B2545]">Plan ELITE</h2>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              La experiencia más completa con IA predictiva, tutorías 1 a 1 y gamificación total.
+            </p>
+
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl sm:text-5xl font-black text-[#7928CA]" id="price-elite">S/ 39.90</span>
+                <span class="text-xs font-semibold text-slate-400" id="period-elite">/mes</span>
+              </div>
+              <p class="text-[11px] text-purple-600 font-bold mt-1.5" id="billing-note-elite">Máxima personalización académica</p>
+            </div>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>IA predictiva de exámenes:</strong> Preguntas clave con probabilidad de parcial</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Gamificación completa:</strong> Microexperimentos, ranking y medallas</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Copiloto de gestión emocional:</strong> Manejo de ansiedad pre-parcial y sueño</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Tutorías 1-on-1 semanales:</strong> Con estudiantes del Tercio Superior</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-black text-base shrink-0">✓</span>
+                <span><strong>Integración de plataformas:</strong> Canvas, Notion y Google Calendar</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 space-y-2">
+            <a
+              href="/upgrade?plan=elite"
+              class="block w-full py-3.5 rounded-2xl bg-[#7928CA] hover:bg-[#681fb3] text-white text-center font-black text-sm transition-all shadow-md shadow-purple-500/20"
+            >
+              Elegir Plan ELITE
+            </a>
+            <p class="text-center text-[11px] text-slate-400">Incluye garantía de Tercio Superior</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tiras de Garantías y Confianza (4 columnas como en el diseño) -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md mb-14">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 shadow-xs">
+              📅
+            </div>
+            <div class="text-xs font-black text-[#0B2545]">Prueba GRATIS</div>
+            <div class="text-[11px] text-slate-500 font-semibold">14 días completos</div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#0077FE] flex items-center justify-center text-2xl mb-2 shadow-xs">
+              ♾️
+            </div>
+            <div class="text-xs font-black text-[#0B2545]">Cancela cuando quieras</div>
+            <div class="text-[11px] text-slate-500 font-semibold">Sin contratos ni letra chica</div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 shadow-xs">
+              🎧
+            </div>
+            <div class="text-xs font-black text-[#0B2545]">Soporte personalizado</div>
+            <div class="text-[11px] text-slate-500 font-semibold">Atención por WhatsApp</div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 shadow-xs">
+              🛡️
+            </div>
+            <div class="text-xs font-black text-[#0B2545]">Pago 100% seguro</div>
+            <div class="text-[11px] text-slate-500 font-semibold">Yape, Plin y tarjetas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón de acceso directo a la Landing App completa -->
+      <div class="text-center py-6">
+        <p class="text-sm text-slate-500 mb-3 font-semibold">¿Quieres ver la presentación interactiva con los mockups móviles de la app?</p>
+        <a href="/planes-app" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#0B2545] text-white hover:bg-[#0077FE] font-black text-sm transition-all shadow-md">
+          <span>📱</span> Ver Landing Completa de la App & Mockups Móviles
+          <span>→</span>
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="bg-white border-t border-slate-200 py-8 px-4 text-center text-xs text-slate-500">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="font-black text-[#0B2545]">MINDFIX</span>
+          <span>— Planes oficiales de suscripción universitaria</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/prueba-gratuita" class="hover:text-[#0077FE]">Prueba Gratis</a>
+          <a href="/planes-app" class="hover:text-[#0077FE]">App Móvil</a>
+          <a href="/login" class="hover:text-[#0077FE]">Acceso Alumnos</a>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      let currentBilling = 'monthly';
+
+      function setBilling(mode) {
+        currentBilling = mode;
+        const btnMonthly = document.getElementById('btn-monthly');
+        const btnAnnual = document.getElementById('btn-annual');
+
+        const priceSmart = document.getElementById('price-smart');
+        const periodSmart = document.getElementById('period-smart');
+        const noteSmart = document.getElementById('billing-note-smart');
+
+        const pricePro = document.getElementById('price-pro');
+        const periodPro = document.getElementById('period-pro');
+        const origPro = document.getElementById('orig-pro');
+        const notePro = document.getElementById('billing-note-pro');
+
+        const priceElite = document.getElementById('price-elite');
+        const periodElite = document.getElementById('period-elite');
+        const noteElite = document.getElementById('billing-note-elite');
+
+        if (mode === 'annual') {
+          btnAnnual.className = 'px-6 py-2.5 rounded-xl bg-[#0B2545] text-white text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center gap-2';
+          btnMonthly.className = 'px-6 py-2.5 rounded-xl text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-bold transition-all cursor-pointer';
+
+          priceSmart.textContent = 'S/ 14.90';
+          periodSmart.textContent = '/mes (facturado anual)';
+          noteSmart.textContent = 'Ahorras S/ 60 al año';
+
+          pricePro.textContent = 'S/ 7.90';
+          periodPro.textContent = '/mes (facturado anual)';
+          origPro.textContent = 'S/ 19.90';
+          notePro.textContent = 'Ahorras 45% en todo el ciclo universitario';
+
+          priceElite.textContent = 'S/ 29.90';
+          periodElite.textContent = '/mes (facturado anual)';
+          noteElite.textContent = 'Ahorras S/ 120 al año con garantía';
+        } else {
+          btnMonthly.className = 'px-6 py-2.5 rounded-xl bg-[#0B2545] text-white text-xs sm:text-sm font-extrabold transition-all cursor-pointer';
+          btnAnnual.className = 'px-6 py-2.5 rounded-xl text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2';
+
+          priceSmart.textContent = 'S/ 19.90';
+          periodSmart.textContent = '/mes';
+          noteSmart.textContent = 'Facturación mensual flexible';
+
+          pricePro.textContent = 'S/ 9.90';
+          periodPro.textContent = '/mes';
+          origPro.textContent = 'S/ 29.90';
+          notePro.textContent = '🔥 Oferta especial de inicio de ciclo';
+
+          priceElite.textContent = 'S/ 39.90';
+          periodElite.textContent = '/mes';
+          noteElite.textContent = 'Máxima personalización académica';
+        }
+      }
+
+      // Countdown timer simulation
+      let hours = 2, minutes = 14, seconds = 48;
+      setInterval(() => {
+        if (seconds > 0) {
+          seconds--;
+        } else {
+          seconds = 59;
+          if (minutes > 0) {
+            minutes--;
+          } else {
+            minutes = 59;
+            if (hours > 0) hours--;
+          }
+        }
+        const timerEl = document.getElementById('promo-countdown');
+        if (timerEl) {
+          timerEl.textContent = `Termina en ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

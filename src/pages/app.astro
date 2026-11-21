@@ -1,0 +1,427 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Inicio de la App | Tu Espacio de Estudio — MindFix";
+const description = "Panel principal de MindFix donde puedes completar tu perfil académico paso a paso, revisar tus cursos, agendar tutorías P2P y activar tu prueba gratuita del Plan Premium.";
+
+const courses = [
+  { name: "Cálculo II", topic: "Integrales impropias y series", pct: 82, gap: "2 vacíos detectados", color: "from-[#0077FE] to-[#00C2FF]" },
+  { name: "Estadística Aplicada", topic: "Pruebas de hipótesis y p-valor", pct: 64, gap: "3 vacíos detectados", color: "from-[#6D4AFF] to-[#A78BFA]" },
+  { name: "Microeconomía I", topic: "Equilibrio del consumidor", pct: 91, gap: "Listo para el parcial", color: "from-emerald-500 to-teal-400" },
+  { name: "Física General", topic: "Dinámica rotacional", pct: 55, gap: "4 vacíos detectados", color: "from-amber-500 to-orange-400" },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#F8FAFC] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased">
+    <Navbar active="app" />
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full flex-1 space-y-7">
+      <!-- ==================== 1. HEADER BIENVENIDA + BOTONES PREMIUM & PRUEBA ==================== -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0077FE] text-xs font-extrabold uppercase tracking-wider">
+              👋 Menú Principal · MindFix App
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold">
+              Plan Actual: Gratuito
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+            Hola, <span id="app-user-name">Valeria Rojas</span>
+          </h1>
+          <p class="text-sm text-slate-500 mt-1">
+            Aquí tienes tu resumen académico de hoy, tus cursos activos y tu acceso al Plan Premium.
+          </p>
+        </div>
+
+        <!-- Botones principales de monetización / prueba en el menú -->
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <a
+            href="/prueba-gratuita"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-500/25 hover:scale-[1.02] transition-all"
+          >
+            <span>🎁 Probar Plan Premium (14 días)</span>
+          </a>
+
+          <a
+            href="/planes"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-[#0077FE]/25 hover:scale-[1.02] transition-all"
+          >
+            <span>👑 Pasar al Plan Premium</span>
+          </a>
+
+          <a
+            href="/upgrade"
+            class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#6D4AFF] to-[#4C28C9] text-white text-xs sm:text-sm font-extrabold shadow-md hover:scale-[1.02] transition-all"
+          >
+            <span>⚡ Upgrade -50%</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ==================== 2. TARJETAS KPI DE RENDIMIENTO ==================== -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Eficiencia Cognitiva</p>
+          <div class="flex items-baseline gap-2 mt-2">
+            <span class="text-2xl sm:text-3xl font-black text-[#0B2545]">78%</span>
+            <span class="text-xs font-extrabold text-emerald-600">+14% sem.</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">Rumbo al Tercio Superior</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Cursos Activos</p>
+          <div class="flex items-baseline gap-2 mt-2">
+            <span class="text-2xl sm:text-3xl font-black text-[#0077FE]">4</span>
+            <span class="text-xs font-bold text-slate-500">materias</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">9 micro-vacíos por cerrar</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Descanso Protegido</p>
+          <div class="flex items-baseline gap-2 mt-2">
+            <span class="text-2xl sm:text-3xl font-black text-[#6D4AFF]">7.5h</span>
+            <span class="text-xs font-bold text-emerald-600">0 amanecidas</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">Consolidación REM óptima</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Racha Bloques 50/10</p>
+          <div class="flex items-baseline gap-2 mt-2">
+            <span class="text-2xl sm:text-3xl font-black text-amber-500">6 días</span>
+            <span class="text-sm">🔥</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">2h focalizadas / día</p>
+        </div>
+      </section>
+
+      <!-- ==================== 3. GRID PRINCIPAL (IZQUIERDA 8 COLS / DERECHA 4 COLS) ==================== -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+        
+        <!-- COLUMNA IZQUIERDA (8 cols) -->
+        <div class="lg:col-span-8 space-y-7">
+          
+          <!-- APARTADO: COMPLETA TU PERFIL ACADÉMICO (DESLINDADO DEL LOGIN) -->
+          <section id="onboarding-section" class="bg-white rounded-3xl border-2 border-[#0077FE]/25 shadow-lg overflow-hidden">
+            <div class="bg-gradient-to-r from-[#0B2545] to-[#1E1B4B] text-white px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#00C2FF]">
+                  Apartado de Perfil Específico (Deslindado del Login)
+                </span>
+                <h2 class="text-lg sm:text-xl font-black mt-0.5">
+                  Personaliza tu experiencia académica en MindFix
+                </h2>
+              </div>
+              <span id="profile-step-badge" class="px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-[#00C2FF] w-fit">
+                Paso 1 de 3
+              </span>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <!-- Stepper bar -->
+              <div class="grid grid-cols-3 gap-2 mb-7">
+                <button type="button" onclick="goProfileStep(1)" id="stepper-1" class="h-2 rounded-full bg-[#0077FE] transition-all cursor-pointer"></button>
+                <button type="button" onclick="goProfileStep(2)" id="stepper-2" class="h-2 rounded-full bg-slate-200 transition-all cursor-pointer"></button>
+                <button type="button" onclick="goProfileStep(3)" id="stepper-3" class="h-2 rounded-full bg-slate-200 transition-all cursor-pointer"></button>
+              </div>
+
+              <!-- Pantalla 1: Universidad y Carrera -->
+              <div id="profile-step-1" class="space-y-5">
+                <div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#0B2545]">1. Datos de tu Universidad y Carrera</h3>
+                  <p class="text-xs sm:text-sm text-slate-500">Esto nos ayuda a emparejarte con compañeros que ya aprobaron tus mismos cursos.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Universidad</label>
+                    <input id="prof-uni" type="text" placeholder="Ej. PUCP, UPC, UNMSM..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-[#0077FE] focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Carrera / Facultad</label>
+                    <input id="prof-career" type="text" placeholder="Ej. Ingeniería Industrial" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-[#0077FE] focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Ciclo actual</label>
+                    <select id="prof-cycle" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-white focus:ring-2 focus:ring-[#0077FE] focus:outline-none">
+                      <option value="1-2">1.º a 2.º Ciclo</option>
+                      <option value="3-4" selected>3.º a 4.º Ciclo</option>
+                      <option value="5-6">5.º a 6.º Ciclo</option>
+                      <option value="7-10">7.º a 10.º Ciclo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex justify-end">
+                  <button type="button" onclick="goProfileStep(2)" class="px-6 py-3 rounded-xl bg-[#0077FE] text-white text-sm font-extrabold hover:bg-[#0060d4] transition-colors cursor-pointer">
+                    Siguiente pantalla →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pantalla 2: Cursos Críticos -->
+              <div id="profile-step-2" class="hidden space-y-5">
+                <div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#0B2545]">2. ¿Qué cursos quieres reforzar este ciclo?</h3>
+                  <p class="text-xs sm:text-sm text-slate-500">Selecciona tus materias filtro para priorizar exámenes pasados y tutores pares.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {['Cálculo / Mate', 'Física / Química', 'Estadística', 'Economía / Finanzas', 'Programación', 'Contabilidad', 'Biología / Anat.', 'Derecho / Letras'].map((curso) => (
+                    <label class="flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-200 hover:border-[#0077FE] bg-slate-50/70 cursor-pointer text-xs font-bold text-[#0B2545]">
+                      <input type="checkbox" class="accent-[#0077FE] w-4 h-4" />
+                      <span>{curso}</span>
+                    </label>
+                  ))}
+                </div>
+                <div class="flex justify-between">
+                  <button type="button" onclick="goProfileStep(1)" class="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 text-sm font-bold hover:bg-slate-50 cursor-pointer">
+                    ← Atrás
+                  </button>
+                  <button type="button" onclick="goProfileStep(3)" class="px-6 py-3 rounded-xl bg-[#0077FE] text-white text-sm font-extrabold hover:bg-[#0060d4] transition-colors cursor-pointer">
+                    Siguiente pantalla →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pantalla 3: Meta y Estilo de Estudio -->
+              <div id="profile-step-3" class="hidden space-y-5">
+                <div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#0B2545]">3. Tu meta académica y disponibilidad</h3>
+                  <p class="text-xs sm:text-sm text-slate-500">Calibra el algoritmo de MindFix según tu objetivo principal.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Meta principal</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-white focus:ring-2 focus:ring-[#0077FE] focus:outline-none">
+                      <option>Entrar al Tercio o Quinto Superior</option>
+                      <option>Aprobar cursos filtro sin amanecidas</option>
+                      <option>Subir mi promedio en más de 3 puntos</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Horario preferido de estudio</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-white focus:ring-2 focus:ring-[#0077FE] focus:outline-none">
+                      <option>Mañanas (8:00 a.m. - 12:00 p.m.)</option>
+                      <option>Tardes (2:00 p.m. - 7:00 p.m.)</option>
+                      <option>Noches sin trasnochar (7:00 p.m. - 10:30 p.m.)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <button type="button" onclick="goProfileStep(2)" class="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 text-sm font-bold hover:bg-slate-50 cursor-pointer">
+                    ← Atrás
+                  </button>
+                  <button type="button" onclick="completeProfile()" class="px-7 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-sm font-extrabold shadow-lg shadow-emerald-500/25 hover:scale-[1.02] transition-all cursor-pointer">
+                    Guardar Perfil Académico ✓
+                  </button>
+                </div>
+              </div>
+
+              <!-- Estado completado -->
+              <div id="profile-done" class="hidden text-center py-4">
+                <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-3 text-xl font-black">✓</div>
+                <h3 class="text-lg font-black text-[#0B2545]">¡Perfil académico configurado!</h3>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1 mb-4">Tu panel y recomendaciones ya están calibrados según tus cursos y carrera.</p>
+                <button type="button" onclick="goProfileStep(1)" class="text-xs font-bold text-[#0077FE] hover:underline cursor-pointer">
+                  Editar mis datos académicos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- MAPA DE PROGRESO POR CURSO -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h2 class="text-lg sm:text-xl font-black text-[#0B2545]">Mapa de Dominio por Curso</h2>
+                <p class="text-xs text-slate-500">Basado en tus diagnósticos y simulacros recientes.</p>
+              </div>
+              <a href="/test-diagnostico" class="text-xs font-extrabold text-[#0077FE] hover:underline">
+                Nuevo Diagnóstico IA →
+              </a>
+            </div>
+
+            <div class="space-y-5">
+              {courses.map((c) => (
+                <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/70">
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-[#0B2545]">{c.name}</h3>
+                      <p class="text-xs text-slate-500">{c.topic}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">
+                        {c.gap}
+                      </span>
+                      <span class="text-sm font-black text-[#0B2545]">{c.pct}%</span>
+                    </div>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200/70 rounded-full overflow-hidden">
+                    <div class={`h-full rounded-full bg-gradient-to-r ${c.color}`} style={`width: ${c.pct}%`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- PRÓXIMAS TUTORÍAS P2P -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
+            <div class="flex items-center justify-between mb-5">
+              <div>
+                <h2 class="text-lg sm:text-xl font-black text-[#0B2545]">Próximas Tutorías Entre Pares (P2P)</h2>
+                <p class="text-xs text-slate-500">Sesiones prácticas con estudiantes de ciclos superiores.</p>
+              </div>
+              <a href="/prueba-gratuita" class="text-xs font-extrabold text-emerald-600 hover:underline">
+                Desbloquear ilimitadas →
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 flex flex-col justify-between gap-3">
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-[#0077FE]">Hoy · 6:30 p.m.</span>
+                  <h3 class="text-sm font-extrabold text-[#0B2545] mt-2">Resolución Parcial 2024-II (Cálculo II)</h3>
+                  <p class="text-xs text-slate-500 mt-1">Con Sebastián T. · 7.º Ciclo (Nota: 19)</p>
+                </div>
+                <a href="/prueba-gratuita" class="text-xs font-extrabold text-[#0077FE] hover:underline">Reservar cupo en sala →</a>
+              </div>
+
+              <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 flex flex-col justify-between gap-3">
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100 text-[#6D4AFF]">Mañana · 5:00 p.m.</span>
+                  <h3 class="text-sm font-extrabold text-[#0B2545] mt-2">Taller Pruebas de Hipótesis (Estadística)</h3>
+                  <p class="text-xs text-slate-500 mt-1">Con Luciana M. · 8.º Ciclo (Tercio Superior)</p>
+                </div>
+                <a href="/prueba-gratuita" class="text-xs font-extrabold text-[#6D4AFF] hover:underline">Reservar cupo en sala →</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- COLUMNA DERECHA (4 cols): PRUEBA GRATUITA, CHECKLIST DE HOY Y RECURSOS -->
+        <aside class="lg:col-span-4 space-y-6">
+          
+          <!-- TARJETA DESTACADA DE PRUEBA PARA EL PLAN PREMIUM -->
+          <div class="bg-gradient-to-br from-[#0B2545] via-[#1E1B4B] to-[#24145E] text-white rounded-3xl p-6 sm:p-7 border border-[#00C2FF]/30 shadow-xl">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-300 text-[11px] font-black uppercase tracking-wider mb-3">
+              🎁 Prueba Gratuita Disponible
+            </span>
+            <h2 class="text-xl font-black leading-snug mb-2">
+              Activa tu Plan Premium gratis por 14 días
+            </h2>
+            <p class="text-xs text-slate-300 leading-relaxed mb-5">
+              Desbloquea mentores pares ilimitados, simulacros de parciales reales y diagnósticos IA continuos sin pagar nada hoy.
+            </p>
+            <div class="space-y-2.5">
+              <a
+                href="/prueba-gratuita"
+                class="block w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 text-[#070D18] font-black text-xs sm:text-sm text-center shadow-lg hover:scale-[1.02] transition-transform"
+              >
+                Iniciar prueba gratuita (14 días) →
+              </a>
+              <a
+                href="/planes"
+                class="block w-full py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-bold text-xs text-center transition-colors"
+              >
+                Comparar Plan Mensual y Anual
+              </a>
+            </div>
+          </div>
+
+          <!-- CHECKLIST DE HOY (SIN AMANECIDAS) -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs">
+            <h3 class="text-base font-black text-[#0B2545] mb-1">Tu Plan de Hoy (2 horas)</h3>
+            <p class="text-xs text-slate-500 mb-4">Marca tus avances para cerrar el día sin estrés.</p>
+            <div class="space-y-3 text-xs font-semibold text-slate-700">
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" checked class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
+                <span>Completar Test Diagnóstico de Cálculo II</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
+                <span>2 bloques de 50 min (Active Recall) en Estadística</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
+                <span>Revisar Matriz de Errores del último parcial</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" class="accent-[#0077FE] mt-0.5 w-4 h-4 rounded" />
+                <span>Cerrar laptop 11:00 p.m. (7.5h de sueño REM)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ACCESOS RÁPIDOS A RECURSOS -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-3">
+            <h3 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-2">Recursos de MindFix</h3>
+            <a href="/guia-gratuita" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#0B2545] transition-colors">
+              <span>📘 Descargar Guía Forense PDF</span>
+              <span class="text-[#0077FE]">→</span>
+            </a>
+            <a href="/webinar" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-purple-50 text-xs font-bold text-[#0B2545] transition-colors">
+              <span>🎥 Webinar de Hábitos (Zoom)</span>
+              <span class="text-[#6D4AFF]">→</span>
+            </a>
+            <a href="/ugc" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#0B2545] transition-colors">
+              <span>🎬 Casos Reales (UGC)</span>
+              <span class="text-[#0077FE]">→</span>
+            </a>
+            <a href="/blog" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#0B2545] transition-colors">
+              <span>📚 Artículos de Neurociencia</span>
+              <span class="text-[#0077FE]">→</span>
+            </a>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+
+    <script is:inline>
+      try {
+        const stored = JSON.parse(localStorage.getItem('mindfix_user') || '{}');
+        if (stored.name) {
+          document.getElementById('app-user-name').textContent = stored.name;
+        }
+      } catch (e) {}
+
+      function goProfileStep(step) {
+        document.getElementById('profile-done').classList.add('hidden');
+        [1, 2, 3].forEach((n) => {
+          document.getElementById(`profile-step-${n}`).classList.toggle('hidden', n !== step);
+          const bar = document.getElementById(`stepper-${n}`);
+          bar.className = n <= step
+            ? 'h-2 rounded-full bg-[#0077FE] transition-all cursor-pointer'
+            : 'h-2 rounded-full bg-slate-200 transition-all cursor-pointer';
+        });
+        document.getElementById('profile-step-badge').textContent = `Paso ${step} de 3`;
+      }
+
+      function completeProfile() {
+        [1, 2, 3].forEach((n) => {
+          document.getElementById(`profile-step-${n}`).classList.add('hidden');
+          document.getElementById(`stepper-${n}`).className = 'h-2 rounded-full bg-emerald-500 transition-all cursor-pointer';
+        });
+        document.getElementById('profile-step-badge').textContent = 'Perfil Completo ✓';
+        document.getElementById('profile-done').classList.remove('hidden');
+      }
+    </script>
+  </body>
+</html>

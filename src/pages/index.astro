@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-import MindFixChatbot from '../components/MindFixChatbot.astro';
-import SignupModal from '../components/SignupModal.astro';
 
 const heroCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_hero&utm_campaign=mindfix_cro";
 const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&utm_campaign=mindfix_cro";
@@ -67,61 +65,26 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         </a>
 
         <!-- Desktop Navigation Links con indicador inferior animado -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-7" aria-label="Navegación principal">
-          <a
-            href="#como-funciona"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Cómo funciona
-          </a>
-          <a
-            href="#que-lograras"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Qué lograrás
-          </a>
-          <a
-            href="#diagnostico-ia"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Diagnóstico IA
-          </a>
-          <a
-            href="#comunidad-p2p"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Comunidad P2P
-          </a>
-          <a
-            href="#testimonios"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/80 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Testimonios
-          </a>
-          <a
-            href="/blog"
-            class="relative py-1 text-sm font-semibold text-[#0B2545]/70 hover:text-[#0077FE] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#0077FE] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Blog
-          </a>
+        <nav class="hidden lg:flex items-center gap-1.5" aria-label="Navegación principal">
+          <a href="/" class="px-2.5 py-1.5 rounded-lg text-xs font-extrabold bg-[#0077FE] text-white">Inicio</a>
+          <a href="/blog" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Blog</a>
+          <a href="/guia-gratuita" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Lead Magnet</a>
+          <a href="/webinar" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Webinar</a>
+          <a href="/test-diagnostico" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Test IA</a>
+          <a href="/ugc" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">UGC</a>
+          <a href="/planes" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0B2545]/80 hover:text-[#0077FE] hover:bg-slate-100">Planes</a>
+          <a href="/upgrade" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#6D4AFF] bg-purple-50 hover:bg-purple-100">Upgrade -50%</a>
+          <a href="/prueba-gratuita" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100">Prueba Gratis</a>
         </nav>
 
         <!-- Secondary Action Button + Mobile Menu Trigger -->
-        <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-3">
           <button
             type="button"
-            id="open-login-modal"
-            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
+            onclick="window.location.href='/login'"
+            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-[#0B2545] bg-white border-2 border-[#0B2545]/15 rounded-xl hover:border-[#0077FE] hover:text-[#0077FE] hover:bg-[#F8FAFC] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
           >
             Iniciar Sesión
-          </button>
-
-          <button
-            type="button"
-            data-open-signup
-            class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-sm font-extrabold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-sm hover:opacity-95 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FE]"
-          >
-            Crear Cuenta
           </button>
 
           <button
@@ -180,14 +143,7 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
         >
           Blog Académico
         </a>
-        <div class="pt-2 space-y-2.5">
-          <button
-            type="button"
-            data-open-signup
-            class="w-full inline-flex items-center justify-center px-6 py-3 text-base font-bold text-[#0B2545] rounded-xl bg-slate-100 hover:bg-slate-200 cursor-pointer"
-          >
-            Crear Cuenta Freemium
-          </button>
+        <div class="pt-2">
           <a
             href={heroCtaUrl}
             class="cta-shimmer w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] shadow-md"
@@ -199,181 +155,150 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
     </header>
 
     <main>
-      <!-- ==================== SECCIÓN HERO (2 COLUMNAS: TEXTO IZQUIERDA + CHICA DERECHA) ==================== -->
-      <section class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#0B1528] text-white overflow-hidden border-b border-slate-800">
-        
-        <!-- Fondo limpio con luces de acento dinámicas (sin imagen de fondo) -->
-        <div class="absolute inset-0 z-0 pointer-events-none">
-          <div class="absolute inset-0 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0F2342]"></div>
-          <div class="absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0077FE]/15 blur-3xl"></div>
-          <div class="absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full bg-[#00C2FF]/12 blur-3xl"></div>
-        </div>
+      <!-- ==================== SECCIÓN HERO (IMAGEN A LA DERECHA + TEST + BLOG) ==================== -->
+      <section class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#FAFBFD] text-[#0B2545] overflow-hidden border-b border-slate-200/80">
+        <!-- Luces sutiles de fondo -->
+        <div class="pointer-events-none absolute -top-24 right-10 w-[460px] h-[460px] rounded-full bg-[#0077FE]/10 blur-3xl" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute bottom-10 -left-20 w-[420px] h-[420px] rounded-full bg-[#00C2FF]/10 blur-3xl" aria-hidden="true"></div>
 
-        <!-- Contenedor Principal (Grid 2 columnas en desktop) -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-8 flex-1 flex flex-col justify-center">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <!-- Columna Izquierda: Copy Editorial y CTAs -->
-            <div class="lg:col-span-7">
-              <!-- Top Badge Editorial -->
-              <div class="flex flex-wrap items-center gap-3 mb-6">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-[#00C2FF]">
-                  <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
+        <!-- Contenedor Principal 2 Columnas -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-8 flex-1 flex items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
+
+            <!-- Columna Izquierda: Contenido Editorial + Test Diagnóstico -->
+            <div class="lg:col-span-6 text-left">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-extrabold uppercase tracking-wider text-[#0077FE]">
+                  <span class="w-2 h-2 rounded-full bg-[#0077FE] animate-ping"></span>
                   Crónica de Portada • Metodología & Neurociencia
                 </span>
-                <span class="text-xs text-slate-300 font-medium hidden sm:inline">
-                  Tiempo de lectura: 7 min
-                </span>
+                <span class="text-xs text-slate-400 font-semibold">7 min de lectura</span>
               </div>
 
-              <!-- Título Principal Tipo Revista/Blog Editorial -->
-              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight leading-[1.12] mb-6 text-white">
+              <h1 class="text-3xl sm:text-4xl xl:text-[3.1rem] font-black tracking-tight leading-[1.12] mb-5 text-[#0B2545]">
                 La trampa de las 6 horas:{" "}
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] via-[#00C2FF] to-white">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0077FE] to-[#00C2FF]">
                   Por qué estudiar más tiempo no está subiendo tus notas
                 </span>
               </h1>
 
-              <p class="text-base sm:text-lg text-slate-200 font-serif leading-relaxed mb-6 italic max-w-2xl border-l-2 border-[#00C2FF] pl-4">
+              <p class="text-base sm:text-lg text-slate-600 font-serif leading-relaxed mb-5 italic border-l-3 border-[#0077FE] pl-4">
                 "Son las 3:15 a.m. Tienes los ojos irritados, tres tazas de café vacías en el escritorio y las diapositivas repasadas tres veces. Sientes que lo sabes todo... hasta que llega el examen y la mente se te queda en blanco."
               </p>
 
-              <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
-                Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal. Detecta tus vacíos conceptuales y cambia el esfuerzo bruto por aprendizaje estratégico.
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-7">
+                Tener notas bajas a pesar de pasar la noche entera frente a los libros no es un problema de inteligencia: es una falla en el método de codificación neuronal.
               </p>
 
-              <!-- Acciones Principales: Botón de Realizar Test + Botón de Leer Ensayo -->
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
-                <!-- BOTÓN PRINCIPAL: REALIZAR TEST DIAGNÓSTICO -->
+              <!-- Botones de Acción -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-5">
                 <a
                   href={heroCtaUrl}
-                  class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 px-7 py-4 text-base sm:text-lg font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 shadow-[0_12px_32px_rgba(0,119,254,0.45)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0077FE]/50"
+                  class="cta-shimmer animate-cta-pulse group relative inline-flex items-center justify-center gap-3 px-7 py-4 text-sm sm:text-base font-extrabold text-white rounded-2xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] hover:scale-[1.03] active:scale-[0.99] transition-all duration-300 shadow-[0_12px_28px_rgba(0,119,254,0.35)]"
                 >
                   <span>Realizar Test Diagnóstico Gratuito</span>
-                  <svg
-                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
+                  <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
 
-                <!-- Botón Secundario: Leer Artículo Completo -->
                 <a
                   href="/blog/la-trampa-de-las-6-horas"
-                  class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-bold text-base transition-all duration-200"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-[#0B2545] font-bold text-sm sm:text-base shadow-xs transition-all"
                 >
                   <span>Leer artículo completo</span>
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
 
-              <!-- Microtexto de Confianza del Test -->
-              <p class="text-xs sm:text-sm font-semibold text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span class="text-[#00C2FF] font-bold">✓ 100% gratuito</span>
-                <span class="text-slate-500" aria-hidden="true">·</span>
+              <p class="text-xs sm:text-sm font-semibold text-slate-500 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span class="text-[#0077FE] font-bold">✓ 100% gratuito</span>
+                <span aria-hidden="true">·</span>
                 <span>Resultados en 3 minutos</span>
-                <span class="text-slate-500" aria-hidden="true">·</span>
+                <span aria-hidden="true">·</span>
                 <span>Diagnóstico IA de vacíos conceptuales</span>
               </p>
             </div>
 
-            <!-- Columna Derecha: Imagen de la estudiante (protagonista, no de fondo) -->
-            <div class="lg:col-span-5">
-              <div class="relative rounded-3xl overflow-hidden border border-white/15 bg-slate-900/60 shadow-[0_24px_60px_rgba(0,0,0,0.55)]">
+            <!-- Columna Derecha: Imagen de la estudiante a un costado (NO de fondo) -->
+            <div class="lg:col-span-6 relative">
+              <div class="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white group">
                 <img
                   src="/images/blog/hero-trampa-6-horas.jpg"
                   alt="Estudiante universitaria saturada y agotada frente a montones de libros y apuntes en su escritorio de noche"
-                  class="w-full h-[320px] sm:h-[380px] lg:h-[440px] object-cover object-center"
+                  class="w-full h-[340px] sm:h-[430px] lg:h-[470px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                   loading="eager"
                   fetchpriority="high"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#070D18]/90 via-transparent to-black/15 pointer-events-none"></div>
-
-                <!-- Etiqueta superior -->
-                <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#070D18]/80 backdrop-blur-md border border-white/15 text-[11px] font-bold text-[#00C2FF]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#00C2FF]"></span>
-                    3:15 a.m. · Método tradicional
-                  </span>
-                </div>
-
-                <!-- Tarjeta inferior sobre la imagen -->
-                <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-[#070D18]/85 backdrop-blur-md border border-white/15 flex items-center justify-between gap-3">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                   <div>
-                    <p class="text-xs font-extrabold text-white">Cambia amanecidas por precisión</p>
-                    <p class="text-[11px] text-slate-300">MindFix IA detecta qué base te falta en 3 min</p>
+                    <span class="inline-block px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-[11px] font-bold mb-1">
+                      Historia de Portada · Valeria Rojas
+                    </span>
+                    <p class="text-xs sm:text-sm font-bold text-slate-100">
+                      "Estudiaba 6 horas seguidas y aun así me quedaba en blanco"
+                    </p>
                   </div>
-                  <button
-                    type="button"
-                    data-open-signup
-                    class="shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#0077FE] to-[#00C2FF] text-white text-xs font-extrabold hover:opacity-95 cursor-pointer"
-                  >
-                    Crear cuenta
-                  </button>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
-        <!-- Tira Inferior del Hero (100% ancho con artículos recomendados) -->
-        <div class="relative z-10 w-full bg-black/40 backdrop-blur-xl border-t border-white/10 py-4 sm:py-5">
+        <!-- Tira Inferior del Hero con artículos del blog -->
+        <div class="relative z-10 w-full bg-white/90 backdrop-blur-xl border-t border-slate-200/80 py-4">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-              <span class="flex items-center gap-2 text-white">
+            <div class="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+              <span class="flex items-center gap-2 text-[#0B2545]">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#0077FE]"></span>
                 Ensayos y lecturas recomendadas del blog
               </span>
-              <a href="/blog" class="text-[#00C2FF] hover:underline normal-case font-semibold">
+              <a href="/blog" class="text-[#0077FE] hover:underline normal-case font-semibold">
                 Ver todos (4) →
               </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-              
-              <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
-                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+              <a href="/blog/por-que-un-companero-te-explica-mejor-que-el-profesor-aprendizaje-p2p" class="flex items-center gap-3.5 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200/70 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-200">
                   <img src="/images/blog/hero-aprendizaje-p2p.jpg" alt="Aprendizaje P2P" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div class="min-w-0">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Tutorías P2P</span>
-                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Tutorías P2P</span>
+                  <p class="text-xs font-bold text-[#0B2545] leading-snug truncate group-hover:text-[#0077FE] transition-colors">
                     ¿Por qué un compañero te explica mejor?
                   </p>
                 </div>
               </a>
 
-              <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
-                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+              <a href="/blog/amanecidas-pre-parciales-estres-ansiedad-examenes" class="flex items-center gap-3.5 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200/70 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-200">
                   <img src="/images/blog/hero-amanecidas-insomnio.jpg" alt="Amanecidas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div class="min-w-0">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Neurociencia</span>
-                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Neurociencia</span>
+                  <p class="text-xs font-bold text-[#0B2545] leading-snug truncate group-hover:text-[#0077FE] transition-colors">
                     Amanecidas pre-parciales: Por qué sabotea tu memoria
                   </p>
                 </div>
               </a>
 
-              <a href="/blog/saque-08-y-no-se-en-que-falle" class="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group">
-                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+              <a href="/blog/saque-08-y-no-se-en-que-falle" class="flex items-center gap-3.5 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200/70 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-200">
                   <img src="/images/blog/hero-auditoria-examen.jpg" alt="Auditoría" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div class="min-w-0">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#00C2FF]">Auditoría Forense</span>
-                  <p class="text-xs font-bold text-white leading-snug truncate group-hover:text-[#00C2FF] transition-colors">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#0077FE]">Auditoría Forense</span>
+                  <p class="text-xs font-bold text-[#0B2545] leading-snug truncate group-hover:text-[#0077FE] transition-colors">
                     ¿Saqué 08 y no sé en qué fallé?: Guía práctica
                   </p>
                 </div>
               </a>
-
             </div>
           </div>
         </div>
-
       </section>
 
       <!-- ==================== SECCIÓN DE PROBLEMÁTICA (DOLORES DE VALERIA) ==================== -->
@@ -1478,7 +1403,7 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
           </p>
         </div>
 
-        <form id="login-form" action="/plataforma" method="get" class="space-y-4">
+        <form action="/test-diagnostico" method="get" class="space-y-4">
           <input type="hidden" name="utm_source" value="landing" />
           <input type="hidden" name="utm_medium" value="login_modal" />
           <div>
@@ -1511,39 +1436,18 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
           >
             Ingresar a mi Campus IA
           </button>
-
-          <button
-            type="button"
-            id="demo-login-btn"
-            class="w-full py-3 rounded-xl font-extrabold text-[#0B2545] bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer text-sm"
-          >
-            Entrar con Usuario Demo (Ver Plataforma) →
-          </button>
         </form>
 
-        <div class="mt-6 pt-5 border-t border-slate-100 text-center space-y-2">
-          <p class="text-xs text-slate-500">
-            ¿Nuevo en MindFix?{" "}
-            <button
-              type="button"
-              id="switch-to-signup"
-              class="font-extrabold text-[#0077FE] hover:underline cursor-pointer"
-            >
-              Crear cuenta Freemium →
-            </button>
-          </p>
+        <div class="mt-6 pt-5 border-t border-slate-100 text-center">
           <p class="text-xs text-slate-500">
             ¿Aún no tienes tu diagnóstico inicial?{" "}
-            <a href={heroCtaUrl} class="font-extrabold text-[#0B2545] hover:underline">
+            <a href={heroCtaUrl} class="font-extrabold text-[#0077FE] hover:underline">
               Realizar Test Gratuito →
             </a>
           </p>
         </div>
       </div>
     </div>
-
-    <SignupModal />
-    <MindFixChatbot />
 
     <!-- ==================== MOTOR DE ANIMACIONES & INTERACTIVIDAD ==================== -->
     <script is:inline>
@@ -1570,7 +1474,6 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
       const openLoginBtn = document.getElementById('open-login-modal');
       const closeLoginBtn = document.getElementById('close-login-modal');
       const loginModal = document.getElementById('login-modal');
-      const switchToSignupBtn = document.getElementById('switch-to-signup');
 
       if (openLoginBtn && closeLoginBtn && loginModal) {
         openLoginBtn.addEventListener('click', () => {
@@ -1586,48 +1489,6 @@ const finalCtaUrl = "/test-diagnostico?utm_source=landing&utm_medium=cta_footer&
             loginModal.classList.add('hidden');
             loginModal.classList.remove('flex');
           }
-        });
-        switchToSignupBtn?.addEventListener('click', () => {
-          loginModal.classList.add('hidden');
-          loginModal.classList.remove('flex');
-          window.dispatchEvent(new CustomEvent('mindfix:open-signup'));
-        });
-
-        const loginForm = document.getElementById('login-form');
-        const demoLoginBtn = document.getElementById('demo-login-btn');
-
-        loginForm?.addEventListener('submit', () => {
-          const emailVal = document.getElementById('student-email')?.value.trim() || '';
-          const rawName = emailVal ? emailVal.split('@')[0].replace(/[._-]+/g, ' ') : 'Valeria Rojas';
-          const formattedName = rawName.replace(/\b\w/g, (c) => c.toUpperCase());
-          try {
-            localStorage.setItem(
-              'mindfix_demo_user',
-              JSON.stringify({
-                name: formattedName,
-                role: 'Estudiante',
-                career: 'Ing. Industrial',
-                cycle: '3° - 5° ciclo',
-                course: 'Cálculo II',
-              })
-            );
-          } catch {}
-        });
-
-        demoLoginBtn?.addEventListener('click', () => {
-          try {
-            localStorage.setItem(
-              'mindfix_demo_user',
-              JSON.stringify({
-                name: 'Valeria Rojas (Demo)',
-                role: 'Estudiante',
-                career: 'Ingeniería Industrial',
-                cycle: '4° ciclo',
-                course: 'Cálculo II',
-              })
-            );
-          } catch {}
-          window.location.href = '/plataforma';
         });
       }
 

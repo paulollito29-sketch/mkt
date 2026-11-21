@@ -1,0 +1,746 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const title = "Planes Premium MindFix | App Móvil & Web";
+const description = "Acompaña tu estudio, hábitos de alto rendimiento y el ingreso al Tercio Superior con Fixi IA y tutorías P2P. Prueba 14 días gratis.";
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#F6FAF6] text-[#0B2545] min-h-screen flex flex-col font-sans antialiased selection:bg-[#0077FE] selection:text-white">
+    <!-- Navbar global unificada para exposición -->
+    <Navbar active="planes-app" />
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-[#10B981] via-[#0077FE] to-[#7928CA] text-white py-2 px-4 text-center text-xs font-bold shadow-xs">
+      <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+        <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] uppercase tracking-wider">Nuevo Lanzamiento</span>
+        <span>¡Prueba Premium activa por 14 días sin costo! Accede a Fixi IA y simulacros de parciales.</span>
+      </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full flex-1">
+      
+      <!-- HERO HEADER: Estilo idéntico a NutriMind adaptado a MindFix -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm mb-12 relative overflow-hidden">
+        <!-- Decoraciones de fondo -->
+        <div class="absolute -top-16 -right-16 w-64 h-64 bg-emerald-50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-blue-50 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Columna Izquierda: Foto de Valeria sonriendo estudiando con laptop/apuntes -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-sm">
+              <div class="aspect-4/3 sm:aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100">
+                <img
+                  src="/images/hero-valeria-mindfix.webp"
+                  alt="Estudiante universitaria con MindFix"
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <!-- Badge flotante de Tercio Superior -->
+              <div class="absolute -bottom-3 -right-2 bg-white px-4 py-2 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-2">
+                <span class="text-xl">🏆</span>
+                <div>
+                  <div class="text-[10px] font-black uppercase text-emerald-600 tracking-wider">Meta Alcanzada</div>
+                  <div class="text-xs font-extrabold text-[#0B2545]">Tercio Superior 2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Mascota Fixi IA, Título y 4 Pilares -->
+          <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Mascota Fixi IA -->
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-400 via-teal-400 to-[#0077FE] p-0.5 shadow-md flex items-center justify-center animate-bounce-slow">
+                <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-2xl">
+                  🤖
+                </div>
+              </div>
+              <div class="text-left">
+                <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider block">¡Hola! Soy Fixi IA</span>
+                <span class="text-[11px] text-slate-500 font-semibold">Tu tutor y copiloto de estudio 24/7</span>
+              </div>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-black text-[#0B2545] tracking-tight mb-3">
+              Planes Premium <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-[#0077FE] to-purple-600">MindFix</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 font-medium max-w-xl mb-6">
+              Acompaña tu estudio, los hábitos de alto rendimiento y el ingreso al <strong>Tercio Superior</strong> con inteligencia artificial y tutorías entre pares.
+            </p>
+
+            <!-- 4 Pills de Beneficios Clave (Idéntico al diseño de NutriMind) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full max-w-xl">
+              <div class="bg-emerald-50/80 border border-emerald-200/80 rounded-2xl p-2.5 text-center flex flex-col items-center justify-center">
+                <span class="text-xl mb-1">🎓</span>
+                <span class="text-[11px] font-black text-emerald-800 leading-tight">Tutoría P2P</span>
+              </div>
+              <div class="bg-blue-50/80 border border-blue-200/80 rounded-2xl p-2.5 text-center flex flex-col items-center justify-center">
+                <span class="text-xl mb-1">🧠</span>
+                <span class="text-[11px] font-black text-blue-800 leading-tight">Hábitos de Estudio</span>
+              </div>
+              <div class="bg-purple-50/80 border border-purple-200/80 rounded-2xl p-2.5 text-center flex flex-col items-center justify-center">
+                <span class="text-xl mb-1">⚡</span>
+                <span class="text-[11px] font-black text-purple-800 leading-tight">Diagnóstico IA</span>
+              </div>
+              <div class="bg-pink-50/80 border border-pink-200/80 rounded-2xl p-2.5 text-center flex flex-col items-center justify-center">
+                <span class="text-xl mb-1">📈</span>
+                <span class="text-[11px] font-black text-pink-800 leading-tight">Tercio Superior</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING TITLE & SWITCHER: Elige el plan ideal para tu familia/ciclo -->
+      <section class="text-center max-w-3xl mx-auto mb-10">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <span class="text-amber-400 text-lg">✨</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
+            Elige el plan ideal para tu ciclo universitario
+          </h2>
+          <span class="text-amber-400 text-lg">✨</span>
+        </div>
+        <p class="text-sm text-slate-500 mb-6 font-medium">Invierte en tu tranquilidad, tus notas y tu futuro profesional.</p>
+
+        <!-- Toggle Pills: Pago Mensual / Pago Anual Ahorra hasta 35% -->
+        <div class="inline-flex items-center bg-white p-1 rounded-full border border-slate-200 shadow-md">
+          <button
+            id="toggle-monthly"
+            type="button"
+            onclick="switchPricing('monthly')"
+            class="px-6 py-2 rounded-full bg-[#E11D48] text-white text-xs sm:text-sm font-black transition-all cursor-pointer shadow-xs"
+          >
+            Pago Mensual
+          </button>
+          <button
+            id="toggle-annual"
+            type="button"
+            onclick="switchPricing('annual')"
+            class="px-6 py-2 rounded-full text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Pago Anual</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] font-black uppercase">Ahorra hasta 35%</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3 PRICING CARDS: SMART, PRO, ELITE (Fieles al diseño referencial) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch mb-12">
+        
+        <!-- CARD 1: Plan SMART (Rosa/Fucsia) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-pink-200 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div class="text-center">
+            <!-- Header Pill -->
+            <div class="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-xs uppercase tracking-wider shadow-sm mb-3">
+              <span>⭐</span> Plan SMART
+            </div>
+            <p class="text-xs text-slate-600 font-semibold mb-4 leading-relaxed px-2">
+              Conecta, descubre y accede a soluciones de estudio efectivas y apuntes validados
+            </p>
+
+            <!-- Price -->
+            <div class="my-4 pb-4 border-b border-pink-100 flex items-baseline justify-center gap-1">
+              <span class="text-4xl sm:text-5xl font-black text-rose-500" id="card-price-smart">S/ 19.90</span>
+              <span class="text-xs font-bold text-slate-400" id="card-period-smart">/mes</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="text-left space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Marketplace MindPartners:</strong> Soluciones y resúmenes de parciales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Soluciones y recursos validados:</strong> Banco de preguntas de ciclos previos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Comunidad universitaria activa:</strong> Foros por materia y carrera</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Certificación MindPartners:</strong> Apuntes calificados y ordenados</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="/login?plan=smart"
+              class="block w-full py-3 rounded-full border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white font-black text-xs uppercase tracking-wider text-center transition-colors shadow-xs"
+            >
+              Elegir Plan SMART
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: Plan PRO (Verde Esmeralda - Más Elegido) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-500 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between relative overflow-hidden lg:-translate-y-2">
+          <!-- Tag Más Elegido -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-amber-400 text-[#0B2545] font-black text-[10px] uppercase tracking-wider px-4 py-1 rounded-b-xl shadow-xs">
+            Más elegido
+          </div>
+
+          <div class="text-center pt-3">
+            <!-- Header Pill -->
+            <div class="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-xs uppercase tracking-wider shadow-sm mb-3">
+              <span>👑</span> Plan PRO
+            </div>
+            <p class="text-xs text-slate-600 font-semibold mb-4 leading-relaxed px-2">
+              Organiza y mejora tus hábitos de estudio y asegura tus parciales universitarios
+            </p>
+
+            <!-- Price -->
+            <div class="my-4 pb-4 border-b border-emerald-100 flex items-baseline justify-center gap-1">
+              <span class="text-4xl sm:text-5xl font-black text-emerald-600" id="card-price-pro">S/ 9.90</span>
+              <span class="text-xs font-bold text-slate-400" id="card-period-pro">/mes</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="text-left space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Acompañamiento inteligente:</strong> Monitoreo de hábitos de estudio universitarios</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Historial y diagnóstico forense:</strong> Detección de vacíos conceptuales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Planificador inteligente semanal:</strong> Rutinas de 50 min Pomodoro</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Replanificación automática:</strong> Ajuste según tus avances y horas de sueño</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Simulacros de examen pasados:</strong> Soluciones paso a paso</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="/prueba-gratuita?plan=pro"
+              class="block w-full py-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs uppercase tracking-wider text-center transition-all shadow-md shadow-emerald-500/20"
+            >
+              Elegir Plan PRO
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: Plan ELITE (Púrpura / Violeta) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div class="text-center">
+            <!-- Header Pill -->
+            <div class="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black text-xs uppercase tracking-wider shadow-sm mb-3">
+              <span>💎</span> Plan ELITE
+            </div>
+            <p class="text-xs text-slate-600 font-semibold mb-4 leading-relaxed px-2">
+              La experiencia más completa con IA predictiva, tutorías 1 a 1 y gamificación total
+            </p>
+
+            <!-- Price -->
+            <div class="my-4 pb-4 border-b border-purple-100 flex items-baseline justify-center gap-1">
+              <span class="text-4xl sm:text-5xl font-black text-purple-700" id="card-price-elite">S/ 39.90</span>
+              <span class="text-xs font-bold text-slate-400" id="card-period-elite">/mes</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="text-left space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>IA predictiva de exámenes:</strong> Preguntas clave con probabilidad de parcial</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Gamificación con microretos:</strong> Rankings por facultad y medallas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Copiloto de gestión de estrés:</strong> Manejo de ansiedad y rutinas de descanso</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Tutorías 1-on-1 semanales:</strong> Con estudiantes del Tercio Superior</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-black text-base shrink-0">✔</span>
+                <span><strong>Integración de plataformas:</strong> Canvas, Google Calendar y Notion</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="/upgrade?plan=elite"
+              class="block w-full py-3 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-black text-xs uppercase tracking-wider text-center transition-colors shadow-sm"
+            >
+              Elegir Plan ELITE
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRUST BADGES STRIP (4 columnas: Prueba GRATIS 14 días, Cancela cuando quieras, Soporte personalizado, Pago 100% seguro) -->
+      <section class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-sm mb-14">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+              📅
+            </div>
+            <div>
+              <div class="text-xs font-black text-[#0B2545]">Prueba GRATIS</div>
+              <div class="text-[11px] text-emerald-600 font-bold">14 días completos</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0">
+              ♾️
+            </div>
+            <div>
+              <div class="text-xs font-black text-[#0B2545]">Cancela</div>
+              <div class="text-[11px] text-slate-500 font-semibold">cuando quieras</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl shrink-0">
+              🎧
+            </div>
+            <div>
+              <div class="text-xs font-black text-[#0B2545]">Soporte</div>
+              <div class="text-[11px] text-slate-500 font-semibold">personalizado</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+              🛡️
+            </div>
+            <div>
+              <div class="text-xs font-black text-[#0B2545]">Pago 100%</div>
+              <div class="text-[11px] text-slate-500 font-semibold">seguro</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURE SHOWCASE: 2 MOBILE PHONES + "¿Qué puedes hacer con MindFix?" -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- LADO IZQUIERDO: 2 Maquetas Móviles (Replicando la imagen de NutriMind adaptada a MindFix) -->
+          <div class="lg:col-span-6 flex justify-center items-center gap-4 relative">
+            
+            <!-- PHONE 1: Home Dashboard de Valeria -->
+            <div class="w-48 sm:w-56 bg-slate-900 rounded-[38px] p-2.5 shadow-2xl border-4 border-slate-800 text-slate-800 relative transform -rotate-2 hover:rotate-0 transition-transform">
+              <!-- Notch / Dynamic Island -->
+              <div class="w-20 h-3.5 bg-black rounded-full mx-auto mb-2"></div>
+              
+              <div class="bg-white rounded-[28px] p-2.5 space-y-2 text-[9px] overflow-hidden">
+                <!-- App header -->
+                <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+                  <div class="flex items-center gap-1">
+                    <span class="text-xs">🤖</span>
+                    <span class="font-black text-[#0B2545] text-[10px]">MINDFIX</span>
+                  </div>
+                  <span class="bg-rose-50 text-rose-600 px-1.5 py-0.5 rounded-full text-[8px] font-black">Plan SMART</span>
+                </div>
+
+                <!-- Greeting -->
+                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-2 rounded-xl flex items-center gap-2">
+                  <div class="text-base">🤖</div>
+                  <div>
+                    <div class="font-black text-[#0B2545]">¡Hola, Valeria!</div>
+                    <div class="text-[8px] text-slate-500">Vamos por el Tercio Superior</div>
+                  </div>
+                </div>
+
+                <!-- Habits Progress Ring -->
+                <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <div class="font-extrabold text-[8px] text-slate-700">Progreso de Hábitos</div>
+                    <div class="text-[8px] text-emerald-600 font-bold">75% semanal</div>
+                  </div>
+                  <div class="w-7 h-7 rounded-full border-2 border-emerald-500 flex items-center justify-center font-black text-[8px] text-emerald-600">
+                    75%
+                  </div>
+                </div>
+
+                <!-- Mini Grid Cards -->
+                <div class="grid grid-cols-2 gap-1.5 pt-1">
+                  <div class="bg-blue-50/60 p-1.5 rounded-lg text-center">
+                    <div class="text-[10px]">👤</div>
+                    <div class="font-extrabold text-[8px] text-blue-900">Perfil Alumno</div>
+                  </div>
+                  <div class="bg-emerald-50/60 p-1.5 rounded-lg text-center">
+                    <div class="text-[10px]">📋</div>
+                    <div class="font-extrabold text-[8px] text-emerald-900">Evaluación IA</div>
+                  </div>
+                  <div class="bg-purple-50/60 p-1.5 rounded-lg text-center">
+                    <div class="text-[10px]">📅</div>
+                    <div class="font-extrabold text-[8px] text-purple-900">Plan Parciales</div>
+                  </div>
+                  <div class="bg-amber-50/60 p-1.5 rounded-lg text-center">
+                    <div class="text-[10px]">👥</div>
+                    <div class="font-extrabold text-[8px] text-amber-900">Red P2P</div>
+                  </div>
+                </div>
+
+                <!-- Bottom Tab Bar -->
+                <div class="flex justify-around pt-2 border-t border-slate-100 text-[8px] text-slate-400">
+                  <span class="text-emerald-600 font-bold">Inicio</span>
+                  <span>Cursos</span>
+                  <span class="text-xs -mt-1">🤖</span>
+                  <span>Comunidad</span>
+                  <span>Perfil</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PHONE 2: Planificador de Hábitos de Estudio -->
+            <div class="w-48 sm:w-56 bg-slate-900 rounded-[38px] p-2.5 shadow-2xl border-4 border-slate-800 text-slate-800 relative transform rotate-2 hover:rotate-0 transition-transform hidden sm:block">
+              <!-- Notch -->
+              <div class="w-20 h-3.5 bg-black rounded-full mx-auto mb-2"></div>
+
+              <div class="bg-white rounded-[28px] p-2.5 space-y-2 text-[9px] overflow-hidden">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+                  <span class="text-slate-400">←</span>
+                  <span class="font-black text-[#0B2545] text-[10px]">Planificador Semanal</span>
+                  <span class="text-emerald-600 font-bold">Hoy</span>
+                </div>
+
+                <!-- Mascot tip -->
+                <div class="bg-emerald-50 p-2 rounded-xl flex items-center gap-1.5">
+                  <span class="text-sm">🤖</span>
+                  <span class="text-[8px] text-emerald-900 font-bold leading-tight">Fixi IA: "50 min de Active Recall en Cálculo hoy a las 5pm"</span>
+                </div>
+
+                <!-- Day habits checklist -->
+                <div class="space-y-1.5 pt-1">
+                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-emerald-500 font-black">✔</span>
+                      <span class="font-bold text-[8px]">Active Recall (50 min)</span>
+                    </div>
+                    <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-emerald-500 font-black">✔</span>
+                      <span class="font-bold text-[8px]">Repaso P2P con tutor</span>
+                    </div>
+                    <span class="text-emerald-600 font-extrabold text-[7px]">Hecho</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-blue-50/50 p-1.5 rounded-lg border border-blue-100">
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-blue-500">○</span>
+                      <span class="font-bold text-[8px]">Pausa activa y descanso</span>
+                    </div>
+                    <span class="text-blue-600 font-extrabold text-[7px]">En curso</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-slate-300">○</span>
+                      <span class="font-bold text-[8px]">Sueño reparador (7-8 hrs)</span>
+                    </div>
+                    <span class="text-slate-400 font-extrabold text-[7px]">Noche</span>
+                  </div>
+                </div>
+
+                <!-- Bottom Tab Bar -->
+                <div class="flex justify-around pt-2 border-t border-slate-100 text-[8px] text-slate-400">
+                  <span>Inicio</span>
+                  <span class="text-emerald-600 font-bold">Plan</span>
+                  <span class="text-xs -mt-1">🤖</span>
+                  <span>Reportes</span>
+                  <span>Perfil</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- LADO DERECHO: 4 Cards "¿Qué puedes hacer con MindFix?" -->
+          <div class="lg:col-span-6">
+            <h3 class="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight mb-6 text-center lg:text-left">
+              ¿Qué puedes hacer con <span class="text-[#0077FE]">MindFix</span>?
+            </h3>
+
+            <div class="space-y-4">
+              <!-- Item 1: Planifica -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
+                <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl shrink-0 shadow-xs">
+                  📅
+                </div>
+                <div>
+                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Planifica parciales y horarios de estudio</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Bloques inteligentes de 50 minutos con técnica Active Recall, pausas activas y rutinas de sueño para llegar al examen sin amanecidas.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2: Recomendaciones IA -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
+                <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl shrink-0 shadow-xs">
+                  🚀
+                </div>
+                <div>
+                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Recibe recomendaciones con Inteligencia Artificial</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Fixi IA diagnostica tus vacíos conceptuales en tiempo real y te dice exactamente qué tema repasar 48 horas antes de tu evaluación.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 3: Retos y Logros -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl shrink-0 shadow-xs">
+                  🏆
+                </div>
+                <div>
+                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Participa en microretos y gana logros académicos</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Sube de nivel, acumula rachas de estudio sin distracciones y desbloquea simulacros premium con soluciones detalladas.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 4: Red P2P -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 transition-colors border border-slate-100">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0 shadow-xs">
+                  👥
+                </div>
+                <div>
+                  <h4 class="text-sm font-black text-[#0B2545] mb-0.5">Conecta con una comunidad de compañeros universitarios</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Tutorías entre pares: estudiantes de ciclos avanzados que ya sacaron 18 en tu mismo curso te explican paso a paso.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF & TESTIMONIAL BANNER (Idéntico a NutriMind adaptado a MindFix) -->
+      <section class="bg-gradient-to-r from-rose-50/70 via-white to-emerald-50/70 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          
+          <!-- Col 1: Testimonio de Valeria con foto y 5 estrellas -->
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/hero-valeria-mindfix.webp"
+              alt="Valeria M."
+              class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md shrink-0"
+            />
+            <div>
+              <div class="text-amber-400 text-xs mb-1">★★★★★</div>
+              <p class="text-xs text-slate-700 italic font-medium leading-snug">
+                "Con MindFix ahora organizo mis semanas de parciales en minutos y pasé de estar al borde de jalar a asegurar mi Tercio Superior."
+              </p>
+              <div class="text-[11px] font-black text-[#0B2545] mt-1">Valeria M. — Ing. de Sistemas (5to ciclo)</div>
+            </div>
+          </div>
+
+          <!-- Col 2: +10,000 Universitarios -->
+          <div class="text-center md:border-x md:border-slate-200 py-2">
+            <div class="text-3xl sm:text-4xl font-black text-rose-500 mb-0.5">+10,000</div>
+            <div class="text-xs font-black text-[#0B2545]">Universitarios ya confían</div>
+            <div class="text-[11px] text-slate-500 font-semibold">en nuestra metodología</div>
+          </div>
+
+          <!-- Col 3: Recomendado por Tutores -->
+          <div class="flex items-center justify-center gap-3 text-center md:text-left">
+            <span class="text-2xl text-emerald-600">🌿</span>
+            <div>
+              <div class="text-xs font-black text-[#0B2545]">Metodología recomendada</div>
+              <div class="text-[11px] text-slate-500 font-semibold">Por tutores de alto rendimiento y centros de estudio</div>
+              <div class="text-rose-500 text-sm mt-0.5">♥</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BOTTOM DOWNLOAD & WEB CTA BANNER -->
+      <section class="bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shrink-0 shadow-inner">
+            📱
+          </div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-black tracking-tight">¡Descarga la App y comienza hoy!</h3>
+            <p class="text-xs sm:text-sm text-pink-100 font-medium">Disponible para Android, iOS y versión web para tu laptop.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <!-- Google Play Badge -->
+          <a
+            href="/app"
+            class="bg-black hover:bg-slate-900 text-white px-4 py-2 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
+          >
+            <span class="text-lg">▶</span>
+            <div class="text-left">
+              <div class="text-[9px] uppercase tracking-wider text-slate-300 leading-none">Disponible en</div>
+              <div class="text-xs font-black leading-tight">Google Play</div>
+            </div>
+          </a>
+
+          <!-- App Store Badge -->
+          <a
+            href="/app"
+            class="bg-black hover:bg-slate-900 text-white px-4 py-2 rounded-xl flex items-center gap-2.5 shadow-md transition-all hover:scale-105"
+          >
+            <span class="text-lg">🍎</span>
+            <div class="text-left">
+              <div class="text-[9px] uppercase tracking-wider text-slate-300 leading-none">Consíguelo en</div>
+              <div class="text-xs font-black leading-tight">App Store</div>
+            </div>
+          </a>
+
+          <!-- Botón Versión Web -->
+          <a
+            href="/prueba-gratuita"
+            class="bg-white text-rose-600 hover:bg-pink-50 px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md transition-all hover:scale-105"
+          >
+            Probar 14 días en Web →
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER VERDE/NAVY ESTILO NUTRIMIND -->
+    <footer class="bg-[#0B2545] text-white pt-12 pb-8 px-4 sm:px-6 mt-auto">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Logo & Lema -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-2xl">🤖</span>
+            <span class="text-lg font-black tracking-tight text-white">MINDFIX</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            Pequeños cambios en tus hábitos, grandes notas en tu ciclo universitario.
+          </p>
+          <span class="text-[11px] text-emerald-400 font-bold block">© 2026 MindFix Technologies</span>
+        </div>
+
+        <!-- Enlaces Rápidos -->
+        <div>
+          <h4 class="text-xs font-black text-white uppercase tracking-wider mb-3">Enlaces Rápidos</h4>
+          <ul class="space-y-1.5 text-xs text-slate-300">
+            <li><a href="/" class="hover:text-emerald-400">Inicio</a></li>
+            <li><a href="/blog" class="hover:text-emerald-400">Blog de Estudio</a></li>
+            <li><a href="/webinar" class="hover:text-emerald-400">Webinar Exclusivo</a></li>
+            <li><a href="/test-diagnostico" class="hover:text-emerald-400">Test Diagnóstico Gratuito</a></li>
+            <li><a href="/planes" class="hover:text-emerald-400">Planes SMART & PRO</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h4 class="text-xs font-black text-white uppercase tracking-wider mb-3">Contacto</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li class="flex items-center gap-2">
+              <span>📞</span> <span>+51 987 654 321</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>✉️</span> <span>hola@mindfix.pe</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>🌐</span> <span>www.mindfix.pe</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Síguenos en Redes -->
+        <div>
+          <h4 class="text-xs font-black text-white uppercase tracking-wider mb-3">Síguenos en</h4>
+          <div class="flex items-center gap-2 text-lg">
+            <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-rose-500 flex items-center justify-center transition-colors">📷</a>
+            <a href="https://tiktok.com" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-slate-800 flex items-center justify-center transition-colors">🎵</a>
+            <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors">📘</a>
+            <a href="https://youtube.com" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-red-600 flex items-center justify-center transition-colors">📺</a>
+          </div>
+          <div class="mt-4">
+            <a href="/login" class="inline-block text-[11px] font-bold text-emerald-400 hover:underline">
+              Portal del Estudiante →
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script de Cambio de Facturación Mensual / Anual -->
+    <script is:inline>
+      function switchPricing(mode) {
+        const btnMonthly = document.getElementById('toggle-monthly');
+        const btnAnnual = document.getElementById('toggle-annual');
+
+        const priceSmart = document.getElementById('card-price-smart');
+        const periodSmart = document.getElementById('card-period-smart');
+
+        const pricePro = document.getElementById('card-price-pro');
+        const periodPro = document.getElementById('card-period-pro');
+
+        const priceElite = document.getElementById('card-price-elite');
+        const periodElite = document.getElementById('card-period-elite');
+
+        if (mode === 'annual') {
+          btnAnnual.className = 'px-6 py-2 rounded-full bg-[#E11D48] text-white text-xs sm:text-sm font-black transition-all cursor-pointer shadow-xs flex items-center gap-2';
+          btnMonthly.className = 'px-6 py-2 rounded-full text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-extrabold transition-all cursor-pointer';
+
+          priceSmart.textContent = 'S/ 14.90';
+          periodSmart.textContent = '/mes (anual)';
+
+          pricePro.textContent = 'S/ 7.90';
+          periodPro.textContent = '/mes (anual)';
+
+          priceElite.textContent = 'S/ 29.90';
+          periodElite.textContent = '/mes (anual)';
+        } else {
+          btnMonthly.className = 'px-6 py-2 rounded-full bg-[#E11D48] text-white text-xs sm:text-sm font-black transition-all cursor-pointer shadow-xs';
+          btnAnnual.className = 'px-6 py-2 rounded-full text-slate-600 hover:text-[#0B2545] text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center gap-2';
+
+          priceSmart.textContent = 'S/ 19.90';
+          periodSmart.textContent = '/mes';
+
+          pricePro.textContent = 'S/ 9.90';
+          periodPro.textContent = '/mes';
+
+          priceElite.textContent = 'S/ 39.90';
+          periodElite.textContent = '/mes';
+        }
+      }
+    </script>
+  </body>
+</html>
