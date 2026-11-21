@@ -1958,8 +1958,8 @@ const description = "Plataforma de estudio para estudiantes universitarios con F
           locked: ['planner', 'elite']
         },
         pro: {
-          allowed: ['dashboard', 'planner', 'download', 'social', 'profile'],
-          locked: ['marketplace', 'elite']
+          allowed: ['dashboard', 'planner', 'marketplace', 'download', 'social', 'profile'],
+          locked: ['elite']
         },
         elite: {
           allowed: ['dashboard', 'planner', 'marketplace', 'elite', 'download', 'social', 'profile'],
@@ -1981,8 +1981,8 @@ const description = "Plataforma de estudio para estudiantes universitarios con F
           pillClass: 'bg-rose-100 text-rose-700 border-rose-300'
         },
         pro: {
-          title: 'Plan PRO Universitario',
-          desc: 'Hábitos con IA y detección de vacíos activa.',
+          title: 'Plan PRO Universitario (Incluye SMART)',
+          desc: 'Todo lo de SMART (Apuntes) + Hábitos con IA y detección de vacíos.',
           badge: '👑 Plan PRO',
           pillClass: 'bg-emerald-100 text-emerald-700 border-emerald-300'
         },
@@ -2149,8 +2149,8 @@ const description = "Plataforma de estudio para estudiantes universitarios con F
           if (bottomLockMarket) bottomLockMarket.classList.remove('hidden');
         } else {
           if (badgeMarket) {
-            badgeMarket.textContent = 'SMART';
-            badgeMarket.className = 'text-[9px] text-rose-600 font-extrabold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200';
+            badgeMarket.textContent = planId === 'pro' ? 'Incluido en PRO ✔' : 'SMART';
+            badgeMarket.className = planId === 'pro' ? 'text-[9px] text-emerald-700 font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200' : 'text-[9px] text-rose-600 font-extrabold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200';
           }
           if (bottomLockMarket) bottomLockMarket.classList.add('hidden');
         }
